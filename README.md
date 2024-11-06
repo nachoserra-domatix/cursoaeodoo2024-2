@@ -2,4 +2,4 @@ Listado
 
 | Nombre | Apellido | Discord |
 | --- | --- | --- |
-| Nacho | Serra Almenar | nachoserra_domatix |
+| Nacho2 | Serra Almenar | nachoserra_domatix |
