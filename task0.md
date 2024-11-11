@@ -1,6 +1,6 @@
 # Creación de modelo 
 
-* Crear modelo de citas
+* Crear modelo de citas (appointment)
 
 ## Campos
 * Campo de fecha con hora
