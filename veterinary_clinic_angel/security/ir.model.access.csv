@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_veterinary_pet,veterinary.pet,veterinary_clinic_angel.model_veterinary_pet,base.group_user,1,1,1,1
+access_veterinary_appointment,veterinary.appointment,veterinary_clinic_angel.model_veterinary_appointment,base.group_user,1,1,1,1

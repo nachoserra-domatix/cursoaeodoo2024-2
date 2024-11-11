@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <!-- Action for Veterinary Appointment -->
+        <record id="action_veterinary_appointment" model="ir.actions.act_window">
+            <field name="name">Appointments</field>
+            <field name="res_model">veterinary.appointment</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <!-- Menu for Veterinary Appointment -->
+        <menuitem id="menu_veterinary_appointment" name="Appointments" parent="veterinary_management_menu" action="action_veterinary_appointment" sequence="20"/>
+    </data>
+</odoo>
