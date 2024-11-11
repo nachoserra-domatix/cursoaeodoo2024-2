@@ -1,0 +1,38 @@
+ <!--<?xml version="1.0" encoding="utf-8"?>-->
+ <odoo>
+ 
+    <record id="veterinary_pet_action" model="ir.actions.act_window">
+        <field name="name">Pets</field>
+        <field name="res_model">veterinary.pet</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new pet</p>
+        </field>
+    </record>
+    <menuitem
+        id="veterinary_clinic_menu"
+        name="Veterinary Clinic"
+        sequence="10"/>
+    <menuitem
+        id="veterinary_management_menu"
+        name="Management"
+        parent="veterinary_clinic_menu"
+        sequence="10"/>
+    
+    <menuitem
+        id="veterinary_pet_menu"
+        name="Pets"
+        action="veterinary_pet_action"
+        parent="veterinary_management_menu"
+        sequence="10"/>    
+
+ 
+ </odoo>
+ 
+  
+ 
+
+
+ 
