@@ -9,7 +9,9 @@
     ],
     "data": [
                 "security/ir.model.access.csv",
-                "views/veterinary_pet.xml"
+                "views/veterinary_menu.xml",
+                "views/veterinary_pet.xml",
+                "views/veterinary_appointment.xml"
              ],
     'application': False,
     'installable': True,

@@ -11,19 +11,11 @@
         </p>
         </field>
     </record>
+   
     <menuitem
-    id="veterinary_clinic_menu"
-    name="Veterinary Clinic"
-    sequence="100">
-        <menuitem
-        id="veterinary_management_menu"
-        name="Management"
-        sequence="10">
-            <menuitem
-            id="veterinary_pet_menu"
-            name="Pets"
-            action="veterinary_pet_action"
-            sequence="10"/>
-    </menuitem>
-    </menuitem>
+        id="veterinary_pet_menu"
+        name="Pets"
+        action="veterinary_pet_action"
+        parent="veterinary_management_menu"
+        sequence="10"/>
 </odoo>
