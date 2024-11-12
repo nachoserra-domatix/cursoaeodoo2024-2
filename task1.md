@@ -21,6 +21,7 @@ Fecha/Responsable y duración
 ## Solapas:
 razón y solución
 
-# Modelo veterinary.pet
+# Ejercicio
+## Modelo veterinary.pet
 * Crear vistas de lista y de formulario
 * Añadir al ir.model.access.csv los grupos de user y manager
