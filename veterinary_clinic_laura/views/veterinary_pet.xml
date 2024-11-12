@@ -33,7 +33,7 @@
             <field name="name">veterinary.pet.view.tree</field>
             <field name="model">veterinary.pet</field>
             <field name="arch" type="xml">
-                <tree multi_edit="1" string="Appointments">
+                <tree multi_edit="1" string="Pets">
                     <field name="sequence" widget="handle"/>
                     <field name="name" optional="show"/>
                     <field name="pet_number" optional="show"/>
@@ -50,7 +50,7 @@
             <field name="name">veterinary.pet.view.form</field>
             <field name="model">veterinary.pet</field>
             <field name="arch" type="xml">
-                <form string="Pets">
+                <form string="Pet">
                     <!--<header>
                         <field name="species" options="{'clickable':1}" widget="statusbar"/>
                     </header>-->
