@@ -11,9 +11,13 @@
         'base'
     ],
     'data': [
+       
+        'security/res_groups.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule.xml',
         'views/veterinary_pet.xml',
         'views/veterinary_appointment.xml',
+        
     ],
 
 

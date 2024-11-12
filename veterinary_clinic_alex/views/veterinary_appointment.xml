@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+
+    <record id="veterinary_appointment_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.appointment.view.tree</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="arch" type="xml">
+            <tree multi_edit = "1" string="Appointments"> <!--multi_edit permite editar varios registros al mismo tiempo--> 
+            <field name="sequence" widget="handle"></field>
+                <field name="name"></field>
+                <field name="date" optional="show"></field>
+                <field name="urgency" widget="boolean_toggle" optional="show"></field>
+                <field name="user_id" optional="show"></field>
+                <field name="state" optional="show" widget="badge"></field>
+                <field name="duration" optional="hide"></field>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_appointment_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.view.form</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+            <header>
+                <field name="state" options="{'clickable' : 1}" widget = "statusbar"></field> <!-- clickable permite hacer que el statusbar sea clickable para avanzar-->
+            </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"></field>
+                        </h1>
+                    </div>
+                    <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->
+                        <group >
+                            <field name="date"></field>
+                            <field name="user_id"></field>
+                            
+                        </group>
+                        <group >
+                            <field name="duration"></field>
+                            <field name="state"></field>                                                        
+                        </group>                    
+                    </group>
+                    <notebook>
+                        <page name="reason_page" string="Reason">
+                            <field name="reason"></field>
+                            
+                        </page>
+                        <page name="solution_page" string="Solution">
+                            <field name="solution"></field>
+                            
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
     
 
     <record id="veterinary_appointment_action" model="ir.actions.act_window">

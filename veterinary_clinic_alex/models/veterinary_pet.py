@@ -15,3 +15,4 @@ class VeterinaryPet(models.Model):
         ('bird', 'Bird'),
         ('other', 'Other')
     ])
+    description = fields.Text(string='Description', help='Description of the pet')
