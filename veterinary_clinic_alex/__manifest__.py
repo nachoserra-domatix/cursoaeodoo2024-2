@@ -2,7 +2,7 @@
     'name': 'Veterinary Clinic',
     'version': '17.0.1.0.0',
   
-    'summary': 'Mamanagement system for vererinary clinic',
+    'summary': 'Mamanagement system for veterinary clinic',
     'author': '<Alex Casal G>',
 
     'license': 'LGPL-3',
