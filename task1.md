@@ -2,7 +2,7 @@
 
 Hacer dos grupos de usuario, manager y user.
 El usuario solo podrá ver y modificar las citas que tenga asignadas (crearemos un campo user_id)
-El manager podrá crear, borrar ver y modificar cualquier ticket
+El manager podrá crear, borrar ver y modificar cualquier cita
 
 # Vistas (9)
 Añadir campos secuencia(integer), solución(html) y responsable(many2one)
@@ -20,3 +20,7 @@ Fecha/Responsable y duración
 
 ## Solapas:
 razón y solución
+
+# Modelo veterinary.pet
+* Crear vistas de lista y de formulario
+* Añadir al ir.model.access.csv los grupos de user y manager
