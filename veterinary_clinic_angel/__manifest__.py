@@ -8,6 +8,8 @@
         'base'
     ],
     'data': [
+        'security/res_groups.xml',
+        'security/ir_rule.xml',
         'security/ir.model.access.csv',
         'views/veterinary_pet.xml',
         'views/veterinary_appointment.xml',

@@ -1,13 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <!-- Action for Veterinary Appointment -->
-        <record id="action_veterinary_appointment" model="ir.actions.act_window">
-            <field name="name">Appointments</field>
-            <field name="res_model">veterinary.appointment</field>
-            <field name="view_mode">tree,form,kanban</field>
-        </record>
+    <!-- Tree view-->
+    <record id="veterinary_appointment_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.appointment.view.tree</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="Appointments">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="date" optional="show"/>
+                <field name="urgency" optional="show" widget="boolean_toggle"/>
+                <field name="user_id" optional="show"/>
+                <field name="state" widget="badge" optional="show"/>
+                <field name="duration" optional="hide"/>
+            </tree>
+        </field>
+    </record>
 
-        <!-- Menu for Veterinary Appointment -->
-        <menuitem id="menu_veterinary_appointment" name="Appointments" parent="veterinary_management_menu" action="action_veterinary_appointment" sequence="20"/>
-    </data>
+    <!-- Form view -->
+    <record id="veterinary_appointment_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.view.form</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <header>
+                    <field name="state" options="{'clickable':1}" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="reason_page" string="Reason">
+                            <field name="reason"/>
+                        </page>
+                                                <page name="solution_page" string="Solution">
+                            <field name="solution"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Veterinary Appointment -->
+    <record id="action_veterinary_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">veterinary.appointment</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Menu for Veterinary Appointment -->
+    <menuitem id="menu_veterinary_appointment" name="Appointments" parent="veterinary_management_menu" action="action_veterinary_appointment" sequence="20"/>
 </odoo>

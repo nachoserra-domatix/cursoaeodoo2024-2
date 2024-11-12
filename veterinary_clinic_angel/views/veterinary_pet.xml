@@ -1,5 +1,51 @@
 <odoo>
     <data>
+    <!-- Tree view -->
+    <record id="veterinary_pet_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.pet.view.tree</field>
+        <field name="model">veterinary.pet</field>
+        <field name="arch" type="xml">
+        <tree string="Pets">
+            <field name="name"/>
+            <field name="pet_number"/>
+            <field name="age" optional="show"/>
+            <field name="birthdate" optional="hide"/>
+            <field name="species" optional="show"/>
+        </tree>
+        </field>
+    </record>
+    <!-- Form view -->
+    <record id="veterinary_pet_view_form" model="ir.ui.view">
+        <field name="name">veterinary.pet.view.form</field>
+        <field name="model">veterinary.pet</field>
+        <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="age"/>
+                        <field name="birthdate"/>
+                        <field name="weight"/>
+                    </group>
+                    <group>
+                        <field name="pet_number"/>
+                        <field name="species"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="notes_page" string="Notes">
+                        <field name="notes"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+        </field>
+    </record>
         
 
         <record id="veterinary_pet_action" model="ir.actions.act_window">
