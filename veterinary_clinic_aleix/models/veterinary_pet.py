@@ -9,7 +9,6 @@ class VeterinaryPet(models.Model):
    weight = fields.Float(string='Weight', help='Weight of the pet')
    age = fields.Integer(string='Age', help='Age of the pet')
    pet_number = fields.Char(string='Pet Number', help='Number of the pet')
-
    species = fields.Selection(
       [('cat', 'Cat'), ('dog', 'Dog'), ('bird', 'Bird'), ('other', 'Other')],
       string='Species'

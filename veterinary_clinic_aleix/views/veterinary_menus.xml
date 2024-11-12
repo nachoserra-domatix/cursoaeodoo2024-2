@@ -6,16 +6,37 @@
     <menuitem id="veterinary_management_menu" name="Management" sequence="10">
         <!-- action pet-->
         <menuitem id="veterinary_pet_menu"
-        name="Pets"
-        action="veterinary_pet_action"
-        sequence="10"/>
+            name="Pets"
+            action="veterinary_pet_action"
+            sequence="10"/>
         <!-- action appointment -->
         <menuitem
-        id="veterinary_appointment_menu"
-        name="Appointments"
-        action="veterinary_pet_appointment"
-        sequence="10"/>
+            id="veterinary_appointment_menu"
+            name="Appointments"
+            action="veterinary_pet_appointment"
+            sequence="10"/>
     </menuitem>
 </menuitem>
+
+    <!-- forma normal -->
+    <!--
+    <menuitem
+        id="veterinary_clinic_menu"
+        name="Veterinary Clinic"
+        sequence="10"/>
+
+    <menuitem
+        id="veterinary_management_menu"
+        name="Management"
+        parent="veterinary_clinic_menu"
+        sequence="10"/>
+
+    <menuitem
+        id="veterinary_pet_menu"
+        name="Pets"
+        action="veterinary_pet_action"
+        parent="veterinary_management_menu"
+        sequence="10"/>
+    -->
 
 </odoo>

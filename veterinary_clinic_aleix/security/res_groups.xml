@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- category -->
+<record id="veterinary_clinic_category" model="ir.module.category">
+    <field name="name">Veterinary Clinic</field>
+</record>
+
+<!-- group user: only read and write -->
+<record id="veterinary_clinic_groups_user" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="veterinary_clinic_category"/>
+    <field name="comment">
+        The user will be able to browse some model.
+    </field>
+</record>
+
+<!-- group manager -->
+<record id="veterinary_clinic_groups_manager" model="res.groups">
+    <field name="name">Manager</field>
+    <field name="category_id" ref="veterinary_clinic_category"/>
+    <field name="implied_ids" eval="[(4, ref('veterinary_clinic_groups_user'))]"/>
+    <field name="comment">
+        The user will be able to manage some model.
+    </field>
+</record>
+
+</odoo>
