@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- forma anidada -->
+<menuitem id="veterinary_clinic_menu" name="Veterinary Clinic" sequence="10">
+    <menuitem id="veterinary_management_menu" name="Management" sequence="10">
+        <!-- action pet-->
+        <menuitem id="veterinary_pet_menu"
+        name="Pets"
+        action="veterinary_pet_action"
+        sequence="10"/>
+        <!-- action appointment -->
+        <menuitem
+        id="veterinary_appointment_menu"
+        name="Appointments"
+        action="veterinary_pet_appointment"
+        sequence="10"/>
+    </menuitem>
+</menuitem>
+
+</odoo>

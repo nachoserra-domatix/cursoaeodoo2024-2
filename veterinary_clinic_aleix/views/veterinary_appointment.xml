@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="veterinary_pet_appointment" model="ir.actions.act_window">
+    <field name="name">Appointments</field>
+    <field name="res_model">veterinary.appointment</field>
+    <field name="view_mode">tree,form,kanban</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+    <p class="o_view_nocontent_smiling_face">
+        Create a new appointment
+    </p>
+    </field>
+</record>
+
+<!-- forma normal -->
+<!--
+<menuitem
+    id="veterinary_appointment_menu"
+    name="Appointments"
+    action="veterinary_pet_appointment"
+    parent="veterinary_management_menu"
+    sequence="10"/>
+-->
+
+</odoo>
