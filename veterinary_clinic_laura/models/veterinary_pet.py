@@ -15,3 +15,5 @@ class VeterinaryPet(models.Model):
       ('bird','Bird'),
       ('other','Other'),
    ])
+   sequence = fields.Integer(string="Sequence",default=10)
+   user_id = fields.Many2one('res.users',string="Responsible")
