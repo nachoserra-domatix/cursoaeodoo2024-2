@@ -26,6 +26,12 @@
             <form string="Appointment">
                 <header>
                     <field name="state" options="{'clickable': 1}" widget="statusbar"/>
+                    <button invisible="state in ('draft')"
+                        string="Draft" name="action_draft" type="object" class="btn-secondary"/>
+                    <button invisible="state in ('done','cancelled')" 
+                        string="Done" name="action_done" type="object" class="btn-success"/>
+                    <button invisible="state in ('done','cancelled')" 
+                        string="Cancelled" name="action_cancelled" type="object" class="btn-danger"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
