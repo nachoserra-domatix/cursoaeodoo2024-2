@@ -1,0 +1,296 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* veterinary_clinic_juan_carlos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240904\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-13 18:34+0000\n"
+"PO-Revision-Date: 2024-11-13 18:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:res.groups,comment:veterinary_clinic_juan_carlos.veterinary_clinic_groups_user
+msgid ""
+"\n"
+"        The user will be able to browse some model.\n"
+"    "
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:res.groups,comment:veterinary_clinic_juan_carlos.veterinary_clinic_groups_manager
+msgid ""
+"\n"
+"        The user will be able to manage some model.\n"
+"    "
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__age
+msgid "Age"
+msgstr "Edad"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_appointment_action
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_appointment_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+msgid "Appointment"
+msgstr "Cita"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__appointment_date
+msgid "Appointment Date"
+msgstr "Fecha de la cita"
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_tree
+msgid "Appointments"
+msgstr "Citas"
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+msgid "Back to draft"
+msgstr "Volver a borrador"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__bird
+msgid "Bird"
+msgstr "Ave"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__birthdate
+msgid "Birthdate"
+msgstr "Fecha de nacimiento"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_pet__birthdate
+msgid "Birthdate of the pet"
+msgstr "Fecha de nacimiento de la mascota"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__cancelled
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__cat
+msgid "Cat"
+msgstr "Gato"
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_juan_carlos.veterinary_appointment_action
+msgid "Create a new Appointment"
+msgstr "Crear una nueva cita"
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_juan_carlos.veterinary_pet_action
+msgid "Create a new pet"
+msgstr "Crear una nueva mascota"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__appointment_date
+msgid "Date and time"
+msgstr "Fecha y hora"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__dog
+msgid "Dog"
+msgstr "Perro"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__done
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
+msgid "Done"
+msgstr "Realizado"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__duration
+msgid "Duration (minutes)"
+msgstr "Duración (minutos)"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__duration
+msgid "Duration minutes"
+msgstr "Duración en minutos"
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
+msgid "Generate number chip"
+msgstr "Generar número de chip"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__id
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__id
+msgid "ID"
+msgstr "ID"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__last_vaccination_date
+msgid "Last Vaccination Date"
+msgstr "Fecha de última vacunación"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_clinic_menu
+msgid "Management"
+msgstr "Gestión"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__manager
+msgid "Manager"
+msgstr "Administrador"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__name
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_pet__name
+msgid "Name of the pet"
+msgstr "Nombre de la mascota"
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
+msgid "Number Pet"
+msgstr "Número de la mascota"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__other
+msgid "Other"
+msgstr "Otro"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_pet_action
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+msgid "Pet"
+msgstr "Mascota"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_pet_menu
+msgid "Pets"
+msgstr "Mascotas"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__reason
+msgid "Reason"
+msgstr "Razón"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__reason
+msgid "Reason for Appointment"
+msgstr "Razón de la cita"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__responsible
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__sequence
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__solution
+msgid "Solution"
+msgstr "Solución"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__solution
+msgid "Solution to the problem"
+msgstr "Solución al problema"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__species
+msgid "Species"
+msgstr "Especie"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+msgid "Urgent"
+msgstr "Urgente"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__user
+msgid "User"
+msgstr "Usuario"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__vaccinated
+msgid "Vaccinated"
+msgstr "Vacunado"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_appointment_action
+msgid "Veterinary Appointment"
+msgstr "Cita Veterinaria"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_clinic_menu
+msgid "Veterinary Clinic"
+msgstr "Clínica Veterinaria"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_pet_action
+msgid "Veterinary Pet"
+msgstr "Mascota Veterinaria"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__weight
+msgid "Weight"
+msgstr "Peso"
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__state
+msgid "current status of the appointment..."
+msgstr "estado actual de la cita..."

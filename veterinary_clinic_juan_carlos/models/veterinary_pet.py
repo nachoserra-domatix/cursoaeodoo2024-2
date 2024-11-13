@@ -1,4 +1,11 @@
 from odoo import models, fields
+import random
+import string
+
+def generate_random_chip(lengk=12):
+    caract = string.ascii_letters + string.digits
+    return ''.join(random.choices(caract, k=lengk))
+
 
 class VeterinaryPet(models.Model):
     _name = "veterinary.pet"
@@ -15,4 +22,15 @@ class VeterinaryPet(models.Model):
         ("other", "Other"),
         ("bird", "Bird"),
     ])
+    vaccinated = fields.Boolean(string="Vaccinated")
+    last_vaccination_date = fields.Date(string="Last Vaccination Date")
     
+    def action_vaccinated(self):
+        for record in self:
+            record.vaccinated = True
+            record.last_vaccination_date = fields.Date.today()
+
+
+    def action_chip_number_pet(self):
+        for record in self:
+            record.number_pet = generate_random_chip()

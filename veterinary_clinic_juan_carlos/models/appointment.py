@@ -18,3 +18,28 @@ class Appointment(models.Model):
     user_id = fields.Many2one("res.users", string="Responsible")
     sequence = fields.Integer(string="Sequence", default=10)
     urgency = fields.Boolean(string="Urgent")
+
+
+
+    def action_draft(self):
+        for record in self:
+            record.state = "draft"
+            # import pdb;pdb.set_trace()
+    
+
+    def action_done(self):
+        for record in self:
+            record.state = "done"
+
+
+    def action_cancelled(self):
+        for record in self:
+            record.state = "cancelled"
+
+
+    # def action_draft(self):
+    #     self.state = "draft"
+
+    # def action_all_draft(self):
+    #     appointments = self.search([])
+    #     appointments.action_draft()

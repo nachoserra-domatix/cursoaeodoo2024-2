@@ -12,6 +12,8 @@
             <field name="number_pet" optional="show"/>
             <field name="birthdate" optional="hide"/>
             <field name="weight" optional="hide"/>
+            <field name="vaccinated" widget="boolean_toggle" optional="show"/>
+            <field name="last_vaccination_date" optional="show"/>
         </tree>
     </field>
 </record>
@@ -22,6 +24,10 @@
     <field name="model">veterinary.pet</field>
     <field name="arch" type="xml">
         <form string="Pets">
+        <header>
+            <button string="Vaccinated" invisible="vaccinated == True" name="action_vaccinated" type="object" class="btn-success"/>
+            <button string="Generate number chip" invisible="number_pet" name="action_chip_number_pet" type="object" class="btn-primary"/>
+        </header>
             <sheet>
                 <div class="oe_title">
                     <h1>
@@ -37,6 +43,10 @@
                     <field name="birthdate"/>
                     <field name="age"/>
                     <field name="weight"/>
+                </group>
+                <group>
+                    <field name="vaccinated"/>
+                    <field name="last_vaccination_date"/>
                 </group>
             </group>
             </sheet>
