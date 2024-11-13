@@ -8,9 +8,11 @@
         'base'
     ],
     'data': [
+        'security/res_groups.xml',
         'security/ir.model.access.csv',
-        'views/veterinary_pet.xml',
+        'security/ir_rule.xml',
         'views/appointment.xml',
+        'views/veterinary_pet.xml',
     ],
     'application': False,
     'installable': True,

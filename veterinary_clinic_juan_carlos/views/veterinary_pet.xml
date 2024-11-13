@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+<record id="veterinary_pet_view_tree" model="ir.ui.view">
+    <field name="name">veterinary.pet.view.tree</field>
+    <field name="model">veterinary.pet</field>
+    <field name="arch" type="xml">
+        <tree multi_edit="1" string="Pet">
+            <field name="name" optional="show"/>
+            <field name="age" optional="hide"/>
+            <field name="species" optional="show"/>
+            <field name="number_pet" optional="show"/>
+            <field name="birthdate" optional="hide"/>
+            <field name="weight" optional="hide"/>
+        </tree>
+    </field>
+</record>
+
+
+<record id="veterinary_pet_view_form" model="ir.ui.view">
+    <field name="name">veterinary.pet.view.form</field>
+    <field name="model">veterinary.pet</field>
+    <field name="arch" type="xml">
+        <form string="Pets">
+            <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+            <group>
+                <group>
+                    <field name="number_pet"/>
+                    <field name="species"/>
+                </group>
+                <group>
+                    <field name="birthdate"/>
+                    <field name="age"/>
+                    <field name="weight"/>
+                </group>
+            </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
     <record id="veterinary_pet_action" model="ir.actions.act_window">
         <field name="name">Pets</field>
         <field name="res_model">veterinary.pet</field>
@@ -10,6 +54,8 @@
             <p class="o_view_nocontent_smiling_face">Create a new pet</p>
         </field>
     </record>
+
+
 
     <menuitem
         id="veterinary_clinic_menu"
@@ -28,4 +74,5 @@
         action="veterinary_pet_action"
         parent="veterinary_management_menu"
         sequence="10"/>
+        
 </odoo>

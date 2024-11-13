@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="veterinary_appointment_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.appointment.view.tree</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1" string="Appointments">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="appointment_date" optional="show"/>
+                <field name="urgency" widget="boolean_toggle" optional="show"/>
+                <field name="state" widget="badge" optional="show"/>
+                <field name="user_id" optional="show"/>
+                <field name="duration" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="veterinary_appointment_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.view.form</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+            <header>
+            <field name="state" options="{'clickable':1}" widget="statusbar"/>
+            </header>
+                <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="appointment_date"/>
+                        <field name="user_id"/>
+                    </group>
+                    <group>
+                        <field name="duration"/>                        
+                    </group>
+                </group>
+                <notebook>
+                    <page name="reason_page" string="Reason">
+                        <field name="reason"/>
+                    </page>
+                    <page name="solution_page" string="Solution">
+                        <field name="solution"/>
+                    </page>
+                </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
     <record id="veterinary_appointment_action" model="ir.actions.act_window">
         <field name="name">Appointment</field>
         <field name="res_model">veterinary.appointment</field>
