@@ -44,6 +44,10 @@
                     <header>
                         <field name="state" options="{'clickable':1}" widget="statusbar"/>
                     </header>
+                    <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
+                    <button string="Done" invisible="state in ('done,cancel')" name="action_done" type="object" class="btn-primary"/>
+                    <button string="Cancelar" invisible="state in ('cancelled','draft')" name="action_cancel" type="object" class="btn-danger"/>
+
                     <sheet>
                         <div class="oe_title">
                             <h1>

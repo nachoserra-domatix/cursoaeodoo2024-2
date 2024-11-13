@@ -17,3 +17,19 @@ class VeterinaryAppointment(models.Model):
    user_id = fields.Many2one('res.users',string="Responsible")
    sequence = fields.Integer(string="Sequence",default=10)
    urgency = fields.Boolean(string="Urgent")
+
+   def action_draft(self):
+      for record in self:
+        #import pdb;pdb.set_trace()
+        record.state = 'draft'
+
+   def action_done(self):
+      for record in self:
+        record.state = 'done'
+   def action_cancel(self):
+      for record in self:
+         record.state = 'cancelled'
+
+  
+  
+    

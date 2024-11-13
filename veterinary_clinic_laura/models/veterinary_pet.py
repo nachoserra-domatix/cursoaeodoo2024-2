@@ -1,4 +1,6 @@
 from odoo import models, fields
+import random
+import string
 
 class VeterinaryPet(models.Model):
    _name = "veterinary.pet"
@@ -17,3 +19,20 @@ class VeterinaryPet(models.Model):
    ])
    sequence = fields.Integer(string="Sequence",default=10)
    user_id = fields.Many2one('res.users',string="Responsible")
+   vaccinated = fields.Boolean(string="Vaccinated")
+   last_vaccination_date=fields.Date(string="Last vaccination date")
+
+   def action_vaccinated(self):
+      for record in self:
+         record.vaccinated=True
+         record.last_vaccination_date=fields.Datetime.now()
+
+   def action_set_pet_number(self):
+      def generate_string():
+         numeros = ''.join(random.choices(string.digits, k=8))  # 8 dígitos aleatorios
+         letra = random.choice(string.ascii_uppercase)          # 1 letra aleatoria en mayúscula
+         resultado = numeros + letra                            # Concatenamos números y letra
+         return resultado
+      
+      for record in self:
+         record.pet_number=generate_string()
