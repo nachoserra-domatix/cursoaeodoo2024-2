@@ -1,4 +1,5 @@
 from odoo import models, fields
+import random
 
 class VeterinaryPet(models.Model):
     _name= 'veterinary.pet'
@@ -16,3 +17,16 @@ class VeterinaryPet(models.Model):
         ('other', 'Other')
     ])
     description = fields.Text(string='Description', help='Description of the pet')
+
+    vaccinated = fields.Boolean(string='Vaccinated', help='Vaccinated pet')
+    last_vaccination_date = fields.Date(string='Last Vaccination Date', help='Last vaccination date of the pet')
+
+
+    def action_vaccinated(self):
+        for record in self:
+            record.vaccinated = True
+            record.last_vaccination_date = fields.Date.today()
+
+    def action_number_pet(self):
+        for record in self:
+            record.number_pet ='ES' + str(random.randint(1,9999999999999))

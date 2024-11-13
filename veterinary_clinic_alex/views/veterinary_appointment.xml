@@ -25,7 +25,11 @@
         <field name="arch" type="xml">
             <form string="Appointment">
             <header>
+                <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
+                <button string="Confirm" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
+                <button string="Cancel" invisible="state in ('cancel')" name="action_cancel" type="object" class="btn-danger"/>
                 <field name="state" options="{'clickable' : 1}" widget = "statusbar"></field> <!-- clickable permite hacer que el statusbar sea clickable para avanzar-->
+            
             </header>
                 <sheet>
                     <div class="oe_title">

@@ -7,11 +7,11 @@
         <field name="arch" type="xml">
             <tree multi_edit = "1" string="Pets"> <!--multi_edit permite editar varios registros al mismo tiempo--> 
                 <field name="name" widget="handle"></field>
-                <field name="weight"></field>
                 <field name="name" optional="show"></field>
-                <field name="birthdate" widget="boolean_toggle" optional="show"></field>
-                <field name="weight" optional="show"></field>
+                <field name="weight"></field>
                 <field name="age" optional="show" widget="badge"></field>
+                <field name="birthdate" optional="show"></field>
+                <field name="vaccinated" widget="boolean_toggle" optional="show"></field>
                 <field name="number_pet" optional="hide"></field>
                 <field name="species" optional="hide"></field>
                 
@@ -24,7 +24,12 @@
         <field name="name">veterinary.pet.view.form</field>
         <field name="model">veterinary.pet</field>
         <field name="arch" type="xml">
-            <form string="Pet">            
+            <form string="Pet">   
+                <header>
+                    <button string="Vaccinated Today" invisible= "vaccinated" name="action_vaccinated" type="object" class="btn-secondary"/>
+                    <button string="Aleatory Number" name="action_number_pet" type="object" class="btn-secondary"/>
+
+                </header>         
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -36,11 +41,14 @@
                             <field name="birthdate"></field>
                             <field name="weight"></field>
                             <field name="age"></field>
+                            <field name="vaccinated" widget="boolean_toggle"></field>
                             
                         </group>
                         <group >
                             <field name="number_pet"></field>
-                            <field name="species"></field>                                                        
+                            <field name="species"></field>                                
+                            <field name="last_vaccination_date"></field>  
+                                                                             
                         </group>                    
                     </group>
                     <notebook>
