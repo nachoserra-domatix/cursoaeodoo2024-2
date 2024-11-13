@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * veterinary_clinic_borja
+# 	* veterinary_clinic_borja
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 14:38+0000\n"
-"PO-Revision-Date: 2024-11-13 14:38+0000\n"
+"POT-Creation-Date: 2024-11-13 16:41+0000\n"
+"PO-Revision-Date: 2024-11-13 16:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,26 @@ msgid "Age"
 msgstr "Edad"
 
 #. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_tree
+msgid "All cancelled"
+msgstr "Todas canceladas"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_tree
+msgid "All done"
+msgstr "Todas hechas"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_tree
+msgid "All other status"
+msgstr "Todas como otros"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_tree
+msgid "All to draft"
+msgstr "Todas a borrador"
+
+#. module: veterinary_clinic_borja
 #: model:ir.actions.act_window,name:veterinary_clinic_borja.veterinary_appointment_action
 #: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_appointment_menu
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
@@ -47,6 +67,11 @@ msgstr "Cita"
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_tree
 msgid "Appointments"
 msgstr "Citas"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
+msgid "Back to draft"
+msgstr "Volver a borrador"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_pet__species__bird
@@ -65,6 +90,7 @@ msgstr "Fecha de nacimiento de la mascota"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_appointment__status__cancelled
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
 msgid "Cancelled"
 msgstr "Cancelada"
 
@@ -118,6 +144,7 @@ msgstr "Perro"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_appointment__status__done
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
 msgid "Done"
 msgstr "Hecho"
 
@@ -153,6 +180,11 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__last_vaccination_date
+msgid "Last Vaccination Date"
+msgstr "Última fecha de vacunación"
 
 #. module: veterinary_clinic_borja
 #: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_management_menu
@@ -215,6 +247,11 @@ msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
+msgid "Set other status"
+msgstr "Establecer otro estado"
+
+#. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__solution
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
 msgid "Solution"
@@ -239,6 +276,12 @@ msgstr "Urgencia"
 #: model:res.groups,name:veterinary_clinic_borja.veterinary_clinic_groups_user
 msgid "User"
 msgstr "Usuario"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__vaccinated
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_pet_view_form
+msgid "Vaccinated"
+msgstr "Vacunada"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model,name:veterinary_clinic_borja.model_veterinary_appointment

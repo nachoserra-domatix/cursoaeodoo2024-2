@@ -15,3 +15,9 @@ class VeterinaryPet(models.Model):
     ("bird", "Bird"),
     ("other", "Other")
    ])
+   vaccinated = fields.Boolean(string="Vaccinated")
+   last_vaccination_date = fields.Date(string="Last Vaccination Date")
+
+   def action_vaccinated(self):
+      self.vaccinated = True
+      self.last_vaccination_date = fields.Date.today()
