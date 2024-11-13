@@ -13,3 +13,5 @@ Crear métodos en cita que marque el estado de la cita a hecho, cancelado y borr
 * Traducir los campos.
 * Añadir botón que marque el campo vacunado a True y ponga la fecha de hoy en el campo última vacuna.
 
+* Añadir método en veterinary.pet que genere un número aleatorio en el campo de chip(pet_number)
+
