@@ -6,6 +6,12 @@
         <field name="model">veterinary.appointment</field>
         <field name="arch" type="xml">
             <tree multi_edit="1" string="Appointments">
+                <header>
+                    <button string="All to draft" name="action_all_draft" type="object" class="btn-info"/>
+                    <button string="All done" name="action_all_done" type="object" class="btn-success"/>
+                    <button string="All cancelled" name="action_all_cancelled" type="object" class="btn-danger"/>
+                    <button string="All other status" name="action_all_other" type="object" class="btn-warning"/>
+                </header>
                 <field name="sequence" widget="handle"/>
                 <field name="name" />
                 <field name="date" optional="show"/>
@@ -24,6 +30,10 @@
             <form string="Appointment">
                 <header>
                     <field name="status" options="{'clickable':1}" widget="statusbar"/>
+                    <button string="Back to draft" invisible="status in ('draft')" name="action_draft" type="object" class="btn-info"/>
+                    <button string="Done" invisible="status in ('done', 'cancelled')" name="action_done" type="object" class="btn-success"/>
+                    <button string="Cancelled" invisible="status in ('cancelled')" name="action_cancelled" type="object" class="btn-danger"/>
+                    <button string="Set other status" invisible="status in ('other')" name="action_other" type="object" class="btn-warning"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
