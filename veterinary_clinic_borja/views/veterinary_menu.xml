@@ -2,6 +2,7 @@
 <odoo>
   <menuitem
     id="veterinary_clinic_menu"
+    web_icon="veterinary_clinic_borja,static/img/icon.png"
     name="Veterinary Clinic"
     sequence="10">
         <menuitem

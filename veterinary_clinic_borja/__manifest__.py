@@ -18,6 +18,7 @@
                 "views/veterinary_allergy.xml",
                 "views/veterinary_insurance.xml",
                 "views/veterinary_surgery.xml",
+                "data/veterinary_species_data.xml",
              ],
     'application': False,
     'installable': True,
