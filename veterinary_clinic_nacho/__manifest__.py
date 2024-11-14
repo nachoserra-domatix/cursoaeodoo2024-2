@@ -5,13 +5,20 @@
     'author': '<Nacho Serra>, Domatix',
     'license': 'LGPL-3',
     'depends': [
-        'base','sale'
+        'base','sale','hr'
     ],
-    'data': ['security/res_groups.xml',
+    'data': [
+             'data/veterinary_species_data.xml',   
+             'security/res_groups.xml',
              'security/ir.model.access.csv',
              'security/ir_rule.xml',
              'views/veterinary_pet.xml',
-             'views/veterinary_appointment.xml',],
+             'views/veterinary_appointment.xml',
+             'views/veterinary_species.xml',
+             'views/veterinary_surgery.xml',
+             'views/veterinary_allergy.xml',
+             'views/veterinary_insurance.xml',
+             ],
     'application': False,
     'installable': True,
 }
