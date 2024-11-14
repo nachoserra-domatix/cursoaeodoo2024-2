@@ -10,10 +10,11 @@ class VeterinaryPet(models.Model):
    weight = fields.Float(string='Weight', help='Weight of the pet')
    age = fields.Integer(string='Age', help='Age of the pet')
    pet_number = fields.Char(string='Pet Number', help='Number of the pet')
-   species = fields.Selection(
-      [('cat', 'Cat'), ('dog', 'Dog'), ('bird', 'Bird'), ('other', 'Other')],
-      string='Species'
-    )
+   # species = fields.Selection(
+   #    [('cat', 'Cat'), ('dog', 'Dog'), ('bird', 'Bird'), ('other', 'Other')],
+   #    string='Species'
+   #  )
+   species_id = fields.Many2one('veterinary.species', string='Species')
    vaccinated = fields.Boolean(string="Vaccinated", default=False)
    last_vaccination_date = fields.Date(string="Last Vaccination Date")
 

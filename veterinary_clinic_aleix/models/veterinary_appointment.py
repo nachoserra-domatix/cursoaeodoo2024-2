@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class VeterinaryAppointment(models.Model):
     _name = 'veterinary.appointment'
-    _description = 'Veterinary appointment'
+    _description = 'Veterinary Appointment'
 
     name = fields.Char(string='Name', required=True)
     date = fields.Datetime(string='Date', required=True, default=fields.Datetime.now)

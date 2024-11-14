@@ -13,7 +13,31 @@
         <menuitem
             id="veterinary_appointment_menu"
             name="Appointments"
-            action="veterinary_pet_appointment"
+            action="veterinary_appointment_action"
+            sequence="10"/>
+        <!-- action species -->
+        <menuitem
+            id="veterinary_species_menu"
+            name="Species"
+            action="veterinary_species_action"
+            sequence="10"/>
+        <!-- action surgery -->
+        <menuitem
+            id="veterinary_surgery_menu"
+            name="Surgeries"
+            action="veterinary_surgery_action"
+            sequence="10"/>
+        <!-- action allergy -->
+        <menuitem
+            id="veterinary_allergy_menu"
+            name="Allergies"
+            action="veterinary_allergy_action"
+            sequence="10"/>
+        <!-- action insurance -->
+        <menuitem
+            id="veterinary_insurance_menu"
+            name="Insurances"
+            action="veterinary_insurance_action"
             sequence="10"/>
     </menuitem>
 </menuitem>

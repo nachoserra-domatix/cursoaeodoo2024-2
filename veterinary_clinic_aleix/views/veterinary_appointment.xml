@@ -51,10 +51,10 @@
                         </group>
                     </group>
                     <notebook>
-                        <page name="reason_page" string="reason">
+                        <page name="reason_page" string="Reason">
                             <field name="reason"/>
                         </page>
-                        <page name="solution_page" string="solution">
+                        <page name="solution_page" string="Solution">
                             <field name="solution"/>
                         </page>
                     </notebook>
@@ -64,7 +64,7 @@
     </record>
 
     <!-- action -->
-    <record id="veterinary_pet_appointment" model="ir.actions.act_window">
+    <record id="veterinary_appointment_action" model="ir.actions.act_window">
         <field name="name">Appointments</field>
         <field name="res_model">veterinary.appointment</field>
         <field name="view_mode">tree,form,kanban</field>
