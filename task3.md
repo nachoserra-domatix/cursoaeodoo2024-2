@@ -7,7 +7,7 @@
 * Modelo de cirugías (veterinary.surgery)
   * Nombre
   * Mascota (veterinary.pet)
-  * Empleado (hr.employee)
+  * Empleado (hr.employee) (añadir en dependncias el módulo hr)
   * Fecha de la cirugía
   * Estado
     
