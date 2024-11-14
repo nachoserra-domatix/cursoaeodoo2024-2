@@ -500,3 +500,8 @@ msgstr "Peso"
 #: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_pet__weight
 msgid "Weight of the pet"
 msgstr "Peso de la mascota"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_insurance_view_form
+msgid "coverage_details"
+msgstr "Detalles cobetura"

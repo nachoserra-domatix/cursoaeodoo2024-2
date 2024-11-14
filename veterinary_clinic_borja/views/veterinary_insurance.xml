@@ -32,13 +32,17 @@
                         <group>
                             <field name="pet_id" />
                             <field name="insurance_company" />
-                            <field name="coverage_details" />                            
                         </group>
                         <group>
                             <field name="expiration_date" />
                             <field name="expired" />                            
                         </group>
                     </group>
+                    <notebook>
+                        <page name="coverage_details" string="coverage_details">
+                            <field name="coverage_details" /> 
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
