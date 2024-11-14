@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_veterinary_surgery_tree" model="ir.ui.view">
+        <field name="name">veterinary.surgery.tree</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="pet_id"/>
+                <field name="employee_id"/>
+                <field name="state" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_veterinary_surgery_form" model="ir.ui.view">
+        <field name="name">veterinary.surgery.form</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Start" invisible="state != 'scheduled'" name="action_start_surgery" type="object" class="btn-primary"/>
+                    <button string="Finish" invisible="state != 'in_progress'" name="action_finish_surgery" type="object" class="btn-success"/>
+                    <button string="Cancel" invisible="state in ('cancelled','done')" name="action_cancel_surgery" type="object" class="btn-danger"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="pet_id"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_veterinary_surgery" model="ir.actions.act_window">
+        <field name="name">Surgeries</field>
+        <field name="res_model">veterinary.surgery</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="menu_veterinary_surgery" name="Surgeries" parent="veterinary_management_menu" action="action_veterinary_surgery" sequence="30"/>
+</odoo>

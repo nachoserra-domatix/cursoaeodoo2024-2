@@ -1,0 +1,18 @@
+from odoo import models, fields
+
+class VeterinaryInsurance(models.Model):
+    _name = 'veterinary.insurance'
+    _description = 'Veterinary Insurance'
+    _rec_name = 'policy_number'
+
+    pet_id = fields.Many2one('veterinary.pet', string='Pet', required=True)
+    company = fields.Char(string='Company', required=True)
+    policy_number = fields.Char(string='Policy Number', required=True)
+    coverage_details = fields.Text(string='Coverage Details')
+    expiration_date = fields.Date(string='Expiration Date', required=True)
+    expired = fields.Boolean(string='Expired', readonly=True)
+
+    def check_if_expired(self):
+        for record in self:
+            if record.expiration_date:
+                record.expired = record.expiration_date < fields.Date.today()

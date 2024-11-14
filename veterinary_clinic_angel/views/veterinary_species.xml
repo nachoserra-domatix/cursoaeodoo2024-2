@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_veterinary_species_form" model="ir.ui.view">
+        <field name="name">veterinary.species.form</field>
+        <field name="model">veterinary.species</field>
+        <field name="arch" type="xml">
+            <form string="Veterinary Species">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="view_veterinary_species_tree" model="ir.ui.view">
+        <field name="name">veterinary.species.tree</field>
+        <field name="model">veterinary.species</field>
+        <field name="arch" type="xml">
+            <tree string="Veterinary Species">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_species_action" model="ir.actions.act_window">
+        <field name="name">Species</field>
+        <field name="res_model">veterinary.species</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_no_content_smiling_face">
+                Create a new species
+            </p>
+        </field>
+    </record>
+    
+    <menuitem id="veterinary_config_menu" name="Configuration" parent="veterinary_clinic_menu" sequence="20"/>
+    <menuitem id="veterinary_species_menu" name="Species" action="veterinary_species_action" parent="veterinary_config_menu" sequence="10"/>
+
+</odoo>
