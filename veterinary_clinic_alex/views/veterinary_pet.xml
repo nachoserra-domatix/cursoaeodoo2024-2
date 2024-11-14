@@ -13,7 +13,7 @@
                 <field name="birthdate" optional="show"></field>
                 <field name="vaccinated" widget="boolean_toggle" optional="show"></field>
                 <field name="number_pet" optional="hide"></field>
-                <field name="species" optional="hide"></field>
+                <field name="species_id" optional="hide"></field>
                 
                 
             </tree>
@@ -46,7 +46,7 @@
                         </group>
                         <group >
                             <field name="number_pet"></field>
-                            <field name="species"></field>                                
+                            <field name="species_id"></field>                                
                             <field name="last_vaccination_date"></field>  
                                                                              
                         </group>                    
@@ -110,7 +110,7 @@
         sequence="10"/> -->
 <!-- Esta forma es la moderna para realizar los menus-->
 
-    <menuitem id="veterinary_clinic_menu" name="Veterinary Clinic" sequence="10">
+    <menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_alex.static/img/logo_vet.png" name="Veterinary Clinic" sequence="10">
         <menuitem id="veterinary_management_menu" name="Management" sequence="10">
             <menuitem id="vet_pet_menu" name="Pets" action="veterinary_pet_action" sequence="10"/>            
         </menuitem>

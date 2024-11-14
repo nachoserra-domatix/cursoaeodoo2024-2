@@ -97,7 +97,7 @@
         parent="veterinary_management_menu"
         sequence="10"/> -->
 <!-- Esta forma es la moderna para realizar los menus-->
-<menuitem
+    <menuitem
     id="vet_appointment"
     name="Appointment"
     action="veterinary_appointment_action"

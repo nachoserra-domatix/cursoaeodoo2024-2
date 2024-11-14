@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 17:06+0000\n"
-"PO-Revision-Date: 2024-11-13 17:06+0000\n"
+"POT-Creation-Date: 2024-11-14 16:26+0000\n"
+"PO-Revision-Date: 2024-11-14 16:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,14 @@ msgstr "Edad"
 #. module: veterinary_clinic_alex
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_pet_view_form
 msgid "Aleatory Number"
-msgstr "Crear Número Aleatorio Mascota"
+msgstr "Número Aleatorio"
+
+#. module: veterinary_clinic_alex
+#: model:ir.ui.menu,name:veterinary_clinic_alex.vet_allergy
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_allergy_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_allergy_view_tree
+msgid "Allergy"
+msgstr "Alergia"
 
 #. module: veterinary_clinic_alex
 #: model:ir.actions.act_window,name:veterinary_clinic_alex.veterinary_appointment_action
@@ -63,11 +70,6 @@ msgid "Back to draft"
 msgstr "Vuelta a Borrador"
 
 #. module: veterinary_clinic_alex
-#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_pet__species__bird
-msgid "Bird"
-msgstr "Pájaro"
-
-#. module: veterinary_clinic_alex
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__birthdate
 msgid "Birthdate"
 msgstr "Fecha de nacimiento"
@@ -84,14 +86,29 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: veterinary_clinic_alex
-#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_pet__species__cat
-msgid "Cat"
-msgstr "Gato"
-
-#. module: veterinary_clinic_alex
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_appointment_view_form
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__coverage_details
+msgid "Coverage Details"
+msgstr "Detalles de la Poliza"
+
+#. module: veterinary_clinic_alex
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_alex.veterinary_allergy_action
+msgid "Create a new Allergy"
+msgstr "Crear Nueva Alergia"
+
+#. module: veterinary_clinic_alex
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_alex.veterinary_insurance_action
+msgid "Create a new Insurance"
+msgstr "Crear nuevo Seguro"
+
+#. module: veterinary_clinic_alex
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_alex.veterinary_surgery_action
+msgid "Create a new Surgery"
+msgstr "Crear nueva Cirugía"
 
 #. module: veterinary_clinic_alex
 #: model_terms:ir.actions.act_window,help:veterinary_clinic_alex.veterinary_appointment_action
@@ -104,14 +121,22 @@ msgid "Create a new pet"
 msgstr "Crear una nueva mascota"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_species__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_species__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__create_date
 msgid "Created on"
 msgstr "Creado el"
 
@@ -126,10 +151,16 @@ msgid "Date of the appointment"
 msgstr "Fecha de la cita"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__description
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__description
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_pet_view_form
 msgid "Description"
 msgstr "Descripción"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,help:veterinary_clinic_alex.field_veterinary_allergy__description
+msgid "Description of the allergy"
+msgstr "Descripción de la Alergia"
 
 #. module: veterinary_clinic_alex
 #: model:ir.model.fields,help:veterinary_clinic_alex.field_veterinary_appointment__reason
@@ -142,18 +173,23 @@ msgid "Description of the pet"
 msgstr "Descripción de la mascota"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,help:veterinary_clinic_alex.field_veterinary_insurance__coverage_details
+msgid "Details of the insurance coverage"
+msgstr "Detalles de la poliza de Seguros"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_species__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__display_name
 msgid "Display Name"
 msgstr "Nombre para mostrar"
 
 #. module: veterinary_clinic_alex
-#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_pet__species__dog
-msgid "Dog"
-msgstr "Perro"
-
-#. module: veterinary_clinic_alex
 #: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_appointment__state__done
+#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_surgery__surgery_state__done
 msgid "Done"
 msgstr "Hecho"
 
@@ -173,20 +209,74 @@ msgid "Duration of the appointment"
 msgstr "Duración de la cita"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__expired
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_allergy__severity_grade__high
+msgid "High"
+msgstr "Grave"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__id
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__id
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__id
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__id
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_species__id
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__id
 msgid "ID"
 msgstr ""
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_surgery__surgery_state__procces
+msgid "In Procces"
+msgstr "En Proceso"
+
+#. module: veterinary_clinic_alex
+#: model:ir.ui.menu,name:veterinary_clinic_alex.vet_insurance
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_insurance_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_insurance_view_tree
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__insurance_company
+msgid "Insurance Company"
+msgstr "Compañia de Seguros"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__insurance_expiration_date
+msgid "Insurance Expiration Date"
+msgstr "Fecha de Expiración del Seguro"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__insurance_number
+msgid "Insurance Number"
+msgstr "Número de Seguro"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_species__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_species__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
@@ -201,6 +291,11 @@ msgid "Last vaccination date of the pet"
 msgstr "Fecha Ultima vacunación de la mascota"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_allergy__severity_grade__low
+msgid "Low"
+msgstr "Leve"
+
+#. module: veterinary_clinic_alex
 #: model:ir.ui.menu,name:veterinary_clinic_alex.veterinary_management_menu
 msgid "Management"
 msgstr "Gestión"
@@ -211,8 +306,16 @@ msgid "Manager"
 msgstr "Gerente"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_allergy__severity_grade__medium
+msgid "Medium"
+msgstr "Medio"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__name
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__name
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__name
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_species__name
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__name
 msgid "Name"
 msgstr "Nombre"
 
@@ -227,11 +330,13 @@ msgid "Number of the pet"
 msgstr "Número de la mascota"
 
 #. module: veterinary_clinic_alex
-#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_pet__species__other
-msgid "Other"
-msgstr "Otro"
+#: model:ir.model.fields.selection,name:veterinary_clinic_alex.selection__veterinary_surgery__surgery_state__pending
+msgid "Pending"
+msgstr "Pendiente"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_insurance__pet_id
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__pet_id
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_pet_view_form
 msgid "Pet"
 msgstr "Mascota"
@@ -265,6 +370,11 @@ msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_allergy__severity_grade
+msgid "Severity Grade"
+msgstr "Grado de Severidad"
+
+#. module: veterinary_clinic_alex
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__solution
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_appointment_view_form
 msgid "Solution"
@@ -276,19 +386,38 @@ msgid "Solution of the appointment"
 msgstr "Solución de la cita"
 
 #. module: veterinary_clinic_alex
-#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__species
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__species_id
 msgid "Species"
-msgstr "Especie"
+msgstr "Especies"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,help:veterinary_clinic_alex.field_veterinary_pet__species_id
+msgid "Species of the pet"
+msgstr "Especie de la Mascota"
 
 #. module: veterinary_clinic_alex
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__state
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__surgery_state
 msgid "State"
 msgstr "Estado"
 
 #. module: veterinary_clinic_alex
 #: model:ir.model.fields,help:veterinary_clinic_alex.field_veterinary_appointment__state
+#: model:ir.model.fields,help:veterinary_clinic_alex.field_veterinary_surgery__surgery_state
 msgid "State of the appointment"
 msgstr "Estado de la cita"
+
+#. module: veterinary_clinic_alex
+#: model:ir.ui.menu,name:veterinary_clinic_alex.vet_surgery
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_surgery_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_alex.veterinary_surgery_view_tree
+msgid "Surgery"
+msgstr "Cirugía"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_surgery__surgery_date
+msgid "Surgery Date"
+msgstr "Fecha de la Cirugía"
 
 #. module: veterinary_clinic_alex
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_appointment__urgency
@@ -326,6 +455,12 @@ msgid "Veterinarian in charge of the appointment"
 msgstr "Veterinario a cargo de la cita"
 
 #. module: veterinary_clinic_alex
+#: model:ir.actions.act_window,name:veterinary_clinic_alex.veterinary_allergy_action
+#: model:ir.model,name:veterinary_clinic_alex.model_veterinary_allergy
+msgid "Veterinary Allergy"
+msgstr "Alergia Veterinaria"
+
+#. module: veterinary_clinic_alex
 #: model:ir.model,name:veterinary_clinic_alex.model_veterinary_appointment
 msgid "Veterinary Appointment"
 msgstr "Cita veterinaria"
@@ -337,9 +472,26 @@ msgid "Veterinary Clinic"
 msgstr "Clínica veterinaria"
 
 #. module: veterinary_clinic_alex
+#: model:ir.actions.act_window,name:veterinary_clinic_alex.veterinary_insurance_action
+#: model:ir.model,name:veterinary_clinic_alex.model_veterinary_insurance
+msgid "Veterinary Insurance"
+msgstr "Seguro Veterinario"
+
+#. module: veterinary_clinic_alex
 #: model:ir.model,name:veterinary_clinic_alex.model_veterinary_pet
 msgid "Veterinary Pet"
 msgstr "Mascota veterinaria"
+
+#. module: veterinary_clinic_alex
+#: model:ir.model,name:veterinary_clinic_alex.model_veterinary_species
+msgid "Veterinary Species"
+msgstr "Especie Veterinaria"
+
+#. module: veterinary_clinic_alex
+#: model:ir.actions.act_window,name:veterinary_clinic_alex.veterinary_surgery_action
+#: model:ir.model,name:veterinary_clinic_alex.model_veterinary_surgery
+msgid "Veterinary Surgery"
+msgstr "Cirugía Veterinaria"
 
 #. module: veterinary_clinic_alex
 #: model:ir.model.fields,field_description:veterinary_clinic_alex.field_veterinary_pet__weight

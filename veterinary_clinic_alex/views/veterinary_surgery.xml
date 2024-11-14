@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="veterinary_surgery_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.surgery.view.tree</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <tree multi_edit = "1" string="Surgery"> <!--multi_edit permite editar varios registros al mismo tiempo--> 
+                <field name="name" widget="handle"></field>
+                <field name="name" optional="show"></field>
+                <field name="pet_id" optional="show"></field>
+                <field name="employee_id" optional="show"></field>
+                <field name="surgery_state" optional="show"></field>
+                
+                <field name="surgery_date" optional="show" ></field>
+
+                
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_surgery_view_form" model="ir.ui.view">
+        <field name="name">veterinary.surgery.view.form</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <form string="Surgery">   
+                <header>
+                    <button string="Back to pending" invisible="surgery_state in ('pending')" name="action_pending" type="object" class="btn-secondary"/>
+                    <button string="Done" invisible="surgery_state in ('done')" name="action_done" type="object" class="btn-success"/>
+                    <button string="Process" invisible="surgery_state in ('procces')" name="action_procces" type="object" class="btn-danger"/>
+                </header>
+                     
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nombre de la Cirugía"></field>
+                        </h1>
+                    </div>
+                    <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->
+                        <group >
+                            <field name="pet_id"></field>
+                            <field name="surgery_date"></field>
+                            
+                            
+                            
+                        </group>
+                        <group>
+                            <field name="employee_id"></field>
+                            <field name="surgery_state"></field>
+                            
+                        </group>
+                                           
+                    </group>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="veterinary_surgery_action" model="ir.actions.act_window">
+        <field name="name">Veterinary Surgery</field>
+        <field name="res_model">veterinary.surgery</field>
+        <field name="view_mode">tree,form</field>
+
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Surgery
+            </p>
+            
+        </field>
+    </record>
+
+    <menuitem
+    id="vet_surgery"
+    name="Surgery"
+    action="veterinary_surgery_action"
+    parent="veterinary_management_menu"
+    sequence="30"/>
+
+</odoo>

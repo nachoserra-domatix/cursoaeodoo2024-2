@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="veterinary_insurance_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.insurance.view.tree</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="arch" type="xml">
+            <tree multi_edit = "1" string="Insurance"> <!--multi_edit permite editar varios registros al mismo tiempo--> 
+                <field name="pet_id" widget="handle"></field>
+                <field name="insurance_company" optional="show"></field>
+                <field name="insurance_number" optional="show"></field>
+                <field name="insurance_expiration_date" optional="show"></field>
+                <field name="coverage_details" optional="show"></field>
+                <field name="expired" optional="show"></field>
+
+                
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_insurance_view_form" model="ir.ui.view">
+        <field name="name">veterinary.insurance.view.form</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="arch" type="xml">
+            <form string="Insurance">   
+            <header>
+                <button string="Expired?" invisible= "expired" name="action_expired" type="object" class="btn-warning"/>
+                
+            </header>
+                     
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="pet_id" placeholder="Selecciona la Mascota"></field>
+                        </h1>
+                    </div>
+                    <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->
+                        <group >
+                            <field name="insurance_company"></field>
+                            <field name="insurance_number"></field>
+                            <field name="insurance_expiration_date"></field>
+                            
+                        </group>
+                        
+                        <group >
+                            <field name="coverage_details"></field>
+                            <field name="expired"></field>
+                            
+                        </group>
+                        
+                            
+                            
+                            
+                        
+                                           
+                    </group>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="veterinary_insurance_action" model="ir.actions.act_window">
+        <field name="name">Veterinary Insurance</field>
+        <field name="res_model">veterinary.insurance</field>
+        <field name="view_mode">tree,form</field>
+
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Insurance
+            </p>
+            
+        </field>
+    </record>
+
+    <menuitem
+    id="vet_insurance"
+    name="Insurance"
+    action="veterinary_insurance_action"
+    parent="veterinary_management_menu"
+    sequence="50"/>
+
+</odoo>
