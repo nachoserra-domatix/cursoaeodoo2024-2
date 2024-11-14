@@ -5,14 +5,19 @@
     'author': '<Juan Carlos> none',  
     'license': 'LGPL-3',
     'depends': [
-        'base'
+        'base','hr'
     ],
     'data': [
+        'data/animalspecies_data.xml',
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
-        'views/appointment.xml',
         'views/veterinary_pet.xml',
+        'views/appointment.xml',
+        'views/allergy.xml',
+        'views/animalspecies.xml',
+        'views/insurance.xml',
+        'views/surgeries.xml',
     ],
     'application': False,
     'installable': True,

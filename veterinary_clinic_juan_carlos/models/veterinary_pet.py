@@ -16,12 +16,12 @@ class VeterinaryPet(models.Model):
     weight = fields.Float(string="Weight")
     age = fields.Integer(string="Age")
     number_pet = fields.Char(string="Number Pet")
-    species = fields.Selection([
-        ("cat", "Cat"),
-        ("dog", "Dog"),
-        ("other", "Other"),
-        ("bird", "Bird"),
-    ])
+    # species = fields.Selection([
+    #     ("cat", "Cat"),
+    #     ("dog", "Dog"),
+    #     ("other", "Other"),
+    #     ("bird", "Bird"),
+    # ])
     vaccinated = fields.Boolean(string="Vaccinated")
     last_vaccination_date = fields.Date(string="Last Vaccination Date")
     

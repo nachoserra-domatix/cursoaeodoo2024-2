@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="veterinary_surgeries_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.surgeries.view.tree</field>
+        <field name="model">veterinary.surgeries</field>
+        <field name="arch" type="xml">
+            <tree string="Veterinary Surgeries">
+                <field name="name"/>
+                <field name="pet_id"/>
+                <field name="doctor"/>
+                <field name="surgerie_date"/>
+                <field name="surgerie_date_state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_surgeries_view_form" model="ir.ui.view">
+        <field name="name">veterinary.surgeries.view.form</field>
+        <field name="model">veterinary.surgeries</field>
+        <field name="arch" type="xml">
+            <form string="Surgeries">
+            <header>
+                <button string="Scheduled" invisible="surgerie_date_state in ('scheduled')" name="action_scheduled" type="object" class="btn-primary"/>
+                <button string="In Progress" invisible="surgerie_date_state in ('in_progress')" name="action_in_progress" type="object" class="btn-warning"/>
+                <button string="Completed" invisible="surgerie_date_state in ('completed')" name="action_completed" type="object" class="btn-success"/>
+            <field name="surgerie_date_state" options="{'clickable':1}" widget="statusbar"/>
+            </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="pet_id"/>
+                            <field name="doctor"/>
+                        </group>
+                        <group>
+                            <field name="surgerie_date"/>
+                            <field name="surgerie_date_state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_surgeries_action" model="ir.actions.act_window">
+        <field name="name">Surgeries</field>
+        <field name="res_model">veterinary.surgeries</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="veterinary_surgeries_menu"
+        name="Surgeries"
+        action="veterinary_surgeries_action"
+        parent="veterinary_management_menu"
+        sequence="50"/>
+
+</odoo>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0-20240904\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 18:34+0000\n"
-"PO-Revision-Date: 2024-11-13 18:34+0000\n"
+"POT-Creation-Date: 2024-11-14 16:25+0000\n"
+"PO-Revision-Date: 2024-11-14 16:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,263 +34,434 @@ msgstr ""
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__age
 msgid "Age"
-msgstr "Edad"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_allergy_action
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_allergy_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_allergy_view_tree
+msgid "Allergies"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_allergy_view_form
+msgid "Allergy"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__allergy_description
+msgid "Allergy description"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_animalspecies_action
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_animalspecies_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_animalspecies_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_animalspecies_view_tree
+msgid "Animal Species"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_appointment_action
 #: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_appointment_menu
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
 msgid "Appointment"
-msgstr "Cita"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__appointment_date
 msgid "Appointment Date"
-msgstr "Fecha de la cita"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_tree
 msgid "Appointments"
-msgstr "Citas"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
 msgid "Back to draft"
-msgstr "Volver a borrador"
-
-#. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__bird
-msgid "Bird"
-msgstr "Ave"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__birthdate
 msgid "Birthdate"
-msgstr "Fecha de nacimiento"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_pet__birthdate
 msgid "Birthdate of the pet"
-msgstr "Fecha de nacimiento de la mascota"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__cancelled
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
 msgid "Cancelled"
-msgstr "Cancelado"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__cat
-msgid "Cat"
-msgstr "Gato"
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_surgeries__surgerie_date_state__completed
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_surgeries_view_form
+msgid "Completed"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__coverage_details
+msgid "Coverage Details"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model_terms:ir.actions.act_window,help:veterinary_clinic_juan_carlos.veterinary_appointment_action
 msgid "Create a new Appointment"
-msgstr "Crear una nueva cita"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model_terms:ir.actions.act_window,help:veterinary_clinic_juan_carlos.veterinary_pet_action
 msgid "Create a new pet"
-msgstr "Crear una nueva mascota"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_animalspecies__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_animalspecies__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_surgeries__surgerie_date_state
+msgid "Current status of the surgery"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__appointment_date
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_surgeries__surgerie_date
 msgid "Date and time"
-msgstr "Fecha y hora"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_animalspecies__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__display_name
 msgid "Display Name"
-msgstr "Nombre para mostrar"
-
-#. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__dog
-msgid "Dog"
-msgstr "Perro"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__done
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
-#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
 msgid "Done"
-msgstr "Realizado"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__draft
 msgid "Draft"
-msgstr "Borrador"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__duration
 msgid "Duration (minutes)"
-msgstr "Duración (minutos)"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__duration
 msgid "Duration minutes"
-msgstr "Duración en minutos"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__expiration_date
+msgid "Expiration Date"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
 msgid "Generate number chip"
-msgstr "Generar número de chip"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__id
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_animalspecies__id
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__id
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__id
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__id
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_surgeries__surgerie_date_state__in_progress
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_surgeries_view_form
+msgid "In Progress"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_allergy__severity_level
+msgid "Indicates the severity level of the allergy"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_insurance_action
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_insurance_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_insurance_view_form
+msgid "Insurance"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__insurance_company
+msgid "Insurance company name"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_animalspecies__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__write_uid
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_animalspecies__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__write_date
 msgid "Last Updated on"
-msgstr "Última actualización el"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__last_vaccination_date
 msgid "Last Vaccination Date"
-msgstr "Fecha de última vacunación"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_clinic_menu
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_management_menu
 msgid "Management"
-msgstr "Gestión"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__manager
+#: model:res.groups,name:veterinary_clinic_juan_carlos.veterinary_clinic_groups_manager
 msgid "Manager"
-msgstr "Administrador"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_allergy__severity_level__mild
+msgid "Mild"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_allergy__severity_level__moderate
+msgid "Moderate"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__name
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_animalspecies__name
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__name
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__name
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__name
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_allergy__name
+msgid "Name of the allergy"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_pet__name
 msgid "Name of the pet"
-msgstr "Nombre de la mascota"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_surgeries__name
+msgid "Name of the surgerie"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__number_pet
 msgid "Number Pet"
-msgstr "Número de la mascota"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_pet__species__other
-msgid "Other"
-msgstr "Otro"
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__pet_id
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__pet_id
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_tree
+msgid "Pet"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_pet_action
-#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
-msgid "Pet"
-msgstr "Mascota"
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_pet_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
+msgid "Pets"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_pet_menu
-msgid "Pets"
-msgstr "Mascotas"
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__policy_number
+msgid "Policy Number"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+msgid "Reason"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__reason
-msgid "Reason"
-msgstr "Razón"
-
-#. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__reason
 msgid "Reason for Appointment"
-msgstr "Razón de la cita"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__responsible
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__user_id
 msgid "Responsible"
-msgstr "Responsable"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_surgeries__surgerie_date_state__scheduled
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_surgeries_view_form
+msgid "Scheduled"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__sequence
-#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__sequence
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_allergy__severity_level__severe
+msgid "Severe"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_allergy__severity_level
+msgid "Severity Level"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__solution
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
 msgid "Solution"
-msgstr "Solución"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__solution
 msgid "Solution to the problem"
-msgstr "Solución al problema"
-
-#. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__species
-msgid "Species"
-msgstr "Especie"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__state
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__surgerie_date_state
 msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_insurance__status_expired
+msgid "Status of insurance"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__surgerie_date
+msgid "Surgerie Date"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_surgeries_action
+#: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_surgeries_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_surgeries_view_form
+msgid "Surgeries"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__urgency
 msgid "Urgent"
-msgstr "Urgente"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_appointment__user
+#: model:res.groups,name:veterinary_clinic_juan_carlos.veterinary_clinic_groups_user
 msgid "User"
-msgstr "Usuario"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__vaccinated
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_pet_view_form
 msgid "Vaccinated"
-msgstr "Vacunado"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_appointment_action
+#: model:ir.model,name:veterinary_clinic_juan_carlos.model_veterinary_appointment
 msgid "Veterinary Appointment"
-msgstr "Cita Veterinaria"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
+#: model:ir.module.category,name:veterinary_clinic_juan_carlos.veterinary_clinic_category
 #: model:ir.ui.menu,name:veterinary_clinic_juan_carlos.veterinary_clinic_menu
 msgid "Veterinary Clinic"
-msgstr "Clínica Veterinaria"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.actions.act_window,name:veterinary_clinic_juan_carlos.veterinary_pet_action
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_insurance_view_tree
+msgid "Veterinary Insurance"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model,name:veterinary_clinic_juan_carlos.model_veterinary_pet
 msgid "Veterinary Pet"
-msgstr "Mascota Veterinaria"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model,name:veterinary_clinic_juan_carlos.model_veterinary_surgeries
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_surgeries_view_tree
+msgid "Veterinary Surgeries"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model,name:veterinary_clinic_juan_carlos.model_veterinary_allergy
+msgid "Veterinary allergy"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model,name:veterinary_clinic_juan_carlos.model_veterinary_animalspecies
+msgid "Veterinary animalspecies"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model,name:veterinary_clinic_juan_carlos.model_veterinary_insurance
+msgid "Veterinary insurance"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_pet__weight
 msgid "Weight"
-msgstr "Peso"
+msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
 #: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__state
-msgid "current status of the appointment..."
-msgstr "estado actual de la cita..."
+msgid "current status of the appointment"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,field_description:veterinary_clinic_juan_carlos.field_veterinary_surgeries__doctor
+msgid "doctor"
+msgstr ""
+
+#. module: veterinary_clinic_juan_carlos
+#: model:ir.model.fields,help:veterinary_clinic_juan_carlos.field_veterinary_appointment__reason
+msgid "reason"
+msgstr ""
