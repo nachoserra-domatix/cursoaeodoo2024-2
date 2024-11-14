@@ -8,14 +8,19 @@
     'license': 'LGPL-3',
     'category': '',
     'depends': [
-        'base'
+        'base','hr'
     ],
     'data':[ 
         'security/res_groups.xml',
         'security/ir_rule.xml',
         'security/ir.model.access.csv',
         'views/veterinary_pet.xml',
+        'views/veterinary_species.xml',
         'views/veterinary_appointment.xml',
+        'views/veterinary_surgery.xml',
+        'views/veterinary_allergy.xml',
+        'views/veterinary_insurance.xml',
+        'data/veterinary_species_data.xml',
     ],
     'application': False,
     'installable':True,

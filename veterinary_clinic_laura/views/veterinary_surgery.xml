@@ -1,0 +1,57 @@
+<odoo>
+    <record id="veterinary_surgery_action" model="ir.actions.act_window">
+        <field name="name">Surgeries</field>
+        <field name="res_model">veterinary.surgery</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new surgery</p>
+        </field>
+    </record>
+    
+    <record id="veterinary_surgery_view_form" model="ir.ui.view">
+        <field name="name">veterinary.surgery.view.form</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <form string="Surgery">
+                <header>
+                    <button string="Doing Surgery" invisible="state in ('doing','finish')" name="action_doing" type="object" class="btn-primary"/>
+                    <button string="Finish Surgery" invisible="state in ('finish','wait')" name="action_finish" type="object" class="btn-secondary"/>
+                    <button string="Wait Surgery" invisible="state in ('wait')" name="action_wait" type="object" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="pet_id"/>
+                        <field name="employee_id"/>
+                        <field name="surgery_date"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_surgery_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.surgery.view.tree</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <tree string="Surgery">
+                <field name="name" optional="show"/>
+                <field name="pet_id" optional="show"/>
+                <field name="employee_id" optional="show"/>
+                <field name="surgery_date" optional="hide"/>
+                <field name="state" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem
+        id="veterinary_surgery_menu"
+        name="Surgeries"
+        action="veterinary_surgery_action"
+        parent="veterinary_management_menu"
+        sequence="50"/>
+
+</odoo>

@@ -1,0 +1,57 @@
+<odoo>
+    <record id="veterinary_insurance_action" model="ir.actions.act_window">
+        <field name="name">Insurances</field>
+        <field name="res_model">veterinary.insurance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new insurance</p>
+        </field>
+    </record>
+    
+    <record id="veterinary_insurance_view_form" model="ir.ui.view">
+        <field name="name">veterinary.insurance.view.form</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="arch" type="xml">
+            <form string="Insurance">
+                <header>
+                    <button string="Check expiration date" name="check_insurance_date" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="pet_id"/>
+                        <field name="insurance_company"/>
+                        <field name="cover_details"/>
+                        <field name="expiration_date"/>
+                        <field name="expired"/>                
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_surgery_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.insurance.view.tree</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="arch" type="xml">
+            <tree string="Allergy">
+                <field name="name" optional="show"/>
+                <field name="pet_id" optional="show"/>
+                <field name="insurance_company" optional="show"/>
+                <field name="cover_details" optional="hide"/>
+                <field name="expiration_date" optional="hide"/>
+                <field name="expired" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem
+        id="veterinary_insurance_menu"
+        name="Insurances"
+        action="veterinary_insurance_action"
+        parent="veterinary_management_menu"
+        sequence="30"/>
+
+</odoo>
