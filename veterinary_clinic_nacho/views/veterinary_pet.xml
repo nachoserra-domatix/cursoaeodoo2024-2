@@ -8,7 +8,7 @@
         <tree multi_edit="1" string="Pets">
             <field name="name" optional="show"/>
             <field name="pet_number" optional="show"/>
-            <field name="species" optional="show"/>
+            <field name="species_id" optional="show"/>
             <field name="birthdate" optional="hide"/>
             <field name="age" optional="hide"/>
             <field name="weight" optional="hide"/>
@@ -38,7 +38,7 @@
                     <field name="vaccinated" widget="boolean_toggle"/>
                     <field name="last_vaccination_date"/>
                     <field name="pet_number"/>
-                    <field name="species"/>
+                    <field name="species_id"/>
                 </group>
                 <group>
                     <field name="birthdate"/>
@@ -79,7 +79,7 @@
     parent="veterinary_management_menu"
     sequence="10"/> -->
 
-<menuitem id="veterinary_clinic_menu" name="Veterinary Clinic" sequence="10">
+<menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_nacho,static/img/logo.png" name="Veterinary Clinic" sequence="10">
     <menuitem id="veterinary_management_menu" name="Management" sequence="10">
         <menuitem id="veterinary_pet_menu" action="veterinary_pet_action" name="Pets" sequence="20"/>
     </menuitem>

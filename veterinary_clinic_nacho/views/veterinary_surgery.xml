@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="veterinary_surgery_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.surgery.view.tree</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <tree string="Surgery">
+                <field name="name"/>
+                <field name="pet_id"/>
+                <field name="employee_id"/>
+                <field name="surgery_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_surgery_view_form" model="ir.ui.view">
+        <field name="name">veterinary.surgery.view.form</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <form string="Surgery">
+            <header>
+            <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
+            <button string="Done" invisible="state in ('done')" name="action_done" type="object" class="btn-success"/>
+            <field name="state" options="{'clickable':1}" widget="statusbar"/>
+            </header>
+                <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name" placeholder="Surgery to do"/>
+                    </h1>
+                </div>
+                    <group>
+                        <field name="pet_id"/>
+                        <field name="employee_id"/>
+                        <field name="surgery_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_surgery_action" model="ir.actions.act_window">
+        <field name="name">Surgery</field>
+        <field name="res_model">veterinary.surgery</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a new surgery</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="veterinary_surgery_menu"
+        name="Surgery"
+        action="veterinary_surgery_action"
+        parent="veterinary_management_menu"
+        sequence="40"/>
+
+</odoo>
