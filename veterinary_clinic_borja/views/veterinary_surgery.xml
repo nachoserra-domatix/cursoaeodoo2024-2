@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="veterinary_surgery_view_tree" model="ir.ui.view">
+        <field name="name">veterinary_surgery.view.tree</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <tree string="Surgeris">
+                <field name="pet_id"/>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="surgery_date"/>                
+                <field name="status" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+    <record id="veterinary_surgery_view_form" model="ir.ui.view">
+        <field name="name">veterinary_surgery.view.form</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="arch" type="xml">
+            <form string="Surgery">
+                <header>
+                    <field name="status" options="{'clickable':1}" widget="statusbar"/>
+                    <button string="Back to draft" invisible="status in ('draft')" name="action_draft" type="object" class="btn-info"/>
+                    <button string="In progress" invisible="status in ('in_progress', 'done')" name="action_in_progress" type="object" class="btn-outline-warning"/>
+                    <button string="Done" invisible="status in ('done', 'cancelled')" name="action_done" type="object" class="btn-success"/>
+                    <button string="Cancelled" invisible="status in ('cancelled')" name="action_cancelled" type="object" class="btn-danger"/>
+                    <button string="Set other status" invisible="status in ('other')" name="action_other" type="object" class="btn-warning"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="pet_id" />
+                            <field name="employee_id" />                          
+                        </group>
+                        <group>
+                            <field name="surgery_date" />                         
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="veterinary_surgery_action" model="ir.actions.act_window">
+        <field name="name">Surgery</field>
+        <field name="res_model">veterinary.surgery</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new surgery
+        </p>
+        </field>
+    </record>
+   
+    <menuitem
+        id="veterinary_surgery_menu"
+        name="Surgery"
+        action="veterinary_surgery_action"
+        parent="veterinary_management_menu"
+        sequence="40"/>
+</odoo>

@@ -10,7 +10,7 @@
                 <field name="weight" optional="show"/>
                 <field name="age" optional="show"/>
                 <field name="pet_number" optional="show"/>
-                <field name="species" widget="badge" optional="hide"/>
+                <field name="species_id" widget="badge" optional="hide"/>
             </tree>
         </field>
     </record>
@@ -37,7 +37,7 @@
                         </group>
                         <group>
                             <field name="pet_number" />
-                            <field name="species" />
+                            <field name="species_id" />
                             <field name="last_vaccination_date" />
                         </group>
                     </group>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 16:41+0000\n"
-"PO-Revision-Date: 2024-11-13 16:41+0000\n"
+"POT-Creation-Date: 2024-11-14 16:31+0000\n"
+"PO-Revision-Date: 2024-11-14 16:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -57,6 +57,18 @@ msgid "All to draft"
 msgstr "Todas a borrador"
 
 #. module: veterinary_clinic_borja
+#: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_allergy_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_allergy_view_tree
+msgid "Allergis"
+msgstr "Alergias"
+
+#. module: veterinary_clinic_borja
+#: model:ir.actions.act_window,name:veterinary_clinic_borja.veterinary_allergy_action
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_allergy_view_form
+msgid "Allergy"
+msgstr "Alergia"
+
+#. module: veterinary_clinic_borja
 #: model:ir.actions.act_window,name:veterinary_clinic_borja.veterinary_appointment_action
 #: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_appointment_menu
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
@@ -70,13 +82,9 @@ msgstr "Citas"
 
 #. module: veterinary_clinic_borja
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_surgery_view_form
 msgid "Back to draft"
 msgstr "Volver a borrador"
-
-#. module: veterinary_clinic_borja
-#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_pet__species__bird
-msgid "Bird"
-msgstr "Pájaro"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__birthdate
@@ -90,19 +98,36 @@ msgstr "Fecha de nacimiento de la mascota"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_appointment__status__cancelled
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_surgery__status__cancelled
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_surgery_view_form
 msgid "Cancelled"
 msgstr "Cancelada"
 
 #. module: veterinary_clinic_borja
-#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_pet__species__cat
-msgid "Cat"
-msgstr "Gato"
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_insurance_view_form
+msgid "Check is expired"
+msgstr "Comprueba vencimiento"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_pet__pet_number
 msgid "Chip number of the pet"
 msgstr "Número de chip de la mascota"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__code
+msgid "Code"
+msgstr "Código"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_species__code
+msgid "Code of the species"
+msgstr "Código de la especie"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_borja.veterinary_allergy_action
+msgid "Create a new Allergy"
+msgstr "Crear una nueva alergia"
 
 #. module: veterinary_clinic_borja
 #: model_terms:ir.actions.act_window,help:veterinary_clinic_borja.veterinary_appointment_action
@@ -115,41 +140,83 @@ msgid "Create a new Pet"
 msgstr "Crear una nueva mascota"
 
 #. module: veterinary_clinic_borja
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_borja.veterinary_species_action
+msgid "Create a new Species"
+msgstr "Crear una nueva especie"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_borja.veterinary_insurance_action
+msgid "Create a new insurance"
+msgstr "Crear un nuevo seguro"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_borja.veterinary_surgery_action
+msgid "Create a new surgery"
+msgstr "Crear una nueva cirugía"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__create_date
 msgid "Created on"
 msgstr "Creado el"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__expiration_date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__surgery_date
 msgid "Date"
 msgstr "Fecha"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_surgery__surgery_date
+msgid "Date of the surgery"
+msgstr "Fecha de la cirugía"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__coverage_details
+msgid "Details"
+msgstr "Detalles"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
 #. module: veterinary_clinic_borja
-#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_pet__species__dog
-msgid "Dog"
-msgstr "Perro"
-
-#. module: veterinary_clinic_borja
 #: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_appointment__status__done
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_surgery__status__done
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_surgery_view_form
 msgid "Done"
 msgstr "Hecho"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_appointment__status__draft
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_surgery__status__draft
 msgid "Draft"
 msgstr "Borrador"
 
@@ -164,20 +231,61 @@ msgid "Duration in minutes"
 msgstr "Duración en minutos"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__expired
+msgid "Expired"
+msgstr "Vencido"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_allergy__severity_degree__high
+msgid "High"
+msgstr "Alta"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__id
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__id
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__id
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__id
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__id
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__id
 msgid "ID"
 msgstr "ID"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_surgery__status__in_progress
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_surgery_view_form
+msgid "In progress"
+msgstr "En progreso"
+
+#. module: veterinary_clinic_borja
+#: model:ir.actions.act_window,name:veterinary_clinic_borja.veterinary_insurance_action
+#: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_insurance_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_insurance_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_insurance_view_tree
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__insurance_company
+msgid "Insurance Company"
+msgstr "Compañía de seguros"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
@@ -185,6 +293,11 @@ msgstr "Última actualización el"
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__last_vaccination_date
 msgid "Last Vaccination Date"
 msgstr "Última fecha de vacunación"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_allergy__severity_degree__low
+msgid "Low"
+msgstr "Baja"
 
 #. module: veterinary_clinic_borja
 #: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_management_menu
@@ -197,10 +310,18 @@ msgid "Manager"
 msgstr "Gerente"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__name
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__name
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__name
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_species__name
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_allergy__name
+msgid "Name of the allergy"
+msgstr "Nombre de la alergia"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_pet__name
@@ -208,12 +329,29 @@ msgid "Name of the pet"
 msgstr "Nombre de la mascota"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_species__name
+msgid "Name of the species"
+msgstr "Nombre de la especie"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,help:veterinary_clinic_borja.field_veterinary_surgery__name
+msgid "Name of the surgery"
+msgstr "Nombre de la cirugía"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_allergy__severity_degree__normal
+msgid "Normal"
+msgstr "Normal"
+
+#. module: veterinary_clinic_borja
 #: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_appointment__status__other
-#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_pet__species__other
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_surgery__status__other
 msgid "Other"
 msgstr "Otro"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__pet_id
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__pet_id
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_pet_view_form
 msgid "Pet"
 msgstr "Mascota"
@@ -231,6 +369,11 @@ msgid "Pets"
 msgstr "Mascotas"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_insurance__policy_number
+msgid "Policy"
+msgstr "Poliza"
+
+#. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__reason
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
 msgid "Reason"
@@ -238,6 +381,7 @@ msgstr "Razón"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__user_id
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__employee_id
 msgid "Responsible"
 msgstr "Responsable"
 
@@ -248,8 +392,14 @@ msgstr "Secuencia"
 
 #. module: veterinary_clinic_borja
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_surgery_view_form
 msgid "Set other status"
 msgstr "Establecer otro estado"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_allergy__severity_degree
+msgid "Severity degree"
+msgstr "Grado de severidad"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__solution
@@ -258,14 +408,31 @@ msgid "Solution"
 msgstr "Solución"
 
 #. module: veterinary_clinic_borja
-#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__species
+#: model:ir.actions.act_window,name:veterinary_clinic_borja.veterinary_species_action
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__species_id
+#: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_species_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_species_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_species_view_tree
 msgid "Species"
 msgstr "Especie"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__status
+#: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_surgery__status
 msgid "Status"
 msgstr "Estado"
+
+#. module: veterinary_clinic_borja
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_surgery_view_tree
+msgid "Surgeris"
+msgstr "Cirugias"
+
+#. module: veterinary_clinic_borja
+#: model:ir.actions.act_window,name:veterinary_clinic_borja.veterinary_surgery_action
+#: model:ir.ui.menu,name:veterinary_clinic_borja.veterinary_surgery_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_borja.veterinary_surgery_view_form
+msgid "Surgery"
+msgstr "Cirugía"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_appointment__urgency
@@ -284,6 +451,16 @@ msgid "Vaccinated"
 msgstr "Vacunada"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model.fields.selection,name:veterinary_clinic_borja.selection__veterinary_allergy__severity_degree__very_high
+msgid "Very high"
+msgstr "Muy alta"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model,name:veterinary_clinic_borja.model_veterinary_allergy
+msgid "Veterinary Allergy"
+msgstr "Alergias veterinarias"
+
+#. module: veterinary_clinic_borja
 #: model:ir.model,name:veterinary_clinic_borja.model_veterinary_appointment
 msgid "Veterinary Appointment"
 msgstr "Cita Veterinaria"
@@ -295,9 +472,24 @@ msgid "Veterinary Clinic"
 msgstr "Clínica Veterinaria"
 
 #. module: veterinary_clinic_borja
+#: model:ir.model,name:veterinary_clinic_borja.model_veterinary_insurance
+msgid "Veterinary Insurance"
+msgstr "Seguros veterinarios"
+
+#. module: veterinary_clinic_borja
 #: model:ir.model,name:veterinary_clinic_borja.model_veterinary_pet
 msgid "Veterinary Pet"
 msgstr "Mascota Veterinaria"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model,name:veterinary_clinic_borja.model_veterinary_species
+msgid "Veterinary Species"
+msgstr "Especies"
+
+#. module: veterinary_clinic_borja
+#: model:ir.model,name:veterinary_clinic_borja.model_veterinary_surgery
+msgid "Veterinary Surgery"
+msgstr "Cirugias veterinarias"
 
 #. module: veterinary_clinic_borja
 #: model:ir.model.fields,field_description:veterinary_clinic_borja.field_veterinary_pet__weight
