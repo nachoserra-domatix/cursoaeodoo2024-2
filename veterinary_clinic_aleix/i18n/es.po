@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 16:26+0000\n"
-"PO-Revision-Date: 2024-11-13 16:26+0000\n"
+"POT-Creation-Date: 2024-11-15 17:16+0000\n"
+"PO-Revision-Date: 2024-11-15 17:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,11 @@ msgid ""
 msgstr ""
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: veterinary_clinic_aleix
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__age
 msgid "Age"
 msgstr "Edad"
@@ -42,21 +47,28 @@ msgid "Age of the pet"
 msgstr "Edad de la mascota"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.actions.act_window,name:veterinary_clinic_aleix.veterinary_allergy_action
+#: model:ir.ui.menu,name:veterinary_clinic_aleix.veterinary_allergy_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_allergy_tree_view
+msgid "Allergies"
+msgstr "Alergias"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_allergy_view_form
+msgid "Allergy"
+msgstr "Alergia"
+
+#. module: veterinary_clinic_aleix
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
 msgid "Appointment"
 msgstr "Cita"
 
 #. module: veterinary_clinic_aleix
-#: model:ir.actions.act_window,name:veterinary_clinic_aleix.veterinary_pet_appointment
+#: model:ir.actions.act_window,name:veterinary_clinic_aleix.veterinary_appointment_action
 #: model:ir.ui.menu,name:veterinary_clinic_aleix.veterinary_appointment_menu
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_tree_view
 msgid "Appointments"
 msgstr "Citas"
-
-#. module: veterinary_clinic_aleix
-#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_pet__species__bird
-msgid "Bird"
-msgstr "Pájaro"
 
 #. module: veterinary_clinic_aleix
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__birthday
@@ -70,19 +82,41 @@ msgstr "Cumpleaños de la mascota"
 
 #. module: veterinary_clinic_aleix
 #: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_appointment__state__cancelled
+#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_surgery__state__cancelled
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_surgery_view_form
 msgid "Cancelled"
 msgstr "Cancelado"
 
 #. module: veterinary_clinic_aleix
-#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_pet__species__cat
-msgid "Cat"
-msgstr "Gato"
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_insurance_view_form
+msgid "Check Expiration Date"
+msgstr "Comprobar fecha de expiración"
 
 #. module: veterinary_clinic_aleix
-#: model_terms:ir.actions.act_window,help:veterinary_clinic_aleix.veterinary_pet_appointment
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_insurance_view_form
+msgid "Coverage Details"
+msgstr "Detalles de la cobertura"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__coverage_details
+msgid "Coverage details"
+msgstr "Detalles de la cobertura"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_aleix.veterinary_allergy_action
+msgid "Create a new allergy"
+msgstr "Crear una nueva alergia"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_aleix.veterinary_appointment_action
 msgid "Create a new appointment"
 msgstr "Crear una nueva cita"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_aleix.veterinary_insurance_action
+msgid "Create a new insurance"
+msgstr "Crear un nuevo seguro"
 
 #. module: veterinary_clinic_aleix
 #: model_terms:ir.actions.act_window,help:veterinary_clinic_aleix.veterinary_pet_action
@@ -90,14 +124,32 @@ msgid "Create a new pet"
 msgstr "Crear nueva mascota"
 
 #. module: veterinary_clinic_aleix
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_aleix.veterinary_species_action
+msgid "Create a new species"
+msgstr "Crear una nueva especie"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_aleix.veterinary_surgery_action
+msgid "Create a new surgery"
+msgstr "Crear una nueva cirugía"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_species__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_species__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__create_date
 msgid "Created on"
 msgstr "Creado en"
 
@@ -107,19 +159,25 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: veterinary_clinic_aleix
-#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__display_name
-#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__display_name
-msgid "Display Name"
-msgstr ""
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__description
+msgid "Description"
+msgstr "Descripción"
 
 #. module: veterinary_clinic_aleix
-#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_pet__species__dog
-msgid "Dog"
-msgstr "Perro"
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_species__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
 
 #. module: veterinary_clinic_aleix
 #: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_appointment__state__done
+#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_surgery__state__done
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_surgery_view_form
 msgid "Done"
 msgstr "Hecho"
 
@@ -140,20 +198,75 @@ msgid "Duration in minutes"
 msgstr "Duración en minutos"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__expiration_date
+msgid "Expiration date"
+msgstr "Fecha de expiración"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__expired
+msgid "Expired"
+msgstr ""
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_allergy__severity_degree__high
+msgid "High"
+msgstr ""
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__id
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__id
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__id
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__id
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_species__id
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__id
 msgid "ID"
 msgstr ""
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_surgery__state__in_progress
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_surgery_view_form
+msgid "In progress"
+msgstr "En curso"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_insurance_view_form
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__insurance_company
+msgid "Insurance Company"
+msgstr "Compañía aseguradora"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.actions.act_window,name:veterinary_clinic_aleix.veterinary_insurance_action
+#: model:ir.ui.menu,name:veterinary_clinic_aleix.veterinary_insurance_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_insurance_tree_view
+msgid "Insurances"
+msgstr "Seguros"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_species__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_species__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -163,6 +276,11 @@ msgid "Last Vaccination Date"
 msgstr "Última fecha de vacunación"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_allergy__severity_degree__low
+msgid "Low"
+msgstr "Bajo"
+
+#. module: veterinary_clinic_aleix
 #: model:ir.ui.menu,name:veterinary_clinic_aleix.veterinary_management_menu
 msgid "Management"
 msgstr "Gestión"
@@ -170,11 +288,19 @@ msgstr "Gestión"
 #. module: veterinary_clinic_aleix
 #: model:res.groups,name:veterinary_clinic_aleix.veterinary_clinic_groups_manager
 msgid "Manager"
-msgstr "Manager"
+msgstr ""
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_allergy__severity_degree__medium
+msgid "Medium"
+msgstr "Medio"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__name
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__name
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__name
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_species__name
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__name
 msgid "Name"
 msgstr "Nombre"
 
@@ -184,16 +310,44 @@ msgid "Name of the pet"
 msgstr "Nombre de la mascota"
 
 #. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_allergy_view_form
+msgid "New Allergy"
+msgstr "Nueva alergia"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
+msgid "New Appointment"
+msgstr "Nueva cita"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_pet_view_form
+msgid "New Pet"
+msgstr "Nueva mascota"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_species_view_form
+msgid "New Species"
+msgstr "Nueva especie"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_surgery_view_form
+msgid "New Surgery"
+msgstr "Nueva cirugía"
+
+#. module: veterinary_clinic_aleix
 #: model:ir.model.fields,help:veterinary_clinic_aleix.field_veterinary_pet__pet_number
 msgid "Number of the pet"
 msgstr "Número de la mascota"
 
 #. module: veterinary_clinic_aleix
-#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_pet__species__other
-msgid "Other"
-msgstr "Otros"
+#: model:ir.model.fields.selection,name:veterinary_clinic_aleix.selection__veterinary_surgery__state__pending
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_surgery_view_form
+msgid "Pending"
+msgstr "Pendiente"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__pet_id
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__pet_id
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_pet_view_form
 msgid "Pet"
 msgstr "Mascota"
@@ -211,7 +365,18 @@ msgid "Pets"
 msgstr "Mascotas"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_insurance__policy_number
+msgid "Policy Number"
+msgstr "Número de póliza"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_pet_view_form
+msgid "Random Pet Number"
+msgstr "Número de mascota aleatorio"
+
+#. module: veterinary_clinic_aleix
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__reason
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
 msgid "Reason"
 msgstr "Motivo"
 
@@ -221,24 +386,53 @@ msgid "Responsible"
 msgstr "Responsable"
 
 #. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_insurance_view_form
+msgid "Select Pet"
+msgstr "Seleccionar mascota"
+
+#. module: veterinary_clinic_aleix
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__sequence
 msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: veterinary_clinic_aleix
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__solution
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
 msgid "Solution"
 msgstr "Solución"
 
 #. module: veterinary_clinic_aleix
-#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__species
+#: model:ir.actions.act_window,name:veterinary_clinic_aleix.veterinary_species_action
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__species_id
+#: model:ir.ui.menu,name:veterinary_clinic_aleix.veterinary_species_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_species_tree_view
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_species_view_form
 msgid "Species"
 msgstr "Especies"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_allergy__severity_degree
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__state
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__state
 msgid "State"
 msgstr "Estado"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.actions.act_window,name:veterinary_clinic_aleix.veterinary_surgery_action
+#: model:ir.ui.menu,name:veterinary_clinic_aleix.veterinary_surgery_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_surgery_tree_view
+msgid "Surgeries"
+msgstr "Cirugías"
+
+#. module: veterinary_clinic_aleix
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_surgery_view_form
+msgid "Surgery"
+msgstr "Cirugía"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_surgery__surgery_date
+msgid "Surgery date"
+msgstr "Fecha de la cirugía"
 
 #. module: veterinary_clinic_aleix
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_appointment__urgency
@@ -257,10 +451,25 @@ msgid "Vaccinated"
 msgstr "Vacunado"
 
 #. module: veterinary_clinic_aleix
+#: model:ir.model,name:veterinary_clinic_aleix.model_veterinary_allergy
+msgid "Veterinary Allergy"
+msgstr "Alergia veterinaria"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model,name:veterinary_clinic_aleix.model_veterinary_appointment
+msgid "Veterinary Appointment"
+msgstr "Cita veterinaria"
+
+#. module: veterinary_clinic_aleix
 #: model:ir.module.category,name:veterinary_clinic_aleix.veterinary_clinic_category
 #: model:ir.ui.menu,name:veterinary_clinic_aleix.veterinary_clinic_menu
 msgid "Veterinary Clinic"
 msgstr "Clínica veterinaria"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model,name:veterinary_clinic_aleix.model_veterinary_insurance
+msgid "Veterinary Insurance"
+msgstr "Seguro veterinario"
 
 #. module: veterinary_clinic_aleix
 #: model:ir.model,name:veterinary_clinic_aleix.model_veterinary_pet
@@ -268,9 +477,14 @@ msgid "Veterinary Pet"
 msgstr "Mascota veterinaria"
 
 #. module: veterinary_clinic_aleix
-#: model:ir.model,name:veterinary_clinic_aleix.model_veterinary_appointment
-msgid "Veterinary appointment"
-msgstr "Cita veterinaria"
+#: model:ir.model,name:veterinary_clinic_aleix.model_veterinary_species
+msgid "Veterinary Species"
+msgstr "Especies veterinarias"
+
+#. module: veterinary_clinic_aleix
+#: model:ir.model,name:veterinary_clinic_aleix.model_veterinary_surgery
+msgid "Veterinary Surgery"
+msgstr "Cirugía veterinaria"
 
 #. module: veterinary_clinic_aleix
 #: model:ir.model.fields,field_description:veterinary_clinic_aleix.field_veterinary_pet__weight
@@ -281,13 +495,3 @@ msgstr "Peso"
 #: model:ir.model.fields,help:veterinary_clinic_aleix.field_veterinary_pet__weight
 msgid "Weight of the pet"
 msgstr "Peso de la mascota"
-
-#. module: veterinary_clinic_aleix
-#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
-msgid "reason"
-msgstr ""
-
-#. module: veterinary_clinic_aleix
-#: model_terms:ir.ui.view,arch_db:veterinary_clinic_aleix.veterinary_appointment_view_form
-msgid "solution"
-msgstr ""

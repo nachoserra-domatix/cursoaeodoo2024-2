@@ -14,6 +14,7 @@
     ],
     # load data in order
     'data': [
+        'data/veterinary_species_data.xml',
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',

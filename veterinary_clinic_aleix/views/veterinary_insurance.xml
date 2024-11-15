@@ -24,12 +24,12 @@
             <form string="Insurance">
                 <header>
                     <button
-                        string="Check Expiration Date" name="action_check_expiration_date" type="object" class="btn-warning"/>
+                        string="Check Expiration Date" name="action_check_expiration_date" type="object" class="oe_highlight"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="pet_id"/>
+                            <field name="pet_id" placeholder="Select Pet"/>
                         </h1>
                     </div>
                     <group>

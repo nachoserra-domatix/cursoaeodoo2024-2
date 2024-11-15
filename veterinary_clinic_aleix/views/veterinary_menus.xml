@@ -2,7 +2,8 @@
 <odoo>
 
 <!-- forma anidada -->
-<menuitem id="veterinary_clinic_menu" name="Veterinary Clinic" sequence="10">
+<menuitem id="veterinary_clinic_menu" name="Veterinary Clinic" sequence="10"
+    web_icon="veterinary_clinic_aleix,static/img/logo.png">
     <menuitem id="veterinary_management_menu" name="Management" sequence="10">
         <!-- action pet-->
         <menuitem id="veterinary_pet_menu"
