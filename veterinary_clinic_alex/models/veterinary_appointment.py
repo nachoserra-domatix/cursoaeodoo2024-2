@@ -13,12 +13,13 @@ class VeterinaryAppointment(models.Model):
         ('draft', 'Draft'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
-    ], default='draft', string='State', help='State of the appointment')
+    ], default='draft', string='State', help='State of the appointment', group_expand = '_group_expand_states')
 
     duration = fields.Float(string='Duration', help='Duration of the appointment')
     user_id = fields.Many2one('res.users', string='Responsible', help='Veterinarian in charge of the appointment')
     sequence = fields.Integer(string='Sequence', default = 10)
     urgency = fields.Boolean(string='Urgent', help='Urgent appointment')
+    color = fields.Integer(string='Color')
 
     def action_draft(self):
         for record in self:
@@ -31,3 +32,6 @@ class VeterinaryAppointment(models.Model):
     def action_cancel(self):
         for record in self:
             record.state = 'cancel'
+
+    def _group_expand_states(self,states,domian,order):
+        return [key for key, val in type(self).state.selection]

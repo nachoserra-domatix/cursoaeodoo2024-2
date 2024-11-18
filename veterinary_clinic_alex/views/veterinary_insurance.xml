@@ -7,7 +7,7 @@
         <field name="model">veterinary.insurance</field>
         <field name="arch" type="xml">
             <tree multi_edit = "1" string="Insurance"> <!--multi_edit permite editar varios registros al mismo tiempo--> 
-                <field name="pet_id" widget="handle"></field>
+                <field name="pet_id" widget="handle" ></field>
                 <field name="insurance_company" optional="show"></field>
                 <field name="insurance_number" optional="show"></field>
                 <field name="insurance_expiration_date" optional="show"></field>
@@ -33,7 +33,7 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="pet_id" placeholder="Selecciona la Mascota"></field>
+                            <field name="pet_id" placeholder="Selecciona la Mascota" domain="[('vaccinated','=',True)]"></field>
                         </h1>
                     </div>
                     <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->

@@ -13,8 +13,8 @@ class VeterinarySurgery(models.Model):
         ('pending', 'Pending'),
         ('procces', 'In Procces'),
         ('done', 'Done')
-    ], default='pending', string='State', help='State of the appointment')
-
+    ], default='pending', string='State', help='State of the appointment', group_expand = '_group_expand_states')
+    color = fields.Integer(string="Color")
     
     
     def action_procces(self):
@@ -28,4 +28,7 @@ class VeterinarySurgery(models.Model):
     def action_pending(self):
         for record in self:
             record.surgery_state = 'pending'
+
+    def _group_expand_states(self,states,domian,order):
+        return [key for key, val in type(self).surgery_state.selection]
     
