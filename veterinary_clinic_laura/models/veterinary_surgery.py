@@ -4,6 +4,9 @@ class VeterinarySurgery(models.Model):
     _name = "veterinary.surgery"
     _description = "Veterinary Surgery"
 
+    def _group_expand_states(self, states, domain,order):
+      return [key for key ,val in type(self).state.selection]
+
     name = fields.Char(string='Name',required=True,help='Name of the surgery')
     pet_id = fields.Many2one('veterinary.pet',string="Pet")
     employee_id= fields.Many2one('hr.employee',string="Employee")
@@ -12,7 +15,8 @@ class VeterinarySurgery(models.Model):
         ('wait','Wait'),
         ('doing','Doing'),
         ('finish','Finish'),
-    ],default='wait', string='State')
+    ],default='wait', string='State',group_expand="_group_expand_states")
+    color=fields.Integer(string="color")
 
     def action_doing(self):
         for record in self:
