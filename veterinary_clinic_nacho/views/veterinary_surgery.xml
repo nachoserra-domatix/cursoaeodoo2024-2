@@ -32,7 +32,7 @@
                     </h1>
                 </div>
                     <group>
-                        <field name="pet_id"/>
+                        <field name="pet_id" domain="[('age','>',1),('weight','>',2)]"/>
                         <field name="employee_id"/>
                         <field name="surgery_date"/>
                     </group>
