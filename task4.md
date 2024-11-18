@@ -25,3 +25,6 @@ Añadir un filter_domain para el campo name del search, que consista en filtrar 
 * Filtros de los tres tipos: al escribir, con dominio y con group_by
 * Vista kanban
 * Vistas pivot, gráficos, calendario
+
+## Modelo seguro
+* Domain en mascota, que solo aparezcan los que están vacunados
