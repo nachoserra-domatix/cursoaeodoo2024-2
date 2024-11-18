@@ -11,9 +11,12 @@ class VeterinarySurgery(models.Model):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done')
-    ], default='draft', string='State', help='State of the surgery')
+    ], default='draft', string='State', help='State of the surgery', group_expand='_group_expand_state')
     surgery_date = fields.Datetime(string='Surgery Date', help='Date of the surgery')
+    color = fields.Integer(string='Color', help='Color of the surgery', default=0)
 
+    def _group_expand_state(self, states, domain, order):
+        return [key for key, val in type(self).state.selection]
 
     def action_draft(self):
         for record in self:
