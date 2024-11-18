@@ -32,7 +32,7 @@
                     <group>
                         <group>
                             <field name="company"/>
-                            <field name="pet_id"/>
+                            <field name="pet_id" domain="[('vaccinated', '=', True)]"/>
                             <field name="coverage_details"/>
                         </group>
                         <group>

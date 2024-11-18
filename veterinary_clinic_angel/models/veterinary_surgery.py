@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class VeterinarySurgery(models.Model):
     _name = 'veterinary.surgery'
@@ -13,8 +13,13 @@ class VeterinarySurgery(models.Model):
         ('in_progress', 'In Progress'),
         ('done', 'Done'),
         ('cancelled', 'Cancelled')
-    ], string='Status', default='scheduled')
+    ], string='Status', default='scheduled',group_expand='_group_expand_states')
+    color = fields.Integer(string='Color')
 
+    @api.model
+    def _group_expand_states(self, states, domain, order):
+        return [key for key, val in type(self).state.selection]
+    
     def action_start_surgery(self):
         self.state = 'in_progress'
     

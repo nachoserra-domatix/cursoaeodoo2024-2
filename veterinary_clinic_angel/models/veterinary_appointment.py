@@ -12,11 +12,17 @@ class VeterinaryAppointment(models.Model):
         ('draft', 'Draft'),
         ('done', 'Done'),
         ('cancelled', 'Cancelled')
-    ], string='State', default='draft')
+    ], string='State', default='draft', group_expand='_group_expand_states')
     duration = fields.Float(string='Duration')
     user_id = fields.Many2one('res.users', string='Responsible')
     sequence = fields.Integer(string='Sequence', default=10)
     urgency = fields.Boolean(string='Urgent')
+    color = fields.Integer(string='Color')
+
+
+    @api.model
+    def _group_expand_states(self, states, domain, order):
+        return [key for key, val in type(self).state.selection]
 
     def action_done(self):
         self.state = 'done'
