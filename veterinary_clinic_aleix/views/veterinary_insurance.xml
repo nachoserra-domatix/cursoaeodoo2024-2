@@ -29,7 +29,8 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="pet_id" placeholder="Select Pet"/>
+                            <field name="pet_id" placeholder="Select Pet"
+                             domain="[('vaccinated', '=', True)]"/>
                         </h1>
                     </div>
                     <group>

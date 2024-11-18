@@ -12,12 +12,14 @@ class VeterinaryAppointment(models.Model):
     state = fields.Selection(
         [('draft', 'Draft'), ('done', 'Done'), ('cancelled', 'Cancelled')],
         string='State',
-        default='draft'
+        default='draft',
+        group_expand='_group_expand_states'
     )
     duration = fields.Float(string='Duration (minutes)', help='Duration in minutes')
     user_id = fields.Many2one('res.users', string='Responsible')
     sequence = fields.Integer(string='Sequence')
     urgency = fields.Boolean(string='Urgency')
+    color = fields.Integer(string='Color')
 
     # methods
     def action_draft(self):
@@ -33,3 +35,7 @@ class VeterinaryAppointment(models.Model):
     def action_cancelled(self):
         for record in self:
            record.state = 'cancelled'
+
+    # método odoo para forzar que salgan todos los estados en la vista kanban
+    def _group_expand_states(self, states, domain, order):
+        return [key for key, val in self._fields['state'].selection]

@@ -14,8 +14,11 @@ class VeterinarySurgery(models.Model):
         selection=[('pending', 'Pending'), ('in_progress', 'In progress'), (
             'done', 'Done'), ('cancelled', 'Cancelled')],
         string='State',
-        default='pending'
+        default='pending',
+        group_expand='_group_expand_states'
     )
+    duration = fields.Float(string='Duration (minutes)', help='Duration in minutes')
+    color = fields.Integer(string='Color')
 
     # methods
     def action_pending(self):
@@ -33,3 +36,7 @@ class VeterinarySurgery(models.Model):
     def action_cancelled(self):
         for record in self:
             record.state = 'cancelled'
+
+    # método odoo para forzar que salgan todos los estados en la vista kanban
+    def _group_expand_states(self, states, domain, order):
+        return [key for key, val in self._fields['state'].selection]
