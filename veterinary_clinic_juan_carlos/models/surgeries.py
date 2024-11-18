@@ -13,6 +13,8 @@ class Surgeries(models.Model):
         ('in_progress', 'In Progress'),
         ('completed', 'Completed'),
     ], string="Status", default="scheduled", help="Current status of the surgery")
+    color = fields.Integer(string="Color")
+
 
     def action_scheduled(self):
         for record in self:

@@ -18,6 +18,7 @@ class Appointment(models.Model):
     user_id = fields.Many2one("res.users", string="Responsible")
     sequence = fields.Integer(string="Sequence", default=10)
     urgency = fields.Boolean(string="Urgent")
+    color = fields.Integer(string="Color")
 
 
 
