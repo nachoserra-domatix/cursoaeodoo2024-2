@@ -17,3 +17,9 @@ Añadir calendario donde aparezca el nombre de la cita.
 
 # Filter domain
 Añadir un filter_domain para el campo name del search, que consista en filtrar por nombre o motivo.
+
+# Deberes
+
+* Filtros de los tres tipos: al escribir, con dominio y con group_by
+* Vista kanban
+* Vistas pivot, gráficos, calendario
