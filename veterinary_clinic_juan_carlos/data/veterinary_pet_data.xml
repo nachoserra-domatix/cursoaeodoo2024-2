@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Datos de prueba para veterinary.pet -->
+
+        <record id="pet_1" model="veterinary.pet">
+            <field name="name">Garritas</field>
+            <field name="birthdate">2020-05-15</field>
+            <field name="weight">4.5</field>
+            <field name="age">4</field>
+            <field name="number_pet">A12B3C4D5E6F</field>
+            <field name="vaccinated">True</field>
+            <field name="last_vaccination_date">2024-10-01</field>
+        </record>
+
+        <record id="pet_2" model="veterinary.pet">
+            <field name="name">Pelusa</field>
+            <field name="birthdate">2019-08-22</field>
+            <field name="weight">3.2</field>
+            <field name="age">5</field>
+            <field name="number_pet">G7H8I9J0K1L2</field>
+            <field name="vaccinated">False</field>
+            <field name="last_vaccination_date">2023-12-10</field>
+        </record>
+
+        <record id="pet_3" model="veterinary.pet">
+            <field name="name">Rocky</field>
+            <field name="birthdate">2018-03-05</field>
+            <field name="weight">7.0</field>
+            <field name="age">6</field>
+            <field name="number_pet">M3N4O5P6Q7R8</field>
+            <field name="vaccinated">True</field>
+            <field name="last_vaccination_date">2024-06-12</field>
+        </record>
+
+        <record id="pet_4" model="veterinary.pet">
+            <field name="name">Luna</field>
+            <field name="birthdate">2021-11-10</field>
+            <field name="weight">5.0</field>
+            <field name="age">3</field>
+            <field name="number_pet">S9T0U1V2W3X4</field>
+            <field name="vaccinated">True</field>
+            <field name="last_vaccination_date">2024-08-15</field>
+        </record>
+
+        <record id="pet_5" model="veterinary.pet">
+            <field name="name">Boby</field>
+            <field name="birthdate">2020-02-25</field>
+            <field name="weight">6.3</field>
+            <field name="age">4</field>
+            <field name="number_pet">Y5Z6A7B8C9D0</field>
+            <field name="vaccinated">False</field>
+            <field name="last_vaccination_date">2023-11-30</field>
+        </record>
+
+        <record id="pet_6" model="veterinary.pet">
+            <field name="name">Milo</field>
+            <field name="birthdate">2017-07-15</field>
+            <field name="weight">8.1</field>
+            <field name="age">7</field>
+            <field name="number_pet">E1F2G3H4I5J6</field>
+            <field name="vaccinated">True</field>
+            <field name="last_vaccination_date">2024-09-20</field>
+        </record>
+
+    </data>
+</odoo>
