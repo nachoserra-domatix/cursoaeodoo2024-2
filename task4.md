@@ -20,6 +20,8 @@ Añadir un filter_domain para el campo name del search, que consista en filtrar 
 
 # Deberes
 
+## Modelo cirugía
+
 * Filtros de los tres tipos: al escribir, con dominio y con group_by
 * Vista kanban
 * Vistas pivot, gráficos, calendario
