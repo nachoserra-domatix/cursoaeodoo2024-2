@@ -16,7 +16,7 @@
 
 * En una mascota, botón que permita crear un seguro para esa mascota.
 
-* En una cita, botón que genere etiquetas en base a los motivos y a la especie de la mascota. Que los busque si ya existen esas etiquetas, después se asignan y si no las crea y las asigna.
+* En una cita, botón que genere etiquetas en base a los motivos. Que los busque si ya existen esas etiquetas, después se asignan y si no las crea y las asigna.
 
 # Deberes
 * El campo vacunado se rellenará a True si se añade una fecha de última vacunación y si se activa, se rellenará la fecha con el día en el que se active
