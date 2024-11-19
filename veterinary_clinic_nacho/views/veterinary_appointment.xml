@@ -9,8 +9,10 @@
             <tree multi_edit="1" string="Appointments">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="partner_id"/>
                 <field name="date" optional="show"/>
                 <field name="urgency" widget="boolean_toggle" optional="show"/>
+                <field name="tag_ids" widget="many2many_tags" optional="show"/>
                 <field name="user_id" optional="show"/>
                 <field name="state" widget="badge" optional="show"/>
                 <field name="duration" widget="float_time" optional="hide"/>
@@ -27,6 +29,7 @@
             <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
             <button string="Done" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
             <button string="Cancel" invisible="state in ('cancel')" name="action_cancel" type="object" class="btn-danger"/>
+            <button string="Create Tags" name="create_tags" type="object" class="oe_highlight"/>
             <field name="state" options="{'clickable':1}" widget="statusbar"/>
             </header>
                 <sheet>
@@ -37,10 +40,15 @@
                 </div>
                 <group>
                     <group>
+                        <field name="partner_id"/>
+                        <field name="partner_phone"/>
+                        <field name="partner_email"/>
                         <field name="date"/>
                         <field name="user_id"/>
                     </group>
                     <group>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        <field name="assigned"/>
                         <field name="duration" widget="float_time"/>                        
                     </group>
                 </group>
