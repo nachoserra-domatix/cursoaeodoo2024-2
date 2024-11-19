@@ -8,6 +8,7 @@
             <tree string="Allergies">
                 <field name="name"/>
                 <field name="severity_level"/>
+                <field name="is_severe" widget="boolean_toggle"/>
             </tree>
         </field>
     </record>
@@ -26,6 +27,7 @@
                     <group>
                         <field name="severity_level"/>
                         <field name="allergy_description"/>
+                        <field name="is_severe" widget="boolean_toggle"/>
                     </group>
                 </sheet>
             </form>
