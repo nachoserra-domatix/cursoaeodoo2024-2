@@ -9,6 +9,7 @@ class VeterinaryAppointment(models.Model):
     name = fields.Char(string="Name", required=True)
     partner_id = fields.Many2one("res.partner", string="partner")
     partner_phone = fields.Char(related="partner_id.phone", string="Phone", store=True, readonly=False)
+    partner_email = fields.Char(related="partner_id.email", string="Email")
     date = fields.Datetime(string="Date", required=True)
     reason = fields.Text(string="Reason", required=True)
     solution = fields.Html(string="Solution", translate=True)

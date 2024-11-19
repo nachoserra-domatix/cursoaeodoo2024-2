@@ -47,6 +47,7 @@
                         <group>
                             <field name="partner_id" />
                             <field name="partner_phone" />
+                            <field name="partner_email" />
                             <field name="date" />
                             <field name="user_id" />
                         </group>

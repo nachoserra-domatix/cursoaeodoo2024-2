@@ -10,7 +10,7 @@ class VeterinaryPet(models.Model):
    age = fields.Integer(string="Age", compute="_compute_age", store=True)
    pet_number = fields.Char(string="Pet Number", help="Chip number of the pet", copy=False)
    species_id = fields.Many2one("veterinary.species", string="Species")
-   vaccinated = fields.Boolean(string="Vaccinated")
+   vaccinated = fields.Boolean(string="Vaccinated", compute="_compute_vaccinated", inverse="_inverse_vaccinated", store=True)
    last_vaccination_date = fields.Date(string="Last Vaccination Date")
 
    def action_vaccinated(self):
@@ -30,3 +30,19 @@ class VeterinaryPet(models.Model):
                                                  "coverage_details": "details",
                                                  "expiration_date": fields.Datetime.today()
                                              })
+   @api.depends("last_vaccination_date")
+   def _compute_vaccinated(self):
+      for record in self:
+         if record.last_vaccination_date:
+            record.vaccinated = True
+   
+   def _inverse_vaccinated(self):
+      for record in self:
+         if record.vaccinated:
+            record.last_vaccination_date = fields.Date.today()
+   
+   def surgeris_done(self):
+      if self.ensure_one():
+         surgeris = self.env["veterinary.surgery"].search([("pet_id","=",self.id)])
+         for surgery in surgeris:
+            surgery.status = "done"
