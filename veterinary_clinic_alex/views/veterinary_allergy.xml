@@ -34,6 +34,7 @@
                         
                             
                         <field name="severity_grade"></field>
+                        <field name="is_severity" widget="boolean_toggle"></field>
                     </group>
                         <notebook>
                             <page name="Notas" string="string">

@@ -28,6 +28,8 @@
                 <header>
                     <button string="Vaccinated Today" invisible= "vaccinated" name="action_vaccinated" type="object" class="btn-secondary"/>
                     <button string="Aleatory Number" name="action_number_pet" type="object" class="btn-secondary"/>
+                    <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
+                    <button string="Complete Surgery" name="complete_surgery" type="object" class="btn-secondary"/>
 
                 </header>         
                 <sheet>

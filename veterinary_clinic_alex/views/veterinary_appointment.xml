@@ -9,12 +9,13 @@
             <tree multi_edit = "1" string="Appointments"> <!--multi_edit permite editar varios registros al mismo tiempo--> 
             <field name="sequence" widget="handle"></field>
                 <field name="name"></field>
+                <field name="partner_id"></field>
                 <field name="date" optional="show"></field>
                 <field name="urgency" widget="boolean_toggle" optional="show"></field>
                 <field name="user_id" optional="show"></field>
                 <field name="state" optional="show" widget="badge"></field>
                 <field name="duration" optional="hide" widget="float_time"></field>
-                
+                <field name="tag_ids" widget = "many2many_tags" options="{'color_field': 'color'}"></field>          
             </tree>
         </field>
     </record>
@@ -27,9 +28,10 @@
             <header>
                 <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
                 <button string="Confirm" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
-                <button string="Cancel" invisible="state in ('cancel')" name="action_cancel" type="object" class="btn-danger"/>
+                <button string="Cancel" invisible="state in ('cancel')" name="action_cancel" type="object" class="btn-danger"/>    
+                <button string="Tags"  name="create_tags" type="object" class="btn-danger"/>    
                 <field name="state" options="{'clickable' : 1}" widget = "statusbar"></field> <!-- clickable permite hacer que el statusbar sea clickable para avanzar-->
-            
+                
             </header>
                 <sheet>
                     <div class="oe_title">
@@ -39,13 +41,18 @@
                     </div>
                     <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->
                         <group >
+                            <field name="partner_id"></field>
+                            <field name="partner_phone"></field>
+                            <field name="partner_email"></field>
                             <field name="date"></field>
                             <field name="user_id"></field>
                             
                         </group>
                         <group >
                             <field name="duration" widget="float_time"></field>
-                            <field name="state"></field>                                                        
+                            <field name="state"></field>  
+                            <field name="assigned" ></field>                                                      
+                            <field name="tag_ids" widget = "many2many_tags" options="{'color_field': 'color'}"></field>                                                      
                         </group>                    
                     </group>
                     <notebook>
