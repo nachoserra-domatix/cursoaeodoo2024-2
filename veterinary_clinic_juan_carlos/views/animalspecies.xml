@@ -37,7 +37,7 @@
         id="veterinary_animalspecies_menu"
         name="Animal Species"
         action="veterinary_animalspecies_action"
-        parent="veterinary_management_menu"
+        parent="veterinary_clinic_menu"
         sequence="30"/>
 
 </odoo>

@@ -85,10 +85,8 @@
         sequence="10"/> -->
 
 
-    <menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_juan_carlos,static/img/logo.png" name="Veterinary Clinic" sequence="10">
-        <menuitem id="veterinary_management_menu" name="Management" sequence="10">
-            <menuitem id="veterinary_pet_menu" action="veterinary_pet_action" name="Pets" sequence="20"/>
-        </menuitem>
-    </menuitem>
+<menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_juan_carlos,static/img/logo.png" name="Veterinary Clinic" sequence="10"/>
+<menuitem id="veterinary_management_menu" parent="veterinary_clinic_menu" name="Management" sequence="10"/>
+<menuitem id="veterinary_pet_menu" parent="veterinary_clinic_menu" action="veterinary_pet_action" name="Pets" sequence="20"/>
 
 </odoo>

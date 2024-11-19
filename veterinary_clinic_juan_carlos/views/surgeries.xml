@@ -165,7 +165,7 @@
         id="veterinary_surgeries_menu"
         name="Surgeries"
         action="veterinary_surgeries_action"
-        parent="veterinary_management_menu"
+        parent="veterinary_clinic_menu"
         sequence="50"/>
 
 </odoo>
