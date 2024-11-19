@@ -22,6 +22,7 @@
                 <header>
                     <field name="vaccinated" invisible="1"/>
                     <button string="Vaccinated" invisible="vaccinated == True" name="action_vaccinated" type="object" class="btn-primary"/>
+                    <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
                 </header>
                 <sheet>
                     <div class="oe_title">

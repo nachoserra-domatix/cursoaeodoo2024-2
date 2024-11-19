@@ -16,6 +16,7 @@
                 <field name="name" />
                 <field name="date" optional="show"/>
                 <field name="urgency" widget="boolean_toggle" optional="show"/>
+                <field name="tag_ids" widget="many2many_tags"/>
                 <field name="user_id" optional="show"/>
                 <field name="status" widget="badge" optional="show"/>
                 <field name="duration_minutes" optional="hide"/>
@@ -34,6 +35,7 @@
                     <button string="Done" invisible="status in ('done', 'cancelled')" name="action_done" type="object" class="btn-success"/>
                     <button string="Cancelled" invisible="status in ('cancelled')" name="action_cancelled" type="object" class="btn-danger"/>
                     <button string="Set other status" invisible="status in ('other')" name="action_other" type="object" class="btn-warning"/>
+                    <button string="Create Tags" name="create_tags" type="object" class="btn-secondary"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -43,11 +45,15 @@
                     </div>
                     <group>
                         <group>
+                            <field name="partner_id" />
+                            <field name="partner_phone" />
                             <field name="date" />
                             <field name="user_id" />
                         </group>
                         <group>
                             <field name="duration_minutes" widget="float_time"/>                           
+                            <field name="assigned" />
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                         </group>                       
                     </group>
                     <notebook>

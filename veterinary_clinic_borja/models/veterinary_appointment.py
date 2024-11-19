@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api, Command
 
 class VeterinaryAppointment(models.Model):
     _name = "veterinary.appointment"
@@ -7,6 +7,8 @@ class VeterinaryAppointment(models.Model):
     # _rec_name = "reason"
 
     name = fields.Char(string="Name", required=True)
+    partner_id = fields.Many2one("res.partner", string="partner")
+    partner_phone = fields.Char(related="partner_id.phone", string="Phone", store=True, readonly=False)
     date = fields.Datetime(string="Date", required=True)
     reason = fields.Text(string="Reason", required=True)
     solution = fields.Html(string="Solution", translate=True)
@@ -22,6 +24,9 @@ class VeterinaryAppointment(models.Model):
     urgency = fields.Boolean(string="Urgency")
     #color for the Kanban view
     color = fields.Integer(string="Color")
+    assigned = fields.Boolean(string="Assigned", compute="_compute_assigned", inverse="_inverse_assigned", store=True)
+    tag_ids = fields.Many2many("veterinary.appointment.tag", string="")
+ 
 
     def action_all_draft(self):
         self._set_all_status("draft")
@@ -39,7 +44,9 @@ class VeterinaryAppointment(models.Model):
         self._set_status("draft")
     
     def action_done(self):
-         self._set_status("done")
+         if self.ensure_one():
+               self.tag_ids = [(0,0,{"name": "done", "code": "done"})]
+               self._set_status("done")
 
     def action_cancelled(self):
          self._set_status("cancelled")
@@ -57,3 +64,27 @@ class VeterinaryAppointment(models.Model):
      # in kanban view show all status colunns
     def _group_expand_status(self, status, domain, order):
           return [key for key , val in type(self).status.selection]
+    
+    # work with store=True in the declaration field
+    @api.depends("user_id") 
+    def _compute_assigned(self):
+          for record in self:
+               record.assigned = bool(record.user_id)
+
+    def _inverse_assigned(self):
+          for record in self:
+               if record.assigned:
+                    record.user_id = self.env.user
+               else:
+                     record.user_id = False
+    def create_tags(self):
+          tag_ids = self.env["veterinary.appointment.tag"].search([("name", "ilike", self.reason)])
+          if tag_ids:
+               tag_ids |= self.tag_ids # add the existents tag_ids without duplicates
+               self.tag_ids = [Command.set(tag_ids.ids)]
+               # self.tag_ids = [(6,0,self.tag_ids.ids)]
+          else:
+               self.tag_ids = [Command.create({"name": self.reason, "code": self.reason})]
+               # self.tag_ids = [(0,0,{"name": self.reason, "code": self.reason})]
+
+    
