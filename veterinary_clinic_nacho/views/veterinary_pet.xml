@@ -26,6 +26,8 @@
         <header>
             <button string="Vaccinated" invisible="vaccinated" name="action_vaccinated" type="object" class="oe_highlight"/>
             <button string="Generate Pet Number" name="generate_pet_number" type="object" class="btn-warning"/>
+            <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
+            <button string="Check all Surgery as done" name="check_all_surgery_as_done" type="object" class="oe_highlight"/>
         </header>
             <sheet>
                 <div class="oe_title">
