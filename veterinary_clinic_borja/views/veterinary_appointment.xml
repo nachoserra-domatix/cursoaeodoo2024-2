@@ -68,7 +68,7 @@
         <field name="model">veterinary.appointment</field>
         <field name="arch" type="xml">
             <search string="Veterinary Appointment">
-                <field name="name" string="Product" filter_domain="['|', '|', ('reason', 'ilike', self), ('solution', 'ilike', self),('name', 'ilike', self)]"/>
+                <field name="name" string="Name" filter_domain="['|', '|', ('reason', 'ilike', self), ('solution', 'ilike', self),('name', 'ilike', self)]"/>
                 <field name="user_id" />
                 <field name="date" />
                 <filter name="draft_filter" string="draft" domain="[('status', '=', 'draft')]" />
@@ -128,7 +128,7 @@
         <field name="model">veterinary.appointment</field>
         <field name="arch" type="xml">
             <pivot string="Appointments">
-             <field name="name"/>
+                <field name="name"/>
                 <field name="user_id" type="row"/>
                 <field name="date" type="col"/>
                 <field name="duration_minutes" widget="float_time" type="measure"/> 

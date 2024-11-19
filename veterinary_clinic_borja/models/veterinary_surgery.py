@@ -14,7 +14,9 @@ class VeterinarySurgery(models.Model):
         ("done", "Done"),
         ("cancelled", "Cancelled"),
         ("other", "Other")   
-    ], default="draft", string="Status")
+    ], default="draft", string="Status", group_expand="_group_expand_status")
+    #color for the Kanban view
+    color = fields.Integer(string="Color")
 
     def action_draft(self):
         self._set_status("draft")
@@ -33,3 +35,7 @@ class VeterinarySurgery(models.Model):
 
     def _set_status(self, status):
         self.status = status
+    
+    # in kanban view show all status colunns
+    def _group_expand_status(self, status, domain, order):
+          return [key for key , val in type(self).status.selection]
