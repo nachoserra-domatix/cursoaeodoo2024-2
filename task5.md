@@ -1,7 +1,7 @@
 # Campos calculados
 
 * Crear campo Asignado en Citas, el cual comprobará: Si hay responsable, asignado pasa a ser True y si no lo hay estará a False
-* Crear un campo calculado que que diga los días restantes para que el seguro expire
+* Calcular la edad de la mascota a partir del campo fecha de nacimiento
 
 # Campos relacionales
 
@@ -10,7 +10,7 @@
 
 # Campo calculado guardado en base de datos
 
-* Calcular la edad de la mascota a partir del campo fecha de nacimiento
+* Crear un campo calculado que que diga los días restantes para que el seguro expire
 
 # ORM
 
