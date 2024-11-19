@@ -20,6 +20,7 @@
                         <field name="name"/>
                         <field name="severity_grade"/>
                         <field name="description"/>
+                        <field name="is_severe" />
                     </group>
                 </sheet>
             </form>

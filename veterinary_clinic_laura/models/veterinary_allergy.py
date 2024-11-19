@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class VeterinaryAllergy(models.Model):
    _name = "veterinary.allergy"
@@ -11,3 +11,12 @@ class VeterinaryAllergy(models.Model):
      ('high','High'),
    ],default='low', string='State')
    description=fields.Char(string="Description")
+   is_severe=fields.Boolean(string="Is severe",compute="_compute_severe",store=True)
+   
+   @api.depends('severity_grade')
+   def _compute_severe(self):
+        for record in self:
+            if record.severity_grade=='high':
+                record.is_severe=True
+            else:
+                record.is_severe=False

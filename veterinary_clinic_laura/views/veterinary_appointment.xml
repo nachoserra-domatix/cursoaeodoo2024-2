@@ -27,11 +27,13 @@
                 <tree multi_edit="1" string="Appointments">
                     <field name="sequence" widget="handle"/>
                     <field name="name" optional="show"/>
+                    <field name="partner_id" optional="show"/>
                     <field name="date" optional="show"/>
                     <field name="urgency"  widget="boolean_toggle" optional="show"/>
                     <field name="user_id" optional="show"/>
                     <field name="state" widget="badge" optional="show"/>
                     <field name="duration" widget="float_time" optional="hide"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
                 </tree>
             </field>
         </record>
@@ -47,6 +49,7 @@
                     <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Done" invisible="state in ('done,cancel')" name="action_done" type="object" class="btn-primary"/>
                     <button string="Cancelar" invisible="state in ('cancelled','draft')" name="action_cancel" type="object" class="btn-danger"/>
+                    <button string="Create tags" name="create_tags" type="object"/>
 
                     <sheet>
                         <div class="oe_title">
@@ -56,12 +59,18 @@
                         </div>
                         <group>
                             <group>
+                                <field name="partner_id"/>
+                                <field name="partner_phone"/>
+                                <field name="partner_email"/>
                                 <field name="date" />
                                 <field name="user_id" />
                             </group>
                             <group>
-                                <field name="duration" widget="float_time"/> 
+                                <field name="duration" widget="float_time"/>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+ 
                                 <field name="reason" />
+                                <field  name="assigned"/>
                             </group>
                         </group>
                         <notebook>

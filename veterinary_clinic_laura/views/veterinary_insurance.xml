@@ -21,11 +21,12 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="pet_id" domain="[('vaccinated','=',True)]"/>
+                        <field name="pet_id"/>
                         <field name="insurance_company"/>
                         <field name="cover_details"/>
                         <field name="expiration_date"/>
-                        <field name="expired"/>                
+                        <field name="expired"/> 
+                        <field name="policy_number"/>               
                     </group>
                 </sheet>
             </form>

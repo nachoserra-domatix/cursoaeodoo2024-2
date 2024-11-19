@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class VeterinarySurgery(models.Model):
     _name = "veterinary.surgery"
@@ -17,6 +17,7 @@ class VeterinarySurgery(models.Model):
         ('finish','Finish'),
     ],default='wait', string='State',group_expand="_group_expand_states")
     color=fields.Integer(string="color")
+    
 
     def action_doing(self):
         for record in self:
