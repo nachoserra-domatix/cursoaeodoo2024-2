@@ -19,3 +19,5 @@ class VeterinaryAllergy(models.Model):
         for record in self:
             if record.severity_degree == "very_high":
                 record.is_severe = True
+            else:
+                record.is_severe = False

@@ -45,4 +45,4 @@ class VeterinaryPet(models.Model):
       if self.ensure_one():
          surgeris = self.env["veterinary.surgery"].search([("pet_id","=",self.id)])
          for surgery in surgeris:
-            surgery.status = "done"
+            surgery.action_done()
