@@ -15,11 +15,13 @@ class VeterinaryAppointment(models.Model):
         ("done", "Done"),
         ("cancelled", "Cancelled"),
         ("other", "Other")   
-    ], default="draft", string="Status")
+    ], default="draft", string="Status", group_expand="_group_expand_status")
     duration_minutes = fields.Integer(string="Duration", required=True, help="Duration in minutes")
     user_id = fields.Many2one("res.users", string="Responsible")
     sequence = fields.Integer(string="Sequence", default=10)
     urgency = fields.Boolean(string="Urgency")
+    #color for the Kanban view
+    color = fields.Integer(string="Color")
 
     def action_all_draft(self):
         self._set_all_status("draft")
@@ -51,3 +53,7 @@ class VeterinaryAppointment(models.Model):
     def _set_all_status(self, status):
         for record in self:
             record.status = status
+
+     # in kanban view show all status colunns
+    def _group_expand_status(self, status, domain, order):
+          return [key for key , val in type(self).status.selection]
