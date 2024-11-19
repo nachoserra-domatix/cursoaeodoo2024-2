@@ -21,5 +21,5 @@
 # Deberes
 * El campo vacunado se rellenará a True si se añade una fecha de última vacunación y si se activa, se rellenará la fecha con el día en el que se active
 * Campo relacional en citas que aparezca el correo electrónico del contacto
-* En el modelo de alergia, crear un campo entero de prioridad, guardado en base de datos, que asigne estrellas dependiendo de la severidad
+* En el modelo de alergia, crear un campo boolean Es severo, guardado en base de datos, que asigne a True si el selection es el más alto
 * Desde una mascota, marcar todas las cirugías de esa mascota como completada
