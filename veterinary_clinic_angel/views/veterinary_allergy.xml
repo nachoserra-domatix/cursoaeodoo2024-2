@@ -26,6 +26,7 @@
                     </div>
                     <group>
                         <field name="severity" widget="priority"/>
+                        <field name="is_severe"/>
                         <field name="description"/>
                     </group>
                 </sheet>

@@ -13,6 +13,7 @@
                 <field name="user_id" optional="show"/>
                 <field name="state" widget="badge" optional="show"/>
                 <field name="duration" widget="float_time" optional="hide"/>
+                <field name="tag_ids" widget="many2many_tags" optional="hide" options="{'color_field': 'color'}"/>
             </tree>
         </field>
     </record>
@@ -27,6 +28,7 @@
                     <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Done" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
                     <button string="Cancel" invisible="state in ('cancelled')" name="action_cancel" type="object" class="btn-danger"/>
+                    <button string="Create Tags" name="action_create_tags" type="object" class="btn-primary"/>
                     <field name="state" options="{'clickable':1}" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -37,11 +39,15 @@
                     </div>
                     <group>
                         <group>
+                            <field name="partner_id"/>
+                            <field name="partner_phone"/>
+                            <field name="partner_email"/>
                             <field name="date"/>
                             <field name="user_id"/>
                         </group>
                         <group>
                             <field name="duration" widget="float_time"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                         </group>
                     </group>
                     <notebook>

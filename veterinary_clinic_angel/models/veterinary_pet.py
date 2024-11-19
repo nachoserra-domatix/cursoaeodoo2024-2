@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 import random
 import string
 
@@ -9,12 +9,31 @@ class VeterinaryPet(models.Model):
     name = fields.Char(string='Name', required=True)
     birthdate = fields.Date(string='Birthdate')
     weight = fields.Float(string='Weight')
-    age = fields.Integer(string='Age')
+    age = fields.Integer(string='Age', compute="_compute_age", store=True)
     pet_number = fields.Char(string='Pet Number', help='Number of the pet')
     species_id = fields.Many2one('veterinary.species', string='Species', required=True)
     notes = fields.Text(string='Notes')
-    vaccinated = fields.Boolean(string='Vaccinated', default=False)
+    vaccinated = fields.Boolean(string='Vaccinated', default=False, compute="_compute_vaccinated", store=True, inverse="_inverse_vaccinated")
     last_vaccination_date = fields.Date(string='Last Vaccination Date')
+    surgery_ids = fields.One2many('veterinary.surgery', 'pet_id', string='Surgeries')
+
+    @api.depends('last_vaccination_date')
+    def _compute_vaccinated(self):
+        for record in self:
+            record.vaccinated = bool(record.last_vaccination_date)
+    
+    def _inverse_vaccinated(self):
+        for record in self:
+            if not record.vaccinated:
+                record.last_vaccination_date = False
+            elif record.vaccinated and record.last_vaccination_date is False:
+                record.last_vaccination_date = fields.Date.today()
+
+    @api.depends('birthdate')
+    def _compute_age(self):
+        for record in self:
+            if record.birthdate:
+                record.age = (fields.Date.today() - record.birthdate).days // 365
 
     def action_vaccinated(self):
         self.vaccinated = True
@@ -26,3 +45,14 @@ class VeterinaryPet(models.Model):
             if not self.env['veterinary.pet'].search([('pet_number', '=', pet_number)]):
                 self.pet_number = pet_number
                 break
+
+    def action_create_insurance(self):
+        self.env['veterinary.insurance'].create({
+            'pet_id': self.id,
+            'policy_number': '1234',
+        })
+
+    def action_finish_surgeries(self):
+        for surgery in self.surgery_ids:
+            surgery.write({'state': 'done'})
+            
