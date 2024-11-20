@@ -15,6 +15,7 @@ class VeterinarySurgery(models.Model):
         ('done', 'Done')
     ], default='pending', string='State', help='State of the appointment', group_expand = '_group_expand_states')
     color = fields.Integer(string="Color")
+    line_ids = fields.One2many('veterinary.surgery.line', 'surgery_id', string='Steps')
     
     
     def action_procces(self):

@@ -1,1 +1,1 @@
-from . import veterinary_pet, veterinary_appointment, veterinary_species, veterinary_surgery, veterinary_allergy,veterinary_insurance,veterinary_appointment_tag
+from . import veterinary_pet, veterinary_appointment, veterinary_species, veterinary_surgery, veterinary_allergy,veterinary_insurance,veterinary_appointment_tag,veterinary_appointment_line,veterinary_surgery_line

@@ -53,6 +53,20 @@
                         </group>
                                            
                     </group>
+                    <notebook>
+                        <page name="Steps" string="Steps">
+                            <field name="line_ids" context="{'default_state': surgery_state}">
+                                <tree editable="bottom">
+                                    
+                                    <field name="sequence" widget="handle"></field>
+                                    <field name="name"></field>
+                                    <field name="state" ></field>
+                                    
+                                </tree>
+                            </field>
+                            
+                        </page>
+                    </notebook>
                     
                 </sheet>
             </form>

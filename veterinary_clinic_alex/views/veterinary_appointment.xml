@@ -41,11 +41,11 @@
                     </div>
                     <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->
                         <group >
-                            <field name="partner_id"></field>
+                            <field name="partner_id" options="{ 'no_quick_create':True, 'no_open':True}"></field>
                             <field name="partner_phone"></field>
                             <field name="partner_email"></field>
                             <field name="date"></field>
-                            <field name="user_id"></field>
+                            <field name="user_id" options="{ 'no_quick_create':True, 'no_open':True}"></field>
                             
                         </group>
                         <group >
@@ -56,6 +56,14 @@
                         </group>                    
                     </group>
                     <notebook>
+                        <page name="Lines" string="Products">
+                            <field name="line_ids" context="{'tree_view_ref':'veterinary_clinic_alex.veterinary_appointment_line_simple_view_tree',
+'form_view_ref':'veterinary_clinic_alex.veterinary_appointment_line_simple_view_form', 'default_qty':1.0}">
+                                
+                                    
+                            </field>
+                            
+                        </page>
                         <page name="reason_page" string="Reason">
                             <field name="reason"></field>
                             

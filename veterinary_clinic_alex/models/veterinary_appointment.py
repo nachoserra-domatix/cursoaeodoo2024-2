@@ -25,6 +25,7 @@ class VeterinaryAppointment(models.Model):
     color = fields.Integer(string='Color')
     assigned = fields.Boolean(string='Assigned', help='Assigned appointment', compute='_compute_assigned', inverse='_inverse_assigned', store=True)
     tag_ids = fields.Many2many('veterinary.appointment.tag', string='Tags', help='Tags of the appointment')
+    line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id', string='Lines', help='Lines of the appointment')
 
     def _inverse_assigned(self):
         for record in self:
