@@ -40,7 +40,7 @@
                     <field name="vaccinated" widget="boolean_toggle"/>
                     <field name="last_vaccination_date"/>
                     <field name="pet_number"/>
-                    <field name="species_id"/>
+                    <field name="species_id" options="{'no_create':True,'no_quick_create':True}"/>
                 </group>
                 <group>
                     <field name="birthdate"/>
