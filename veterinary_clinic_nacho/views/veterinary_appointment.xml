@@ -40,11 +40,11 @@
                 </div>
                 <group>
                     <group>
-                        <field name="partner_id"/>
+                        <field name="partner_id" option="{'no_quick_create':True,'no_open':True}"/>
                         <field name="partner_phone"/>
                         <field name="partner_email"/>
                         <field name="date"/>
-                        <field name="user_id"/>
+                        <field name="user_id" options="{'no_quick_create': True,'no_open':True}"/>
                     </group>
                     <group>
                         <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
@@ -53,6 +53,9 @@
                     </group>
                 </group>
                 <notebook>
+                <page name="lines" string="Products">
+                    <field name="line_ids" context="{'tree_view_ref':'veterinary_clinic_nacho.veterinary_appointment_line_simple_view_tree','form_view_ref':'veterinary_clinic_nacho.veterinary_appointment_line_simple_view_form','default_qty':1.0}"/>   
+                </page>
                     <page name="reason_page" string="Reason">
                         <field name="reason"/>
                     </page>
