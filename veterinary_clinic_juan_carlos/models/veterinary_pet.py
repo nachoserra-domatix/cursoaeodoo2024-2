@@ -15,6 +15,7 @@ class VeterinaryPet(models.Model):
     weight = fields.Float(string="Weight")
     age = fields.Integer(string="Age", compute="_compute_age", store=True)
     number_pet = fields.Char(string="Number Pet", copy=False)
+    species_id = fields.Many2one('veterinary.animalspecies', string='Species', help='Species of the pet')
     # species = fields.Selection([
     #     ("cat", "Cat"),
     #     ("dog", "Dog"),

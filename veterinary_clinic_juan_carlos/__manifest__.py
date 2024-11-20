@@ -5,7 +5,7 @@
     'author': '<Juan Carlos> none',  
     'license': 'LGPL-3',
     'depends': [
-        'base','hr'
+        'hr'
     ],
     'data': [
         'data/veterinary_pet_data.xml',
