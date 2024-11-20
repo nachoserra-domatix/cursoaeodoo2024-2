@@ -48,7 +48,7 @@
                     </header>
                     <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Done" invisible="state in ('done,cancel')" name="action_done" type="object" class="btn-primary"/>
-                    <button string="Cancelar" invisible="state in ('cancelled','draft')" name="action_cancel" type="object" class="btn-danger"/>
+                    <button string="Cancell" invisible="state in ('cancelled','draft')" name="action_cancel" type="object" class="btn-danger"/>
                     <button string="Create tags" name="create_tags" type="object"/>
 
                     <sheet>
@@ -59,11 +59,11 @@
                         </div>
                         <group>
                             <group>
-                                <field name="partner_id"/>
+                                <field name="partner_id" options="{'no_quick_create':True,'no_open':True}"/>
                                 <field name="partner_phone"/>
                                 <field name="partner_email"/>
                                 <field name="date" />
-                                <field name="user_id" />
+                                <field name="user_id" options="{'no_create':True,'no_quick_create':True,'no_open':True}"/>
                             </group>
                             <group>
                                 <field name="duration" widget="float_time"/>
@@ -74,6 +74,16 @@
                             </group>
                         </group>
                         <notebook>
+                            <page name="lines__page" string="Products">
+                                <field name="lines_ids" context="{'tree_view_ref':'veterinary_clinic_laura.veterinary_appointment_line_simple_view_tree', 'form_view_ref':'veterinary_clinic_laura.veterinary_appointment_line_simple_view_form','default_price_unit':5.0}">
+                                    <!--<tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="name"/>
+                                        <field name="price_unit"/>
+                                        <field name="qty"/>
+                                    </tree>-->
+                                </field>
+                            </page>
                             <page name="reason_page" string="Motivo">
                                 <field name="reason"/>
                             </page>

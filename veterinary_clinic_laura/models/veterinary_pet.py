@@ -45,15 +45,16 @@ class VeterinaryPet(models.Model):
 
    def action_set_pet_number(self):
       def generate_string():
-         numeros = ''.join(random.choices(string.digits, k=8))  # 8 dígitos aleatorios
-         letra = random.choice(string.ascii_uppercase)          # 1 letra aleatoria en mayúscula
-         resultado = numeros + letra                            # Concatenamos números y letra
-         return resultado
+         numbers = ''.join(random.choices(string.digits, k=8))  
+         char = random.choice(string.ascii_uppercase)          
+         result = numbers + char                            
+         return result
       
       for record in self:
          record.pet_number=generate_string()
 
    def create_insurance(self):
+      #import pdb; pdb.set_trace()
       self.copy({'name':'Copy of '+self.name})
       #self.env['veterinary.insurance'].create({'name':'name',
       #                                         'policy_number':'1234',

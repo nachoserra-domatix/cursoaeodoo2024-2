@@ -17,6 +17,8 @@ class VeterinarySurgery(models.Model):
         ('finish','Finish'),
     ],default='wait', string='State',group_expand="_group_expand_states")
     color=fields.Integer(string="color")
+    line_ids=fields.One2many('veterinary.surgery.line','surgery_id',string="Lines")
+
     
 
     def action_doing(self):

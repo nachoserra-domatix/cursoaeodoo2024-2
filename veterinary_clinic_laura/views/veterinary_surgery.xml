@@ -28,6 +28,21 @@
                         <field name="surgery_date"/>
                         <field name="state"/>
                     </group>
+                    
+                        <notebook>
+                        <page string="Actions to do">
+                            
+                                <field name="line_ids" context="{'default_state':state}">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                        <field name="state" />
+                                    </tree>
+                                </field>
+                                
+                        </page>
+                        </notebook>
+                    
                 </sheet>
             </form>
         </field>
