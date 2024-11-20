@@ -14,6 +14,7 @@
                 <field name="reason" optional="show"/>
                 <field name="state" widget="badge" optional="show"/>
                 <field name="duration" widget="float_time" optional="hide"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/>
             </tree>
         </field>
     </record>
@@ -29,6 +30,7 @@
                     <button invisible="state in ('draft')" string="Draft" name="action_draft" type="object" class="btn-secondary"/>
                     <button invisible="state in ('done','cancelled')" string="Done" name="action_done" type="object" class="btn-success"/>
                     <button invisible="state in ('done','cancelled')" string="Cancelled" name="action_cancelled" type="object" class="btn-danger"/>
+                    <button string="Create Tags by Reason" name="create_tags_by_reason" type="object" class="btn-primary"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -41,10 +43,15 @@
                             <field name="date"/>
                             <field name="state"/>
                             <field name="user_id"/>
+                            <field name="partner_id"/>
+                            <field name="partner_phone"/>
+                            <field name="partner_email" widget="email"/>
                         </group>
                         <group>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                             <field name="urgency" widget="boolean_toggle"/>
                             <field name="duration" widget="float_time"/>
+                            <field name="assigned"/>
                         </group>
                     </group>
                     <notebook>

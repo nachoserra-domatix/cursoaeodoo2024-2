@@ -27,8 +27,9 @@
                     </div>
                     <group>
                         <group>
-                            <field name="severity_degree"/>
                             <field name="description"/>
+                            <field name="severity_degree"/>
+                            <field name="is_severe"/>
                         </group>
                     </group>
                 </sheet>
