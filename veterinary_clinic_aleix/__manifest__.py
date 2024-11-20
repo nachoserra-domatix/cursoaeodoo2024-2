@@ -8,7 +8,6 @@
     'license': 'LGPL-3',
     'category': '',
     'depends': [
-        'base',
         'sale',
         'hr',
     ],
