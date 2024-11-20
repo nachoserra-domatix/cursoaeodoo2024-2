@@ -17,6 +17,7 @@ class VeterinarySurgery(models.Model):
     ], default="draft", string="Status", group_expand="_group_expand_status")
     #color for the Kanban view
     color = fields.Integer(string="Color")
+    action_ids = fields.One2many( "veterinary.surgery.action", "surgery_id", string="Actions")
 
     def action_draft(self):
         self._set_status("draft")

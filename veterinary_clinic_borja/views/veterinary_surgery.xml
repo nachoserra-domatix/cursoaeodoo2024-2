@@ -41,6 +41,17 @@
                             <field name="surgery_date" />                         
                         </group>
                     </group>
+                    <notebook>
+                        <page name="actions_page" string="Actions">
+                            <field name="action_ids" context="{'default_status': status}">
+                                <tree editable="bottom" default_order="sequence asc">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="status" widget="badge" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
