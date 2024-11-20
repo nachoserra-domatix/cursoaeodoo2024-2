@@ -14,7 +14,7 @@ class Surgeries(models.Model):
         ('completed', 'Completed'),
     ], string="Status", default="scheduled", help="Current status of the surgery")
     color = fields.Integer(string="Color")
-
+    action_ids = fields.One2many("veterinary.surgeries.action","surgery_id", string="Surgery ids")
 
     def action_scheduled(self):
         for record in self:

@@ -19,6 +19,7 @@
         'security/ir_rule.xml',
         'views/veterinary_pet.xml',
         'views/appointment.xml',
+        'views/appointment_line.xml',
         'views/allergy.xml',
         'views/animalspecies.xml',
         'views/insurance.xml',

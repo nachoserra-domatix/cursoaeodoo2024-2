@@ -42,6 +42,17 @@
                             <field name="surgerie_date_state"/>
                         </group>
                     </group>
+                            <notebook>
+                                <page name="surgeries_action_page" string="Surgeries actions">
+                                    <field name="action_ids" context="{'default_state': surgerie_date_state}">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="sequence"/>
+                                            <field name="state"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                        </notebook>
                 </sheet>
             </form>
         </field>

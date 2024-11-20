@@ -25,6 +25,7 @@ class Appointment(models.Model):
     assigned = fields.Boolean(string="Assigned", compute="_compute_assigned", inverse="_inverse_assigned", store=True)
     # test = fields.Boolean(string="test", compute="_compute_assigned")
     tag_ids = fields.Many2many("veterinary.appointment.tag", string="Tag")
+    line_ids = fields.One2many("veterinary.appointment.line","appointment_id", string="line ids")
 
     def _inverse_assigned(self):
         for record in self:
