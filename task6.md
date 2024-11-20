@@ -1,9 +1,3 @@
-# Vistas relacionadas
-
-Crear dos vistas simples para alergias, vista de arbol y formulario.
-Pasar esas vistas por contexto en la mascota.
-Darle prioridad 100 para que no rompa las vistas normales de alergias.
-
 # Opciones m2o
 
 En Citas no se debe de poder acceder al usuario ni crear usuarios nuevos de manera rápida, pero si desde vista de formulario.
