@@ -25,17 +25,23 @@ class VeterinaryAppointment(models.Model):
     # por defecto no se guarada en bd
     assigned = fields.Boolean(
         compute='_compute_assigned', inverse='_inverse_assigned', store=True)
-
-    # related fields
+    # Many2one
     user_id = fields.Many2one('res.users', string='Responsible')
     partner_id = fields.Many2one('res.partner', string='Partner')
+    # Many2many
+    tag_ids = fields.Many2many(
+        comodel_name='veterinary.appointment.tag', string='Tags')
+    tag_ids = fields.Many2many(
+        comodel_name='veterinary.appointment.tag', string='Tags')
+    # One2many
+    line_ids = fields.One2many(
+        comodel_name='veterinary.appointment.line', inverse_name='appointment_id')
+    # related fields
     # campo telèfono: a partir del campo partner_id; por defecto no se guarda en bd y es de solo lectura
     partner_phone = fields.Char(
         related='partner_id.phone', string='Partner Phone', store=True, readonly=False)
     partner_email = fields.Char(
         related='partner_id.email', string='Partner Email')
-    tag_ids = fields.Many2many(
-        comodel_name='veterinary.appointment.tag', string="Tags")
 
     # computed methods
     # marcar assigned si hay usuario

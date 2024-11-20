@@ -42,8 +42,8 @@
                         <group>
                             <field name="date"/>
                             <field name="state"/>
-                            <field name="user_id"/>
-                            <field name="partner_id"/>
+                            <field name="user_id" options="{'no_create': True, 'no_quick_create': True, 'no_open': True}"/>
+                            <field name="partner_id" options="{'no_quick_create': True, 'no_open': True}"/>
                             <field name="partner_phone"/>
                             <field name="partner_email" widget="email"/>
                         </group>
@@ -55,6 +55,22 @@
                         </group>
                     </group>
                     <notebook>
+                        <page name="appointment_lines_page" string="Appointment Lines">
+                            <!-- One2many -->
+                            <field name="line_ids" 
+                                context="{
+                                'tree_view_ref':'veterinary_clinic_aleix.veterinary_appointment_line_simple_tree_view', 
+                                'form_view_ref':'veterinary_clinic_aleix.veterinary_appointment_line_simple_view_form',
+                                'default_quantity': 1}">
+                                <!--
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                </tree>
+                                -->
+                            </field>
+                        </page>
                         <page name="reason_page" string="Reason">
                             <field name="reason"/>
                         </page>

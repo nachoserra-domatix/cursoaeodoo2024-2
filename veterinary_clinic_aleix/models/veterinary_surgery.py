@@ -6,8 +6,6 @@ class VeterinarySurgery(models.Model):
     _description = 'Veterinary Surgery'
 
     name = fields.Char(string='Name', required=True)
-    pet_id = fields.Many2one('veterinary.pet', string='Pet')
-    employee_id = fields.Many2one('hr.employee', string='Employee')
     surgery_date = fields.Datetime(
         string='Surgery date', required=True, default=fields.Datetime.now)
     state = fields.Selection(
@@ -19,6 +17,11 @@ class VeterinarySurgery(models.Model):
     )
     duration = fields.Float(string='Duration (minutes)', help='Duration in minutes')
     color = fields.Integer(string='Color')
+    # Many2one
+    pet_id = fields.Many2one('veterinary.pet', string='Pet')
+    employee_id = fields.Many2one('hr.employee', string='Employee')
+    # One2many
+    line_ids = fields.One2many('veterinary.surgery.line', 'surgery_id', string='Lines')
 
     # methods
     def action_pending(self):

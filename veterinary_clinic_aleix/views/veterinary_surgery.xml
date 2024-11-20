@@ -49,6 +49,17 @@
                             <field name="duration" widget="float_time"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page name="actions_to_do" string="Actions to do">
+                            <field name="line_ids" context="{'default_state': state}">
+                                <tree editable="bottom" string="Actions to do">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
