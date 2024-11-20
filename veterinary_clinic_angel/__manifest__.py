@@ -19,6 +19,7 @@
         'views/veterinary_surgery.xml',
         'views/veterinary_allergy.xml',
         'views/veterinary_insurance.xml',
+        'views/veterinary_appointment_line.xml'
     ],
     'application': False,
     'installable': True,

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-18 17:03+0000\n"
-"PO-Revision-Date: 2024-11-18 17:03+0000\n"
+"POT-Creation-Date: 2024-11-20 16:48+0000\n"
+"PO-Revision-Date: 2024-11-20 16:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,17 @@ msgid ""
 msgstr "El usuario podrá administrar algunos registros.\n"
 
 #. module: veterinary_clinic_angel
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.view_veterinary_surgery_form
+msgid "Action"
+msgstr "Acción"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__action_ids
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.view_veterinary_surgery_form
+msgid "Actions"
+msgstr "Acciones"
+
+#. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__age
 msgid "Age"
 msgstr "Edad"
@@ -48,6 +59,7 @@ msgid "Allergy Name"
 msgstr "Nombre"
 
 #. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__appointment_id
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_appointment_view_form
 msgid "Appointment"
 msgstr "Cita"
@@ -56,6 +68,14 @@ msgstr "Cita"
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__date
 msgid "Appointment Date"
 msgstr "Fecha"
+
+#. module: veterinary_clinic_angel
+#: model:ir.actions.act_window,name:veterinary_clinic_angel.action_veterinary_appointment_line
+#: model:ir.ui.menu,name:veterinary_clinic_angel.menu_veterinary_appointment_line
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.view_veterinary_appointment_line_simple_tree
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.view_veterinary_appointment_line_tree
+msgid "Appointment Lines"
+msgstr "Líneas de cita"
 
 #. module: veterinary_clinic_angel
 #: model:ir.actions.act_window,name:veterinary_clinic_angel.action_veterinary_appointment
@@ -86,6 +106,7 @@ msgstr "Cancelar"
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_appointment__state__cancelled
 #: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery__state__cancelled
+#: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery_action__state__cancelled
 msgid "Cancelled"
 msgstr "Cancelado"
 
@@ -98,7 +119,12 @@ msgstr "Comprobar expiración"
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__color
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__color
 msgid "Color"
-msgstr ""
+msgstr "Color"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__color
+msgid "Color Index"
+msgstr "Color"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__company
@@ -116,6 +142,11 @@ msgid "Coverage Details"
 msgstr "Detalles de la cobertura"
 
 #. module: veterinary_clinic_angel
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_appointment_view_form
+msgid "Create Tags"
+msgstr "Crear etiquetas"
+
+#. module: veterinary_clinic_angel
 #: model_terms:ir.actions.act_window,help:veterinary_clinic_angel.veterinary_allergy_action
 msgid "Create a new allergy"
 msgstr "Crea una nueva alergia"
@@ -131,22 +162,33 @@ msgid "Create a new species"
 msgstr "Crea una nueva especie"
 
 #. module: veterinary_clinic_angel
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_pet_view_form
+msgid "Create insurance"
+msgstr "Crear seguro"
+
+#. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_allergy__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_species__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_allergy__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_species__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__create_date
 msgid "Created on"
 msgstr "Creado en"
 
@@ -164,16 +206,20 @@ msgstr "Descripción"
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_allergy__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_species__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_appointment__state__done
 #: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery__state__done
+#: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery_action__state__done
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_appointment_view_form
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_appointment_view_search
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_surgery_view_search
@@ -198,6 +244,11 @@ msgid "Edit"
 msgstr "Editar"
 
 #. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__partner_email
+msgid "Email"
+msgstr "Email"
+
+#. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__expiration_date
 msgid "Expiration Date"
 msgstr "Fecha de expiración"
@@ -214,21 +265,30 @@ msgstr "Finalizado"
 
 #. module: veterinary_clinic_angel
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_pet_view_form
+msgid "Finish Surgeries"
+msgstr "Finalizar cirugías"
+
+#. module: veterinary_clinic_angel
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_pet_view_form
 msgid "Generate pet number"
 msgstr "Generar número de mascota"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_allergy__id
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__id
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__id
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__id
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__id
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__id
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_species__id
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__id
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__id
 msgid "ID"
 msgstr ""
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery__state__in_progress
+#: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery_action__state__in_progress
 msgid "In Progress"
 msgstr "En progreso"
 
@@ -244,22 +304,33 @@ msgid "Insurances"
 msgstr "Seguros"
 
 #. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_allergy__is_severe
+msgid "Is Severe"
+msgstr "Es severa"
+
+#. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_allergy__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_species__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_allergy__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_species__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
@@ -267,6 +338,11 @@ msgstr "Última actualización en"
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__last_vaccination_date
 msgid "Last Vaccination Date"
 msgstr "Fecha de última vacunación"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__line_ids
+msgid "Lines"
+msgstr "Líneas"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_allergy__severity__1
@@ -290,8 +366,10 @@ msgstr "Moderada"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__name
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__name
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__name
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_species__name
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__name
 msgid "Name"
 msgstr "Nombre"
 
@@ -305,6 +383,11 @@ msgstr "Notas"
 #: model:ir.model.fields,help:veterinary_clinic_angel.field_veterinary_pet__pet_number
 msgid "Number of the pet"
 msgstr "Número identificativo de la mascota"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__partner_id
+msgid "Partner"
+msgstr "Contacto"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__pet_id
@@ -326,9 +409,29 @@ msgid "Pets"
 msgstr "Mascotas"
 
 #. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__partner_phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_insurance__policy_number
 msgid "Policy Number"
 msgstr "Número de póliza"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: veterinary_clinic_angel
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_appointment_view_form
+msgid "Products"
+msgstr "Productos"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__qty
+msgid "Quantity"
+msgstr "Cantidad"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__reason
@@ -343,12 +446,14 @@ msgstr "Responsable"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery__state__scheduled
+#: model:ir.model.fields.selection,name:veterinary_clinic_angel.selection__veterinary_surgery_action__state__scheduled
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_surgery_view_search
 msgid "Scheduled"
 msgstr "Planificada"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__sequence
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__sequence
 msgid "Sequence"
 msgstr "Secuencia"
 
@@ -393,17 +498,29 @@ msgstr "Estado"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__state
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__state
 msgid "Status"
 msgstr "Estado"
 
 #. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__price_subtotal
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: veterinary_clinic_angel
 #: model:ir.actions.act_window,name:veterinary_clinic_angel.action_veterinary_surgery
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__surgery_ids
 #: model:ir.ui.menu,name:veterinary_clinic_angel.menu_veterinary_surgery
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_surgery_view_calendar
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_surgery_view_graph
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_angel.veterinary_surgery_view_pivot
 msgid "Surgeries"
 msgstr "Cirugías"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery_action__surgery_id
+msgid "Surgery"
+msgstr "Cirugía"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__date
@@ -414,6 +531,21 @@ msgstr "Fecha"
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_surgery__name
 msgid "Surgery Name"
 msgstr "Nombre"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_tag__name
+msgid "Tag Name"
+msgstr "Nombre de etiqueta"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__tag_ids
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment_line__price_unit
+msgid "Unit Price"
+msgstr "Precio unitario"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_appointment__urgency
@@ -456,6 +588,16 @@ msgid "Veterinary Appointment"
 msgstr "Cita veterinaria"
 
 #. module: veterinary_clinic_angel
+#: model:ir.model,name:veterinary_clinic_angel.model_veterinary_appointment_line
+msgid "Veterinary Appointment Line"
+msgstr "Línea de cita"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model,name:veterinary_clinic_angel.model_veterinary_appointment_tag
+msgid "Veterinary Appointment Tag"
+msgstr "Etiqueta de cita"
+
+#. module: veterinary_clinic_angel
 #: model:ir.module.category,name:veterinary_clinic_angel.veterinary_clinic_category
 #: model:ir.ui.menu,name:veterinary_clinic_angel.veterinary_clinic_menu
 msgid "Veterinary Clinic"
@@ -487,6 +629,11 @@ msgstr "Cirugías"
 #: model:ir.model,name:veterinary_clinic_angel.model_veterinary_surgery
 msgid "Veterinary Surgery"
 msgstr "Cirugía"
+
+#. module: veterinary_clinic_angel
+#: model:ir.model,name:veterinary_clinic_angel.model_veterinary_surgery_action
+msgid "Veterinary Surgery Action"
+msgstr "Acción"
 
 #. module: veterinary_clinic_angel
 #: model:ir.model.fields,field_description:veterinary_clinic_angel.field_veterinary_pet__weight

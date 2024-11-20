@@ -39,11 +39,11 @@
                     </div>
                     <group>
                         <group>
-                            <field name="partner_id"/>
+                            <field name="partner_id" options="{'no_quick_create': True, 'no_open': True}"/>
                             <field name="partner_phone"/>
                             <field name="partner_email"/>
                             <field name="date"/>
-                            <field name="user_id"/>
+                            <field name="user_id" options="{'no_create': True, 'no_quick_create': True, 'no_open': True}"/>
                         </group>
                         <group>
                             <field name="duration" widget="float_time"/>
@@ -51,6 +51,17 @@
                         </group>
                     </group>
                     <notebook>
+                    <page name="lines" string="Products">
+                        <field name='line_ids' context="{'tree_view_ref':'veterinary_clinic_angel.view_veterinary_appointment_line_simple_tree', 'form_view_ref':'veterinary_clinic_angel.veterinary_appointment_line_simple_form'}">
+                            <!--<tree editable="bottom">
+                                <field name='product_id'></field>
+                                <field name="name"></field>
+                                <field name="qty"></field>
+                                <field name="price_unit"></field>
+                                <field name="price_subtotal"></field>
+                            </tree>-->
+                        </field>
+                    </page>
                         <page name="reason_page" string="Reason">
                             <field name="reason"/>
                         </page>

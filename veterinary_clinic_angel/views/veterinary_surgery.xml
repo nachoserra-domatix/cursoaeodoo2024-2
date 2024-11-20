@@ -41,6 +41,25 @@
                             <field name="date"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page name="actions" string="Actions">
+                            <field name="action_ids" context="{'default_state':state}">
+                                <tree string="Actions">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" />
+                                    <field name="state"></field>
+                                </tree>
+                                <form string="Action">
+                                    <sheet>
+                                        <group>
+                                            <field name="name" />
+                                            <field name="state"></field>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

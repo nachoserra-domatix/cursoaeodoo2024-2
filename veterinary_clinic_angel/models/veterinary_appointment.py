@@ -22,6 +22,7 @@ class VeterinaryAppointment(models.Model):
     urgency = fields.Boolean(string='Urgent')
     color = fields.Integer(string='Color')
     tag_ids = fields.Many2many('veterinary.appointment.tag', string='Tags')
+    line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id',string='Lines')
 
 
     @api.model

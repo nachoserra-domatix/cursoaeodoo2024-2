@@ -15,6 +15,7 @@ class VeterinarySurgery(models.Model):
         ('cancelled', 'Cancelled')
     ], string='Status', default='scheduled',group_expand='_group_expand_states')
     color = fields.Integer(string='Color')
+    action_ids = fields.One2many('veterinary.surgery.action', 'surgery_id',string='Actions')
 
     @api.model
     def _group_expand_states(self, states, domain, order):
