@@ -62,7 +62,7 @@
                             <field name="line_ids" nolabel="1" context="{'tree_view_ref':'veterinary_clinic_borja.veterinary_appointment_line_simple_view_tree', 'form_view_ref':'veterinary_clinic_borja.veterinary_appointment_line_simple_view_form', 'default_qty': 2.0}"/>
                             <!--<field name="line_ids" >
                                  <tree editable="bottom">
-                                    <field name="prodcut_id"/>
+                                    <field name="product_id"/>
                                     <field name="name"/>
                                     <field name="qty"/>
                                     <field name="price_unit"/>
@@ -71,7 +71,7 @@
                                 <form>
                                     <group>
                                         <group>
-                                            <field name="prodcut_id" />
+                                            <field name="product_id" />
                                             <field name="name" />
                                         </group>
                                         <group>

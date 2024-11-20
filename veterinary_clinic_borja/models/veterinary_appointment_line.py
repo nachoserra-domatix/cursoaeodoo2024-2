@@ -5,7 +5,7 @@ class VeterinaryAppointmentLine(models.Model):
     _description = "Veterinary Appointment Lines"
 
     name = fields.Char(string="Name", required=True)
-    prodcut_id = fields.Many2one("product.product", string="Prodcut")
+    product_id = fields.Many2one("product.product", string="Prodcut")
     qty = fields.Float(string="Quantity")
     price_unit = fields.Float(string="Unit Price")
     appointment_id = fields.Many2one("veterinary.appointment", string="Appointment")

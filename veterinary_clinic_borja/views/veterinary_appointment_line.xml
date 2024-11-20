@@ -6,7 +6,7 @@
         <field name="model">veterinary.appointment.line</field>
         <field name="arch" type="xml">
             <tree multi_edit="1" string="Appointment Lines">
-                <field name="prodcut_id"/>
+                <field name="product_id"/>
                 <field name="name"/>
                 <field name="qty"/>
                 <field name="price_unit"/> 
@@ -19,7 +19,7 @@
         <field eval="100" name="priority"/>
         <field name="arch" type="xml">
             <tree multi_edit="1" string="Appointment Lines Simple">
-                <field name="prodcut_id"/>
+                <field name="product_id"/>
                 <field name="qty"/>
             </tree>        
         </field>            
@@ -31,7 +31,7 @@
             <form string="Appointment Line">
                 <group>
                     <group>
-                        <field name="prodcut_id" />
+                        <field name="product_id" />
                         <field name="name" />
                     </group>
                     <group>
@@ -49,7 +49,7 @@
         <field name="arch" type="xml">
             <form string="Appointment Line Simple">
                 <group>
-                    <field name="prodcut_id" />
+                    <field name="product_id" />
                     <field name="qty"/>
                 </group>
             </form>        
