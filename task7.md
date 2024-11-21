@@ -46,7 +46,7 @@
 * Añadir subtotal y total en los modelos
 
 ## Dominio
-En las adopciones, al desplegar el many2one de mascota pueden aparecer mascotas ya adoptadas
+En las adopciones, al desplegar el many2one de mascota NO pueden aparecer mascotas ya adoptadas
 
 
 # Campos calculados
