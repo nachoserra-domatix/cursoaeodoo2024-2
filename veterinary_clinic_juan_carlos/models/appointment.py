@@ -26,6 +26,12 @@ class Appointment(models.Model):
     # test = fields.Boolean(string="test", compute="_compute_assigned")
     tag_ids = fields.Many2many("veterinary.appointment.tag", string="Tag")
     line_ids = fields.One2many("veterinary.appointment.line","appointment_id", string="line ids")
+    total = fields.Float(string="Total", compute='_compute_total', store=True)
+
+    @api.depends('line_ids.subtotal')
+    def _compute_total(self):
+        for record in self:
+            record.total = sum(line.subtotal for line in record.line_ids)
 
     def _inverse_assigned(self):
         for record in self:

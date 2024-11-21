@@ -12,6 +12,7 @@
                 <field name="partner_phone"/>
                 <field name="partner_email"/>
                 <field name="appointment_date" optional="show"/>
+                <field name="total"/>
                 <field name="urgency" widget="boolean_toggle" optional="show"/>
                 <field name="state" widget="badge" optional="show"/>
                 <field name="user_id" optional="show"/>
@@ -46,6 +47,7 @@
                         <field name="partner_phone"/>
                         <field name="partner_email"/>
                         <field name="appointment_date"/>
+                        <field name="total"/>
                         <field name="user_id" options="{'no_create': True, 'no_quick_create': True, 'no_open': True}"/>
                     </group>
                     <group>

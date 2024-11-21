@@ -23,7 +23,8 @@
         'views/allergy.xml',
         'views/animalspecies.xml',
         'views/insurance.xml',
-        'views/surgeries.xml'
+        'views/surgeries.xml',
+        'views/adoption.xml'
     ],
     'application': False,
     'installable': True,

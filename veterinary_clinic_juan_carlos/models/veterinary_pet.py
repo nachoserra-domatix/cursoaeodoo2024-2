@@ -24,6 +24,12 @@ class VeterinaryPet(models.Model):
     # ])
     vaccinated = fields.Boolean(string="Vaccinated", compute="_compute_vaccinated", inverse="_inverse_vaccinated", store=True)
     last_vaccination_date = fields.Date(string="Last Vaccination Date")
+
+    pet_image = fields.Image(string="Photo")
+    allergy_ids = fields.Many2many("veterinary.allergy", string="Allergy")
+    adopted = fields.Boolean(string="Adopted")
+
+
     
     def action_finish_surgeries(self):
         surgeries = self.env["veterinary.surgeries"].search([("pet_id", "=", self.id)])

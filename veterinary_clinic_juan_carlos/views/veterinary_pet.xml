@@ -14,6 +14,9 @@
             <field name="weight" optional="hide"/>
             <field name="last_vaccination_date" optional="show"/>
             <field name="vaccinated" widget="boolean_toggle" optional="show"/>
+            <field name="adopted"/>
+            <field name="allergy_ids"/>
+            <field name="pet_image" widget="image" class="oe_avatar"/>
         </tree>
     </field>
 </record>
@@ -31,6 +34,7 @@
             <button string="Finish surgeries" name="action_finish_surgeries" type="object" class="btn-secondary"/>
         </header>
             <sheet>
+            <field name="pet_image" widget="image" class="oe_avatar"/>
                 <div class="oe_title">
                     <h1>
                         <field name="name"/>
@@ -38,6 +42,7 @@
                 </div>
             <group>
                 <group>
+                    <field name="adopted"/>
                     <field name="number_pet"/>
                     <field name="species_id"/>
                 </group>
@@ -49,6 +54,14 @@
                 <group>
                     <field name="vaccinated"/>
                     <field name="last_vaccination_date"/>
+                    <field name="allergy_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="severity_level"/>
+                                <field name="allergy_description"/>
+                                <field name="is_severe"/>
+                            </tree>
+                        </field>
                 </group>
             </group>
             </sheet>

@@ -10,6 +10,7 @@
                 <field name="product_id"/>
                 <field name="qty"/>
                 <field name="price_unit"/>
+                <field name="subtotal"/>
             </tree>
         </field>
     </record>
@@ -22,6 +23,7 @@
             <tree string="Appointment line">
                 <field name="name"/>
                 <field name="product_id"/>
+                <field name="subtotal"/>
             </tree>
         </field>
     </record>
@@ -37,6 +39,7 @@
                         <field name="product_id"/>
                         <field name="qty"/>
                         <field name="price_unit"/>
+                        <field name="subtotal"/>
                         
                     </group>
                 </sheet>
@@ -55,6 +58,7 @@
                         <field name="name"/>
                         <field name="product_id"/>
                         <field name="qty"/>
+                        <field name="subtotal"/>
                     </group>
                 </sheet>
             </form>
