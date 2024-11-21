@@ -22,7 +22,7 @@
 
 ## Modificaciones modelo lineas de cita
 * Añadir campo subtotal
-* 
+  
 ## Modificaciones modelo de cita
 * Añadir campo de total
 
