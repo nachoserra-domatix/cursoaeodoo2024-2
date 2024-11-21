@@ -7,4 +7,7 @@ from . import veterinary_surgery_line
 from . import veterinary_surgery
 from . import veterinary_allergy
 from . import veterinary_insurance
+from . import veterinary_adoption_state
+from . import veterinary_adoption
+
 

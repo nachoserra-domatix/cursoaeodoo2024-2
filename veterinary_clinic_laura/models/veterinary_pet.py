@@ -16,6 +16,9 @@ class VeterinaryPet(models.Model):
    user_id = fields.Many2one('res.users',string="Responsible")
    vaccinated = fields.Boolean(string="Vaccinated",compute="_compute_vaccinated",inverse="_inverse_vaccinated")
    last_vaccination_date=fields.Date(string="Last vaccination date")
+   image=fields.Image(string="Image")
+   adopted=fields.Boolean(string="Adopted")
+   allergy_ids=fields.Many2many('veterinary.allergy',string="Allergies")
 
    
    def _compute_vaccinated(self):

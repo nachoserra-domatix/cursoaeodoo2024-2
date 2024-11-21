@@ -45,12 +45,13 @@
                 <form string="Appointment">
                     <header>
                         <field name="state" options="{'clickable':1}" widget="statusbar"/>
+                        <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
+                        <button string="Done" invisible="state in ('done,cancel')" name="action_done" type="object" class="btn-primary"/>
+                        <button string="Cancell" invisible="state in ('cancelled','draft')" name="action_cancel" type="object" class="btn-danger"/>
+                        <button string="Create tags" name="create_tags" type="object"/>
+    
                     </header>
-                    <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
-                    <button string="Done" invisible="state in ('done,cancel')" name="action_done" type="object" class="btn-primary"/>
-                    <button string="Cancell" invisible="state in ('cancelled','draft')" name="action_cancel" type="object" class="btn-danger"/>
-                    <button string="Create tags" name="create_tags" type="object"/>
-
+                   
                     <sheet>
                         <div class="oe_title">
                             <h1>
@@ -71,6 +72,7 @@
  
                                 <field name="reason" />
                                 <field  name="assigned"/>
+                                <field name="total"/>
                             </group>
                         </group>
                         <notebook>
@@ -143,7 +145,6 @@
                                 <div class="oe_kanban_footer">
                                     <div class="o_kanban_record_bottom">
                                         <div class="oe_kanban_bottom_left">
-                                           
                                         </div>
                                         <div class="oe_kanban_bottom_right">
                                             <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>

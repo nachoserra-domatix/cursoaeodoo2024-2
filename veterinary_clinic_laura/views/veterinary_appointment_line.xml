@@ -21,6 +21,9 @@
             <tree string="Appointmen lines">
                 <field name="product_id"/>
                 <field name="price_unit"/>
+                <field name="qty"/>
+                <field name="price_unit"/>
+                <field name="subtotal"/>
             </tree>
         </field>
     </record>
@@ -52,6 +55,9 @@
                 <sheet>
                     <group>
                         <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="subtotal"/>
+                        <field name="qty"/>
                         <field name="price_unit"/>                 
                     </group>
                 </sheet>

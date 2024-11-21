@@ -73,9 +73,11 @@
                             <h1>
                                 <field name="name"/>
                             </h1>
+                            <field name="image" widget="image" class="oe_avatar"/>
                         </div>
                         <group>
                             <group>
+                                
                                 <field name="pet_number"/>
                                 <field name="species_id" options="{'no_create':True,'no_quick_create':True,'no_open':True}"/>
                                 <field name="vaccinated" widget="boolean_toggle"/>
@@ -86,8 +88,21 @@
                                 <field name="birthdate" />
                                 <field name="age" />
                                 <field name="weight" />
+                                <field name="adopted" widget="boolean_toggle"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page name="allergies" string="Allergies">
+                                <field name="allergy_ids">
+                                    <tree string="Allergies">
+                                        <field name="name"/>
+                                        <field name="description"/>
+                                        <field name="is_severe"/>
+                                    </tree>
+                                </field>
+                                
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

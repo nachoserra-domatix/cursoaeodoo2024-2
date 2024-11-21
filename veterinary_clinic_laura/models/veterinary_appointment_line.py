@@ -9,4 +9,10 @@ class VeterinaryAppointmentLine(models.Model):
    qty= fields.Float(string="Quantity")
    price_unit= fields.Float(string="Unit Price")
    appointment_id=fields.Many2one('veterinary.appointment',string="Appointment")
-  
+   subtotal=fields.Float(string="Subtotal",compute="_compute_subtotal")
+
+
+   @api.depends('price_unit','qty')
+   def _compute_subtotal(self):
+      for record in self:
+         record.subtotal= record.price_unit * record.qty
