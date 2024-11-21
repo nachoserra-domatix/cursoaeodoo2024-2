@@ -25,6 +25,13 @@ class VeterinaryAppointment(models.Model):
     assigned = fields.Boolean(string='Assigned', compute='_compute_assigned', inverse='_inverse_assigned')
     tag_ids = fields.Many2many('veterinary.appointment.tag', string='Tags')
     line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id', string='Lines')
+    total = fields.Monetary(string='Total', compute='_compute_total', store=True)
+    currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
+
+    @api.depends('line_ids.subtotal')
+    def _compute_total(self):
+        for record in self:
+            record.total = sum(record.line_ids.mapped('subtotal'))
 
     def _inverse_assigned(self):
         for record in self:
@@ -56,7 +63,6 @@ class VeterinaryAppointment(models.Model):
         tag_ids = self.env['veterinary.appointment.tag'].search([('name','ilike', self.reason)])
         # Si quisiera añadir las etiquetas existentes podría usar el siguiente operador:
         # tag_ids |= self.tag_ids
-        import pdb;pdb.set_trace()
         if tag_ids:
             self.tag_ids = [Command.set(tag_ids.ids)]
             #self.tag_ids = [(6, 0, self.tag_ids.ids)]

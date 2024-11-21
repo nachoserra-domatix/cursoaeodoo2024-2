@@ -30,12 +30,14 @@
             <button string="Check all Surgery as done" name="check_all_surgery_as_done" type="object" class="oe_highlight"/>
         </header>
             <sheet>
+            <field name="photo" widget="image" class="oe_avatar"/>
                 <div class="oe_title">
                     <h1>
                         <field name="name"/>
                     </h1>
                 </div>
             <group>
+            
                 <group>
                     <field name="vaccinated" widget="boolean_toggle"/>
                     <field name="last_vaccination_date"/>
@@ -46,8 +48,21 @@
                     <field name="birthdate"/>
                     <field name="age"/>
                     <field name="weight"/>
+                    <field name="adopted" widget="boolean_toggle"/>
                 </group>
+                
             </group>
+            <notebook>
+                    <page name="allergies" string="Allergies">
+                        <field name="allergy_ids">
+                            <tree string="Allergies">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="is_severe"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
             </sheet>
         </form>
     </field>
