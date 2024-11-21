@@ -22,7 +22,9 @@
             <tree string="Appointment lines Simple">
                 <field name="product_id"/>
                 <field name="name"/>
+                <field name="price_unit"/>
                 <field name="qty"/>
+                <field name="subtotal"/>
             </tree>
         </field>
     </record>
@@ -55,6 +57,8 @@
                         <field name="product_id"/>
                         <field name="name"/>
                         <field name="qty"/>
+                        <field name="price_unit"/>
+                        <field name="subtotal"/>
                     </group>
                 </sheet>
             </form>
