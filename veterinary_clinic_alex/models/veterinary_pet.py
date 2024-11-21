@@ -16,7 +16,9 @@ class VeterinaryPet(models.Model):
 
     vaccinated = fields.Boolean(string='Vaccinated', compute = '_is_vacinated', inverse='_inverse_vaccinated',store=True)
     last_vaccination_date = fields.Date(string='Last Vaccination Date', help='Last vaccination date of the pet')
-
+    image = fields.Image()
+    alergy_ids = fields.Many2many('veterinary.allergy', string='Allergies')
+    is_adopted = fields.Boolean(string='Is Adopted', help='Is adopted pet')
 
 
     def _inverse_vaccinated(self):

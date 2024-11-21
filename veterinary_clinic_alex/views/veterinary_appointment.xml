@@ -53,13 +53,15 @@
                             <field name="state"></field>  
                             <field name="assigned" ></field>                                                      
                             <field name="tag_ids" widget = "many2many_tags" options="{'color_field': 'color'}"></field>                                                      
+                                                                         
                         </group>                    
                     </group>
+                    
                     <notebook>
                         <page name="Lines" string="Products">
                             <field name="line_ids" context="{'tree_view_ref':'veterinary_clinic_alex.veterinary_appointment_line_simple_view_tree',
 'form_view_ref':'veterinary_clinic_alex.veterinary_appointment_line_simple_view_form', 'default_qty':1.0}">
-                                
+                            
                                     
                             </field>
                             
@@ -73,6 +75,14 @@
                             
                         </page>
                     </notebook>
+                    <group>
+                        <group>
+                        </group>
+                        <group>
+                            <field name="total" style="font-weight: bold; text-align: end; font-size: x-large"/> 
+                        </group>
+                        
+                    </group>
                 </sheet>
             </form>
         </field>

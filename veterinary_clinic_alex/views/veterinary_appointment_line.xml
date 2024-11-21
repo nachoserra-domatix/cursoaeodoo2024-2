@@ -22,9 +22,9 @@
         <field name="arch" type="xml">
             <tree string="Appointments Lines">
                 <field name="product_id" />
-                <field name="name" />
-                
+                <field name="name" />                
                 <field name="qty" />
+                <field name="subtotal" />
             </tree>
         </field>
     </record>
@@ -40,6 +40,7 @@
                         <field name="name" />
                         <field name="qty" />
                         <field name="price_unit" />
+                        <field name="subtotal" />
                     </group>
                 </sheet>
             </form>
@@ -55,8 +56,9 @@
                     <group>
                         <field name="product_id" />
                         <field name="name" />
-                        
                         <field name="qty" />
+                        <field name="price_unit" />
+                        <field name="subtotal" />
                     </group>
                 </sheet>
             </form>

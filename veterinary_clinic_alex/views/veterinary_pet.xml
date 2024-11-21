@@ -33,13 +33,17 @@
 
                 </header>         
                 <sheet>
+                    <field name="image" widget="image" class="oe_avatar"></field>
                     <div class="oe_title">
                         <h1>
                             <field name="name"></field>
+                            
                         </h1>
+                            
                     </div>
                     <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->
                         <group >
+                            
                             <field name="birthdate"></field>
                             <field name="weight"></field>
                             <field name="age"></field>
@@ -47,13 +51,26 @@
                             
                         </group>
                         <group >
+                            
                             <field name="number_pet"></field>
                             <field name="species_id" options="{ 'no_quick_create':True, 'no_open':True}"></field>                                
                             <field name="last_vaccination_date"></field>  
+                            <field name="is_adopted"></field>  
                                                                              
-                        </group>                    
+                        </group>  
+                                          
                     </group>
                     <notebook>
+                        <page name="allergy" string="Allergy">
+                            <field name="alergy_ids">
+                                <tree string="Allergy">
+                                    <field name="name"></field>
+                                    <field name="description"></field>
+                                    <field name="is_severity"></field>
+                                </tree>
+                            </field>
+                            
+                        </page>
                         <page name="description_page" string="Description">
                             <field name="description"></field>
                             
