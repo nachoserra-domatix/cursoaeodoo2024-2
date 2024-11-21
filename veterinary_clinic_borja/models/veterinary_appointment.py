@@ -28,6 +28,8 @@ class VeterinaryAppointment(models.Model):
     assigned = fields.Boolean(string="Assigned", compute="_compute_assigned", inverse="_inverse_assigned", store=True)
     tag_ids = fields.Many2many("veterinary.appointment.tag", string="")
     line_ids = fields.One2many( "veterinary.appointment.line", "appointment_id", string="Lines")
+    currency_id = fields.Many2one("res.currency", string="Currency", default=lambda self: self.env.company.currency_id)
+    total = fields.Monetary(string="Total", currency_field='currency_id')
  
 
     def action_all_draft(self):

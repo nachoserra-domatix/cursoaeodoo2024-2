@@ -9,3 +9,5 @@ class VeterinaryAppointmentLine(models.Model):
     qty = fields.Float(string="Quantity")
     price_unit = fields.Float(string="Unit Price")
     appointment_id = fields.Many2one("veterinary.appointment", string="Appointment")
+    currency_id = fields.Many2one("res.currency", string="Currency", related="appointment_id.currency_id", store=True)
+    subtotal = fields.Monetary(string="Subtotal", currency_field='currency_id')

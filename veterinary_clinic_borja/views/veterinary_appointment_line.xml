@@ -10,6 +10,8 @@
                 <field name="name"/>
                 <field name="qty"/>
                 <field name="price_unit"/> 
+                <field name="currency_id" column_invisible="1"/>
+                <field name="subtotal" widget="monetary"/>
             </tree>        
         </field>            
     </record>
@@ -28,7 +30,7 @@
         <field name="name">veterinary.appointment.line.view.form</field>
         <field name="model">veterinary.appointment.line</field>
         <field name="arch" type="xml">
-            <form string="Appointment Line">
+            <form string="Appointment Line">                
                 <group>
                     <group>
                         <field name="product_id" />
@@ -37,6 +39,8 @@
                     <group>
                         <field name="qty"/>                          
                         <field name="price_unit" />
+                        <field name="currency_id" invisible="1"/>
+                        <field name="subtotal" widget="monetary"/>
                     </group>                       
                 </group>
             </form>        
