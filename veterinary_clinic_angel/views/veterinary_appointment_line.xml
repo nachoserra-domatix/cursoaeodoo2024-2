@@ -42,7 +42,8 @@
                 <field name='product_id'></field>
                 <field name="name"></field>
                 <field name="qty"></field>
-                <field name="price_unit"></field>
+                <field name="price_unit" widget="monetary"></field>
+                <field name="currency_id" invisible="1"></field>
             </tree>
         </field>
     </record>
@@ -58,7 +59,8 @@
                         <field name='product_id'></field>
                         <field name="name"></field>
                         <field name="qty"></field>
-                        <field name="price_unit"></field>
+                        <field name="price_unit" widget="monetary"></field>
+                        <field name="currency_id" invisible="1"></field>
                     </group>
                 </sheet>
             </form>

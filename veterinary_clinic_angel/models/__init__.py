@@ -7,3 +7,5 @@ from . import veterinary_insurance
 from . import veterinary_appointment_tag
 from . import veterinary_appointment_line
 from . import veterinary_surgery_action
+from . import veterinary_adoption
+from . import veterinary_adoption_state

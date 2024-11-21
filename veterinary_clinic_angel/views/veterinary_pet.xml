@@ -31,6 +31,7 @@
                 <button string="Finish Surgeries" name="action_finish_surgeries" type="object" class="btn-primary"/>
             </header>
             <sheet>
+                <field name="image" class="oe_avatar" widget="image"></field>
                 <div class="oe_title">
                     <h1>
                         <field name="name"/>
@@ -47,11 +48,21 @@
                     <group>
                         <field name="pet_number"/>
                         <field name="species_id" options="{'no_create': True, 'no_quick_create': True}"/>
+                        <field name="adopted"/>
                     </group>
                 </group>
                 <notebook>
                     <page name="notes_page" string="Notes">
                         <field name="notes"/>
+                    </page>
+                    <page name="allergies" string="Allergies">
+                        <field name="allergy_ids">
+                            <tree editable="bottom">
+                                <field name="name"></field>
+                                <field name="description"></field>
+                                <field name="severity"></field>
+                            </tree>
+                        </field>
                     </page>
                 </notebook>
             </sheet>

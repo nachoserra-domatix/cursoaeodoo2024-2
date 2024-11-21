@@ -14,6 +14,8 @@
                 <field name="state" widget="badge" optional="show"/>
                 <field name="duration" widget="float_time" optional="hide"/>
                 <field name="tag_ids" widget="many2many_tags" optional="hide" options="{'color_field': 'color'}"/>
+                <field name="total" widget="monetary" optional="hide"/>
+                <field name="currency_id" invisible="1"></field>
             </tree>
         </field>
     </record>
@@ -48,18 +50,13 @@
                         <group>
                             <field name="duration" widget="float_time"/>
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="total" widget="monetary"/>
+                            <field name="currency_id" invisible="1"></field>
                         </group>
                     </group>
                     <notebook>
                     <page name="lines" string="Products">
                         <field name='line_ids' context="{'tree_view_ref':'veterinary_clinic_angel.view_veterinary_appointment_line_simple_tree', 'form_view_ref':'veterinary_clinic_angel.veterinary_appointment_line_simple_form'}">
-                            <!--<tree editable="bottom">
-                                <field name='product_id'></field>
-                                <field name="name"></field>
-                                <field name="qty"></field>
-                                <field name="price_unit"></field>
-                                <field name="price_subtotal"></field>
-                            </tree>-->
                         </field>
                     </page>
                         <page name="reason_page" string="Reason">
@@ -79,7 +76,7 @@
         <field name="model">veterinary.appointment</field>
         <field name="arch" type="xml">
             <search string="Veterinary Appointment">
-                <field name="name" filter_domain="['|', ('solutioon', 'ilike', self),('name', 'ilike', self)]"></field>
+                <field name="name" filter_domain="['|', ('solution', 'ilike', self),('name', 'ilike', self)]"></field>
                 <field name="user_id"></field>
                 <filter name="draft_filter" string="Draft" domain="[('state', '=', 'draft')]" />
                 <filter name="done_filter" string="Done" domain="[('state', '=', 'done')]" />

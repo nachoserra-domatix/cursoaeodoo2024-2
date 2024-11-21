@@ -16,6 +16,9 @@ class VeterinaryPet(models.Model):
     vaccinated = fields.Boolean(string='Vaccinated', default=False, compute="_compute_vaccinated", store=True, inverse="_inverse_vaccinated")
     last_vaccination_date = fields.Date(string='Last Vaccination Date')
     surgery_ids = fields.One2many('veterinary.surgery', 'pet_id', string='Surgeries')
+    image = fields.Image(string='Pet Photo')
+    allergy_ids = fields.Many2many('veterinary.allergy', string='Allergies')
+    adopted = fields.Boolean(string='Adopted', default=False)
 
     @api.depends('last_vaccination_date')
     def _compute_vaccinated(self):
