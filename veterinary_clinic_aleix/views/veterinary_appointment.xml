@@ -14,7 +14,11 @@
                 <field name="reason" optional="show"/>
                 <field name="state" widget="badge" optional="show"/>
                 <field name="duration" widget="float_time" optional="hide"/>
-                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/>
+                <field name="tag_ids" widget="many2many_tags" 
+                    options="{'color_field': 'color'}" optional="show"/>
+                <field name="total" widget='monetary' 
+                        options="{'currency_field': 'currency_id'}"/>
+                <field name="currency_id" optional="hide"/>
             </tree>
         </field>
     </record>
@@ -52,6 +56,9 @@
                             <field name="urgency" widget="boolean_toggle"/>
                             <field name="duration" widget="float_time"/>
                             <field name="assigned"/>
+                            <field name="total" widget='monetary' 
+                                options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" invisible="1"/>
                         </group>
                     </group>
                     <notebook>

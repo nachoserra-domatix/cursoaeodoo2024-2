@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- view: list -->
+    <record id="veterinary_adoption_tree_view" model="ir.ui.view">
+        <field name="name">veterinary.adoption.tree.view</field>
+        <field name="model">veterinary.adoption</field>
+        <field name="arch" type="xml">
+            <tree string="Adoptions">
+                <field name="pet_id"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="stage_id"/>
+                <field name="adopted"/>
+                <field name="date_shelter_entry" optional="show"/>
+                <field name="date_adoption" optional="show"/>
+                <field name="days_in_shelter" optional="show"/>
+                <field name="price" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                <field name="currency_id" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- view: form -->
+    <record id="veterinary_adoption_view_form" model="ir.ui.view">
+        <field name="name">veterinary.adoption.view.form</field>
+        <field name="model">veterinary.adoption</field>
+        <field name="arch" type="xml">
+            <form string="Adoption">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="pet_id" placeholder="Select Pet"
+                                domain="[('adopted', '=', False)]"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id" options="{'no_quick_create': True, 'no_open': True}"/>
+                            <field name="user_id" options="{'no_create': True, 'no_quick_create': True, 'no_open': True}"/>
+                            <field name="stage_id"/>
+                            <field name="adopted"/>
+                        </group>
+                        <group>
+                            <field name="date_shelter_entry"/>
+                            <field name="date_adoption"/>
+                            <field name="days_in_shelter"/>
+                            <field name="price" widget='monetary' 
+                                options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="notes_page" string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- view: search -->
+    <record id="veterinary_adoption_view_search" model="ir.ui.view">
+        <field name="name">veterinary.adoption.view.search</field>
+        <field name="model">veterinary.adoption</field>
+        <field name="arch" type="xml">
+            <search string="Adoption">
+                <field name="name" string="Name, Pet or Notes"
+                    filter_domain="['|', '|', 
+                    ('name', 'ilike', self),
+                    ('pet_id.name', 'ilike', self),
+                    ('notes', 'ilike', self)]"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <filter name="adopted_pet_filter" string="Adopted pet" domain="[('stage_id.adopted', '=', True)]" />
+                <filter name="not_adopted_pet_filter" string="Not adopted pet" domain="[('stage_id.adopted', '=', False)]" />
+                <filter name="group_by_user_id" string="User" context="{'group_by': 'user_id'}" />
+            </search>
+        </field>
+    </record>
+
+    <!-- view: kanban -->
+    <record id="veterinary_adoption_view_kanban" model="ir.ui.view">
+        <field name="name">veterinary.adoption.view.kanban</field>
+        <field name="model">veterinary.adoption</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id">
+                <field name="pet_id"/>
+                <field name="name"/>
+                <field name="date_shelter_entry"/>
+                <field name="date_adoption"/>
+                <field name="pet_image"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="color"/>
+                <templates>
+                    <!-- kanban-menu-->
+                    <t t-name="kanban-menu">
+                        <t t-if="widget.editable">
+                            <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                        </t>
+                        <t t-if="widget.deletable">
+                            <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                        </t>
+                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                    </t>
+                    <!-- kanban-box-->
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''} oe_kanban_global_click oe_kanban_card d-flex flex-column">
+                            <div class="oe_kanban_content flex-grow-1">
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="pet_id"/>
+                                </div>
+                                <div class="oe_avatar">
+                                    <field name="pet_image" widget="image"/>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="date_shelter_entry"/>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="date_adoption"/>
+                                </div>
+                                <div class="oe_kanban_footer">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="partner_id" widget="many2one_avatar_user"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- view: pivot -->
+    <record id="veterinary_adoption_view_pivot" model="ir.ui.view">
+        <field name="name">veterinary.adoption.view.pivot</field>
+        <field name="model">veterinary.adoption</field>
+        <field name="arch" type="xml">
+            <pivot string="Adoptions" disable_linking="false">
+                <field name="pet_id" type="row"/>
+                <field name="date_shelter_entry" type="col"/>
+                <field name="days_in_shelter" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="veterinary_adoption_action" model="ir.actions.act_window">
+        <field name="name">Adoptions</field>
+        <field name="res_model">veterinary.adoption</field>
+        <field name="view_mode">tree,form,kanban,pivot</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+        Create a new adoption
+            </p>
+        </field>
+    </record>
+
+</odoo>

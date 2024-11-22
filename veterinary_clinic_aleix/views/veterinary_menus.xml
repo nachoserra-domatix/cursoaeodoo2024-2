@@ -46,6 +46,12 @@
             name="Insurances"
             action="veterinary_insurance_action"
             sequence="70"/>
+                <!-- action insurance -->
+        <menuitem
+            id="veterinary_adoption_menu"
+            name="Adoptions"
+            action="veterinary_adoption_action"
+            sequence="80"/>
     </menuitem>
 </menuitem>
 

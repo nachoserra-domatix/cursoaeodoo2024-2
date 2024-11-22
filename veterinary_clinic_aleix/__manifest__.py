@@ -17,6 +17,7 @@
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
+        'views/veterinary_adoption.xml',
         'views/veterinary_allergy.xml',
         'views/veterinary_appointment.xml',
         'views/veterinary_appointment_line.xml',

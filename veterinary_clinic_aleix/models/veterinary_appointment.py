@@ -21,16 +21,11 @@ class VeterinaryAppointment(models.Model):
     sequence = fields.Integer(string='Sequence')
     urgency = fields.Boolean(string='Urgency')
     color = fields.Integer(string='Color')
-    # computed fields
-    # por defecto no se guarada en bd
-    assigned = fields.Boolean(
-        compute='_compute_assigned', inverse='_inverse_assigned', store=True)
     # Many2one
     user_id = fields.Many2one('res.users', string='Responsible')
     partner_id = fields.Many2one('res.partner', string='Partner')
+    currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
     # Many2many
-    tag_ids = fields.Many2many(
-        comodel_name='veterinary.appointment.tag', string='Tags')
     tag_ids = fields.Many2many(
         comodel_name='veterinary.appointment.tag', string='Tags')
     # One2many
@@ -42,6 +37,11 @@ class VeterinaryAppointment(models.Model):
         related='partner_id.phone', string='Partner Phone', store=True, readonly=False)
     partner_email = fields.Char(
         related='partner_id.email', string='Partner Email')
+    # computed fields
+    # por defecto no se guarada en bd
+    assigned = fields.Boolean(
+        compute='_compute_assigned', inverse='_inverse_assigned', store=True)
+    total = fields.Float(string='Total', compute='_compute_total', store=True)
 
     # computed methods
     # marcar assigned si hay usuario
@@ -50,6 +50,11 @@ class VeterinaryAppointment(models.Model):
     def _compute_assigned(self):
         for record in self:
             record.assigned = bool(record.user_id)
+    
+    @api.depends('line_ids.subtotal')
+    def _compute_total(self):
+        for record in self:
+            record.total = sum(record.line_ids.mapped('subtotal'))
 
     # inverse methods
     # guardar usuario si marcamos assigned

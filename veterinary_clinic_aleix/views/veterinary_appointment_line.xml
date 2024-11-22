@@ -10,11 +10,13 @@
                 <field name="name"/>
                 <field name="description"/>
                 <field name="quantity"/>
-                <field name="price"/>
+                <field name="price_unit"/>
+                <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                <field name="currency_id" optional="hide"/>
             </tree>
         </field>
     </record>
-    
+
     <!-- view: simple list -->
     <record id="veterinary_appointment_line_simple_tree_view" model="ir.ui.view">
         <field name="name">veterinary.appointment.line.simple.tree.view</field>
@@ -24,7 +26,9 @@
             <tree string="Appointment lines">
                 <field name="name"/>
                 <field name="quantity"/>
-                <field name="price"/>
+                <field name="price_unit"/>
+                <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                <field name="currency_id" invisible="1"/>
             </tree>
         </field>
     </record>
@@ -45,7 +49,9 @@
                         <group>
                             <field name="description"/>
                             <field name="quantity"/>
-                            <field name="price"/>
+                            <field name="price_unit"/>
+                            <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" invisible="1"/>
                         </group>
                     </group>
                 </sheet>
@@ -69,7 +75,9 @@
                     <group>
                         <group>
                             <field name="quantity"/>
-                            <field name="price"/>
+                            <field name="price_unit"/>
+                            <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" invisible="1"/>
                         </group>
                     </group>
                 </sheet>

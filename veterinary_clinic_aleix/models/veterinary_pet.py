@@ -15,9 +15,14 @@ class VeterinaryPet(models.Model):
     #    [('cat', 'Cat'), ('dog', 'Dog'), ('bird', 'Bird'), ('other', 'Other')],
     #    string='Species'
     #  )
-    species_id = fields.Many2one('veterinary.species', string='Species')
     last_vaccination_date = fields.Date(string="Last Vaccination Date")
-
+    image = fields.Image(string='Pet image', max_width=1024, max_height=1024)
+    adopted = fields.Boolean(string='Adopted', default=False)
+    # Many2one
+    species_id = fields.Many2one('veterinary.species', string='Species')
+    # Many2many
+    allergy_ids = fields.Many2many(
+        comodel_name='veterinary.allergy', string='Allergies')
     # computed fields
     age = fields.Integer(string='Age', help='Age of the pet',
                          compute='_compute_age', store=True)
