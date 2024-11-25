@@ -19,6 +19,40 @@ class VeterinaryPet(models.Model):
    image=fields.Image(string="Image")
    adopted=fields.Boolean(string="Adopted")
    allergy_ids=fields.Many2many('veterinary.allergy',string="Allergies")
+   appointment_ids=fields.One2many('veterinary.appointment','pet_id',string="Appointments")
+   appointment_count=fields.Integer(string="Appointment Count",compute="_compute_appointment_count")
+   insurance_count=fields.Integer(string="Insurance Count",compute="_compute_insurance_count")
+
+   def _compute_appointment_count(self):
+      for record in self:
+         record.appointment_count= len(record.appointment_ids)
+   
+   def _compute_insurance_count(self):
+      for record in self:
+         insurances=self.env['veterinary.insurance'].search([('pet_id','=',self.id)])
+         record.insurance_count=len(insurances)
+      
+
+   def action_view_medical_history(self):
+      return{
+         'type':'ir.actions.act_window',
+         'name':'Medical History',
+         'res_model':'veterinary.appointment',
+         'view_mode':'tree,form,kanban',
+         'domain':[('pet_id','=',self.id)]
+
+      }
+   
+   def action_view_insurance_history(self):
+      return{
+         'type':'ir.actions.act_window',
+         'name':'Insurance History',
+         'res_model':'veterinary.insurance',
+         'view_mode':'tree,form,kanban',
+         'domain':[('pet_id','=',self.id)]
+
+      }
+  
 
    
    def _compute_vaccinated(self):

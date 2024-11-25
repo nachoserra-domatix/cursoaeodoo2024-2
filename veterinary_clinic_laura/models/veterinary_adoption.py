@@ -2,6 +2,7 @@ from odoo import models, fields, api
 import random
 import string
 from datetime import date
+from odoo.exceptions import UserError, ValidationError, AccessDenied
 
 class VeterinaryAdoption(models.Model):
     _name = "veterinary.adoption"
@@ -31,3 +32,9 @@ class VeterinaryAdoption(models.Model):
                     record.day_shelter = (date.today() - record.date_shelter_enter).days
                 else:
                     record.day_shelter = 0
+    
+    @api.constrains('date_adoption')
+    def _check_day(self):
+      for record in self:
+         if record.date_adoption<record.date_shelter_enter:
+                raise ValidationError('Date adoption must be newer than date shelter')

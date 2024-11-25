@@ -19,7 +19,11 @@ class VeterinarySurgery(models.Model):
     color=fields.Integer(string="color")
     line_ids=fields.One2many('veterinary.surgery.line','surgery_id',string="Lines")
 
-    
+    def _cron_check_surgery(self):
+      surgeries_wait=self.search([('state','=','wait')])
+      for surgery in surgeries_wait:
+          if surgery.surgery_date < fields.Date.today():
+              surgery.state='finish'
 
     def action_doing(self):
         for record in self:

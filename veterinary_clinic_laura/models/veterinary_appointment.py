@@ -1,4 +1,5 @@
 from odoo import models, fields,api, Command
+from odoo.exceptions import UserError, ValidationError, AccessDenied
 
 class VeterinaryAppointment(models.Model):
    _name = "veterinary.appointment"
@@ -28,7 +29,24 @@ class VeterinaryAppointment(models.Model):
    tag_ids= fields.Many2many('veterinary.appointment.tag',string="Tags")
    lines_ids=fields.One2many('veterinary.appointment.line','appointment_id',string="Lines")
    total=fields.Float(string="Total", compute="_compute_total")
+   pet_id=fields.Many2one('veterinary.pet',string="Pet")
 
+   _sql_constraints=[
+      ('name_unique', 'unique(name)','The appointment name must be unique'),
+   ]
+   
+   @api.onchange('assigned')
+   def _onchange_assigned(self):
+      for record in self:
+         record.user_id=self.env.user
+
+
+   @api.constrains('duration')
+   def _check_duration(self):
+      for record in self:
+         if record.duration<0:
+            raise ValidationError('The duration must be positive')
+   
    def _compute_total(self):
       for record in self:
          record.total= sum(record.lines_ids.mapped("subtotal"))

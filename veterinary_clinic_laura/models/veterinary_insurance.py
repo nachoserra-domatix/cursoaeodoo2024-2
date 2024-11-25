@@ -9,9 +9,18 @@ class VeterinaryInsurance(models.Model):
    insurance_company=fields.Char(string="Insurance company")
    policy_number=fields.Char(string="Policy number")
    cover_details=fields.Text(string="Cover details")
-   expiration_date=fields.Date(string="Expiration data")
+   expiration_date=fields.Date(string="Expiration data",default=fields.Date.context_today)
    expired= fields.Boolean(string="Expired")
    active= fields.Boolean('Active',default=True)
+
+   _sql_constraints=[
+      ('policy_number_unique', 'unique(policy_number)','The policy number must be unique'),
+   ]
+   
+   def _cron_check_expired(self):
+      insurances=self.search([('active','=',True),('expired','=',False)])
+      insurances.check_insurance_date()
+      return True
    
    def check_insurance_date(self):
       for record in self:

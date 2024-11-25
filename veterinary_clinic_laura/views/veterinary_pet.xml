@@ -69,6 +69,16 @@
 
                     </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_medical_history" type="object" class="oe_stat_button" icon="fa-file">
+                                <field name="appointment_count" string="Medical history" widget="statinfo"/>
+                            </button>
+                            
+                            <button name="action_view_insurance_history" type="object" class="oe_stat_button" icon="fa-file">
+                                <field name="insurance_count" string="Insurance history" widget="statinfo"/>
+                            </button>
+                            
+                        </div>
                         <div class="oe_title">
                             <h1>
                                 <field name="name"/>
