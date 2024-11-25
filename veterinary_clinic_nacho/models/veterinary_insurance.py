@@ -1,4 +1,6 @@
 from odoo import fields, models
+import logging
+_logger = logging.getLogger(__name__)
 
 
 class VeterinaryInsurance(models.Model):
@@ -15,9 +17,16 @@ class VeterinaryInsurance(models.Model):
 
     def check_expired(self):
         for record in self:
+            _logger.info('Checking expiration date of insurance %s', record.id)
+            #_logger.info(f'Checking expiration date ({record.expiration_date}) of insurance {record.id}')
             if record.expiration_date:
                 if record.expiration_date < fields.Date.today():
                     record.expired = True
                     record.active = False
                 else:
                     record.expired = False
+    
+    def _cron_check_expired(self):
+        insurances = self.search(['|',('active', '=', True),(('expired', '=', False))])
+        insurances.check_expired()
+        return True

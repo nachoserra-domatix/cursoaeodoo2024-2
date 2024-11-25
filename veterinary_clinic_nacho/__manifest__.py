@@ -20,6 +20,7 @@
              'views/veterinary_allergy.xml',
              'views/veterinary_insurance.xml',
              'views/veterinary_adoption.xml',
+             'data/ir_cron.xml'
              ],
     'application': False,
     'installable': True,
