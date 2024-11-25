@@ -17,3 +17,4 @@
 
 # Cron
 * Cron que busque los seguros de manera diaria, si la fecha de expiración ha pasado, el campo expirado se pondrá a True
+* Cron que busque las cirugías que estén en borrador y que las marque como hechas si la fecha ya se ha pasado.
