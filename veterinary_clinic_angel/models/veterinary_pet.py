@@ -19,6 +19,20 @@ class VeterinaryPet(models.Model):
     image = fields.Image(string='Pet Photo')
     allergy_ids = fields.Many2many('veterinary.allergy', string='Allergies')
     adopted = fields.Boolean(string='Adopted', default=False)
+    appointment_ids = fields.One2many('veterinary.appointment', 'pet_id', string='Appointments')
+    appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
+    insurance_ids = fields.One2many('veterinary.insurance', 'pet_id', string='Insurances')
+    insurance_count = fields.Integer(string='Insurance Count', compute='_compute_insurance_count')
+
+    @api.depends('insurance_ids')
+    def _compute_insurance_count(self):
+        for record in self:
+            record.insurance_count = len(record.insurance_ids)
+
+    @api.depends('appointment_ids')
+    def _compute_appointment_count(self):
+        for record in self:
+            record.appointment_count = len(record.appointment_ids)
 
     @api.depends('last_vaccination_date')
     def _compute_vaccinated(self):
@@ -59,3 +73,20 @@ class VeterinaryPet(models.Model):
         for surgery in self.surgery_ids:
             surgery.write({'state': 'done'})
             
+    def action_view_medical_history(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Medical History',
+            'res_model': 'veterinary.appointment',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }
+
+    def action_view_insurances(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Insurances',
+            'res_model': 'veterinary.insurance',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }

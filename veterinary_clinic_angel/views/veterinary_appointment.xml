@@ -8,6 +8,7 @@
             <tree string="Appointments">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="pet_id"></field>
                 <field name="date" optional="show"/>
                 <field name="urgency" optional="show" widget="boolean_toggle"/>
                 <field name="user_id" optional="show"/>
@@ -41,11 +42,13 @@
                     </div>
                     <group>
                         <group>
+                            <field name="pet_id"></field>
                             <field name="partner_id" options="{'no_quick_create': True, 'no_open': True}"/>
                             <field name="partner_phone"/>
                             <field name="partner_email"/>
                             <field name="date"/>
                             <field name="user_id" options="{'no_create': True, 'no_quick_create': True, 'no_open': True}"/>
+                            <field name="assigned"></field>
                         </group>
                         <group>
                             <field name="duration" widget="float_time"/>

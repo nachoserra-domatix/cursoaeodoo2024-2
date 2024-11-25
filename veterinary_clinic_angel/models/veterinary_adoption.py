@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class VeterinaryAdoption(models.Model):
     _name = 'veterinary.adoption'
@@ -17,6 +18,12 @@ class VeterinaryAdoption(models.Model):
     price = fields.Monetary(string='Price')
     currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
     color = fields.Integer(string='Color')
+
+    @api.constrains('entry_date', 'adoption_date')
+    def _check_dates(self):
+        for record in self:
+            if record.entry_date and record.adoption_date and record.entry_date > record.adoption_date:
+                raise ValidationError('The entry date must be before the adoption date')
 
     @api.model
     def _group_expand_states(self, states, domain, order):

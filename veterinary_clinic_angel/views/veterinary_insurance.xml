@@ -36,6 +36,7 @@
                             <field name="coverage_details"/>
                         </group>
                         <group>
+                            <field name="date"></field>
                             <field name="expiration_date"/>
                             <field name="expired"/>
                         </group>

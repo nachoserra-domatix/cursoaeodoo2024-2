@@ -29,3 +29,9 @@ class VeterinarySurgery(models.Model):
 
     def action_cancel_surgery(self):
         self.state = 'cancelled'
+
+    def _cron_check_expired_date(self):
+        surgeries = self.search([('state', '=', 'scheduled')])
+        for surgery in surgeries:
+            if surgery.date < fields.Date.today():
+                surgery.state = 'done'

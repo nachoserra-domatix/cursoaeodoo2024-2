@@ -11,8 +11,16 @@ class VeterinaryInsurance(models.Model):
     coverage_details = fields.Text(string='Coverage Details')
     expiration_date = fields.Date(string='Expiration Date', required=True)
     expired = fields.Boolean(string='Expired', readonly=True)
+    date = fields.Date(string='Date', default=fields.Date.today)
+    _sql_constraints = [
+        ('policy_number_unique', 'unique(policy_number)', 'The policy number must be unique')
+    ]
 
     def check_if_expired(self):
         for record in self:
             if record.expiration_date:
                 record.expired = record.expiration_date < fields.Date.today()
+
+    def _cron_check_expired_date(self):
+        insurances = self.search([('expired', '=', False)])
+        insurances.check_if_expired()
