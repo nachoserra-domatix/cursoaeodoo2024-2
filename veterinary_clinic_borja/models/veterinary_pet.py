@@ -15,6 +15,21 @@ class VeterinaryPet(models.Model):
    avatar = fields.Image("Avatar")
    allergy_ids  = fields.Many2many("veterinary.allergy", string="Allergies")
    is_adopted = fields.Boolean(string="Adopted")
+   appointment_ids = fields.One2many("veterinary.appointment", "pet_id", string="appointments")
+   appointment_count = fields.Integer(compute="_compute_appointment_count")
+
+   def _compute_appointment_count(self):
+      for record in self:
+         record.appointment_count = len(record.appointment_ids)
+
+   def action_view_appointments(self):
+      return {
+         "type": "ir.actions.act_window",
+         "name": "Appointments",
+         "res_model": "veterinary.appointment",
+         "view_mode": "tree,form",
+         "domain": [("pet_id","=",self.id)],
+      }
 
    def action_vaccinated(self):
       self.vaccinated = True

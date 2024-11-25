@@ -21,6 +21,7 @@
                 "views/veterinary_appointment_line.xml",
                 "views/veterinary_pet_adoption.xml",
                 "data/veterinary_species_data.xml",
+                "data/ir_cron.xml",
              ],
     'application': False,
     'installable': True,

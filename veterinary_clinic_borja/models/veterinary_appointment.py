@@ -10,7 +10,7 @@ class VeterinaryAppointment(models.Model):
     partner_id = fields.Many2one("res.partner", string="partner")
     partner_phone = fields.Char(related="partner_id.phone", string="Phone", store=True, readonly=False)
     partner_email = fields.Char(related="partner_id.email", string="Email")
-    date = fields.Datetime(string="Date", required=True)
+    date = fields.Datetime(string="Date", required=True, default=fields.Datetime.now)
     reason = fields.Text(string="Reason", required=True)
     solution = fields.Html(string="Solution", translate=True)
     status = fields.Selection([
@@ -19,8 +19,8 @@ class VeterinaryAppointment(models.Model):
         ("cancelled", "Cancelled"),
         ("other", "Other")   
     ], default="draft", string="Status", group_expand="_group_expand_status")
-    duration_minutes = fields.Integer(string="Duration", required=True, help="Duration in minutes")
-    user_id = fields.Many2one("res.users", string="Responsible")
+    duration_minutes = fields.Integer(string="Duration", required=True, help="Duration in minutes", )
+    user_id = fields.Many2one("res.users", string="Responsible", default=lambda self: self.env.user)
     sequence = fields.Integer(string="Sequence", default=10)
     urgency = fields.Boolean(string="Urgency")
     #color for the Kanban view
@@ -30,7 +30,7 @@ class VeterinaryAppointment(models.Model):
     line_ids = fields.One2many( "veterinary.appointment.line", "appointment_id", string="Lines")
     currency_id = fields.Many2one("res.currency", string="Currency", default=lambda self: self.env.company.currency_id)
     total = fields.Monetary(string="Total", currency_field='currency_id')
- 
+    pet_id = fields.Many2one("veterinary.pet", string="pet")
 
     def action_all_draft(self):
         self._set_all_status("draft")
@@ -90,5 +90,8 @@ class VeterinaryAppointment(models.Model):
           else:
                self.tag_ids = [Command.create({"name": self.reason, "code": self.reason})]
                # self.tag_ids = [(0,0,{"name": self.reason, "code": self.reason})]
+      
+#     @api.constrains('duration_minutes')
+#     def _check_duration(self):
+#           for record in self:
 
-    
