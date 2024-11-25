@@ -12,7 +12,7 @@
         'hr',
     ],
     'data': [
-       
+        'data/ir_cron.xml',
         'data/veterinary_species_data.xml',
         'security/res_groups.xml',
         'security/ir.model.access.csv',

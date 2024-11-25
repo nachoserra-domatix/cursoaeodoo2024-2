@@ -1,5 +1,6 @@
 from odoo import models, fields,api
 import random
+from datetime import date
 
 class VeterinaryPet(models.Model):
     _name= 'veterinary.pet'
@@ -19,7 +20,37 @@ class VeterinaryPet(models.Model):
     image = fields.Image()
     alergy_ids = fields.Many2many('veterinary.allergy', string='Allergies')
     is_adopted = fields.Boolean(string='Is Adopted', help='Is adopted pet')
+    appointment_ids = fields.One2many('veterinary.appointment', 'pet_id', string='Appointments', help='Appointments of the pet')
+    appointment_count = fields.Integer(string='Appointment Count', compute='compute_apointment_count')
+    insurance_count = fields.Integer(string='Insurance Count', compute='_compute_insurance_count')
 
+
+    def _compute_insurance_count(self):
+        for record in self:
+            record.insurance_count = self.env['veterinary.insurance'].search_count([('pet_id', '=', self.id)])
+
+
+    def compute_apointment_count(self):
+        for record in self:
+            record.appointment_count = len(record.appointment_ids)
+
+    def action_view_insurance_history(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Insurance History',
+            'res_model': 'veterinary.insurance',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }
+
+    def action_view_medical_history(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Medical History',
+            'res_model': 'veterinary.appointment',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }
 
     def _inverse_vaccinated(self):
         for record in self:
@@ -54,7 +85,15 @@ class VeterinaryPet(models.Model):
     def complete_surgery(self):       
        surgery_ids = self.env['veterinary.surgery'].search([('pet_id' , '=', self.id)])
        surgery_ids.action_done()
-       
+
+
+    def _compute_age(self):
+        for record in self:
+            if record.birthdate:
+                record.age = (fields.Date.today() - record.birthdate).days // 365
+            else:
+                record.age = 0
+
     def _search_age(self, operator, value):
         today = date.today()
         if operator in ('=', '!='):
@@ -70,3 +109,4 @@ class VeterinaryPet(models.Model):
             return [('birthdate', '>=', date(birth_year + 1, today.month, today.day))]
         else:
             return []
+    

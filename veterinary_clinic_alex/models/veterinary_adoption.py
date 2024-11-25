@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class VeterinaryAdoption(models.Model):
     _name= 'veterinary.adoption'
@@ -18,6 +18,11 @@ class VeterinaryAdoption(models.Model):
     color = fields.Integer(string='Color')
     
     
+    @api.constrains('adoption_date')
+    def _check_adoption_date(self):
+        for record in self:
+            if record.adoption_date < record.entry_date:
+                raise models.ValidationError('Adoption date must be greater than entry date')
 
     def _group_expand_states(self,states,domian,order):
         return self.state_id.search([])

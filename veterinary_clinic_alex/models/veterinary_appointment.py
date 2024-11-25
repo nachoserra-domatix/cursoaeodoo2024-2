@@ -7,7 +7,8 @@ class VeterinaryAppointment(models.Model):
 
     name = fields.Char(string='Name', required=True,)
     partner_id = fields.Many2one('res.partner', string='Partner')
-    partner_phone = fields.Char(string='Phone', related='partner_id.phone', store=True, readonly=False)
+    pet_id = fields.Many2one('veterinary.pet', string='Pet', help='Pet of the appointment')
+    partner_phone = fields.Char(string='Phone')
     partner_email = fields.Char(string='Email', related='partner_id.email', store=True, readonly=False)
     date = fields.Datetime(string='Date', required=True, default =fields.Datetime.now, help='Date of the appointment')
     reason = fields.Text(string='Reason', help='Description of the appointment')
@@ -19,7 +20,7 @@ class VeterinaryAppointment(models.Model):
     ], default='draft', string='State', help='State of the appointment', group_expand = '_group_expand_states')
 
     duration = fields.Float(string='Duration', help='Duration of the appointment')
-    user_id = fields.Many2one('res.users', string='Responsible', help='Veterinarian in charge of the appointment')
+    user_id = fields.Many2one('res.users', string='Responsible', help='Veterinarian in charge of the appointment', default=lambda self: self.env.user)
     sequence = fields.Integer(string='Sequence', default = 10)
     urgency = fields.Boolean(string='Urgent', help='Urgent appointment')
     color = fields.Integer(string='Color')
@@ -28,6 +29,30 @@ class VeterinaryAppointment(models.Model):
     line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id', string='Lines', help='Lines of the appointment')
     total = fields.Float(string='Total', compute='_compute_total')
 
+    _sql_constraints = [
+        ('name_unique', 'UNIQUE(name)', 'The appointment name must be unique')
+    ]
+
+    @api.onchange('assigned')
+    def _onchange_assigned(self):
+        if self.assigned:
+            self.user_id = self.env.user
+        else:
+            self.user_id = False
+
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.partner_phone = self.partner_id.phone or self.partner_id.mobile
+
+    @api.constrains('duration')
+    def _check_duration(self):      
+        for record in self:
+            if record.duration <= 0:
+                raise models.ValidationError('Duration must be greater than zero')
+            
+    
+            
     def _compute_total(self):
         for record in self:
             record.total = sum(line.subtotal for line in record.line_ids)

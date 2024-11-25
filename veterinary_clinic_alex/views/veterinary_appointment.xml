@@ -41,6 +41,7 @@
                     </div>
                     <group> <!-- Si no se pone group aparecería el campo sin etiqueta-->
                         <group >
+                            <field name="pet_id" />
                             <field name="partner_id" options="{ 'no_quick_create':True, 'no_open':True}"></field>
                             <field name="partner_phone"></field>
                             <field name="partner_email"></field>
