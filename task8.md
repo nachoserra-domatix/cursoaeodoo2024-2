@@ -1,6 +1,6 @@
 # Constraint
-* Añadir un constraint en incidencia para que el coste no pueda ser negativo
-* Añadir restricción con _sql_constraints en el que el nombre de la incidencia sea único.
+* Añadir un constraint en cita para que la duración no pueda ser negativa
+* Añadir restricción con _sql_constraints en el que el nombre de la cita sea único.
 
 # Onchange
 * Al cambiar el asignado de la cita, que el campo usuario se ponga con el usuario que lo ha modificado
