@@ -17,10 +17,25 @@ class VeterinaryPet(models.Model):
    is_adopted = fields.Boolean(string="Adopted")
    appointment_ids = fields.One2many("veterinary.appointment", "pet_id", string="appointments")
    appointment_count = fields.Integer(compute="_compute_appointment_count")
+   insurance_ids = fields.One2many("veterinary.insurance", "pet_id", string="insurances")
+   insurance_count = fields.Integer(compute="_compute_insurance_count")
+
+   def _compute_insurance_count(self):
+      for record in self:
+         record.insurance_count = len(record.insurance_ids)
 
    def _compute_appointment_count(self):
       for record in self:
          record.appointment_count = len(record.appointment_ids)
+   
+   def action_view_insurances(self):
+      return {
+         "type": "ir.actions.act_window",
+         "name": "Insurances",
+         "res_model": "veterinary.insurance",
+         "view_mode": "tree,form",
+         "domain": [("pet_id","=",self.id)],
+      }
 
    def action_view_appointments(self):
       return {
@@ -30,6 +45,7 @@ class VeterinaryPet(models.Model):
          "view_mode": "tree,form",
          "domain": [("pet_id","=",self.id)],
       }
+
 
    def action_vaccinated(self):
       self.vaccinated = True

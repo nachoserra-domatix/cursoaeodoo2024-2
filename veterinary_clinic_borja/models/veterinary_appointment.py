@@ -1,4 +1,5 @@
 from odoo import fields, models, api, Command
+from odoo.exceptions import ValidationError
 
 class VeterinaryAppointment(models.Model):
     _name = "veterinary.appointment"
@@ -31,6 +32,9 @@ class VeterinaryAppointment(models.Model):
     currency_id = fields.Many2one("res.currency", string="Currency", default=lambda self: self.env.company.currency_id)
     total = fields.Monetary(string="Total", currency_field='currency_id')
     pet_id = fields.Many2one("veterinary.pet", string="pet")
+
+    _sql_constraints = [
+        ('name_unique', 'unique (name)', "The appointment name must be unique"),]
 
     def action_all_draft(self):
         self._set_all_status("draft")
@@ -91,7 +95,17 @@ class VeterinaryAppointment(models.Model):
                self.tag_ids = [Command.create({"name": self.reason, "code": self.reason})]
                # self.tag_ids = [(0,0,{"name": self.reason, "code": self.reason})]
       
-#     @api.constrains('duration_minutes')
-#     def _check_duration(self):
-#           for record in self:
+    @api.constrains("duration_minutes")
+    def _check_dates(self):
+          for rec in self:
+               if rec.duration_minutes < 0:
+                    raise ValidationError("duration must be positive")
+
+    @api.onchange('assigned')
+    def _onchange_assigned(self):
+          if(self.assigned):
+               self.user_id = self.env.user
+          else:
+               self.user_id = None
+         
 

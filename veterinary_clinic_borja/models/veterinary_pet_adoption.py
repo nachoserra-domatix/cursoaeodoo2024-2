@@ -1,4 +1,5 @@
-from odoo import fields, models
+from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 class VeterinaryPetAdoption(models.Model):
    _name = "veterinary.pet.adoption"
@@ -21,3 +22,12 @@ class VeterinaryPetAdoption(models.Model):
 
    def _group_expand_status(self, status, domain, order):
       return status.search([])
+   
+   @api.constrains("adoption_date", "shelter_entry")
+   def _check_dates(self):
+      for rec in self:
+         if rec.shelter_entry > rec.adoption_date:
+            raise ValidationError("shelter_entry not valid")
+            
+
+
