@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Adoption(models.Model):
     _name = 'veterinary.adoption'
@@ -26,3 +27,10 @@ class Adoption(models.Model):
                 record.days_in_shelter = delta.days
             else:
                 record.days_in_shelter = 0
+
+    @api.constrains('adoption_date', 'entry_date')
+    def _check_adoption_date(self):
+        for record in self:
+            if record.adoption_date and record.entry_date:
+                if fields.Datetime.from_string(record.adoption_date) < fields.Datetime.from_string(record.entry_date):
+                    raise ValidationError("Adoption date cannot be earlier than the entry date to the shelter.")

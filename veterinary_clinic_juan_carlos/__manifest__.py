@@ -24,7 +24,8 @@
         'views/animalspecies.xml',
         'views/insurance.xml',
         'views/surgeries.xml',
-        'views/adoption.xml'
+        'views/adoption.xml',
+        'data/ir_cron.xml'
     ],
     'application': False,
     'installable': True,

@@ -27,3 +27,9 @@ class Surgeries(models.Model):
     def action_completed(self):
         for record in self:
             record.surgerie_date_state = "completed"
+
+    def _cron_chek_draft_date(self):
+        draft_surgeries = self.search([("surgerie_date_state", "=", "scheduled")])
+        for surgery in draft_surgeries:
+            if surgery.surgerie_date < fields.datetime.now():
+                surgery.surgerie_date_state = "completed"

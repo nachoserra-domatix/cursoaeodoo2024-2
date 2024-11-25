@@ -34,6 +34,14 @@
             <button string="Finish surgeries" name="action_finish_surgeries" type="object" class="btn-secondary"/>
         </header>
             <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="action_view_history" type="object" class="oe_stat_button" icon="fa-gittip">
+                    <field name="appointment_count" string="Medical history" widget="statinfo"/>
+                </button>
+                <button name="action_view_history_insurance" type="object" class="oe_stat_button" icon="fa-ambulance">
+                    <field name="insurance_count" string="Insurance list" widget="statinfo"/>
+                </button>
+            </div>
             <field name="pet_image" widget="image" class="oe_avatar"/>
                 <div class="oe_title">
                     <h1>

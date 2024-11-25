@@ -9,6 +9,7 @@
                 <field name="pet_id"/>
                 <field name="insurance_company"/>
                 <field name="policy_number"/>
+                <field name="issuance_date"/>
                 <field name="expiration_date"/>
                 <field name="status_expired"/>
             </tree>
@@ -33,12 +34,14 @@
                         <group>
                             <!-- <field name="pet_id" domain="[('vaccinated', '=', True)]"/> -->
                             <field name="insurance_company"/>
+                            <field name="pet_id"/>
                         </group>
                         <group>
                             <field name="policy_number"/>
                             <field name="coverage_details"/>
                         </group>
                         <group>
+                            <field name="issuance_date"/>
                             <field name="expiration_date"/>
                             <field name="status_expired"/>
                         </group>

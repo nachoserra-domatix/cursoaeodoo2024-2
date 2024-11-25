@@ -28,9 +28,39 @@ class VeterinaryPet(models.Model):
     pet_image = fields.Image(string="Photo")
     allergy_ids = fields.Many2many("veterinary.allergy", string="Allergy")
     adopted = fields.Boolean(string="Adopted")
-
-
     
+    appointment_ids = fields.One2many("veterinary.appointment", "pet_id")
+    appointment_count = fields.Integer(compute="_compute_appointment_count")
+
+    insurance_ids = fields.One2many("veterinary.insurance", "pet_id")
+    insurance_count = fields.Integer(compute="_compute_insurance_count")
+
+    def _compute_insurance_count(self):
+        for record in self:
+            record.insurance_count = len(record.insurance_ids)
+
+    def _compute_appointment_count(self):
+        for record in self:
+            record.appointment_count = len(record.appointment_ids)
+
+    def action_view_history(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Medical History",
+            "res_model": "veterinary.appointment",
+            "view_mode": "tree,form",
+            "domain": [("pet_id", "=", self.id)]
+        }
+
+    def action_view_history_insurance(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Insurence History",
+            "res_model": "veterinary.insurance",
+            "view_mode": "tree,form",
+            "domain": [("pet_id", "=", self.id)]
+        }
+
     def action_finish_surgeries(self):
         surgeries = self.env["veterinary.surgeries"].search([("pet_id", "=", self.id)])
         for surgerie in surgeries:
