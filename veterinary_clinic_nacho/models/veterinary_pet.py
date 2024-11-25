@@ -17,6 +17,22 @@ class VeterinaryPet(models.Model):
     photo = fields.Image(string='Photo')
     allergy_ids = fields.Many2many('veterinary.allergy', string='Allergies')
     adopted = fields.Boolean(string='Adopted', help='Adopted pet')
+    appointment_ids = fields.One2many('veterinary.appointment', 'pet_id', string='Appointments')
+    appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
+
+    def _compute_appointment_count(self):
+        for record in self:
+            record.appointment_count = len(record.appointment_ids)
+
+    def action_view_medical_history(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Medical History',
+            'res_model': 'veterinary.appointment',
+            'view_mode': 'tree,form,kanban',
+            'domain': [('pet_id', '=', self.id)],
+        }
+
 
     def _compute_vaccinated(self):
         for record in self:
