@@ -32,6 +32,18 @@
                     <button string="Set all surgery as done" name="set_all_surgery_as_done" type="object" class="btn-secondary"/>
                 </header>
                 <sheet>
+                    <!-- action view with count -->
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_appointment_history"
+                            icon="fa-pencil-square-o" invisible="appointment_count == 0">
+                            <field string="Appointment History" name="appointment_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" type="object" name="action_view_insurances_pet"
+                            icon="fa-file" invisible="insurance_count == 0"
+                            context="{'default_pet_id': id}">
+                            <field string="Insurances Pet" name="insurance_count" widget="statinfo"/>
+                        </button>
+                    </div>
                     <group>
                         <field name="image" widget="image" options="{'size': [150, 150]}"/>
                     </group>

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="ir_cron_veterinary_insurance_check_date" model="ir.cron">
+        <field name="name">Check Expired Veterinary Insurance</field>
+        <field name="model_id" ref="model_veterinary_insurance" />
+        <field name="state">code</field>
+        <field name="code">model._cron_check_expiration_date()</field>
+        <field name="active">True</field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="priority">8</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+    <record id="ir_cron_veterinary_surgery_set_done" model="ir.cron">
+        <field name="name">Set Done Veterinary Surgery</field>
+        <field name="model_id" ref="model_veterinary_surgery" />
+        <field name="state">code</field>
+        <field name="code">model._cron_set_done_surgery()</field>
+        <field name="active">True</field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="priority">8</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+</odoo>

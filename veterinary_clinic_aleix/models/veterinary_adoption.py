@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError, UserError
 
 
 class VeterinaryAdoption(models.Model):
@@ -35,6 +36,16 @@ class VeterinaryAdoption(models.Model):
                     record.date_adoption - record.date_shelter_entry).days
             else:
                 record.days_in_shelter = 0
+
+    # api constrains
+    @api.constrains('date_adoption')
+    def check_date_adoption(self):
+        for record in self:
+            if record.date_adoption:
+                if record.date_adoption < record.date_shelter_entry:
+                    raise ValidationError(
+                    _('The Adoption date must be greater than Shelter entry date')
+                )
 
     # método odoo para forzar que salgan todos los estados en la vista kanban
     def _group_expand_stage(self, stages, domain, order):

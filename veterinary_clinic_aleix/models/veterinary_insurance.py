@@ -2,6 +2,9 @@ from odoo import models, fields, api, _
 from odoo.tools import date_utils
 from odoo.exceptions import UserError, ValidationError
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class VeterinaryInsurance(models.Model):
     _name = 'veterinary.insurance'
@@ -11,13 +14,21 @@ class VeterinaryInsurance(models.Model):
     insurance_company = fields.Char(string='Insurance Company')
     policy_number = fields.Char(string='Policy Number')
     coverage_details = fields.Text(string='Coverage details')
-    expiration_date = fields.Date(string='Expiration date', required=True)
+    expiration_date = fields.Date(string='Expiration date', required=True,
+                                  default=date_utils.add(fields.date.today(), months=1))
     expired = fields.Boolean(string='Expired', default=False)
     active = fields.Boolean(string="Active", default=True)
+
+    # sql constraints
+    _sql_constraints = [
+        ('check_unique_policy_number', 'UNIQUE(policy_number)',
+         'A Policy Number must be unique'),
+    ]
 
     # methods
     def action_check_expiration_date(self):
         for record in self:
+            logger.info('Checking %s: %s', record.id, record.expiration_date)
             if record.expiration_date:
                 if record.expiration_date < fields.Date.today():
                     record.expired = True
@@ -38,3 +49,12 @@ class VeterinaryInsurance(models.Model):
             #             'sticky': False,
             #         }
             #     }
+
+    def _cron_check_expiration_date(self):
+        insurances = self.env['veterinary.insurance'].search([
+            '|',
+            ('active', '=', True),
+            ('expired', '=', False)
+        ])
+        insurances.action_check_expiration_date()
+        return True

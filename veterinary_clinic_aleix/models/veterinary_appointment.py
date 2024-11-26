@@ -1,4 +1,5 @@
-from odoo import models, fields, api, Command
+from odoo import models, fields, api, Command, _
+from odoo.exceptions import ValidationError, UserError
 
 
 class VeterinaryAppointment(models.Model):
@@ -21,10 +22,12 @@ class VeterinaryAppointment(models.Model):
     sequence = fields.Integer(string='Sequence')
     urgency = fields.Boolean(string='Urgency')
     color = fields.Integer(string='Color')
+    assigned = fields.Boolean(string='Assigned', default=False)
     # Many2one
     user_id = fields.Many2one('res.users', string='Responsible')
     partner_id = fields.Many2one('res.partner', string='Partner')
     currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
+    pet_id = fields.Many2one('veterinary.pet', string='Pet')
     # Many2many
     tag_ids = fields.Many2many(
         comodel_name='veterinary.appointment.tag', string='Tags')
@@ -39,17 +42,17 @@ class VeterinaryAppointment(models.Model):
         related='partner_id.email', string='Partner Email')
     # computed fields
     # por defecto no se guarada en bd
-    assigned = fields.Boolean(
-        compute='_compute_assigned', inverse='_inverse_assigned', store=True)
+    # assigned = fields.Boolean(
+    #     compute='_compute_assigned', inverse='_inverse_assigned', store=True)
     total = fields.Float(string='Total', compute='_compute_total', store=True)
 
     # computed methods
     # marcar assigned si hay usuario
     # con @api.depends asignamos que dependa de un campo; si no se pone, se calculará a cada render de la vista
-    @api.depends('user_id')
-    def _compute_assigned(self):
-        for record in self:
-            record.assigned = bool(record.user_id)
+    # @api.depends('user_id')
+    # def _compute_assigned(self):
+    #     for record in self:
+    #         record.assigned = bool(record.user_id)
     
     @api.depends('line_ids.subtotal')
     def _compute_total(self):
@@ -58,12 +61,29 @@ class VeterinaryAppointment(models.Model):
 
     # inverse methods
     # guardar usuario si marcamos assigned
-    def _inverse_assigned(self):
+    # def _inverse_assigned(self):
+    #     for record in self:
+    #         if record.assigned:
+    #             record.user_id = self.env.user
+    #         else:
+    #             record.user_id = False
+
+    # api constrains
+    @api.constrains('duration')
+    def check_duration(self):
         for record in self:
-            if record.assigned:
-                record.user_id = self.env.user
-            else:
-                record.user_id = False
+            if record.duration < 0:
+                raise ValidationError(
+                _('The duration must be greater than 0')
+            )
+
+    # onchange
+    @api.onchange('assigned')
+    def _onchange_assigned(self):
+        if self.assigned:
+            self.user_id = self.env.user
+        else:
+            self.user_id = False
 
     # methods
     def action_draft(self):

@@ -43,3 +43,11 @@ class VeterinarySurgery(models.Model):
     # método odoo para forzar que salgan todos los estados en la vista kanban
     def _group_expand_states(self, states, domain, order):
         return [key for key, val in self._fields['state'].selection]
+    
+    def _cron_set_done_surgery(self):
+        surgeries = self.env['veterinary.surgery'].search([
+            ('surgery_date', '<', fields.date.today()),
+            ('state', '=', 'pending')
+        ])
+        surgeries.action_done()
+        return True
