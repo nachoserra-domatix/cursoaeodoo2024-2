@@ -3,13 +3,14 @@ from odoo import models, fields
 class VeterinaryInsurance(models.Model):
    _name = "veterinary.insurance"
    _description = "Veterinary Insurance"
-
-   name = fields.Char(string='Name',required=True,help='Name of the insurance')
+   _rec_name='policy_number'
+   
+   #name = fields.Char(string='Name',required=True,help='Name of the insurance')
    pet_id = fields.Many2one('veterinary.pet',string="Pet")
    insurance_company=fields.Char(string="Insurance company")
-   policy_number=fields.Char(string="Policy number")
+   policy_number=fields.Char(string="Policy number",copy=False)
    cover_details=fields.Text(string="Cover details")
-   expiration_date=fields.Date(string="Expiration data",default=fields.Date.context_today)
+   expiration_date=fields.Date(string="Expiration data",default=fields.Date.today)
    expired= fields.Boolean(string="Expired")
    active= fields.Boolean('Active',default=True)
 

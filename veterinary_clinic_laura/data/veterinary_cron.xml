@@ -10,7 +10,7 @@
     </record>
     
     <record id="ir_cron_veterinary_surgery" model="ir.cron">
-        <field name="name">Check surgery</field>
+        <field name="name">Mark as done finished surgeries</field>
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
         <field name="numbercall">-1</field>

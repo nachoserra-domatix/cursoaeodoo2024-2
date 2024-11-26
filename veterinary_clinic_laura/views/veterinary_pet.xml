@@ -63,7 +63,7 @@
                     </header>-->
                     <header>
                         <button string="Vaccinated" invisible="vaccinated" name="action_vaccinated" type="object" class="btn-primary"/>
-                        <button string="Create Pet Number" invisible="pet_number!=False" name="action_set_pet_number" type="object" class="btn-secondary"/>
+                        <button string="Create Pet Number" groups="veterinary_clinic_laura.veterinary_clinic_groups_manager" invisible="pet_number!=False" name="action_set_pet_number" type="object" class="btn-secondary"/>
                         <button string="Create Insurance"  name="create_insurance" type="object" class="btn-secondary"/>
                         <button string="Surgery complete"  name="surgery_complete_pet" type="object" class="btn-secondary"/>
 
@@ -74,7 +74,7 @@
                                 <field name="appointment_count" string="Medical history" widget="statinfo"/>
                             </button>
                             
-                            <button name="action_view_insurance_history" type="object" class="oe_stat_button" icon="fa-file">
+                            <button name="action_view_insurance_history" context="{'default_pet_id':id}" type="object" class="oe_stat_button" icon="fa-file">
                                 <field name="insurance_count" string="Insurance history" widget="statinfo"/>
                             </button>
                             

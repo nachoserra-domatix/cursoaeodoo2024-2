@@ -8,7 +8,7 @@ class VeterinaryAppointment(models.Model):
    def _group_expand_states(self, states, domain,order):
       return [key for key ,val in type(self).state.selection]
 
-   name=fields.Char(string="Name",required=True)
+   name=fields.Char(string="Name",required=True,copy=False, default="New")
    partner_id=fields.Many2one('res.partner',string="Partner")
    partner_phone=fields.Char(string="Phone", related="partner_id.phone",store=True,readonly=False)
    partner_email=fields.Char(string="Email",related='partner_id.email',store=True,readonly=False)
@@ -24,21 +24,31 @@ class VeterinaryAppointment(models.Model):
    user_id = fields.Many2one('res.users',string="Responsible")
    sequence = fields.Integer(string="Sequence",default=10)
    urgency = fields.Boolean(string="Urgent")
-   color= fields.Integer(string="Color")
-   assigned=fields.Boolean(string="Assigned",compute="_compute_assigned", inverse="_inverse_assigned",store=True)
+   color= fields.Integer(string="Color",company_dependent=True)
+   assigned=fields.Boolean(string="Assigned",store=True)
    tag_ids= fields.Many2many('veterinary.appointment.tag',string="Tags")
    lines_ids=fields.One2many('veterinary.appointment.line','appointment_id',string="Lines")
    total=fields.Float(string="Total", compute="_compute_total")
    pet_id=fields.Many2one('veterinary.pet',string="Pet")
+   company_id=fields.Many2one('res.company',string="Company",default=lambda self: self.env.user.company_id)
 
    _sql_constraints=[
       ('name_unique', 'unique(name)','The appointment name must be unique'),
    ]
    
+   @api.depends('color')
+   def _compute_company(self):
+      for record in self:
+         if record.user_id:
+            record.company_id = self.env.company
+
    @api.onchange('assigned')
    def _onchange_assigned(self):
       for record in self:
-         record.user_id=self.env.user
+         if record.assigned:
+            record.user_id=self.env.user
+         else:
+            record.user_id=False
 
 
    @api.constrains('duration')

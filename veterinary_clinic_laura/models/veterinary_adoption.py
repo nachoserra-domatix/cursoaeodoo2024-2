@@ -33,8 +33,9 @@ class VeterinaryAdoption(models.Model):
                 else:
                     record.day_shelter = 0
     
-    @api.constrains('date_adoption')
+    @api.constrains('date_adoption','date_shelter_enter')
     def _check_day(self):
       for record in self:
-         if record.date_adoption<record.date_shelter_enter:
+         if record.date_shelter_enter and record.date_adoption:
+            if record.date_adoption<record.date_shelter_enter:
                 raise ValidationError('Date adoption must be newer than date shelter')

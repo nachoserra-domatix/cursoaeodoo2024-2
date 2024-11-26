@@ -20,7 +20,6 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="name"/>
                         <field name="pet_id"/>
                         <field name="insurance_company"/>
                         <field name="cover_details"/>
@@ -38,7 +37,6 @@
         <field name="model">veterinary.insurance</field>
         <field name="arch" type="xml">
             <tree string="Allergy">
-                <field name="name" optional="show"/>
                 <field name="pet_id" optional="show"/>
                 <field name="insurance_company" optional="show"/>
                 <field name="cover_details" optional="hide"/>

@@ -23,7 +23,9 @@
         'views/veterinary_insurance.xml',
         'data/veterinary_species_data.xml',
         'views/veterinary_adoption.xml',
-        'data/veterinary_cron.xml'
+        'data/veterinary_cron.xml',
+        'wizard/veterinary_appointment_edit_state.xml',
+        'wizard/veterinary_surgery_edit_state.xml'
     ],
     'application': False,
     'installable':True,
