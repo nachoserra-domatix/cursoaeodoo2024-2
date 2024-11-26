@@ -13,3 +13,6 @@
 * En seguro, el número de póliza no puede duplicarse
 * Poder archivar mascotas
 * Crear un asistente que permita marcar los estados de manera masiva a las cirugías
+* Añadir campo company_id al modelo de citas, tanto en vista como en python
+* Hacer que por defecto coja la compañía de nuestro usuario
+* Hacer que el campo color sea dependiente de la compañía
