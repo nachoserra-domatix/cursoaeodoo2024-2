@@ -20,6 +20,8 @@
              'views/veterinary_allergy.xml',
              'views/veterinary_insurance.xml',
              'views/veterinary_adoption.xml',
+             'wizard/veterinary_appointment_edit_state.xml',
+             'wizard/veterinary_surgery_edit_state.xml',
              'data/ir_cron.xml'
              ],
     'application': False,

@@ -7,6 +7,7 @@ class VeterinaryPet(models.Model):
     _description = 'Veterinary Pet'
 
     name = fields.Char(string='Name', required=True, help='Name of the pet')
+    active = fields.Boolean(string='Active', default=True)
     birthdate = fields.Date(string='Birthdate', help='Birthdate of the pet')
     weight = fields.Float(string='Weight')
     age = fields.Integer(string='Age', compute='_compute_age', search='_search_age')
