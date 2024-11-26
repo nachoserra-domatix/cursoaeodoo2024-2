@@ -26,8 +26,9 @@ class VeterinaryPetAdoption(models.Model):
    @api.constrains("adoption_date", "shelter_entry")
    def _check_dates(self):
       for rec in self:
-         if rec.shelter_entry > rec.adoption_date:
-            raise ValidationError("shelter_entry not valid")
+         if rec.shelter_entry and rec.adoption_date:
+            if rec.shelter_entry > rec.adoption_date:
+               raise ValidationError("shelter_entry not valid")
             
 
 

@@ -26,7 +26,7 @@ class VeterinaryAppointment(models.Model):
     urgency = fields.Boolean(string="Urgency")
     #color for the Kanban view
     color = fields.Integer(string="Color")
-    assigned = fields.Boolean(string="Assigned", compute="_compute_assigned", inverse="_inverse_assigned", store=True)
+    assigned = fields.Boolean(string="Assigned") # compute="_compute_assigned", inverse="_inverse_assigned", store=True
     tag_ids = fields.Many2many("veterinary.appointment.tag", string="")
     line_ids = fields.One2many( "veterinary.appointment.line", "appointment_id", string="Lines")
     currency_id = fields.Many2one("res.currency", string="Currency", default=lambda self: self.env.company.currency_id)

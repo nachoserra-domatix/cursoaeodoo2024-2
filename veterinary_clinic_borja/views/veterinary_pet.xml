@@ -30,7 +30,7 @@
                         <button name="action_view_appointments" type="object" class="oe_stat_button" icon="fa-file">
                             <field name="appointment_count" string="Appointments" widget="statinfo"/>
                         </button>
-                          <button name="action_view_insurances" type="object" class="oe_stat_button" icon="fa-file">
+                          <button name="action_view_insurances" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-file">
                             <field name="insurance_count" string="Insurances" widget="statinfo"/>
                         </button>
                     </div>

@@ -1,5 +1,6 @@
 from odoo import fields, models
-
+import logging
+_logger = logging.getLogger(__name__)
 class VeterinarySurgery(models.Model):
     _name = "veterinary.surgery"
     _description = "Veterinary Surgery"
@@ -7,7 +8,7 @@ class VeterinarySurgery(models.Model):
     name = fields.Char(string="Name", required=True, help="Name of the surgery")
     pet_id = fields.Many2one("veterinary.pet", string="Pet")
     employee_id = fields.Many2one("hr.employee", string="Responsible")
-    surgery_date = fields.Date(string="Date", help="Date of the surgery")
+    surgery_date = fields.Datetime(string="Date", help="Date of the surgery")
     status = fields.Selection([
         ("draft", "Draft"),
         ("in_progress", "In progress"),
@@ -40,3 +41,11 @@ class VeterinarySurgery(models.Model):
     # in kanban view show all status colunns
     def _group_expand_status(self, status, domain, order):
           return [key for key , val in type(self).status.selection]
+
+    def _cron_check_draft(self):
+        surgeries = self.search([("status", "=", "draft")])
+        for surgery in surgeries:
+            if surgery.surgery_date < fields.Datetime.today():
+                surgery.action_done()
+
+

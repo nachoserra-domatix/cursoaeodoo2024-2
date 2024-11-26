@@ -1,5 +1,5 @@
-from odoo import fields, models
-from dateutil.relativedelta import relativedelta
+from odoo import fields, models,tools
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -11,7 +11,7 @@ class VeterinaryInsurance(models.Model):
     insurance_company = fields.Char(string="Insurance Company")
     policy_number = fields.Integer(string="Policy")
     coverage_details = fields.Text(string="Details", required=True)
-    expiration_date = fields.Datetime(string="Date", required=True, default=fields.Datetime.today()+relativedelta(day=7))
+    expiration_date = fields.Datetime(string="Date", required=True, default=tools.date_utils.add(fields.Datetime.now(), months=6))
     expired = fields.Boolean(string="Expired")
     active = fields.Boolean(string="Active", default=True)
 
