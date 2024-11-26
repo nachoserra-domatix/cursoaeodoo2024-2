@@ -7,6 +7,7 @@ class VeterinaryPet(models.Model):
     _description = 'Veterinary Pet'
 
     name = fields.Char(string='Name', required=True, help='Name of the pet')
+    active = fields.Boolean(string='Active', default=True)
     birthdate = fields.Date(string='Birthdate', help='Birthdate of the pet')
     weight = fields.Float(string='Weight')
     age = fields.Integer(string='Age', compute='_compute_age', search='_search_age')
@@ -19,6 +20,21 @@ class VeterinaryPet(models.Model):
     adopted = fields.Boolean(string='Adopted', help='Adopted pet')
     appointment_ids = fields.One2many('veterinary.appointment', 'pet_id', string='Appointments')
     appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
+    insurance_ids = fields.One2many('veterinary.insurance', 'pet_id', string='Insurances')
+    insurance_count = fields.Integer(string='Insurance Count', compute='_compute_insurance_count')
+
+    def _compute_insurance_count(self):
+        for record in self:
+            record.insurance_count = len(record.insurance_ids)
+
+    def action_view_insurances(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Insurances',
+            'res_model': 'veterinary.insurance',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', self.insurance_ids.ids)],
+        }
 
     def _compute_appointment_count(self):
         for record in self:

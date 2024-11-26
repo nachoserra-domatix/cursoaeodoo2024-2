@@ -1,4 +1,5 @@
 from odoo import fields,models,api
+from odoo.exceptions import ValidationError
 
 class VeterinaryAdoption(models.Model):
     _name = 'veterinary.adoption'
@@ -16,6 +17,14 @@ class VeterinaryAdoption(models.Model):
     price = fields.Monetary(string='Price')
     currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
     photo = fields.Image(string='Photo', related="pet_id.photo")
+
+    @api.constrains('start_date', 'adoption_date')
+    def _check_dates(self):
+        for record in self:
+            if record.start_date and record.adoption_date:
+                if record.start_date > record.adoption_date:
+                    raise ValidationError('The start date must be less than the adoption')
+
 
     def _group_expand_stage(self, stages, domain, order):
         return stages.search([])

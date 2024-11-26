@@ -5,7 +5,7 @@ class VeterinaryAppointment(models.Model):
     _name = 'veterinary.appointment'
     _description = 'Veterinary Appointment'
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Name', required=True, copy=False, default='New')
     partner_id = fields.Many2one('res.partner', string='Partner')
     pet_id = fields.Many2one('veterinary.pet', string='Pet')
     partner_phone = fields.Char(string='Phone')
@@ -22,16 +22,25 @@ class VeterinaryAppointment(models.Model):
     user_id = fields.Many2one('res.users', string='Responsible', default=lambda self: self.env.user)
     sequence = fields.Integer(string='Sequence', default=10)
     urgency = fields.Boolean(string='Urgent')
-    color = fields.Integer(string='Color')
-    assigned = fields.Boolean(string='Assigned', compute='_compute_assigned', inverse='_inverse_assigned')
+    color = fields.Integer(string='Color', company_dependent=True)
+    assigned = fields.Boolean(string='Assigned')
     tag_ids = fields.Many2many('veterinary.appointment.tag', string='Tags')
     line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id', string='Lines')
     total = fields.Monetary(string='Total', compute='_compute_total', store=True)
     currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
 
     _sql_constraints = [
         ('name_unique', 'unique (name)', "The appointment name must be unique"),]
     
+
+    @api.onchange('assigned')
+    def _onchange_assigned(self):
+        if self.assigned:
+            self.user_id = self.env.user
+        else:
+            self.user_id = False
+
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
         if self.partner_id:
@@ -42,7 +51,7 @@ class VeterinaryAppointment(models.Model):
     @api.constrains('duration')
     def _check_duration(self):
         for record in self:
-            if record.duration <= 0:
+            if record.duration < 0:
                 raise ValidationError('The duration must be greater than zero')
 
     @api.depends('line_ids.subtotal')

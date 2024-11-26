@@ -25,7 +25,7 @@
         <form string="Pets">
         <header>
             <button string="Vaccinated" invisible="vaccinated" name="action_vaccinated" type="object" class="oe_highlight"/>
-            <button string="Generate Pet Number" name="generate_pet_number" type="object" class="btn-warning"/>
+            <button string="Generate Pet Number" groups="veterinary_clinic_nacho.veterinary_clinic_groups_manager" name="generate_pet_number" type="object" class="btn-warning"/>
             <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
             <button string="Check all Surgery as done" name="check_all_surgery_as_done" type="object" class="oe_highlight"/>
         </header>
@@ -33,6 +33,9 @@
             <div class="oe_button_box" name="button_box">
                 <button name="action_view_medical_history" type="object" class="oe_stat_button" icon="fa-ambulance">
                     <field name="appointment_count" string="Medical history" widget="statinfo"/>
+                </button>
+                <button name="action_view_insurances" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-file">
+                    <field name="insurance_count" string="Insurances" widget="statinfo"/>
                 </button>
             </div>
             <field name="photo" widget="image" class="oe_avatar"/>
