@@ -24,14 +24,15 @@ class VeterinaryAppointment(models.Model):
     user_id = fields.Many2one("res.users", string="Responsible", default=lambda self: self.env.user)
     sequence = fields.Integer(string="Sequence", default=10)
     urgency = fields.Boolean(string="Urgency")
-    #color for the Kanban view
-    color = fields.Integer(string="Color")
     assigned = fields.Boolean(string="Assigned") # compute="_compute_assigned", inverse="_inverse_assigned", store=True
     tag_ids = fields.Many2many("veterinary.appointment.tag", string="")
     line_ids = fields.One2many( "veterinary.appointment.line", "appointment_id", string="Lines")
     currency_id = fields.Many2one("res.currency", string="Currency", default=lambda self: self.env.company.currency_id)
     total = fields.Monetary(string="Total", currency_field='currency_id')
     pet_id = fields.Many2one("veterinary.pet", string="pet")
+    company_id = fields.Many2one('res.company', required=True, readonly=True, default=lambda self: self.env.company)
+    #color for the Kanban view
+    color = fields.Integer(string="Color", related="company_id.color")
 
     _sql_constraints = [
         ('name_unique', 'unique (name)', "The appointment name must be unique"),]
