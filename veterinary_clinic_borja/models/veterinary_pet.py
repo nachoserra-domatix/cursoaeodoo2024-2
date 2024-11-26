@@ -19,6 +19,7 @@ class VeterinaryPet(models.Model):
    appointment_count = fields.Integer(compute="_compute_appointment_count")
    insurance_ids = fields.One2many("veterinary.insurance", "pet_id", string="insurances")
    insurance_count = fields.Integer(compute="_compute_insurance_count")
+   active = fields.Boolean(string="Active", default=True)
 
    def _compute_insurance_count(self):
       for record in self:

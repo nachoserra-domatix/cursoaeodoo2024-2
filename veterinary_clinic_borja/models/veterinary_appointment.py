@@ -7,7 +7,7 @@ class VeterinaryAppointment(models.Model):
     # Name by defect is reason
     # _rec_name = "reason"
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", required=True, copy=False, default="New Appointment")
     partner_id = fields.Many2one("res.partner", string="partner")
     partner_phone = fields.Char(related="partner_id.phone", string="Phone", store=True, readonly=False)
     partner_email = fields.Char(related="partner_id.email", string="Email")

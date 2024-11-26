@@ -5,6 +5,9 @@
         <field name="model">veterinary.surgery</field>
         <field name="arch" type="xml">
             <tree string="Surgeris">
+                <header>
+                    <button string="Editar estado" name="%(veterinary_surgery_edit_status_action)d" type="action" class="btn-secondary"/>
+                </header>
                 <field name="pet_id"/>
                 <field name="name"/>
                 <field name="employee_id"/>

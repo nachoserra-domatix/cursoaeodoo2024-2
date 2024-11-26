@@ -22,6 +22,8 @@
                 "views/veterinary_pet_adoption.xml",
                 "data/veterinary_species_data.xml",
                 "data/ir_cron.xml",
+                "wizards/veterinary_appointment_edit_state.xml",
+                "wizards/veterinary_surgery_edit_status.xml",
              ],
     'application': False,
     'installable': True,
