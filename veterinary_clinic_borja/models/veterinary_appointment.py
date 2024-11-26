@@ -32,7 +32,7 @@ class VeterinaryAppointment(models.Model):
     pet_id = fields.Many2one("veterinary.pet", string="pet")
     company_id = fields.Many2one('res.company', required=True, readonly=True, default=lambda self: self.env.company)
     #color for the Kanban view
-    color = fields.Integer(string="Color", related="company_id.color")
+    color = fields.Integer(string="Color", company_dependent=True)
 
     _sql_constraints = [
         ('name_unique', 'unique (name)', "The appointment name must be unique"),]
