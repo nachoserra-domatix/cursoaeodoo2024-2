@@ -26,3 +26,8 @@ class VeterinarySurgery(models.Model):
     def action_done(self):
         for record in self:
             record.state = 'done'
+    
+    def _cron_mark_surgeries_as_done(self):
+        surgeries = self.search([('state', '=', 'draft'), ('surgery_date', '<', fields.Datetime.now())])
+        surgeries.action_done()
+        return True

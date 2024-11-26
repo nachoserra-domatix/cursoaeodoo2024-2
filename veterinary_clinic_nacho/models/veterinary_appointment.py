@@ -23,7 +23,7 @@ class VeterinaryAppointment(models.Model):
     sequence = fields.Integer(string='Sequence', default=10)
     urgency = fields.Boolean(string='Urgent')
     color = fields.Integer(string='Color')
-    assigned = fields.Boolean(string='Assigned', compute='_compute_assigned', inverse='_inverse_assigned')
+    assigned = fields.Boolean(string='Assigned')
     tag_ids = fields.Many2many('veterinary.appointment.tag', string='Tags')
     line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id', string='Lines')
     total = fields.Monetary(string='Total', compute='_compute_total', store=True)
@@ -32,6 +32,14 @@ class VeterinaryAppointment(models.Model):
     _sql_constraints = [
         ('name_unique', 'unique (name)', "The appointment name must be unique"),]
     
+
+    @api.onchange('assigned')
+    def _onchange_assigned(self):
+        if self.assigned:
+            self.user_id = self.env.user
+        else:
+            self.user_id = False
+
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
         if self.partner_id:
