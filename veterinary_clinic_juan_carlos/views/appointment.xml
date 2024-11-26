@@ -19,6 +19,7 @@
                 <field name="user_id" optional="show"/>
                 <field name="tag_ids" optional="show" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 <field name="duration" optional="hide" widget="float_time"/>
+                <field name="company_id" />
             </tree>
         </field>
     </record>
@@ -33,7 +34,7 @@
                 <button string="Go to surgeries" type="action" name="%(veterinary_surgeries_action)d"/>
                 <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-primary"/>
                 <button string="Done" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
-                <button string="Cancelled" invisible="state in ('cancel')" name="action_cancelled" type="object" class="btn-danger"/>
+                <button string="Cancelled" groups="veterinary_clinic_juan_carlos.veterinary_clinic_groups_manager" invisible="state in ('cancel')" name="action_cancelled" type="object" class="btn-danger"/>
                 <button string="create_tags" name="create_tags" type="object" class="btn-danger"/>
                 <field name="state" options="{'clickable':1}" widget="statusbar"/>
             </header>
@@ -52,6 +53,7 @@
                         <field name="appointment_date"/>
                         <field name="total"/>
                         <field name="user_id" options="{'no_create': True, 'no_quick_create': True, 'no_open': True}"/>
+                        <field name="company_id" />
                     </group>
                     <group>
                         <field name="duration" widget="float_time"/>

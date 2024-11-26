@@ -25,7 +25,9 @@
         'views/insurance.xml',
         'views/surgeries.xml',
         'views/adoption.xml',
-        'data/ir_cron.xml'
+        'data/ir_cron.xml',
+        'wizard/veterinary_appointment_edit_state.xml',
+        'wizard/veterinary_surgeries_edit_state.xml'
     ],
     'application': False,
     'installable': True,

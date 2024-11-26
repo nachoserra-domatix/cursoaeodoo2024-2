@@ -6,10 +6,11 @@ _logger = logging.getLogger(__name__)
 class Insurance(models.Model):
     _name = "veterinary.insurance"
     _description = "Veterinary insurance"
+    _rec_name = "policy_number"
 
     pet_id = fields.Many2one('veterinary.pet', string="Pet")
     insurance_company = fields.Char(string="Insurance company name")
-    policy_number = fields.Integer(string="Policy Number")
+    policy_number = fields.Integer(string="Policy Number", copy=False)
     coverage_details = fields.Text(string="Coverage Details")
     expiration_date = fields.Date(string="Expiration Date")
     status_expired = fields.Boolean(string="Status of insurance")

@@ -6,7 +6,9 @@ class Appointment(models.Model):
     _description = "Veterinary Appointment"
     # _rec_name = "reason" #actua como nombre
 
-    name = fields.Char(string="Name", required=True)
+    company_id = fields.Many2one('res.company', string="Company", default=lambda self: self.env.company)
+
+    name = fields.Char(string="Name", required=True, copy=False, default="New")
     partner_id = fields.Many2one("res.partner", string="Partner")
     partner_phone = fields.Char(string="Partner Phone")
     partner_email = fields.Char(string="Partner email", related='partner_id.email', store=True, readonly=False)
@@ -22,7 +24,7 @@ class Appointment(models.Model):
     user_id = fields.Many2one("res.users", string="Responsible", default=lambda self: self.env.user)
     sequence = fields.Integer(string="Sequence", default=10)
     urgency = fields.Boolean(string="Urgent")
-    color = fields.Integer(string="Color")
+    color = fields.Integer(string="Color", company_dependent=True)
     # assigned = fields.Boolean(string="Assigned", compute="_compute_assigned", inverse="_inverse_assigned", store=True)
     assigned = fields.Boolean(string="Assigned", compute="_compute_assigned", store=True, readonly=False)
     # test = fields.Boolean(string="test", compute="_compute_assigned")

@@ -35,6 +35,9 @@ class VeterinaryPet(models.Model):
     insurance_ids = fields.One2many("veterinary.insurance", "pet_id")
     insurance_count = fields.Integer(compute="_compute_insurance_count")
 
+    active = fields.Boolean(string="Active", default=True)
+
+
     def _compute_insurance_count(self):
         for record in self:
             record.insurance_count = len(record.insurance_ids)
@@ -59,6 +62,7 @@ class VeterinaryPet(models.Model):
             "res_model": "veterinary.insurance",
             "view_mode": "tree,form",
             "domain": [("pet_id", "=", self.id)]
+            # "domain": [("id", "in", self.insurance_ids.ids)]
         }
 
     def action_finish_surgeries(self):

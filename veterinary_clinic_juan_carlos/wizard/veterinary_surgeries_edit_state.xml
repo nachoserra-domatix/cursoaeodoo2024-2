@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="veterinary_surgeries_edit_state_view_form" model="ir.ui.view">
+        <field name="name">veterinary.surgeries.edit.state.view.form</field>
+        <field name="model">veterinary.surgeries.edit.state</field>
+        <field name="arch" type="xml">
+            <form string="Mass edit">
+                <sheet>
+                    <group>
+                        <field name="surgerie_date_state"></field>
+                    </group>
+                    <footer>
+                        <button string="Confirm" type="object" name="mass_edit_state" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_highlight" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_veterinary_surgeries_edit_state" model="ir.actions.act_window">
+        <field name="name">Edit surgeries State</field>
+        <field name="res_model">veterinary.surgeries.edit.state</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_surgeries"/>
+        <field name="binding_view_types">list</field>
+    </record>
+    
+</odoo>

@@ -29,7 +29,7 @@
         <form string="Pets">
         <header>
             <button string="Vaccinated" invisible="vaccinated == True" name="action_vaccinated" type="object" class="btn-success"/>
-            <button string="Generate number chip" invisible="number_pet" name="action_chip_number_pet" type="object" class="btn-primary"/>
+            <button string="Generate number chip" invisible="number_pet" groups="veterinary_clinic_juan_carlos.veterinary_clinic_groups_manager" name="action_chip_number_pet" type="object" class="btn-primary"/>
             <button string="Create insurance" name="create_insurance" type="object" class="btn-secondary"/>
             <button string="Finish surgeries" name="action_finish_surgeries" type="object" class="btn-secondary"/>
         </header>
@@ -38,7 +38,7 @@
                 <button name="action_view_history" type="object" class="oe_stat_button" icon="fa-gittip">
                     <field name="appointment_count" string="Medical history" widget="statinfo"/>
                 </button>
-                <button name="action_view_history_insurance" type="object" class="oe_stat_button" icon="fa-ambulance">
+                <button name="action_view_history_insurance" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-ambulance">
                     <field name="insurance_count" string="Insurance list" widget="statinfo"/>
                 </button>
             </div>
