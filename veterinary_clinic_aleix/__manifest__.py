@@ -18,6 +18,8 @@
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
+        'wizard/veterinary_appointment_edit_state.xml',
+        'wizard/veterinary_surgery_edit_state.xml',
         'views/veterinary_adoption.xml',
         'views/veterinary_allergy.xml',
         'views/veterinary_appointment.xml',

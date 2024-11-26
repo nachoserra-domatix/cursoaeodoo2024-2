@@ -12,7 +12,7 @@ class VeterinaryInsurance(models.Model):
 
     pet_id = fields.Many2one('veterinary.pet', string='Pet')
     insurance_company = fields.Char(string='Insurance Company')
-    policy_number = fields.Char(string='Policy Number')
+    policy_number = fields.Char(string='Policy Number', copy=False)
     coverage_details = fields.Text(string='Coverage details')
     expiration_date = fields.Date(string='Expiration date', required=True,
                                   default=date_utils.add(fields.date.today(), months=1))

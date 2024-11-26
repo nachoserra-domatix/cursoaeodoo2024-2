@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- view: form for wizard -->
+    <record id="veterinary_surgery_edit_state_view_form" model="ir.ui.view">
+        <field name="name">veterinary.surgery.edit.state.view.form</field>
+        <field name="model">veterinary.surgery.edit.state</field>
+        <field name="arch" type="xml">
+            <form string="Mass edit surgery state">
+                <p class="oe_grey">Here you can edit massively the surgeries state</p>
+                <group>
+                    <field name="state"/>
+                </group>
+                <footer>
+                    <button string="Confirm" name="mass_edit_state" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- action for wizard para edición masiva-->
+    <record id="veterinary_surgery_edit_state_action" model="ir.actions.act_window">
+        <field name="name">Surgery Mass Edit State</field>
+        <field name="res_model">veterinary.surgery.edit.state</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_surgery" />
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

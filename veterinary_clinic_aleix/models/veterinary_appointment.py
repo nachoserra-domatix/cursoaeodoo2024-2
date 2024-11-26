@@ -21,13 +21,15 @@ class VeterinaryAppointment(models.Model):
                             help='Duration in minutes')
     sequence = fields.Integer(string='Sequence')
     urgency = fields.Boolean(string='Urgency')
-    color = fields.Integer(string='Color')
+    color = fields.Integer(string='Color', company_dependent=True)
     assigned = fields.Boolean(string='Assigned', default=False)
     # Many2one
     user_id = fields.Many2one('res.users', string='Responsible')
     partner_id = fields.Many2one('res.partner', string='Partner')
     currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
     pet_id = fields.Many2one('veterinary.pet', string='Pet')
+    company_id = fields.Many2one(
+        'res.company', default=lambda self: self.env.company)
     # Many2many
     tag_ids = fields.Many2many(
         comodel_name='veterinary.appointment.tag', string='Tags')

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- view: form for wizard -->
+    <record id="veterinary_appointment_edit_state_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.edit.state.view.form</field>
+        <field name="model">veterinary.appointment.edit.state</field>
+        <field name="arch" type="xml">
+            <form string="Mass edit appointment state">
+                <p class="oe_grey">Here you can edit massively the appointments state</p>
+                <group>
+                    <field name="state"/>
+                </group>
+                <footer>
+                    <button string="Confirm" name="mass_edit_state" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- action for wizard para edición masiva-->
+    <record id="veterinary_appointment_edit_state_action" model="ir.actions.act_window">
+        <field name="name">Appointment Mass Edit State</field>
+        <field name="res_model">veterinary.appointment.edit.state</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment" />
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

@@ -18,6 +18,7 @@ class VeterinaryPet(models.Model):
     last_vaccination_date = fields.Date(string="Last Vaccination Date")
     image = fields.Image(string='Pet image', max_width=1024, max_height=1024)
     adopted = fields.Boolean(string='Adopted', default=False)
+    active = fields.Boolean(string="Active", default=True)
     # One2many
     appointment_ids = fields.One2many(
         comodel_name='veterinary.appointment', inverse_name='pet_id')
