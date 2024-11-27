@@ -30,6 +30,11 @@ class VeterinaryPet(models.Model):
             record.insurance_count = self.env['veterinary.insurance'].search_count([('pet_id', '=', self.id)])
 
 
+    def action_print_appointments(self):
+        appointments = self.appointment_ids
+
+        return self.env.ref('veterinary_clinic_alex.action_report_veterinary_appointment').report_action(appointments.ids) #devuelve un registro a partir de un xml id, permite imprimir las ids que se le pasan
+    
     def compute_apointment_count(self):
         for record in self:
             record.appointment_count = len(record.appointment_ids)

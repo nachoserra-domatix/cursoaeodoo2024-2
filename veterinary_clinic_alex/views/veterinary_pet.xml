@@ -30,6 +30,7 @@
                     <button string="Aleatory Number" groups="veterinary_clinic_alex.veterinary_clinic_groups_manager" name="action_number_pet" type="object" class="btn-secondary"/>
                     <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
                     <button string="Complete Surgery" name="complete_surgery" type="object" class="btn-secondary"/>
+                    <button string="Print appointments" name="action_print_appointments" type="object" class="btn-secondary"/>
 
                 </header>         
                 <sheet>

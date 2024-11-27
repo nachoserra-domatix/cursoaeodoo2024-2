@@ -25,6 +25,9 @@
         'views/veterinary_insurance.xml',
         'wizard/veterinary_appointment_edit_state.xml',
         'wizard/veterinary_surgery_edit_state.xml',
+        'report/veterinary_appointment_report.xml',
+        'report/veterinary_appointment_report_simple.xml',
+        'report/veterinary_insurance_report.xml',
         'views/veterinary_adoption.xml',
         
     ],
