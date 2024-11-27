@@ -104,6 +104,11 @@ class VeterinaryPet(models.Model):
             'view_mode': 'tree,form,kanban',
             'domain': [('pet_id', '=', self.id)],
         }
+    
+    def action_print_appointments(self):
+        appointments = self.appointment_ids
+        report = self.env.ref('veterinary_clinic_aleix.action_report_veterinary_appointment').report_action(appointments.ids)
+        return report
 
     # methods
     def create_insurance(self):

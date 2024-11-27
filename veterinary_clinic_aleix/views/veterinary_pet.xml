@@ -32,6 +32,7 @@
                         name="action_random_pet_number" type="object" class="btn-primary"/>
                     <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
                     <button string="Set all surgery as done" name="set_all_surgery_as_done" type="object" class="btn-secondary"/>
+                    <button string="Print Appointments" name="action_print_appointments" type="object" class="oe_highlight"/>
                 </header>
                 <sheet>
                     <!-- action view with count -->

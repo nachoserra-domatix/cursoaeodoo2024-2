@@ -29,6 +29,8 @@
         'views/veterinary_species.xml',
         'views/veterinary_surgery.xml',
         'views/veterinary_menus.xml',
+        'report/veterinary_appointment_report.xml',
+        'report/veterinary_insurance_report.xml',
     ],
     'auto_install': False,
     'application': False,

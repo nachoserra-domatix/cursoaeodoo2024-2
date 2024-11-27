@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- template -->
+    <template id="report_veterinary_insurance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 t-field="o.pet_id"/>
+                        <h2 t-field="o.policy_number"/>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-start" scope="col">Company</th>
+                                            <th class="text-end" scope="col">Expiration Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span t-field="o.insurance_company"/>
+                                            </td>
+                                            <td class="text-end">
+                                                <span t-field="o.expiration_date" t-options="{'widget': 'date'}"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div>
+                                    <p class="fw-bold">Coverage</p>
+                                    <p t-field="o.coverage_details"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- action report -->
+    <record id="action_report_veterinary_insurance" model="ir.actions.report">
+        <field name="name">Insurance Report</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_aleix.report_veterinary_insurance</field>
+        <field name="report_file">veterinary_clinic_aleix.report_veterinary_insurance</field>
+        <field name="print_report_name">'%s' % object.policy_number</field>
+        <field name="binding_model_id" ref="model_veterinary_insurance" />
+        <!--<field name="paperformat_id" ref="paperformat_veterinary_appointment" />-->
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
