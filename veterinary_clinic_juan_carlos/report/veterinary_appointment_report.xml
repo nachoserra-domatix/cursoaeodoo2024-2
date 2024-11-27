@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_veterinary_appointment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <h2 t-field="o.name"/>
+                    <div class="page">
+                        <p><strong>Appointment Date:</strong> <span t-field="o.appointment_date" t-options="{'widget':'date'}"/></p>
+                        <p><strong>Pet:</strong> <span t-field="o.pet_id.name"/></p>
+                        <p><strong>Partner:</strong> <span t-field="o.partner_id.name"/></p>
+                        <p><strong>Phone:</strong> <span t-field="o.partner_phone"/></p>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Line Description</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.line_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.name"/></td>
+                                        <td><span t-field="line.product_id"/></td>
+                                        <td><span t-field="line.qty"/></td>
+                                        <td><span t-field="line.price_unit"/></td>
+                                        <td><span t-field="line.subtotal"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <p><strong>Total:</strong> <span t-field="o.total"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_veterinary_appointment_simple">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Veterinary Appointments</h2>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Appointment Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Iterar sobre todos los registros seleccionados -->
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td><span t-field="o.name"/></td>
+                                    <td><span t-field="o.appointment_date" t-options="{'widget':'date'}"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- <record id="paperformat_veterinary_appointment" model="report.paperformat">
+        <field name="name">A4 - Appointments</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">10</field>
+        <field name="dpi">80</field>
+    </record> -->
+
+    <record id="action_report_veterinary_appointment" model="ir.actions.report">
+        <field name="name">Appointment report</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_juan_carlos.report_veterinary_appointment</field>
+        <field name="report_file">veterinary_clinic_juan_carlos.report_veterinary_appointment</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <!-- <field name="paperformat_id" ref= "paperformat_veterinary_appointment"/> -->
+        <field name="binding_model_id" ref="model_veterinary_appointment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_report_veterinary_appointment_simple" model="ir.actions.report">
+        <field name="name">Appointment report simple</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_juan_carlos.report_veterinary_appointment_simple</field>
+        <field name="report_file">veterinary_clinic_juan_carlos.report_veterinary_appointment_simple</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <!-- <field name="paperformat_id" ref= "paperformat_veterinary_appointment"/> -->
+        <field name="binding_model_id" ref="model_veterinary_appointment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,6 +1,8 @@
 from odoo import models, fields, api
 import random
 import string
+from odoo.exceptions import ValidationError
+
 
 def generate_random_chip(lengk=12):
     caract = string.ascii_letters + string.digits
@@ -105,3 +107,11 @@ class VeterinaryPet(models.Model):
         self.env["veterinary.insurance"].create({"policy_number" : "123456",
                                                  "coverage_details" : "detail coverage"
                                                  })
+        
+    def action_print_appointments(self): #accion para devolver un boton para hacer impresion de reports
+        appointments = self.appointment_ids
+        report = self.env.ref("veterinary_clinic_juan_carlos.action_report_veterinary_appointment").report_action(appointments.ids)
+        if appointments:
+            return report 
+        else: raise ValidationError("No appointments in this pet")
+    

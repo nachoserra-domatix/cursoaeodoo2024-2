@@ -32,6 +32,7 @@
             <button string="Generate number chip" invisible="number_pet" groups="veterinary_clinic_juan_carlos.veterinary_clinic_groups_manager" name="action_chip_number_pet" type="object" class="btn-primary"/>
             <button string="Create insurance" name="create_insurance" type="object" class="btn-secondary"/>
             <button string="Finish surgeries" name="action_finish_surgeries" type="object" class="btn-secondary"/>
+            <button string="Print appointments" name="action_print_appointments" type="object" class="oe_highlight"/>
         </header>
             <sheet>
             <div class="oe_button_box" name="button_box">
