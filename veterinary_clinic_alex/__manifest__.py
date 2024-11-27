@@ -23,6 +23,8 @@
         'views/veterinary_surgery.xml',
         'views/veterinary_allergy.xml',
         'views/veterinary_insurance.xml',
+        'wizard/veterinary_appointment_edit_state.xml',
+        'wizard/veterinary_surgery_edit_state.xml',
         'views/veterinary_adoption.xml',
         
     ],

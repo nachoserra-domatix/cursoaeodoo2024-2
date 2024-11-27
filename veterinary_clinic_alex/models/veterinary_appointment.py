@@ -5,7 +5,7 @@ class VeterinaryAppointment(models.Model):
     _description = 'Veterinary Appointment'
     #_rec_name = 'reason' # Permite establecer el campo que va actuar como name cuando el campo name no exista 
 
-    name = fields.Char(string='Name', required=True,)
+    name = fields.Char(string='Name', required=True, copy=False, default = 'New')
     partner_id = fields.Many2one('res.partner', string='Partner')
     pet_id = fields.Many2one('veterinary.pet', string='Pet', help='Pet of the appointment')
     partner_phone = fields.Char(string='Phone')
@@ -23,11 +23,13 @@ class VeterinaryAppointment(models.Model):
     user_id = fields.Many2one('res.users', string='Responsible', help='Veterinarian in charge of the appointment', default=lambda self: self.env.user)
     sequence = fields.Integer(string='Sequence', default = 10)
     urgency = fields.Boolean(string='Urgent', help='Urgent appointment')
-    color = fields.Integer(string='Color')
-    assigned = fields.Boolean(string='Assigned', help='Assigned appointment', compute='_compute_assigned', inverse='_inverse_assigned', store=True)
+    color = fields.Integer(string='Color', company_dependent=True)
+    #assigned = fields.Boolean(string='Assigned', help='Assigned appointment', compute='_compute_assigned', inverse='_inverse_assigned', store=True)
+    assigned = fields.Boolean(string='Assigned', help='Assigned appointment', readonly=False)
     tag_ids = fields.Many2many('veterinary.appointment.tag', string='Tags', help='Tags of the appointment')
     line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id', string='Lines', help='Lines of the appointment')
     total = fields.Float(string='Total', compute='_compute_total')
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
 
     _sql_constraints = [
         ('name_unique', 'UNIQUE(name)', 'The appointment name must be unique')

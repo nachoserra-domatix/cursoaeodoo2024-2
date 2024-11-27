@@ -26,7 +26,7 @@
         <field name="arch" type="xml">
             <form string="Insurance">   
             <header>
-                <button string="Expired?" invisible= "expired" name="action_expired" type="object" class="btn-warning"/>
+                <button string="Expired?" invisible="expired" name="action_expired" type="object" class="btn-warning"/>
                 
             </header>
                      

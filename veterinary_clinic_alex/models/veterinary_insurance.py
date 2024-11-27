@@ -9,7 +9,7 @@ class VeterinaryInsurance(models.Model):
     pet_id = fields.Many2one('veterinary.pet', string='Pet')
     insurance_company = fields.Char(string='Insurance Company')
     insurance_number = fields.Char(string='Insurance Number')
-    insurance_expiration_date = fields.Date(string='Insurance Expiration Date', default = fields.Date.today)
+    insurance_expiration_date = fields.Date(string='Insurance Expiration Date', default = fields.Date.today())
     coverage_details = fields.Text(string='Coverage Details', help='Details of the insurance coverage')
     expired = fields.Boolean(string='Expired')
     active = fields.Boolean(string='Active', default=True) #Este campo permite archivar registros es como un borrado logico
