@@ -81,3 +81,8 @@ class VeterinaryPet(models.Model):
          surgeris = self.env["veterinary.surgery"].search([("pet_id","=",self.id)])
          for surgery in surgeris:
             surgery.action_done()
+
+   def action_print_appointments(self):
+      appoinments = self.appointment_ids
+      report = self.env.ref("veterinary_clinic_borja.action_report_veterinary_appointment").report_action(appoinments.ids)
+      return report      

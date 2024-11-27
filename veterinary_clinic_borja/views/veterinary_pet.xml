@@ -24,6 +24,7 @@
                     <button string="Vaccinated" invisible="vaccinated == True" name="action_vaccinated" type="object" class="btn-primary"/>
                     <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
                     <button string="All Surgery Done" name="surgeris_done" type="object" class="btn-secondary"/>
+                    <button string="Print Appointments" name="action_print_appointments" type="object" class="btn-secondary"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">

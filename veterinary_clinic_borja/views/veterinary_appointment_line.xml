@@ -53,6 +53,7 @@
         <field name="arch" type="xml">
             <form string="Appointment Line Simple">
                 <group>
+                    <field name="name" />
                     <field name="product_id" />
                     <field name="qty"/>
                 </group>
