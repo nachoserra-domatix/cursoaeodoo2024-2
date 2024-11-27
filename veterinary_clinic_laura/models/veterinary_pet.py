@@ -25,6 +25,11 @@ class VeterinaryPet(models.Model):
    insurance_ids=fields.One2many('veterinary.insurance','pet_id',string="Insurances")
    active=fields.Boolean(string="Active",default=True)
 
+   def action_print_appointments(self):
+      appointments=self.appointment_ids
+      report = self.env.ref('veterinary_clinic_laura.action_report_veterinary_appointment').report_action(appointments.ids)
+      return report
+   
    def _compute_appointment_count(self):
       for record in self:
          record.appointment_count= len(record.appointment_ids)
