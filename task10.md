@@ -1,7 +1,7 @@
 # Informes
-* Crear informe en incidencias con los campos nombre, usuario, jugador, fecha y una tabla que coja las acciones y muestre el nombre y el estado.
-* Crear informe en incidencias llamado de forma distinta, que lo que haga sea imprimir en una sola página los nombres y la fecha de todas las incidencias seleccionadas
-* Crear informe en ligas parecido al de incidencias, que muestre el nombre de la liga, la fecha de inicio, la fecha final y una tabla con todos los equipos y la puntuación de cada equipo
+* Crear informe en citas con los campos nombre, usuario, contacto, fecha y una tabla que coja las lineas de las citas y añada los productos y las cantidades.
+* Crear otro informe en citas llamado de forma distinta(listado de productos), que lo que haga sea imprimir en una sola página los nombres y la fecha de todas las citas seleccionadas
+* Crear informe en seguros que muestre el número de póliza, la mascota, compañía aseguradora, fecha de expiración y cobertura
 
 # Paperformat
-* Crear un paperformat con los valores que queráis y asociarlo a uno de los informes
+* Crear un paperformat con los valores que consideréis y asociarlo a uno de los informes
