@@ -16,7 +16,7 @@
                                 <span t-field="o.pet_id"/>
                             </div> 
                             <div class="col-auto col-3 mw-100 mb-2">
-                                <Strong>Insurance Company:</Strong><br/>
+                                <Strong>Company:</Strong><br/>
                                 <span t-field="o.insurance_company"/>
                             </div>                            
                              <div class="col-auto col-3 mw-100 mb-2">
