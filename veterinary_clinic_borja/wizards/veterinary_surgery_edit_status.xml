@@ -26,4 +26,11 @@
         <field name="binding_view_types">list</field>
     </record>
 
+    <menuitem
+        id="veterinary_surgery_edit_status_menu"
+        name="name"
+        action="veterinary_surgery_edit_status_action"
+        parent="veterinary_management_menu"
+        sequence="100"/>
+
 </odoo>
