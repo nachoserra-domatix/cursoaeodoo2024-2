@@ -31,6 +31,8 @@ class VeterinaryPet(models.Model):
         "veterinary.insurance", "pet_id", string="insurances"
     )
     insurance_count = fields.Integer(compute="_compute_insurance_count")
+    surgery_ids = fields.One2many("veterinary.surgery", "pet_id", string="surgeries")
+    surgery_count = fields.Integer(compute="_compute_surgery_count")
     active = fields.Boolean(string="Active", default=True)
 
     _sql_constraints = [
@@ -41,6 +43,10 @@ class VeterinaryPet(models.Model):
         ),
     ]
 
+    def _compute_surgery_count(self):
+        for record in self:
+            record.surgery_count = len(record.surgery_ids)
+
     def _compute_insurance_count(self):
         for record in self:
             record.insurance_count = len(record.insurance_ids)
@@ -48,6 +54,15 @@ class VeterinaryPet(models.Model):
     def _compute_appointment_count(self):
         for record in self:
             record.appointment_count = len(record.appointment_ids)
+
+    def action_view_surgeries(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Surgeries",
+            "res_model": "veterinary.surgery",
+            "view_mode": "tree,form",
+            "domain": [("pet_id", "=", self.id)],
+        }
 
     def action_view_insurances(self):
         return {
