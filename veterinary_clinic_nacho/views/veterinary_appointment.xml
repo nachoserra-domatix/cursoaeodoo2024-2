@@ -177,11 +177,4 @@
         </field>
     </record>
 
-<menuitem
-    id="veterinary_appointment_menu"
-    name="Appointments"
-    action="veterinary_appointment_action"
-    parent="veterinary_management_menu"
-    sequence="10"/>
-
 </odoo>

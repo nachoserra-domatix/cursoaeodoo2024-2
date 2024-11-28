@@ -25,7 +25,8 @@
              'report/veterinary_appointment_report.xml',
              'report/veterinary_appointment_report_simple.xml',
              'report/veterinary_insurance_report.xml',
-             'data/ir_cron.xml'
+             'data/ir_cron.xml',
+             'views/menuitems.xml'
              ],
     'application': False,
     'installable': True,

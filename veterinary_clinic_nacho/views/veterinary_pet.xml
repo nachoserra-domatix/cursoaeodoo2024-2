@@ -87,28 +87,10 @@
     </field>
 </record>
 
-<!-- <menuitem
-    id="veterinary_clinic_menu"
-    name="Veterinary Clinic"
-    sequence="10"/>
-
-<menuitem
-    id="veterinary_management_menu"
-    name="Management"
-    parent="veterinary_clinic_menu"
-    sequence="10"/>
-
-<menuitem
-    id="veterinary_pet_menu"
-    name="Pets"
-    action="veterinary_pet_action"
-    parent="veterinary_management_menu"
-    sequence="10"/> -->
-
-<menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_nacho,static/img/logo.png" name="Veterinary Clinic" sequence="10">
+<!-- <menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_nacho,static/img/logo.png" name="Veterinary Clinic" sequence="10">
     <menuitem id="veterinary_management_menu" name="Management" sequence="10">
         <menuitem id="veterinary_pet_menu" action="veterinary_pet_action" name="Pets" sequence="20"/>
     </menuitem>
-</menuitem>
+</menuitem> -->
     
 </odoo>
