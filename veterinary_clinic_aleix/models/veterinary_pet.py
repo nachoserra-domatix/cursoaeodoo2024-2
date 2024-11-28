@@ -24,6 +24,8 @@ class VeterinaryPet(models.Model):
         comodel_name='veterinary.appointment', inverse_name='pet_id')
     insurance_ids = fields.One2many(
         comodel_name='veterinary.insurance', inverse_name='pet_id')
+    surgery_ids = fields.One2many(
+        comodel_name='veterinary.surgery', inverse_name='pet_id')
     # Many2one
     species_id = fields.Many2one('veterinary.species', string='Species')
     # Many2many
@@ -38,12 +40,18 @@ class VeterinaryPet(models.Model):
         string='Appointment Count', compute='_compute_appointment_count')
     insurance_count = fields.Integer(
         string='Insurance Count', compute='_compute_insurance_count')
+    surgery_count = fields.Integer(
+        string='Surgery Count', compute='_compute_surgery_count')
 
     # sql constraints
     _sql_constraints = [
         ('check_unique_name', 'UNIQUE(name)',
          'A name must be unique'),
     ]
+    _sql_constraints = [
+        ('check_unique_pet_number_for_species', 'UNIQUE(species_id, pet_number)', 
+         'The chip number must be unique for the same species.'),
+        ]
 
     # computed methods
     # @api.depends és necesario para un campo compute con store=True
@@ -76,6 +84,10 @@ class VeterinaryPet(models.Model):
     def _compute_insurance_count(self):
         for record in self:
             record.insurance_count = len(record.insurance_ids)
+    
+    def _compute_surgery_count(self):
+        for record in self:
+            record.surgery_count = len(record.surgery_ids)
 
     # action methods
     def action_vaccinated(self):
@@ -101,6 +113,15 @@ class VeterinaryPet(models.Model):
             'type': 'ir.actions.act_window',
             'name': 'Insurances Pet',
             'res_model': 'veterinary.insurance',
+            'view_mode': 'tree,form,kanban',
+            'domain': [('pet_id', '=', self.id)],
+        }
+    
+    def action_view_surgeries_pet(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Surgeries Pet',
+            'res_model': 'veterinary.surgery',
             'view_mode': 'tree,form,kanban',
             'domain': [('pet_id', '=', self.id)],
         }

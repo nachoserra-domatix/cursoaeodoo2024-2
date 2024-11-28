@@ -43,6 +43,9 @@
                     <button string="Edit State with Wizard" 
                         name="%(veterinary_clinic_aleix.veterinary_appointment_edit_state_action)d" 
                         type="action" class="btn-secondary"/>
+                    <button string="Massive Appointment Generation Wizard" 
+                        name="%(veterinary_clinic_aleix.veterinary_appointment_mass_generation_action)d" 
+                        type="action" class="btn-secondary"/>
                 </header>
                 <sheet>
                     <div class="oe_title">

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- template -->
+    <template id="report_veterinary_surgery">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 t-field="o.name"/>
+                        <h2 t-field="o.pet_id"/>
+                        <div class="row">
+                            <div class="col-12">
+                                <div>
+                                    <p t-field="o.surgery_date" t-options="{'widget': 'date'}"/>
+                                </div>
+                                <div>
+                                    <p t-field="o.employee_id"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table" style="table-layout: fixed">
+                                    <thead style="display: table-row-group">
+                                        <tr>
+                                            <th class="text-start" style="width: 70%" scope="col">Name</th>
+                                            <th class="text-end" style="width: 30%" scope="col">State</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.line_ids" t-as="line">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="line.name"/>
+                                                </td>
+                                                <td class="text-end">
+                                                    <span t-field="line.state"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- action report -->
+    <record id="action_report_veterinary_surgery" model="ir.actions.report">
+        <field name="name">Surgery Report</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_aleix.report_veterinary_surgery</field>
+        <field name="report_file">veterinary_clinic_aleix.report_veterinary_surgery</field>
+        <field name="print_report_name">'Surgery Report - %s - %s' % (object.name, object.pet_id.name)</field>
+        <field name="binding_model_id" ref="model_veterinary_surgery" />
+        <!--<field name="paperformat_id" ref="paperformat_veterinary_appointment" />-->
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
