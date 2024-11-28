@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-14 17:28+0000\n"
-"PO-Revision-Date: 2024-11-14 17:28+0000\n"
+"POT-Creation-Date: 2024-11-27 16:24+0000\n"
+"PO-Revision-Date: 2024-11-27 16:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,9 +32,66 @@ msgid ""
 msgstr ""
 
 #. module: veterinary_clinic_nacho
+#: model:ir.actions.report,print_report_name:veterinary_clinic_nacho.action_report_veterinary_appointment
+msgid "'%s' % object.name"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.report_veterinary_appointment
+msgid "<strong>Date:</strong><br/>"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.report_veterinary_appointment
+msgid "<strong>Partner</strong><br/>"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.report_veterinary_appointment
+msgid "<strong>Pet</strong><br/>"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_form
+msgid "Actions to do"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__active
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__active
 msgid "Active"
 msgstr "Activo"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__adopted
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__adopted
+msgid "Adopted"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,help:veterinary_clinic_nacho.field_veterinary_pet__adopted
+msgid "Adopted pet"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.actions.act_window,name:veterinary_clinic_nacho.veterinary_adoption_action
+#: model:ir.ui.menu,name:veterinary_clinic_nacho.veterinary_adoption_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_pivot
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_search
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_tree
+msgid "Adoption"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__adoption_date
+msgid "Adoption Date"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_form
+msgid "Adoption name"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__age
@@ -42,7 +99,9 @@ msgid "Age"
 msgstr "Edad"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__allergy_ids
 #: model:ir.ui.menu,name:veterinary_clinic_nacho.veterinary_allergy_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_pet_view_form
 msgid "Allergies"
 msgstr "Alergias"
 
@@ -53,15 +112,42 @@ msgid "Allergy"
 msgstr "Alergia"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.actions.report,name:veterinary_clinic_nacho.action_report_veterinary_appointment
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__appointment_id
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_form
 msgid "Appointment"
 msgstr "Cita"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__appointment_count
+msgid "Appointment Count"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.ui.menu,name:veterinary_clinic_nacho.veterinary_appointment_line_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_line_view_tree
+msgid "Appointment lines"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_line_simple_view_tree
+msgid "Appointment lines Simple"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__appointment_ids
 #: model:ir.ui.menu,name:veterinary_clinic_nacho.veterinary_appointment_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_calendar
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_graph
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_pivot
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_tree
 msgid "Appointments"
 msgstr "Citas"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__assigned
+msgid "Assigned"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_form
@@ -81,14 +167,60 @@ msgstr "Fecha de nacimiento de la mascota"
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_appointment__state__cancel
+#: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_appointment_edit_state__state__cancel
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_edit_state_view_form
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_edit_state_view_form
 msgid "Cancel"
 msgstr "Cancelada"
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_pet_view_form
+msgid "Check all Surgery as done"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_insurance_view_form
 msgid "Check expired date"
 msgstr "Comprobar fecha expirada"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.actions.server,name:veterinary_clinic_nacho.ir_cron_veterinary_insurance_ir_actions_server
+msgid "Check expired insurance"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_nacho.veterinary_appointment_line_action
+msgid "Click to create a new appointment line"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.actions.act_window,help:veterinary_clinic_nacho.veterinary_adoption_action
+msgid "Click to create a new record."
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__color
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__color
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__color
+msgid "Color"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,help:veterinary_clinic_nacho.field_veterinary_surgery__color
+msgid "Color of the surgery"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__company_id
+msgid "Company"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_edit_state_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_edit_state_view_form
+msgid "Confirm"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__coverage
@@ -100,6 +232,16 @@ msgstr "Cobertura"
 #: model:ir.model.fields,help:veterinary_clinic_nacho.field_veterinary_insurance__coverage
 msgid "Coverage of the insurance"
 msgstr "Cobertura del seguro"
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_pet_view_form
+msgid "Create Insurance"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_form
+msgid "Create Tags"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model_terms:ir.actions.act_window,help:veterinary_clinic_nacho.veterinary_allergy_action
@@ -132,24 +274,45 @@ msgid "Create a new surgery"
 msgstr "Crear una nueva cirugía"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_edit_state__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_species__create_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_edit_state__create_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_edit_state__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_species__create_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_edit_state__create_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__currency_id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__currency_id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__currency_id
+msgid "Currency"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__date
@@ -167,6 +330,18 @@ msgid "Date of the surgery"
 msgstr "Fecha de la cirugía"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__days_in_refugee
+msgid "Days in Refugee"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_kanban
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_kanban
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_kanban
+msgid "Delete"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__description
 msgid "Description"
 msgstr "Descripción"
@@ -177,26 +352,43 @@ msgid "Description of the allergy"
 msgstr "Descripción de la alergia"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_edit_state__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_species__display_name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_edit_state__display_name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_appointment__state__done
+#: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_appointment_edit_state__state__done
 #: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_surgery__state__done
+#: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_surgery_edit_state__state__done
+#: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_surgery_line__state__done
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_search
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_search
 msgid "Done"
 msgstr "Hecho"
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_appointment__state__draft
+#: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_appointment_edit_state__state__draft
 #: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_surgery__state__draft
+#: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_surgery_edit_state__state__draft
+#: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_surgery_line__state__draft
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_search
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_search
 msgid "Draft"
 msgstr "Borrador"
 
@@ -204,6 +396,23 @@ msgstr "Borrador"
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__duration
 msgid "Duration"
 msgstr "Duración"
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_kanban
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_kanban
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_kanban
+msgid "Edit"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__partner_email
+msgid "Email"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_search
+msgid "Employee"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__expiration_date
@@ -226,12 +435,29 @@ msgid "Generate Pet Number"
 msgstr "Generar número de chip"
 
 #. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_edit_state_view_form
+msgid "Here you can edit massively the appointments state"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_edit_state_view_form
+msgid "Here you can edit massively the surgeries state"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_edit_state__id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_species__id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_edit_state__id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__id
 msgid "ID"
 msgstr ""
 
@@ -248,27 +474,62 @@ msgid "Insurance Company"
 msgstr "Compañía aseguradora"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__insurance_count
+msgid "Insurance Count"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields,help:veterinary_clinic_nacho.field_veterinary_insurance__insurance_company
 msgid "Insurance company"
 msgstr "Compañía aseguradora"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__insurance_ids
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_pet_view_form
+msgid "Insurances"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_search
+msgid "Is Adopted"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__is_severe
+msgid "Is Severe"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_edit_state__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_species__write_uid
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_edit_state__write_uid
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_edit_state__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_species__write_date
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_edit_state__write_date
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
@@ -276,6 +537,12 @@ msgstr "Última actualización el"
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__last_vaccination_date
 msgid "Last Vaccination Date"
 msgstr "Última fecha de vacuna"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__line_ids
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__line_ids
+msgid "Lines"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_allergy__severity__low
@@ -293,16 +560,53 @@ msgid "Manager"
 msgstr ""
 
 #. module: veterinary_clinic_nacho
+#: model:ir.actions.server,name:veterinary_clinic_nacho.ir_cron_veterinary_surgery_mark_as_done_ir_actions_server
+msgid "Mark as done finished surgeries"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_edit_state_view_form
+msgid "Mass edit appointment state"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.actions.act_window,name:veterinary_clinic_nacho.veterinary_appointment_edit_state_action
+#: model:ir.actions.act_window,name:veterinary_clinic_nacho.veterinary_surgery_edit_state_action
+msgid "Mass edit state"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.ui.menu,name:veterinary_clinic_nacho.veterinary_surgery_edit_state_menu
+msgid "Mass edit surgeries"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_edit_state_view_form
+msgid "Mass edit surgery state"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_pet_view_form
+msgid "Medical history"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields.selection,name:veterinary_clinic_nacho.selection__veterinary_allergy__severity__moderate
 msgid "Moderate"
 msgstr "Moderada"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption_stage__name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_allergy__name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_tag__name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_species__name
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__name
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__name
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_search
 msgid "Name"
 msgstr "Nombre"
 
@@ -327,13 +631,34 @@ msgid "Name of the surgery"
 msgstr "Nombre de la cirugía"
 
 #. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_search
+msgid "Not Adopted"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__notes
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_form
+msgid "Notes"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields,help:veterinary_clinic_nacho.field_veterinary_pet__pet_number
 msgid "Number of the pet"
 msgstr "Número"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__partner_id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__partner_id
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_search
+msgid "Partner"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__pet_id
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__pet_id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__pet_id
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__pet_id
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_search
 msgid "Pet"
 msgstr "Mascota"
 
@@ -361,6 +686,17 @@ msgid "Pets"
 msgstr "Mascotas"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__partner_phone
+msgid "Phone"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__photo
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__photo
+msgid "Photo"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_insurance__policy_number
 msgid "Policy Number"
 msgstr "Número de póliza"
@@ -370,6 +706,42 @@ msgstr "Número de póliza"
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_insurance_view_form
 msgid "Policy number"
 msgstr "Número de póliza"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.constraint,message:veterinary_clinic_nacho.constraint_veterinary_insurance_policy_number_unique
+msgid "Policy number must be unique"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__price
+msgid "Price"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_pet_view_form
+msgid "Print appointments"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__product_id
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.report_veterinary_appointment
+msgid "Product"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_form
+msgid "Products"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.report_veterinary_appointment
+msgid "Qty"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__qty
+msgid "Quantity"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__reason
@@ -389,6 +761,7 @@ msgstr "Responsable"
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__sequence
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__sequence
 msgid "Sequence"
 msgstr "Secuencia"
 
@@ -433,20 +806,45 @@ msgid "Species of the pet"
 msgstr "Especie de la mascota"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__stage_id
+msgid "Stage"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__start_date
+msgid "Start Date"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__state
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_edit_state__state
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__state
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_edit_state__state
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__state
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_search
 msgid "State"
 msgstr "Estado"
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,help:veterinary_clinic_nacho.field_veterinary_surgery__state
+#: model:ir.model.fields,help:veterinary_clinic_nacho.field_veterinary_surgery_line__state
 msgid "State of the surgery"
 msgstr "Estado de la cirugía"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__subtotal
+msgid "Subtotal"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.actions.act_window,name:veterinary_clinic_nacho.veterinary_surgery_action
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery_line__surgery_id
 #: model:ir.ui.menu,name:veterinary_clinic_nacho.veterinary_surgery_menu
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_calendar
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_form
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_graph
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_pivot
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_search
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_surgery_view_tree
 msgid "Surgery"
 msgstr "Cirugía"
@@ -462,12 +860,35 @@ msgid "Surgery to do"
 msgstr "Cirugía a realizar"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__tag_ids
+msgid "Tags"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.constraint,message:veterinary_clinic_nacho.constraint_veterinary_appointment_name_unique
+msgid "The appointment name must be unique"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__total
+msgid "Total"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment_line__price_unit
+msgid "Unit Price"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_appointment__urgency
 msgid "Urgent"
 msgstr "Urgencia"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_adoption__user_id
 #: model:res.groups,name:veterinary_clinic_nacho.veterinary_clinic_groups_user
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_adoption_view_search
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_search
 msgid "User"
 msgstr "Usuario"
 
@@ -476,6 +897,11 @@ msgstr "Usuario"
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_pet_view_form
 msgid "Vaccinated"
 msgstr "Vacunado"
+
+#. module: veterinary_clinic_nacho
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_form
+msgid "Ver cirugías"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_surgery__employee_id
@@ -488,14 +914,45 @@ msgid "Veterinarian that will perform the surgery"
 msgstr "Veterinario que realizará la cirugía"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_adoption
+msgid "Veterinary Adoption"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_adoption_stage
+msgid "Veterinary Adoption Stage"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_allergy
 msgid "Veterinary Allergy"
 msgstr "Alergia"
 
 #. module: veterinary_clinic_nacho
+#: model:ir.actions.act_window,name:veterinary_clinic_nacho.veterinary_appointment_line_action
+msgid "Veterinary Appoinemtn lines"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
 #: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_appointment
+#: model_terms:ir.ui.view,arch_db:veterinary_clinic_nacho.veterinary_appointment_view_search
 msgid "Veterinary Appointment"
 msgstr "Cita veterinaria"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_appointment_edit_state
+msgid "Veterinary Appointment Edit State"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_appointment_line
+msgid "Veterinary Appointment Lines"
+msgstr ""
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_appointment_tag
+msgid "Veterinary Appointment Tags"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.module.category,name:veterinary_clinic_nacho.veterinary_clinic_category
@@ -521,6 +978,7 @@ msgstr "Especie"
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_surgery
+#: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_surgery_line
 msgid "Veterinary Surgery"
 msgstr "Cirugía veterinaria"
 
@@ -533,6 +991,11 @@ msgstr "Alergia"
 #: model:ir.actions.act_window,name:veterinary_clinic_nacho.veterinary_appointment_action
 msgid "Veterinary appointment"
 msgstr "Cita veterinaria"
+
+#. module: veterinary_clinic_nacho
+#: model:ir.model,name:veterinary_clinic_nacho.model_veterinary_surgery_edit_state
+msgid "Veterinary surgery Edit State"
+msgstr ""
 
 #. module: veterinary_clinic_nacho
 #: model:ir.model.fields,field_description:veterinary_clinic_nacho.field_veterinary_pet__weight

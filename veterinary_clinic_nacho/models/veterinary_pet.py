@@ -101,3 +101,8 @@ class VeterinaryPet(models.Model):
         surgeries = self.env['veterinary.surgery'].search([('pet_id', '=', self.id)])
         surgeries.action_done()
         
+    def action_print_appointments(self):
+        # appointments = self.env['veterinary.appointment'].search([('pet_id', '=', self.id)])
+        appointments = self.appointment_ids
+        report = self.env.ref('veterinary_clinic_nacho.action_report_veterinary_appointment').report_action(appointments.ids)
+        return report

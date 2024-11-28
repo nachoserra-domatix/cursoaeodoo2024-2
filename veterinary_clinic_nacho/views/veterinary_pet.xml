@@ -28,6 +28,7 @@
             <button string="Generate Pet Number" groups="veterinary_clinic_nacho.veterinary_clinic_groups_manager" name="generate_pet_number" type="object" class="btn-warning"/>
             <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
             <button string="Check all Surgery as done" name="check_all_surgery_as_done" type="object" class="oe_highlight"/>
+            <button string="Print appointments" name="action_print_appointments" type="object" class="btn-secondary"/>
         </header>
             <sheet>
             <div class="oe_button_box" name="button_box">
