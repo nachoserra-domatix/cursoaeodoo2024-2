@@ -1,6 +1,6 @@
 # Wizards
 
-* Crear un asistente que a partir de un número, genere tantas citas de seguimiento para una mascota y un contacto.
+* Crear un asistente que a partir de un número, genere tantas citas de seguimiento para una mascota y un contacto. Por ejemplo añadir un campo de fecha, y que cada cita sume 30 días a cada cita que se cree
 
 # Informes
 
