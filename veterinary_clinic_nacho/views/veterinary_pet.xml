@@ -38,6 +38,9 @@
                 <button name="action_view_insurances" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-file">
                     <field name="insurance_count" string="Insurances" widget="statinfo"/>
                 </button>
+                <button name="action_view_surgeries" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-stethoscope">
+                    <field name="surgery_count" string="Surgeries" widget="statinfo"/>
+                </button>
             </div>
             <field name="photo" widget="image" class="oe_avatar"/>
                 <div class="oe_title">

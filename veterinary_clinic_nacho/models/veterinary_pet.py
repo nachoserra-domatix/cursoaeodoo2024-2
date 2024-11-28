@@ -22,6 +22,24 @@ class VeterinaryPet(models.Model):
     appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
     insurance_ids = fields.One2many('veterinary.insurance', 'pet_id', string='Insurances')
     insurance_count = fields.Integer(string='Insurance Count', compute='_compute_insurance_count')
+    surgery_count = fields.Integer(string='Surgery Count', compute='_compute_surgery_count')
+
+    _sql_constraints = [
+        ('number_species_unique', 'unique(pet_number,species_id)', 'The pet number must be unique per species!'),]
+
+    def _compute_surgery_count(self):
+        for record in self:
+            surgeries = self.env['veterinary.surgery'].search([('pet_id', '=', record.id)])
+            record.surgery_count = len(surgeries)
+
+    def action_view_surgeries(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Surgeries',
+            'res_model': 'veterinary.surgery',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }
 
     def _compute_insurance_count(self):
         for record in self:

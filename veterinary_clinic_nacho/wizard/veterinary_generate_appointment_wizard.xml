@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="veterinary_generate_appointment_wizard_view_form" model="ir.ui.view">
+        <field name="name">veterinary.generate.appointment.wizard.view.form</field>
+        <field name="model">veterinary.generate.appointment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate followup appointments">
+                <p class="oe_grey">Here you can create followup Appointments</p>
+               <group>
+                    <field name="partner_id"/>
+                    <field name="pet_id"/>
+                    <field name="date"/>
+                    <field name="appointment_count"/>
+               </group>
+               <footer>
+                    <button string="Create" name="generate_appointments" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+               </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_generate_appointment_wizard_action" model="ir.actions.act_window">
+        <field name="name">Generate Appointments</field>
+        <field name="res_model">veterinary.generate.appointment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

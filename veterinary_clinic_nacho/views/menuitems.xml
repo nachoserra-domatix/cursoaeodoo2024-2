@@ -45,6 +45,13 @@
         sequence="20"/>
     
     <menuitem
+        id="veterinary_generate_appointment_menu"
+        name="Generate Followup Appointments"
+        action="veterinary_generate_appointment_wizard_action"
+        parent="veterinary_management_menu"
+        sequence="30"/>
+    
+    <menuitem
         id="veterinary_insurance_menu"
         name="Insurance"
         action="veterinary_insurance_action"
