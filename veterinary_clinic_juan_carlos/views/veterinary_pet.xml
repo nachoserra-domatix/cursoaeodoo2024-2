@@ -36,10 +36,13 @@
         </header>
             <sheet>
             <div class="oe_button_box" name="button_box">
+                <button name="action_view_surgeries" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-ambulance">
+                    <field name="surgeries_count" string="Surgeries list" widget="statinfo"/>
+                </button>
                 <button name="action_view_history" type="object" class="oe_stat_button" icon="fa-gittip">
                     <field name="appointment_count" string="Medical history" widget="statinfo"/>
                 </button>
-                <button name="action_view_history_insurance" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-ambulance">
+                <button name="action_view_history_insurance" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-archive">
                     <field name="insurance_count" string="Insurance list" widget="statinfo"/>
                 </button>
             </div>

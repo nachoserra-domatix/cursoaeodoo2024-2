@@ -37,8 +37,31 @@ class VeterinaryPet(models.Model):
     insurance_ids = fields.One2many("veterinary.insurance", "pet_id")
     insurance_count = fields.Integer(compute="_compute_insurance_count")
 
-    active = fields.Boolean(string="Active", default=True)
+    surgeries_ids = fields.One2many("veterinary.surgeries", "pet_id")
+    surgeries_count = fields.Integer(compute="_compute_surgeries_count")
 
+    active = fields.Boolean(string="Active", default=True)
+    
+    def action_view_surgeries(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Surgeries",
+            "res_model": "veterinary.surgeries",
+            "view_mode": "tree,form",
+            "domain": [("pet_id", "=", self.id)]
+        }
+    
+    def _compute_surgeries_count(self):
+        for record in self:
+            record.surgeries_count = len(record.surgeries_ids)
+
+    _sql_constraints = [
+        (
+            "unique_number_pet_per_species", 
+            "unique(number_pet, species_id)", 
+            "chip must be unique for species."
+        )
+    ]
 
     def _compute_insurance_count(self):
         for record in self:

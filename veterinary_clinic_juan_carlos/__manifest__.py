@@ -28,8 +28,10 @@
         'data/ir_cron.xml',
         'wizard/veterinary_appointment_edit_state.xml',
         'wizard/veterinary_surgeries_edit_state.xml',
+        'wizard/veterinary_appointment_create_follow.xml',
         'report/veterinary_appointment_report.xml',
-        'report/veterinary_insurance_report.xml'
+        'report/veterinary_insurance_report.xml',
+        'report/veterinary_surgeries_report.xml'
     ],
     'application': False,
     'installable': True,
