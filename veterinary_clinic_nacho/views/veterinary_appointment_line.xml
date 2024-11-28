@@ -80,9 +80,4 @@
         </field>
     </record>
 
-    <menuitem id="veterinary_appointment_line_menu"
-            name="Appointment lines"
-            parent="veterinary_clinic_menu"
-            action="veterinary_appointment_line_action"/>
-
 </odoo>

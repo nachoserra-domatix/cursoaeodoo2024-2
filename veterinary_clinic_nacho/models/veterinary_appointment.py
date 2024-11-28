@@ -75,6 +75,7 @@ class VeterinaryAppointment(models.Model):
             record.state = 'draft'
 
     def action_done(self):
+        import pdb;pdb.set_trace()
         for record in self:
             record.state = 'done'
 

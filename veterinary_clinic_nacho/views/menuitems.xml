@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="veterinary_clinic_menu"
+        name="Veterinary Clinic"
+        sequence="10"
+        web_icon="veterinary_clinic_nacho,static/img/logo.png"/>
+
+    <menuitem
+        id="veterinary_management_menu"
+        name="Management"
+        parent="veterinary_clinic_menu"
+        sequence="10"/>
+
+    <menuitem
+        id="veterinary_pet_root_menu"
+        name="Pets"
+        parent="veterinary_clinic_menu"
+        sequence="20"/>
+
+    <menuitem
+        id="veterinary_clinic_sub_menu"
+        name="Clinic"
+        parent="veterinary_clinic_menu"
+        sequence="30"/>
+    
+    <menuitem
+        id="veterinary_adoption_root_menu"
+        name="Adoption"
+        parent="veterinary_clinic_menu"
+        sequence="40"/>
+    
+    <menuitem
+        id="veterinary_appointment_menu"
+        name="Appointments"
+        action="veterinary_appointment_action"
+        parent="veterinary_management_menu"
+        sequence="10"/>
+    
+    <menuitem id="veterinary_appointment_line_menu"
+        name="Appointment lines"
+        parent="veterinary_management_menu"
+        action="veterinary_appointment_line_action"
+        sequence="20"/>
+    
+    <menuitem
+        id="veterinary_generate_appointment_menu"
+        name="Generate Followup Appointments"
+        action="veterinary_generate_appointment_wizard_action"
+        parent="veterinary_management_menu"
+        sequence="30"/>
+    
+    <menuitem
+        id="veterinary_insurance_menu"
+        name="Insurance"
+        action="veterinary_insurance_action"
+        parent="veterinary_management_menu"
+        sequence="30"/>
+
+    <menuitem
+        id="veterinary_adoption_menu"
+        name="Adoption"
+        parent="veterinary_adoption_root_menu"
+        action="veterinary_adoption_action"
+        sequence="10"/>
+
+     <menuitem
+        id="veterinary_pet_menu"
+        name="Pets"
+        action="veterinary_pet_action"
+        parent="veterinary_pet_root_menu"
+        sequence="10"/>
+    
+       <menuitem
+        id="veterinary_species_menu"
+        name="Species"
+        action="veterinary_species_action"
+        parent="veterinary_pet_root_menu"
+        sequence="20"/>
+
+
+    <menuitem
+        id="veterinary_allergy_menu"
+        name="Allergies"
+        action="veterinary_allergy_action"
+        parent="veterinary_clinic_sub_menu"
+        sequence="10"/>
+
+      <menuitem
+        id="veterinary_surgery_menu"
+        name="Surgery"
+        action="veterinary_surgery_action"
+        parent="veterinary_clinic_sub_menu"
+        sequence="20"/>
+
+    <menuitem
+        id="veterinary_surgery_edit_state_menu"
+        name="Mass edit surgeries"
+        action="veterinary_surgery_edit_state_action"
+        parent="veterinary_clinic_sub_menu"
+        sequence="30"/>
+    
+</odoo>

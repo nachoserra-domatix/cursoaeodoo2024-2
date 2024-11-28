@@ -28,6 +28,7 @@
             <button string="Generate Pet Number" groups="veterinary_clinic_nacho.veterinary_clinic_groups_manager" name="generate_pet_number" type="object" class="btn-warning"/>
             <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
             <button string="Check all Surgery as done" name="check_all_surgery_as_done" type="object" class="oe_highlight"/>
+            <button string="Print appointments" name="action_print_appointments" type="object" class="btn-secondary"/>
         </header>
             <sheet>
             <div class="oe_button_box" name="button_box">
@@ -36,6 +37,9 @@
                 </button>
                 <button name="action_view_insurances" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-file">
                     <field name="insurance_count" string="Insurances" widget="statinfo"/>
+                </button>
+                <button name="action_view_surgeries" context="{'default_pet_id': id}" type="object" class="oe_stat_button" icon="fa-stethoscope">
+                    <field name="surgery_count" string="Surgeries" widget="statinfo"/>
                 </button>
             </div>
             <field name="photo" widget="image" class="oe_avatar"/>
@@ -86,28 +90,10 @@
     </field>
 </record>
 
-<!-- <menuitem
-    id="veterinary_clinic_menu"
-    name="Veterinary Clinic"
-    sequence="10"/>
-
-<menuitem
-    id="veterinary_management_menu"
-    name="Management"
-    parent="veterinary_clinic_menu"
-    sequence="10"/>
-
-<menuitem
-    id="veterinary_pet_menu"
-    name="Pets"
-    action="veterinary_pet_action"
-    parent="veterinary_management_menu"
-    sequence="10"/> -->
-
-<menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_nacho,static/img/logo.png" name="Veterinary Clinic" sequence="10">
+<!-- <menuitem id="veterinary_clinic_menu" web_icon="veterinary_clinic_nacho,static/img/logo.png" name="Veterinary Clinic" sequence="10">
     <menuitem id="veterinary_management_menu" name="Management" sequence="10">
         <menuitem id="veterinary_pet_menu" action="veterinary_pet_action" name="Pets" sequence="20"/>
     </menuitem>
-</menuitem>
+</menuitem> -->
     
 </odoo>

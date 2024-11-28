@@ -62,10 +62,4 @@
     </field>
 </record>
 
-    <menuitem
-        id="veterinary_insurance_menu"
-        name="Insurance"
-        action="veterinary_insurance_action"
-        parent="veterinary_management_menu"
-        sequence="20"/>
 </odoo>

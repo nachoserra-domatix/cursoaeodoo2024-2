@@ -29,7 +29,7 @@
             <header>
             <button string="Ver cirugías" type="action" name="%(veterinary_surgery_action)d"/>
             <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
-            <button string="Done" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
+            <button string="Done" context="{'variable':'PATATA'}" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
             <button string="Cancel" invisible="state in ('cancel')" groups="veterinary_clinic_nacho.veterinary_clinic_groups_manager" name="action_cancel" type="object" class="btn-danger"/>
             <button string="Create Tags" name="create_tags" type="object" class="oe_highlight"/>
             <field name="state" options="{'clickable':1}" widget="statusbar"/>
@@ -176,12 +176,5 @@
              <p class="o_view_nocontent_smiling_face">Create a new appointment</p>
         </field>
     </record>
-
-<menuitem
-    id="veterinary_appointment_menu"
-    name="Appointments"
-    action="veterinary_appointment_action"
-    parent="veterinary_management_menu"
-    sequence="10"/>
 
 </odoo>

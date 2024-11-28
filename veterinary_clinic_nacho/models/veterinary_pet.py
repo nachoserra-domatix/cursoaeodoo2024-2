@@ -22,6 +22,24 @@ class VeterinaryPet(models.Model):
     appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
     insurance_ids = fields.One2many('veterinary.insurance', 'pet_id', string='Insurances')
     insurance_count = fields.Integer(string='Insurance Count', compute='_compute_insurance_count')
+    surgery_count = fields.Integer(string='Surgery Count', compute='_compute_surgery_count')
+
+    _sql_constraints = [
+        ('number_species_unique', 'unique(pet_number,species_id)', 'The pet number must be unique per species!'),]
+
+    def _compute_surgery_count(self):
+        for record in self:
+            surgeries = self.env['veterinary.surgery'].search([('pet_id', '=', record.id)])
+            record.surgery_count = len(surgeries)
+
+    def action_view_surgeries(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Surgeries',
+            'res_model': 'veterinary.surgery',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }
 
     def _compute_insurance_count(self):
         for record in self:
@@ -101,3 +119,8 @@ class VeterinaryPet(models.Model):
         surgeries = self.env['veterinary.surgery'].search([('pet_id', '=', self.id)])
         surgeries.action_done()
         
+    def action_print_appointments(self):
+        # appointments = self.env['veterinary.appointment'].search([('pet_id', '=', self.id)])
+        appointments = self.appointment_ids
+        report = self.env.ref('veterinary_clinic_nacho.action_report_veterinary_appointment').report_action(appointments.ids)
+        return report
