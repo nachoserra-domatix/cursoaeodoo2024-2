@@ -9,6 +9,7 @@
                 <group>
                     <field name="appointments"/>
                     <field name="partner_id"/>
+                    <field name="initial_date"/>
                 </group>
                 <footer>
                     <button string="Confirm" name="create_n_appointments" type="object" class="oe_highlight"/>
