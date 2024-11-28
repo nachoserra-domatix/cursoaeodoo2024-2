@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="veterinary_pet_recurrent_appointments_view_form" model="ir.ui.view">
+        <field name="name">veterinary.pet.recurrent.appointments.view.form</field>
+        <field name="model">veterinary.pet.recurrent.appointments</field>
+        <field name="arch" type="xml">
+            <form string="Generate N appointments to the pet">
+                <p class="oe_grey"> Here you can generate N appointments to the pet</p>
+                <group>
+                    <field name="appointments"/>
+                    <field name="partner_id"/>
+                </group>
+                <footer>
+                    <button string="Confirm" name="create_n_appointments" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_pet_recurrent_appointments_action" model="ir.actions.act_window">
+        <field name="name">Generate N appointments to the pets</field>
+        <field name="res_model">veterinary.pet.recurrent.appointments</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_pet" />
+        <field name="binding_view_types">list</field>
+    </record>
+    
+
+</odoo>

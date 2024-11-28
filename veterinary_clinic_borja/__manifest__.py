@@ -24,6 +24,7 @@
                 "data/ir_cron.xml",
                 "wizards/veterinary_appointment_edit_state.xml",
                 "wizards/veterinary_surgery_edit_status.xml",
+                "wizards/veterinary_pet_recurrent_appointments.xml",
                 "report/veterinary_appointment_report.xml",
                 "report/veterinary_appointment_insurance.xml",
              ],

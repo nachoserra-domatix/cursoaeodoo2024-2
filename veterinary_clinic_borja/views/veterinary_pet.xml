@@ -25,6 +25,7 @@
                     <button string="Create Insurance" name="create_insurance" type="object" class="btn-secondary"/>
                     <button string="All Surgery Done" name="surgeris_done" type="object" class="btn-secondary"/>
                     <button string="Print Appointments" name="action_print_appointments" type="object" class="btn-secondary"/>
+                    <button string="Generate Appointments" name="%(veterinary_pet_recurrent_appointments_action)d" type="action" class="btn-primary"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
