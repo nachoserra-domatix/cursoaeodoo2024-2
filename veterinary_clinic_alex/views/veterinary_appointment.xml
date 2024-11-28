@@ -204,7 +204,7 @@
         <field name="res_model">veterinary.appointment</field>
         <field name="view_mode">tree,kanban,form,pivot,graph,calendar</field>
 
-        <field name="context">{}</field>
+        <field name="context">{'search_default_draft_filter':1}</field>  <!-- Con esto se activa el filtro por defecto que habiamos creado-->
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new appointment

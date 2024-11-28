@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="veterinary_appointment_create_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.create.view.form</field>
+        <field name="model">veterinary.appointment.create</field>
+        <field name="arch" type="xml">
+            <form string="Create appointments">
+                <p class="oe_grey"> You can create a number of appointments that you need </p>
+                <group name="name" string="string">
+                    <field name="name" />
+                    <field name="pet_id" />
+                    <field name="partner_id" />
+                    <field name="date" />
+                    <field name="number" />
+                </group>
+                <footer>
+                    <button name="create_appointments" string="Confirm" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="veterinary_appointment_create_action" model="ir.actions.act_window">
+        <field name="name">Create appointments aleatory</field>
+        <field name="res_model">veterinary.appointment.create</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment"></field>
+        <field name="binding_view_types">list</field>
+            
+       
+    </record>
+
+    <menuitem
+        id="veterinary_appointment_create_menu"
+        name="Create appointments"
+        action="veterinary_appointment_create_action"        
+        parent="veterinary_management_menu"
+        sequence="120"/>
+
+</odoo>

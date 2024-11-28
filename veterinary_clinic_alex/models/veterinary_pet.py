@@ -23,11 +23,22 @@ class VeterinaryPet(models.Model):
     appointment_ids = fields.One2many('veterinary.appointment', 'pet_id', string='Appointments', help='Appointments of the pet')
     appointment_count = fields.Integer(string='Appointment Count', compute='compute_apointment_count')
     insurance_count = fields.Integer(string='Insurance Count', compute='_compute_insurance_count')
+    surgery_count = fields.Integer(string='Insurance Count', compute='_compute_surgery_count')
     insurance_ids = fields.One2many('veterinary.insurance', 'pet_id', string='Insurances', help='Insurances of the pet')
     active = fields.Boolean(string='Active', default=True)
+
+
+    _sql_constraints = [
+        ('number_unique_specie', 'UNIQUE(number_pet,species_id)', 'The number must be unique for each specie') #Restringe que solo exista un numero por especie
+    ]
+
     def _compute_insurance_count(self):
         for record in self:
             record.insurance_count = self.env['veterinary.insurance'].search_count([('pet_id', '=', self.id)])
+
+    def _compute_surgery_count(self):
+        for record in self:
+            record.surgery_count = self.env['veterinary.surgery'].search_count([('pet_id', '=', self.id)])
 
 
     def action_print_appointments(self):
@@ -39,6 +50,14 @@ class VeterinaryPet(models.Model):
         for record in self:
             record.appointment_count = len(record.appointment_ids)
 
+    def action_view_surgery_history(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Surgery History',
+            'res_model': 'veterinary.surgery',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }
     def action_view_insurance_history(self):
         return {
             'type': 'ir.actions.act_window',

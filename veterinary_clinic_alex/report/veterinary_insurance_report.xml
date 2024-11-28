@@ -9,18 +9,18 @@
                     <div class="page">  
                         <div class="row mb-2 mt-4">  
                             <div class="col-auto col-3 mw-100 mb-2">                
-                                <p>Mascota: <span t-field="o.pet_id"/></p>
+                                <p>Pet: <span t-field="o.pet_id"/></p>
                             </div>
                             <div class="col-auto col-3 mw-100 mb-2">  
-                                <p>Compañia de seguros: <span t-field="o.insurance_company"/></p>
+                                <p>Insurance Company: <span t-field="o.insurance_company"/></p>
                             
                             </div>
                             <div class="col-auto col-3 mw-100 mb-2">  
-                                <p>Fecha de expiracion: <span t-field="o.insurance_expiration_date"/></p>
+                                <p>Expiration Date: <span t-field="o.insurance_expiration_date"/></p>
                              
                             </div>
                             <div class="col-auto col-3 mw-100 mb-2">  
-                                <p>Cobertura del Seguro: <span t-field="o.coverage_details"/></p>
+                                <p>Insurance Details: <span t-field="o.coverage_details"/></p>
                                
                             </div>
                         </div>

@@ -41,6 +41,9 @@
                     <button name="action_view_medical_history" string="Vaccinated Today" type="object" class="oe_state_button" icon="fa-ambulance">
                             <field name="appointment_count" string="Medical History" widget="statinfo"/>
                     </button>
+                    <button name="action_view_surgery_history" string="Surgeries" type="object" class="oe_state_button" icon="fa-stethoscope">
+                            <field name="surgery_count" string="Surgeries History" widget="statinfo"/>
+                    </button>
                 </div>
                    
                     <field name="image" widget="image" class="oe_avatar"></field>
