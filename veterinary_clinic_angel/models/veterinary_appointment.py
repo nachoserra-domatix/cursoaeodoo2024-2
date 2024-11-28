@@ -5,12 +5,12 @@ class VeterinaryAppointment(models.Model):
     _name = 'veterinary.appointment'
     _description = 'Veterinary Appointment'
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Name', required=True, copy=False, default=lambda self: self.env['ir.sequence'].next_by_code('veterinary.appointment'))
     partner_id = fields.Many2one('res.partner', string='Partner')
     pet_id = fields.Many2one('veterinary.pet', string='Pet')
     partner_phone = fields.Char(string='Phone', readonly=False, store=True)
     partner_email = fields.Char(string='Email', related='partner_id.email', store=True)
-    reason = fields.Char(string='Reason', required=True)
+    reason = fields.Char(string='Reason', required=False)
     solution = fields.Html(string='Solution', help='Solution of the appointment')
     date = fields.Datetime(string='Appointment Date', required=True, default=fields.Datetime.now)
     state = fields.Selection([
@@ -22,7 +22,7 @@ class VeterinaryAppointment(models.Model):
     user_id = fields.Many2one('res.users', string='Responsible', default=lambda self: self.env.user)
     sequence = fields.Integer(string='Sequence', default=10)
     urgency = fields.Boolean(string='Urgent')
-    color = fields.Integer(string='Color')
+    color = fields.Integer(string='Color', company_dependent=True)
     tag_ids = fields.Many2many('veterinary.appointment.tag', string='Tags')
     line_ids = fields.One2many('veterinary.appointment.line', 'appointment_id',string='Lines')
     total = fields.Monetary(string='Total', compute='_compute_total', store=True)
@@ -31,6 +31,7 @@ class VeterinaryAppointment(models.Model):
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'The name of the appointment must be unique')
     ]
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.user.company_id.id)
 
     @api.onchange('assigned')
     def _onchange_assigned(self):

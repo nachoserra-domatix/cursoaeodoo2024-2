@@ -30,8 +30,9 @@
                 <header>
                     <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Done" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
-                    <button string="Cancel" invisible="state in ('cancelled')" name="action_cancel" type="object" class="btn-danger"/>
+                    <button string="Cancel" invisible="state in ('cancelled')" name="action_cancel" type="object" class="btn-danger" groups="veterinary_clinic_angel.veterinary_clinic_groups_manager"/>
                     <button string="Create Tags" name="action_create_tags" type="object" class="btn-primary"/>
+                    <button string="Edit state" type="action" name="%(veterinary_appointment_states_update_action)d"/>
                     <field name="state" options="{'clickable':1}" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -55,6 +56,8 @@
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                             <field name="total" widget="monetary"/>
                             <field name="currency_id" invisible="1"></field>
+                            <field name="company_id"></field>
+                            <field name="color" widget="color_picker"></field>
                         </group>
                     </group>
                     <notebook>

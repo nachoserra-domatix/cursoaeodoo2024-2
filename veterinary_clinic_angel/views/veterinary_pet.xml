@@ -25,18 +25,22 @@
         <field name="arch" type="xml">
         <form>
             <header>
-                <button string="Generate pet number" name="action_get_pet_number" type="object" class="btn-primary"/>
+                <button string="Generate pet number" name="action_get_pet_number" type="object" class="btn-primary" groups="veterinary_clinic_angel.veterinary_clinic_groups_manager"/>
                 <button string="Vaccinated" name="action_vaccinated" type="object" class="btn-success"/>
                 <button string="Create insurance" name="action_create_insurance" type="object" class="btn-secondary"/>
                 <button string="Finish Surgeries" name="action_finish_surgeries" type="object" class="btn-primary"/>
+                <button string="Print appointments" name="action_print_appointments" type="object" class="btn-success"/>
             </header>
             <sheet>
                 <div class="oe_button_box" name="button_box">
-                    <button name="action_view_medical_history" type="object" class="oe_stat_button" icon="fa-ambulance">
+                    <button name="action_view_medical_history" type="object" class="oe_stat_button" icon="fa-bars">
                         <field name="appointment_count" string="" widget="statinfo"/>
                     </button>
                     <button name="action_view_insurances" type="object" class="oe_stat_button" icon="fa-file">
                         <field name="insurance_count" string="" widget="statinfo"/>
+                    </button>
+                    <button name="action_view_surgeries"  type="object" class="oe_stat_button" icon="fa-ambulance">
+                        <field name="surgery_count" string="" widget="statinfo"/>
                     </button>
                 </div>
                 <field name="image" class="oe_avatar" widget="image"></field>

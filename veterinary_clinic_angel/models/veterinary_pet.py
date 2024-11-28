@@ -16,6 +16,7 @@ class VeterinaryPet(models.Model):
     vaccinated = fields.Boolean(string='Vaccinated', default=False, compute="_compute_vaccinated", store=True, inverse="_inverse_vaccinated")
     last_vaccination_date = fields.Date(string='Last Vaccination Date')
     surgery_ids = fields.One2many('veterinary.surgery', 'pet_id', string='Surgeries')
+    surgery_count = fields.Integer(string='Surgery Count', compute='_compute_surgery_count')
     image = fields.Image(string='Pet Photo')
     allergy_ids = fields.Many2many('veterinary.allergy', string='Allergies')
     adopted = fields.Boolean(string='Adopted', default=False)
@@ -23,6 +24,16 @@ class VeterinaryPet(models.Model):
     appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
     insurance_ids = fields.One2many('veterinary.insurance', 'pet_id', string='Insurances')
     insurance_count = fields.Integer(string='Insurance Count', compute='_compute_insurance_count')
+    active = fields.Boolean(string='Active', default=True)
+
+    _sql_constraints = [
+        ('unique_pet_number_species', 'unique(pet_number,species_id)', 'The pet number and species must be unique'),
+    ]
+
+    @api.depends('surgery_ids')
+    def _compute_surgery_count(self):
+        for record in self:
+            record.surgery_count = len(record.surgery_ids)
 
     @api.depends('insurance_ids')
     def _compute_insurance_count(self):
@@ -90,3 +101,16 @@ class VeterinaryPet(models.Model):
             'view_mode': 'tree,form',
             'domain': [('pet_id', '=', self.id)],
         }
+
+    def action_view_surgeries(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Surgeries',
+            'res_model': 'veterinary.surgery',
+            'view_mode': 'tree,form',
+            'domain': [('pet_id', '=', self.id)],
+        }
+    
+    def action_print_appointments(self):
+        appointments = self.appointment_ids
+        return self.env.ref('veterinary_clinic_angel.action_report_appointments').report_action(appointments.ids)
