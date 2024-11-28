@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="veterinary_appointment_pet_contact_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.pet.contanct.form</field>
+        <field name="model">veterinary.appointment.pet.contact</field>
+        <field name="arch" type="xml">
+            <form string="Create appointments">
+                <sheet>
+                    <group>
+                        <field name="number"/>
+                        <field name="pet_id"/>
+                        <field name="partner_id"/>
+                        <field name="date"/>
+                        
+                    </group>
+                    <footer>
+                        <button string="Confirm" name="create_appointments" type="object" />
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="veterinary_appointment_pet_contact_action" model="ir.actions.act_window">
+        <field name="name">Create appointments</field>
+        <field name="res_model">veterinary.appointment.pet.contact</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <!--<field name="binding_model_id" ref="model_veterinary_appointment"/> 
+        <field name="binding_view_types">list</field> -->
+        
+    </record>
+
+    <menuitem
+    id="veterinary_appointment_pet_contact"
+    name="Create appointmets"
+    action="veterinary_appointment_pet_contact_action"
+    parent="veterinary_management_menu"
+    sequence="70"/>
+   
+
+</odoo>

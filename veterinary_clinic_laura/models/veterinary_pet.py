@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError, AccessDenied
 import random
 import string
 
@@ -24,7 +25,13 @@ class VeterinaryPet(models.Model):
    insurance_count=fields.Integer(string="Insurance Count",compute="_compute_insurance_count")
    insurance_ids=fields.One2many('veterinary.insurance','pet_id',string="Insurances")
    active=fields.Boolean(string="Active",default=True)
+   surgery_count=fields.Integer(string="Insurance Count",compute="_compute_surgery_count")
 
+   _sql_constraints=[
+      ('number_species_unique', 'unique(pet_number,species_id)',"Can't repeat pet number and specie ")
+   ]
+
+   
    def action_print_appointments(self):
       appointments=self.appointment_ids
       report = self.env.ref('veterinary_clinic_laura.action_report_veterinary_appointment').report_action(appointments.ids)
@@ -38,6 +45,11 @@ class VeterinaryPet(models.Model):
       for record in self:
          insurances=self.env['veterinary.insurance'].search([('pet_id','=',self.id)])
          record.insurance_count=len(insurances)
+   
+   def _compute_surgery_count(self):
+      for record in self:
+         surgeries=self.env['veterinary.surgery'].search([('pet_id','=',record.id)])
+         record.surgery_count=len(surgeries)
       
 
    def action_view_medical_history(self):
@@ -60,7 +72,15 @@ class VeterinaryPet(models.Model):
 
       }
   
+   def action_view_surgery_history(self):
+      return{
+         'type':'ir.actions.act_window',
+         'name':'Surgery History',
+         'res_model':'veterinary.surgery',
+         'view_mode':'tree,form,kanban',
+         'domain':[('pet_id','=',self.id)]
 
+      }
    
    def _compute_vaccinated(self):
       for record in self:

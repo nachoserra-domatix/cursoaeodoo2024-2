@@ -28,6 +28,8 @@
         'wizard/veterinary_surgery_edit_state.xml',
         'report/veterinary_appointment_report.xml',
         'report/veterinary_insurance_report.xml',
+        'wizard/veterinary_appointment_pet_contact.xml',
+        'report/veterinary_surgery_report.xml',
     ],
     'application': False,
     'installable':True,

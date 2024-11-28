@@ -23,7 +23,7 @@ class VeterinarySurgery(models.Model):
       surgeries_wait=self.search([('state','=','wait')])
       for surgery in surgeries_wait:
           if surgery.surgery_date < fields.Date.today():
-              surgery.state='finish'
+              surgery.action_finish()
 
     def action_doing(self):
         for record in self:

@@ -77,6 +77,10 @@
                             <button name="action_view_insurance_history" context="{'default_pet_id':id}" type="object" class="oe_stat_button" icon="fa-file">
                                 <field name="insurance_count" string="Insurance history" widget="statinfo"/>
                             </button>
+
+                            <button name="action_view_surgery_history" context="{'default_pet_id':id}" type="object" class="oe_stat_button" icon="fa-file">
+                                <field name="surgery_count" string="Surgery history" widget="statinfo"/>
+                            </button>
                             
                         </div>
                         <div class="oe_title">
