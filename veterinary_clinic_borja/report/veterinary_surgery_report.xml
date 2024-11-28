@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_surgery">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <h2 t-field="o.name"/>
+                    <div class="page">
+                        <div class="row mt-4 mb-2">
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <Strong>Pet:</Strong><br/>
+                                <span t-field="o.pet_id"/>
+                            </div> 
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <Strong>Responsible:</Strong><br/>
+                                <span t-field="o.employee_id"/>
+                            </div>                            
+                             <div class="col-auto col-3 mw-100 mb-2">
+                                <Strong>Actions:</Strong><br/>
+                                 <t t-foreach="o.action_ids" t-as="action">
+                                    <span t-field="action.name"/>
+                                 </t>                                
+                            </div>
+                        </div>                                    
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>  
+    <record id="action_report_veterinary_surgery" model="ir.actions.report">
+        <field name="name">Surgery Report</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_borja.report_surgery</field>
+        <field name="report_file">veterinary_clinic_borja.report_surgery</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_veterinary_surgery"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    
+
+</odoo>

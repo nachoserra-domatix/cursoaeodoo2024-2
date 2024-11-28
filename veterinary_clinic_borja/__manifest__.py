@@ -27,6 +27,7 @@
                 "wizards/veterinary_pet_recurrent_appointments.xml",
                 "report/veterinary_appointment_report.xml",
                 "report/veterinary_appointment_insurance.xml",
+                "report/veterinary_surgery_report.xml",
              ],
     'application': False,
     'installable': True,
