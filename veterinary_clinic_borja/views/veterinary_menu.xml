@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem
+    id="veterinary_clinic_menu"
+    web_icon="veterinary_clinic_borja,static/img/icon.png"
+    name="Veterinary Clinic"
+    sequence="10">
+        <menuitem
+        id="veterinary_management_menu"
+        name="Management"
+        sequence="10"/>
+    </menuitem>
+</odoo>

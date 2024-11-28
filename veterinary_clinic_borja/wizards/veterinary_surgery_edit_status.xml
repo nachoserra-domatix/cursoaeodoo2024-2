@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="veterinary_surgery_edit_status_view_form" model="ir.ui.view">
+        <field name="name">veterinary.surgery.edit.status.view.form</field>
+        <field name="model">veterinary.surgery.edit.status</field>
+        <field name="arch" type="xml">
+            <form string="Mass edit surgery status">
+                <p class="oe_grey"> Here you can mass edit surgerys status</p>
+                <group>
+                    <field name="status"/>
+                </group>
+                <footer>
+                    <button string="Confirm" name="mass_edit_status" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_surgery_edit_status_action" model="ir.actions.act_window">
+        <field name="name">Mass edit status</field>
+        <field name="res_model">veterinary.surgery.edit.status</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_surgery" />
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <menuitem
+        id="veterinary_surgery_edit_status_menu"
+        name="name"
+        action="veterinary_surgery_edit_status_action"
+        parent="veterinary_management_menu"
+        sequence="100"/>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="species_dog" model="veterinary.species">
+        <field name="name">Perro</field>
+        <field name="code">dog</field>
+    </record>
+    <record id="species_cat" model="veterinary.species">
+        <field name="name">Gato</field>
+        <field name="code">cat</field>
+    </record>
+    <record id="species_bird" model="veterinary.species">
+        <field name="name">Pájaro</field>
+        <field name="code">bird</field>
+    </record>
+    <record id="species_other" model="veterinary.species">
+        <field name="name">Otros</field>
+        <field name="code">other</field>
+    </record>
+
+    
+
+</odoo>
