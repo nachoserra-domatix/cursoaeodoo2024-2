@@ -1,5 +1,6 @@
 from odoo import fields, models, api
 
+
 class veterinary_appointment_tag(models.Model):
     _name = "veterinary.appointment.tag"
     _description = "Veterinary Appointments Tags"

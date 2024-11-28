@@ -1,6 +1,9 @@
 from odoo import fields, models
 import logging
+
 _logger = logging.getLogger(__name__)
+
+
 class VeterinarySurgery(models.Model):
     _name = "veterinary.surgery"
     _description = "Veterinary Surgery"
@@ -9,16 +12,23 @@ class VeterinarySurgery(models.Model):
     pet_id = fields.Many2one("veterinary.pet", string="Pet")
     employee_id = fields.Many2one("hr.employee", string="Responsible")
     surgery_date = fields.Datetime(string="Date", help="Date of the surgery")
-    status = fields.Selection([
-        ("draft", "Draft"),
-        ("in_progress", "In progress"),
-        ("done", "Done"),
-        ("cancelled", "Cancelled"),
-        ("other", "Other")   
-    ], default="draft", string="Status", group_expand="_group_expand_status")
-    #color for the Kanban view
+    status = fields.Selection(
+        [
+            ("draft", "Draft"),
+            ("in_progress", "In progress"),
+            ("done", "Done"),
+            ("cancelled", "Cancelled"),
+            ("other", "Other"),
+        ],
+        default="draft",
+        string="Status",
+        group_expand="_group_expand_status",
+    )
+    # color for the Kanban view
     color = fields.Integer(string="Color")
-    action_ids = fields.One2many( "veterinary.surgery.action", "surgery_id", string="Actions")
+    action_ids = fields.One2many(
+        "veterinary.surgery.action", "surgery_id", string="Actions"
+    )
 
     def action_draft(self):
         self._set_status("draft")
@@ -37,15 +47,13 @@ class VeterinarySurgery(models.Model):
 
     def _set_status(self, status):
         self.status = status
-    
+
     # in kanban view show all status colunns
     def _group_expand_status(self, status, domain, order):
-          return [key for key , val in type(self).status.selection]
+        return [key for key, val in type(self).status.selection]
 
     def _cron_check_draft(self):
         surgeries = self.search([("status", "=", "draft")])
         for surgery in surgeries:
             if surgery.surgery_date < fields.Datetime.today():
                 surgery.action_done()
-
-
