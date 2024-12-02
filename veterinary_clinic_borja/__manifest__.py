@@ -4,7 +4,7 @@
     "summary": " A management system for veterinary clinics",
     "author": "<Borja Gimeno> Som Connexió SCCL",
     "license": "LGPL-3",
-    "depends": ["base", "sale", "hr"],
+    "depends": ["hr"],
     "data": [
         "security/res_groups.xml",
         "security/ir_rule.xml",
