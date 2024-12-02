@@ -67,6 +67,15 @@ class VeterinaryAppointment(models.Model):
         ("name_unique", "unique (name)", "The appointment name must be unique"),
     ]
 
+    @api.model
+    def create(self, vals):
+        vals["name"] = self.env["ir.sequence"].next_by_code("veterinary.appointment")
+        if self.env.context.get("follow_up"):
+            vals["name"] = vals["name"] + "-" + self.env.context.get("follow_up")
+        import pdb; pdb.set_trace()
+        res = super().create(vals)
+        return res
+
     def action_all_draft(self):
         self._set_all_status("draft")
 

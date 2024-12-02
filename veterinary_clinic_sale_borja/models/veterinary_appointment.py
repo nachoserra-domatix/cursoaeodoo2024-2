@@ -13,6 +13,13 @@ class VeterinaryAppointment(models.Model):
                 [("appointment_id", "=", rec.id)]
             )
 
+    def action_cancel(self):
+        res = super().action_cancel()
+        for rec in self:
+            if rec.order_id:
+                rec.order_id.action_cancel()
+        return res
+
     def create_order(self):
         for rec in self:
             vals = {

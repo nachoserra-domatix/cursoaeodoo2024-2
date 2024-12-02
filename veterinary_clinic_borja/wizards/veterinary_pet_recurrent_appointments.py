@@ -27,8 +27,10 @@ class VeterinaryPetRecurrentAppointments(models.TransientModel):
                 "pet_id": pet.id,
                 "duration_minutes": 0,
             }
-            created_appointments |= self.env["veterinary.appointment"].create(
-                appointment
+            created_appointments |= (
+                self.env["veterinary.appointment"]
+                .with_context(follow_up=appointment.name)
+                .create(appointment)
             )
             appointment_date = tools.date_utils.add(appointment_date, months=1)
         return {
