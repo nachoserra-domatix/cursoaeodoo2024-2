@@ -5,7 +5,7 @@
     'author': '<Nacho Serra>, Domatix',
     'license': 'LGPL-3',
     'depends': [
-        'base','sale','hr'
+        'hr'
     ],
     'data': [
              'data/veterinary_species_data.xml',   

@@ -33,6 +33,11 @@ class VeterinaryAppointment(models.Model):
     _sql_constraints = [
         ('name_unique', 'unique (name)', "The appointment name must be unique"),]
     
+    # @api.model
+    # def create(self, vals):
+    #     vals['name'] = 'Nuevo/loquesea'
+    #     res = super().create(vals)
+    #     return res
 
     @api.onchange('assigned')
     def _onchange_assigned(self):
