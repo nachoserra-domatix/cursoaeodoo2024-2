@@ -6,7 +6,7 @@
 * Heredar sale.order y añadirle la cita asociada en otra información.
 
 # Heredar método
-* Heredar método de crear y añadir una secuencia a las citas
+* Heredar método de crear y añadir una secuencia a las citas (Ojo con la compañía, si no os funciona es por que tenéis una compañía distinta a la de la secuencia)
 
 # Herencia por delegación
 * Crear modelo de veterinario
