@@ -30,6 +30,8 @@
         'report/veterinary_insurance_report.xml',
         'wizard/veterinary_appointment_pet_contact.xml',
         'report/veterinary_surgery_report.xml',
+        'data/ir_sequence.xml',
+        'views/veterinary_veterinarian.xml',
     ],
     'application': False,
     'installable':True,

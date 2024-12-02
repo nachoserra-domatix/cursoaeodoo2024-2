@@ -17,7 +17,7 @@ class VeterinaryAppointmentPetContact(models.TransientModel):
         appointment_date = self.date
         created_appointments = []
         for i in range(self.number):
-            appointment=self.env['veterinary.appointment'].create({
+            appointment=self.env['veterinary.appointment'].with_context(follow_up_name=self.partner_id.name).create({
                 'name':self.partner_id.name+" "+self.pet_id.name+" "+str(appointment_date),
                 'partner_id': self.partner_id.id,
                 'pet_id': self.pet_id.id,

@@ -50,7 +50,14 @@ class VeterinaryAppointment(models.Model):
          else:
             record.user_id=False
 
-
+   @api.model
+   def create(self,vals):
+      vals["name"]=self.env['ir.sequence'].next_by_code('veterinary.appointment')
+      if self.env.context.get('follow_up_name'):
+         vals["name"]= vals["name"]+" "+self.env.context.get('follow_up_name')
+      res=super().create(vals)
+      return res
+   
    @api.constrains('duration')
    def _check_duration(self):
       for record in self:
