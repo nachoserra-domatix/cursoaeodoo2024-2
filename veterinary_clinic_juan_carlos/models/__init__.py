@@ -9,3 +9,4 @@ from . import surgeries_action
 from . import animalspecies
 from . import adoption
 from . import adoption_state
+from . import veterinary_veterinarian

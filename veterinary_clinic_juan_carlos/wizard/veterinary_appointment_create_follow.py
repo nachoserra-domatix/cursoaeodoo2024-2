@@ -18,9 +18,10 @@ class VeterinaryAppointmentCreateFollow(models.TransientModel):
             for i in range(wizard.follow_up_count):
                 follow_up_date = wizard.appointment_date + timedelta(days=follow_up_interval * i)
                 name = f"{wizard.pet_id.name} - Follow {i + 1}"
-                appointment.create({
-                    'name': name,
-                    'partner_id': wizard.partner_id.id,
-                    'pet_id': wizard.pet_id.id,
-                    'appointment_date': follow_up_date,
-                })
+
+                appointment.with_context(follow_up=name).create({
+                'name': name,
+                'partner_id': wizard.partner_id.id,
+                'pet_id': wizard.pet_id.id,
+                'appointment_date': follow_up_date,
+            })

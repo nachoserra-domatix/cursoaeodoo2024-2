@@ -33,6 +33,14 @@ class Appointment(models.Model):
     total = fields.Float(string="Total", compute='_compute_total', store=True)
     pet_id = fields.Many2one("veterinary.pet", string="pet")
 
+    @api.model
+    def create(self, vals):
+        vals["name"] = self.env["ir.sequence"].next_by_code("veterinary.appointment")
+        if self.env.context.get("follow_up"):
+            vals["name"] = vals["name"] + "-" + self.env.context.get("follow_up")
+        res = super().create(vals)
+        return res
+
     @api.onchange("assigned")
     def _onchange_assigned_user(self):
         if self.assigned:
