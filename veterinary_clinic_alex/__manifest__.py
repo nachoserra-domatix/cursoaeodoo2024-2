@@ -13,6 +13,7 @@
     ],
     'data': [
         'data/ir_cron.xml',
+        'data/ir_sequence.xml',
         'data/veterinary_species_data.xml',
         'security/res_groups.xml',
         'security/ir.model.access.csv',
@@ -21,6 +22,7 @@
         'views/veterinary_appointment.xml',
         'views/veterinary_appointment_line.xml',
         'views/veterinary_surgery.xml',
+        'views/veterinary_veterinarian.xml',
         'views/veterinary_allergy.xml',
         'views/veterinary_insurance.xml',
         'wizard/veterinary_appointment_edit_state.xml',

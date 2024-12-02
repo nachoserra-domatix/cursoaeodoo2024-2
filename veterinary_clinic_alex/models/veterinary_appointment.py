@@ -35,6 +35,14 @@ class VeterinaryAppointment(models.Model):
         ('name_unique', 'UNIQUE(name)', 'The appointment name must be unique')
     ]
 
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('veterinary.appointment')
+        if self.env.context.get('followup_name'):
+            vals['name'] = vals.get('name') + ' - ' + self.env.context.get('followup_name')
+        res = super().create(vals)
+        return res
+    
     @api.onchange('assigned')
     def _onchange_assigned(self):
         if self.assigned:

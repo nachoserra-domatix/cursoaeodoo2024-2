@@ -18,16 +18,18 @@ class VeterinaryAppointmentCreate(models.TransientModel):
         for record in range(self.number):
             name = self.name + '#' + str(record+1)
             
-            appointments += self.env['veterinary.appointment'].create({
-                'name': name,
+            vals = {
+                'name': 'Followup of' + name, 
                 'pet_id': self.pet_id.id,
                 'partner_id': self.partner_id.id,
                 'date': self.date,
                 'state': 'draft',
-                'reason': 'Follow up'
-            })
+                'reason': 'Followup'
+            }
      
-            self.date = self.date + timedelta(days=self.number)            
+            self.date = self.date + timedelta(days=self.number) 
+            appointments |= self.env['veterinary.appointment'].with_context(followup_name=vals.get('name')).create(vals) 
+            #necesario completar el código para que se creen las citas           
         
         return {
             'type': 'ir.actions.act_window',
