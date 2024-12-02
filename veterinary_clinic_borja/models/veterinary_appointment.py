@@ -72,7 +72,6 @@ class VeterinaryAppointment(models.Model):
         vals["name"] = self.env["ir.sequence"].next_by_code("veterinary.appointment")
         if self.env.context.get("follow_up"):
             vals["name"] = vals["name"] + "-" + self.env.context.get("follow_up")
-        import pdb; pdb.set_trace()
         res = super().create(vals)
         return res
 
