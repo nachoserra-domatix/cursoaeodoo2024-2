@@ -7,6 +7,13 @@ class VeterinaryAppointment(models.Model):
     order_id = fields.Many2one('sale.order', string='Order')
     order_count = fields.Integer(string='Order Count', compute='_compute_order_count')
 
+    def action_cancel(self):
+        res = super().action_cancel()
+        for record in self:
+            if record.order_id:
+                record.order_id.action_cancel()
+        return res
+
     def _compute_order_count(self):
         for record in self:
             record.order_count = self.env['sale.order'].search_count([('appointment_id', '=', record.id)])

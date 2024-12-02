@@ -23,7 +23,7 @@ class VeterinaryGenerateAppointmentWizard(models.TransientModel):
                 'reason': 'Followup'
             }
             date = date + timedelta(days=31)
-            appointments |= self.env['veterinary.appointment'].create(vals)
+            appointments |= self.env['veterinary.appointment'].with_context(followup_name=vals.get('name')).create(vals)
         
         return {
             'type': 'ir.actions.act_window',
