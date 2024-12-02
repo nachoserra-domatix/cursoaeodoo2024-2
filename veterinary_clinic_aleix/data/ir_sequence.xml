@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- new sequence -->
+        <record id="ir_sequence_veterinary_appointment" model="ir.sequence">
+            <field name="name">Veterinary Appointment Sequence</field>
+            <field name="code">veterinary.appointment</field>
+            <field name="prefix">VA%(y)s</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

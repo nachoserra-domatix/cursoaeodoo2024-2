@@ -8,13 +8,13 @@
     'license': 'LGPL-3',
     'category': '',
     'depends': [
-        'sale',
         'hr',
     ],
     # load data in order
     'data': [
         'data/veterinary_species_data.xml',
         'data/ir_cron.xml',
+        'data/ir_sequence.xml',
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
@@ -29,6 +29,7 @@
         'views/veterinary_pet.xml',
         'views/veterinary_species.xml',
         'views/veterinary_surgery.xml',
+        'views/veterinary_veterinarian.xml',
         'views/veterinary_menus.xml',
         'report/veterinary_appointment_report.xml',
         'report/veterinary_insurance_report.xml',

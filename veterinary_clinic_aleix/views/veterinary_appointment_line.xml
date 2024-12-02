@@ -7,8 +7,8 @@
         <field name="model">veterinary.appointment.line</field>
         <field name="arch" type="xml">
             <tree string="Appointment lines">
+                <field name="product_id"/>
                 <field name="name"/>
-                <field name="description"/>
                 <field name="quantity"/>
                 <field name="price_unit"/>
                 <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
@@ -24,6 +24,7 @@
         <field eval="50" name="priority"/>
         <field name="arch" type="xml">
             <tree string="Appointment lines">
+                <field name="product_id"/>
                 <field name="name"/>
                 <field name="quantity"/>
                 <field name="price_unit"/>
@@ -42,12 +43,12 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="New Appointment line"/>
+                            <field name="product_id" placeholder="Select Product"/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="description"/>
+                            <field name="name"/>
                             <field name="quantity"/>
                             <field name="price_unit"/>
                             <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
@@ -69,11 +70,12 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="New Appointment line"/>
+                            <field name="product_id" placeholder="Select Product"/>
                         </h1>
                     </div>
                     <group>
                         <group>
+                            <field name="name"/>
                             <field name="quantity"/>
                             <field name="price_unit"/>
                             <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>

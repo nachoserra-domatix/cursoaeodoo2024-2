@@ -6,7 +6,7 @@ class VeterinaryAppointment(models.Model):
     _name = 'veterinary.appointment'
     _description = 'Veterinary Appointment'
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Name')
     date = fields.Datetime(string='Date', required=True,
                            default=fields.Datetime.now)
     reason = fields.Text(string='Reason')
@@ -26,7 +26,8 @@ class VeterinaryAppointment(models.Model):
     # Many2one
     user_id = fields.Many2one('res.users', string='Responsible')
     partner_id = fields.Many2one('res.partner', string='Partner')
-    currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
+    currency_id = fields.Many2one(
+        'res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
     pet_id = fields.Many2one('veterinary.pet', string='Pet')
     company_id = fields.Many2one(
         'res.company', default=lambda self: self.env.company)
@@ -55,7 +56,7 @@ class VeterinaryAppointment(models.Model):
     # def _compute_assigned(self):
     #     for record in self:
     #         record.assigned = bool(record.user_id)
-    
+
     @api.depends('line_ids.subtotal')
     def _compute_total(self):
         for record in self:
@@ -76,8 +77,8 @@ class VeterinaryAppointment(models.Model):
         for record in self:
             if record.duration < 0:
                 raise ValidationError(
-                _('The duration must be greater than 0')
-            )
+                    _('The duration must be greater than 0')
+                )
 
     # onchange
     @api.onchange('assigned')
@@ -114,3 +115,15 @@ class VeterinaryAppointment(models.Model):
             self.tag_ids = [(6, 0, self.tag_ids.ids)]
         else:
             self.tag_ids = [(0, 0, {'name': self.reason})]
+
+    # overwrite create - sequence
+    # con next_by_code: pasamos id de la sequence
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code(
+            'veterinary.appointment')
+        if self.env.context.get('followup_name'):
+            vals['name'] = self.env.context.get(
+                'name') + ' - ' + self.env.context.get('followup_name')
+        res = super().create(vals)
+        return res

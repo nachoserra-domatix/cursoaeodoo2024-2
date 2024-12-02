@@ -52,6 +52,12 @@
             name="Adoptions"
             action="veterinary_adoption_action"
             sequence="80"/>
+        <!-- action veterinarian -->
+         <menuitem
+            id="veterinary_veterinarian_menu"
+            name="Veterinarian"
+            action="veterinary_veterinarian_action"
+            sequence="90"/>
     </menuitem>
 </menuitem>
 

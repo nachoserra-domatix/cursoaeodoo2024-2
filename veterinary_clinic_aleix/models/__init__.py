@@ -9,3 +9,4 @@ from . import veterinary_pet
 from . import veterinary_species
 from . import veterinary_surgery
 from . import veterinary_surgery_line
+from . import veterinary_veterinarian
