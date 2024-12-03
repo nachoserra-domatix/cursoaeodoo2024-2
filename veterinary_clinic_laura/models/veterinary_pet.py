@@ -6,12 +6,13 @@ import string
 class VeterinaryPet(models.Model):
    _name = "veterinary.pet"
    _description = "Veterinary Pet"
+   _inherit=['mail.thread','mail.activity.mixin'] 
 
    name = fields.Char(string='Name',required=True,help='Name of the pet')
    birthdate = fields.Date(string='Birth Date')
    weight=fields.Float(string='Weight',help='Birth of the pet')
    age = fields.Integer(string="Age",compute="_compute_age",store=True)
-   pet_number= fields.Char(string='Pet Number', help='Number of the pet')
+   pet_number= fields.Char(string='Pet Number', help='Number of the pet',tracking=True)
    species_id= fields.Many2one('veterinary.species',string="Species")
    sequence = fields.Integer(string="Sequence",default=10)
    user_id = fields.Many2one('res.users',string="Responsible")

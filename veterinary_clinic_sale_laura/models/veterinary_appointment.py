@@ -29,6 +29,13 @@ class VeterinaryAppointment(models.Model):
                 'view_mode':'form',
                 'res_id':order.id
             }
+    def confirm_order_create_invoice(self):
+        for record in self:
+            if record.order_id:
+                record.order_id.action_confirm()
+                record.order_id._create_invoices()
+            
+
     def action_view_order(self):
         for record in self:
             return{
@@ -43,5 +50,6 @@ class VeterinaryAppointment(models.Model):
         for record in self:
             if record.order_id:
                 record.order_id.action_cancel()
+                record.order_id.unlink()
         return res
         

@@ -4,6 +4,9 @@ from odoo.exceptions import UserError, ValidationError, AccessDenied
 class VeterinaryAppointment(models.Model):
    _name = "veterinary.appointment"
    _description = "Veterinary Appointment"
+
+   _inherit=['mail.thread','mail.activity.mixin']
+   _order= "date desc,id desc"
    
    def _group_expand_states(self, states, domain,order):
       return [key for key ,val in type(self).state.selection]
@@ -19,10 +22,9 @@ class VeterinaryAppointment(models.Model):
      ('draft','Draft'),
      ('done','Done'),
      ('cancelled','Cancelled'),
-   ],default='draft', string='State', group_expand="_group_expand_states")
+   ],default='draft', string='State', group_expand="_group_expand_states",tracking=True)
    duration=fields.Float(string='Duration')
    user_id = fields.Many2one('res.users',string="Responsible")
-   sequence = fields.Integer(string="Sequence",default=10)
    urgency = fields.Boolean(string="Urgent")
    color= fields.Integer(string="Color",company_dependent=True)
    assigned=fields.Boolean(string="Assigned",store=True)
@@ -49,6 +51,12 @@ class VeterinaryAppointment(models.Model):
             record.user_id=self.env.user
          else:
             record.user_id=False
+   @api.onchange('partner_id')
+   def _onchange_partner_id(self):
+        if self.partner_id:
+            self.partner_phone = self.partner_id.phone or self.partner_id.mobile
+        else:
+            self.partner_phone = False
 
    @api.model
    def create(self,vals):
@@ -89,6 +97,7 @@ class VeterinaryAppointment(models.Model):
    def action_done(self):
       for record in self:
         record.state = 'done'
+        record.message_post(body='Appointment done',message_type="notification")
 
    def action_cancel(self):
       for record in self:
