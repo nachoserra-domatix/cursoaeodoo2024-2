@@ -79,26 +79,31 @@
         parent="veterinary_pet_root_menu"
         sequence="20"/>
 
-
+    <menuitem
+        id="veterinary_veterinarian_menu"
+        name="Veterinarian"
+        action="veterinary_veterinarian_action"
+        parent="veterinary_clinic_sub_menu"
+        sequence="10"/>
     <menuitem
         id="veterinary_allergy_menu"
         name="Allergies"
         action="veterinary_allergy_action"
         parent="veterinary_clinic_sub_menu"
-        sequence="10"/>
+        sequence="20"/>
 
       <menuitem
         id="veterinary_surgery_menu"
         name="Surgery"
         action="veterinary_surgery_action"
         parent="veterinary_clinic_sub_menu"
-        sequence="20"/>
+        sequence="30"/>
 
     <menuitem
         id="veterinary_surgery_edit_state_menu"
         name="Mass edit surgeries"
         action="veterinary_surgery_edit_state_action"
         parent="veterinary_clinic_sub_menu"
-        sequence="30"/>
+        sequence="40"/>
     
 </odoo>

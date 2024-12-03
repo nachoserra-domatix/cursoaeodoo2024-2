@@ -33,11 +33,13 @@ class VeterinaryAppointment(models.Model):
     _sql_constraints = [
         ('name_unique', 'unique (name)', "The appointment name must be unique"),]
     
-    # @api.model
-    # def create(self, vals):
-    #     vals['name'] = 'Nuevo/loquesea'
-    #     res = super().create(vals)
-    #     return res
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('veterinary.appointment2')
+        if self.env.context.get('followup_name'):
+            vals['name'] = vals.get('name') + ' - ' + self.env.context.get('followup_name')
+        res = super().create(vals)
+        return res
 
     @api.onchange('assigned')
     def _onchange_assigned(self):
