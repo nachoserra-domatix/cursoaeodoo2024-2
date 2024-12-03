@@ -4,13 +4,17 @@ from odoo import fields, models, api
 class VeterinaryPet(models.Model):
     _name = "veterinary.pet"
     _description = "Veterinary Pet"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(string="Name", required=True, help="Name of the pet")
     birthdate = fields.Date(string="Birthdate", help="Birthdate of the pet")
     weight = fields.Float(string="Weight", help="Weight of the pet")
     age = fields.Integer(string="Age", compute="_compute_age", store=True)
     pet_number = fields.Char(
-        string="Pet Number", help="Chip number of the pet", copy=False
+        string="Pet Number",
+        help="Chip number of the pet",
+        copy=False,
+        tracking=True,
     )
     species_id = fields.Many2one("veterinary.species", string="Species")
     vaccinated = fields.Boolean(

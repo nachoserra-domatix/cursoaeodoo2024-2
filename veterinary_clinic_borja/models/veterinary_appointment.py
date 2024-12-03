@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 class VeterinaryAppointment(models.Model):
     _name = "veterinary.appointment"
     _description = "Veterinary Appointment"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     # Name by defect is reason
     # _rec_name = "reason"
 
@@ -17,7 +18,7 @@ class VeterinaryAppointment(models.Model):
     )
     partner_email = fields.Char(related="partner_id.email", string="Email")
     date = fields.Datetime(string="Date", required=True, default=fields.Datetime.now)
-    reason = fields.Text(string="Reason", required=True)
+    reason = fields.Text(string="Reason")
     solution = fields.Html(string="Solution", translate=True)
     status = fields.Selection(
         [
@@ -29,6 +30,7 @@ class VeterinaryAppointment(models.Model):
         default="draft",
         string="Status",
         group_expand="_group_expand_status",
+        tracking=True,
     )
     duration_minutes = fields.Integer(
         string="Duration",
@@ -149,3 +151,10 @@ class VeterinaryAppointment(models.Model):
             self.user_id = self.env.user
         else:
             self.user_id = None
+
+    @api.onchange("partner_id")
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.partner_phone = self.partner_id.phone or self.partner_id.mobile
+        else:
+            self.partner_phone = False
