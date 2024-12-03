@@ -32,6 +32,7 @@
             </xpath>
             <button name="create_tags" position="after">
                 <button string="Create Order" name="create_order" type="object" class="oe_highlight"/>
+                <button string="Confirm and invoice order" name="confirm_invoice_order" type="object" class="oe_highlight"/>
             </button>
         </field>
     </record>

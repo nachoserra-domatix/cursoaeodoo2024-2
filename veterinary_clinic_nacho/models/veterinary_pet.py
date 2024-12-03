@@ -4,6 +4,7 @@ from datetime import date
 
 class VeterinaryPet(models.Model):
     _name = 'veterinary.pet'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Veterinary Pet'
 
     name = fields.Char(string='Name', required=True, help='Name of the pet')
@@ -11,7 +12,7 @@ class VeterinaryPet(models.Model):
     birthdate = fields.Date(string='Birthdate', help='Birthdate of the pet')
     weight = fields.Float(string='Weight')
     age = fields.Integer(string='Age', compute='_compute_age', search='_search_age')
-    pet_number = fields.Char(string='Pet Number', help='Number of the pet', copy=False)
+    pet_number = fields.Char(string='Pet Number', help='Number of the pet', copy=False, tracking=True)
     species_id = fields.Many2one('veterinary.species', string='Species', help='Species of the pet')
     vaccinated = fields.Boolean(string='Vaccinated', compute="_compute_vaccinated", inverse="_inverse_vaccinated")
     last_vaccination_date = fields.Date(string='Last Vaccination Date')

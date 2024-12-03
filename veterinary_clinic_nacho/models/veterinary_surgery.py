@@ -4,6 +4,8 @@ from odoo import fields, models
 class VeterinarySurgery(models.Model):
     _name = 'veterinary.surgery'
     _description = 'Veterinary Surgery'
+    _order = 'surgery_date desc'
+
 
     name = fields.Char(string='Name', required=True, help='Name of the surgery')
     pet_id = fields.Many2one('veterinary.pet', string='Pet', help='Pet that will undergo the surgery')

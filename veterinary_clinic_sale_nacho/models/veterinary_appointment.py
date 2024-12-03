@@ -7,11 +7,17 @@ class VeterinaryAppointment(models.Model):
     order_id = fields.Many2one('sale.order', string='Order')
     order_count = fields.Integer(string='Order Count', compute='_compute_order_count')
 
+    def confirm_invoice_order(self):
+        for record in self:
+            record.order_id.action_confirm()
+            record.order_id._create_invoices()
+
     def action_cancel(self):
         res = super().action_cancel()
         for record in self:
             if record.order_id:
                 record.order_id.action_cancel()
+                record.order_id.unlink()
         return res
 
     def _compute_order_count(self):

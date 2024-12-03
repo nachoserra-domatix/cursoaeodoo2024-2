@@ -1,9 +1,12 @@
 from odoo import models, fields, api, Command
 from odoo.exceptions import ValidationError
 
+
 class VeterinaryAppointment(models.Model):
     _name = 'veterinary.appointment'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Veterinary Appointment'
+    _order = 'date desc'
 
     name = fields.Char(string='Name', required=True, copy=False, default='New')
     partner_id = fields.Many2one('res.partner', string='Partner')
@@ -17,10 +20,9 @@ class VeterinaryAppointment(models.Model):
         ('draft', 'Draft'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
-    ], default='draft', string='State', group_expand='_group_expand_states')
+    ], default='draft', string='State', group_expand='_group_expand_states', tracking=True)
     duration = fields.Float(string='Duration')
     user_id = fields.Many2one('res.users', string='Responsible', default=lambda self: self.env.user)
-    sequence = fields.Integer(string='Sequence', default=10)
     urgency = fields.Boolean(string='Urgent')
     color = fields.Integer(string='Color', company_dependent=True)
     assigned = fields.Boolean(string='Assigned')
@@ -35,7 +37,7 @@ class VeterinaryAppointment(models.Model):
     
     @api.model
     def create(self, vals):
-        vals['name'] = self.env['ir.sequence'].next_by_code('veterinary.appointment2')
+        vals['name'] = self.env['ir.sequence'].next_by_code('veterinary.appointment')
         if self.env.context.get('followup_name'):
             vals['name'] = vals.get('name') + ' - ' + self.env.context.get('followup_name')
         res = super().create(vals)
@@ -82,9 +84,9 @@ class VeterinaryAppointment(models.Model):
             record.state = 'draft'
 
     def action_done(self):
-        import pdb;pdb.set_trace()
         for record in self:
             record.state = 'done'
+            record.message_post(body='Appointment done', message_type='notification')
 
     def action_cancel(self):
         for record in self:
