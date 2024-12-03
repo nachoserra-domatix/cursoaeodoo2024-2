@@ -13,11 +13,21 @@ class VeterinaryAppointment(models.Model):
                 [("appointment_id", "=", rec.id)]
             )
 
-    def action_cancel(self):
-        res = super().action_cancel()
+    # def action_done(self):
+    #     res = super().action_done()
+
+    def action_confirm_sale(self):
         for rec in self:
             if rec.order_id:
-                rec.order_id.action_cancel()
+                rec.order_id.action_confirm()
+                rec.order_id._create_invoices()
+
+    def action_cancelled(self):
+        res = super().action_cancelled()
+        orders = self.env["sale.order"].search([("appointment_id", "=", self.id)])
+        for order in orders:
+            order.action_cancel()
+            order.unlink()
         return res
 
     def create_order(self):

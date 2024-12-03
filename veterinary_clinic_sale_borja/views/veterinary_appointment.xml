@@ -28,6 +28,7 @@
             </xpath>
             <button name="create_tags" position="after">
                 <button string="Create Order" name="create_order" type="object" class="btn-secondary"/>
+                <button string="Confirm Order" name="action_confirm_sale" type="object" class="btn-primary"/>
             </button>
         </field>
     </record>
