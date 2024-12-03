@@ -7,7 +7,7 @@ class VeterinaryAppointmentEditState(models.TransientModel):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
-        ('cancelled', 'Cancelled'),
+        ('cancel', 'Cancel'),
     ], string="Status", default="draft", help="current status of the appointment")
 
     def mass_edit_state(self):

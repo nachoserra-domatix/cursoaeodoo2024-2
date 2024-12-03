@@ -38,9 +38,15 @@ class VeterinaryAppointment(models.Model):
             'domain': [('appointment_id', '=', self.id)]
         }
     
-    def action_cancelled(self):
-        res = super().action_cancelled
+    def action_cancel_1(self):
+        res = super().action_cancel_1()
         for record in self:
             if record.order_id:
                 record.order_id.action_cancel()
+                record.order_id.unlink()  # eliminar registro
         return res
+
+    def invoice_order(self):
+        for record in self:
+            record.order_id.action_confirm()
+            record.order_id._create_invoices()

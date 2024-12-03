@@ -59,7 +59,7 @@
             <field name="appointment_date">2024-11-24 15:30:00</field>
             <field name="solution">Prescribed ointment for skin irritation.</field>
             <field name="reason">Skin irritation treatment for guinea pig.</field>
-            <field name="state">cancelled</field>
+            <field name="state">cancel</field>
             <field name="duration">25.0</field>
             <field name="user_id" ref="base.user_admin"/>
             <field name="urgency">False</field>

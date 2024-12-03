@@ -130,6 +130,7 @@
         <field name="name">Adoption</field>
         <field name="res_model">veterinary.adoption</field>
         <field name="view_mode">tree,form,kanban,pivot</field>
+        <field name="context">{"search_default_not_adopted_filter":1}</field>
     </record>
 
     <menuitem

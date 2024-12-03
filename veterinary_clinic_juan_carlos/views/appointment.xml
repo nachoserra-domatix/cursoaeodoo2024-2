@@ -34,7 +34,7 @@
                 <button string="Go to surgeries" type="action" name="%(veterinary_surgeries_action)d"/>
                 <button string="Back to draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-primary"/>
                 <button string="Done" invisible="state in ('done','cancel')" name="action_done" type="object" class="btn-success"/>
-                <button string="Cancelled" groups="veterinary_clinic_juan_carlos.veterinary_clinic_groups_manager" invisible="state in ('cancel')" name="action_cancelled" type="object" class="btn-danger"/>
+                <button string="Cancel" name="action_cancel_1" type="object" class="btn-success"/>
                 <button string="create_tags" name="create_tags" type="object" class="btn-danger"/>
                 <field name="state" options="{'clickable':1}" widget="statusbar"/>
             </header>
@@ -85,6 +85,11 @@
                     </page>
                 </notebook>
             </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
         </form>
     </field>
 </record>
@@ -207,7 +212,7 @@
         <field name="name">Appointment</field>
         <field name="res_model">veterinary.appointment</field>
         <field name="view_mode">tree,form,kanban,pivot,graph,calendar</field>
-        <field name="context">{}</field>
+        <field name="context">{"search_default_draft_filter": 1}</field>
         <!-- <field name="context">{"search_default_done_filter":1}</field> -->
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create a new Appointment</p>

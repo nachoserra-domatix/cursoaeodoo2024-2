@@ -10,13 +10,14 @@ def generate_random_chip(lengk=12):
 
 class VeterinaryPet(models.Model):
     _name = "veterinary.pet"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Veterinary Pet"
 
     name = fields.Char(string="Name", required=True, help="Name of the pet", default="garritas")
     birthdate = fields.Date(string="Birthdate", help="Birthdate of the pet")
     weight = fields.Float(string="Weight")
     age = fields.Integer(string="Age", compute="_compute_age", store=True)
-    number_pet = fields.Char(string="Number Pet", copy=False)
+    number_pet = fields.Char(string="Number Pet", copy=False, tracking=True)
     species_id = fields.Many2one('veterinary.animalspecies', string='Species', help='Species of the pet')
     # species = fields.Selection([
     #     ("cat", "Cat"),

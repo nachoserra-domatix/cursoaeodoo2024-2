@@ -94,9 +94,9 @@ msgid "Birthdate of the pet"
 msgstr ""
 
 #. module: veterinary_clinic_juan_carlos
-#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__cancelled
+#: model:ir.model.fields.selection,name:veterinary_clinic_juan_carlos.selection__veterinary_appointment__state__cancel
 #: model_terms:ir.ui.view,arch_db:veterinary_clinic_juan_carlos.veterinary_appointment_view_form
-msgid "Cancelled"
+msgid "Cancel"
 msgstr ""
 
 #. module: veterinary_clinic_juan_carlos

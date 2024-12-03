@@ -3,7 +3,9 @@ from odoo.exceptions import ValidationError
 
 class Appointment(models.Model):
     _name = "veterinary.appointment"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Veterinary Appointment"
+    _order = "appointment_date desc"
     # _rec_name = "reason" #actua como nombre
 
     company_id = fields.Many2one('res.company', string="Company", default=lambda self: self.env.company)
@@ -18,8 +20,8 @@ class Appointment(models.Model):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
-        ('cancelled', 'Cancelled'),
-    ], string="Status", default="draft", help="current status of the appointment")
+        ('cancel', 'Cancel'),
+    ], string="Status", default="draft", help="current status of the appointment", tracking=True)
     duration = fields.Float(string="Duration (minutes)", help="Duration minutes")
     user_id = fields.Many2one("res.users", string="Responsible", default=lambda self: self.env.user)
     sequence = fields.Integer(string="Sequence", default=10)
@@ -45,6 +47,8 @@ class Appointment(models.Model):
     def _onchange_assigned_user(self):
         if self.assigned:
             self.user_id = self.env.user
+        else:
+            self.user_id = False
 
     @api.onchange("partner_id")
     def _onchange_partner_id_phone(self):
@@ -93,10 +97,11 @@ class Appointment(models.Model):
     def action_done(self):
         for record in self:
             record.state = "done"
+            record.message_post(body="done", message_type="notification")
 
-    def action_cancelled(self):
+    def action_cancel_1(self):
         for record in self:
-            record.state = "cancelled"
+            record.state = "cancel"
 
     def create_tags(self):
         tag_ids = self.env["veterinary.appointment.tag"].search([('name', 'ilike', self.reason)])
