@@ -4,7 +4,10 @@ from odoo.exceptions import ValidationError, UserError
 
 class VeterinaryAppointment(models.Model):
     _name = 'veterinary.appointment'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Veterinary Appointment'
+    _order = 'date desc'
+    # si hay sequence, no funciona _order
 
     name = fields.Char(string='Name')
     date = fields.Datetime(string='Date', required=True,
@@ -15,7 +18,8 @@ class VeterinaryAppointment(models.Model):
         [('draft', 'Draft'), ('done', 'Done'), ('cancelled', 'Cancelled')],
         string='State',
         default='draft',
-        group_expand='_group_expand_states'
+        group_expand='_group_expand_states',
+        tracking=True
     )
     duration = fields.Float(string='Duration (minutes)',
                             help='Duration in minutes')
@@ -88,6 +92,13 @@ class VeterinaryAppointment(models.Model):
         else:
             self.user_id = False
 
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.partner_phone = self.partner_id.phone or self.partner_id.mobile
+        else:
+            self.partner_phone = False
+
     # methods
     def action_draft(self):
         for record in self:
@@ -98,6 +109,8 @@ class VeterinaryAppointment(models.Model):
     def action_done(self):
         for record in self:
             record.state = 'done'
+            record.message_post(body="Appointment Done!",
+                                message_type="notification")
 
     def action_cancelled(self):
         for record in self:

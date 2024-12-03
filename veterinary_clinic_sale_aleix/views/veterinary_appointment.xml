@@ -17,8 +17,7 @@
     <!-- inherit view: form -->
     <record id="veterinary_appointment_view_form" model="ir.ui.view">
         <field name="name">veterinary.appointment.view.form</field>
-        <field name="inherit_id" 
-            ref="veterinary_clinic_aleix.veterinary_appointment_view_form" />
+        <field name="inherit_id" ref="veterinary_clinic_aleix.veterinary_appointment_view_form" />
         <field name="model">veterinary.appointment</field>
         <field name="arch" type="xml">
             <!-- add field -->
@@ -27,16 +26,16 @@
             </field>
             <!-- add button -->
             <button name="create_tags_by_reason" position="after">
-                <button string="Create Order" 
-                    name="create_order" type="object" class="btn-primary"/>
+                <button string="Create Order" name="create_order" type="object" class="btn-primary"/>
+                <button string="Confirm Sale" name="confirm_sale" type="object" class="btn-success"/>
             </button>
             <!-- add smart button -->
             <xpath expr="//form/sheet" position="inside">
-               <div class="oe_button_box" name="button_box">
-                <button name="action_view_order" type="object" class="oe_stat_button" icon="fa-dollar">
-                    <field name="order_count" string="Orders" widget="statinfo"/>
-                </button>
-               </div>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_order" type="object" class="oe_stat_button" icon="fa-dollar">
+                        <field name="order_count" string="Orders" widget="statinfo"/>
+                    </button>
+                </div>
             </xpath>
         </field>
     </record>

@@ -15,10 +15,8 @@
                 <field name="reason" optional="show"/>
                 <field name="state" widget="badge" optional="show"/>
                 <field name="duration" widget="float_time" optional="hide"/>
-                <field name="tag_ids" widget="many2many_tags" 
-                    options="{'color_field': 'color'}" optional="show"/>
-                <field name="total" widget='monetary' 
-                        options="{'currency_field': 'currency_id'}"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/>
+                <field name="total" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                 <field name="currency_id" optional="hide"/>
             </tree>
         </field>
@@ -34,18 +32,11 @@
                     <field name="state" options="{'clickable': 1}" widget="statusbar"/>
                     <button string="See surgeries" type="action" name="%(veterinary_surgery_action)d"/>
                     <button invisible="state in ('draft')" string="Draft" name="action_draft" type="object" class="btn-secondary"/>
-                    <button invisible="state in ('done','cancelled')" 
-                        string="Done" name="action_done" type="object" class="btn-success"/>
-                    <button groups="veterinary_clinic_aleix.veterinary_clinic_groups_manager" 
-                        invisible="state in ('done','cancelled')" 
-                        string="Cancelled" name="action_cancelled" type="object" class="btn-danger"/>
+                    <button invisible="state in ('done','cancelled')" string="Done" name="action_done" type="object" class="btn-success"/>
+                    <button groups="veterinary_clinic_aleix.veterinary_clinic_groups_manager" invisible="state in ('done','cancelled')" string="Cancelled" name="action_cancelled" type="object" class="btn-danger"/>
                     <button string="Create Tags by Reason" name="create_tags_by_reason" type="object" class="btn-primary"/>
-                    <button string="Edit State with Wizard" 
-                        name="%(veterinary_clinic_aleix.veterinary_appointment_edit_state_action)d" 
-                        type="action" class="btn-secondary"/>
-                    <button string="Massive Appointment Generation Wizard" 
-                        name="%(veterinary_clinic_aleix.veterinary_appointment_mass_generation_action)d" 
-                        type="action" class="btn-secondary"/>
+                    <button string="Edit State with Wizard" name="%(veterinary_clinic_aleix.veterinary_appointment_edit_state_action)d" type="action" class="btn-secondary"/>
+                    <button string="Massive Appointment Generation Wizard" name="%(veterinary_clinic_aleix.veterinary_appointment_mass_generation_action)d" type="action" class="btn-secondary"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -71,16 +62,14 @@
                             <field name="urgency" widget="boolean_toggle"/>
                             <field name="duration" widget="float_time"/>
                             <field name="assigned"/>
-                            <field name="total" widget='monetary' 
-                                options="{'currency_field': 'currency_id'}"/>
+                            <field name="total" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                             <field name="currency_id" invisible="1"/>
                         </group>
                     </group>
                     <notebook>
                         <page name="appointment_lines_page" string="Appointment Lines">
                             <!-- One2many -->
-                            <field name="line_ids" 
-                                context="{
+                            <field name="line_ids" context="{
                                 'tree_view_ref':'veterinary_clinic_aleix.veterinary_appointment_line_simple_tree_view', 
                                 'form_view_ref':'veterinary_clinic_aleix.veterinary_appointment_line_simple_view_form',
                                 'default_quantity': 1}">
@@ -101,6 +90,12 @@
                         </page>
                     </notebook>
                 </sheet>
+                <!-- chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -209,8 +204,7 @@
         <field name="name">veterinary.appointment.view.calendar</field>
         <field name="model">veterinary.appointment</field>
         <field name="arch" type="xml">
-            <calendar string="Appointments" date_start="date" 
-                color="user_id" hide_time="false">
+            <calendar string="Appointments" date_start="date" color="user_id" hide_time="false">
                 <field name="name" />
                 <field name="user_id" />
                 <field name="state" filters="1"/>
@@ -218,13 +212,13 @@
         </field>
     </record>
 
-    <!-- action -->
+    <!-- action con search_default por defecto-->
     <record id="veterinary_appointment_action" model="ir.actions.act_window">
         <field name="name">Appointments</field>
         <field name="res_model">veterinary.appointment</field>
         <field name="view_mode">tree,form,kanban,pivot,graph,calendar</field>
         <field name="domain">[]</field>
-        <field name="context">{}</field>
+        <field name="context">{'search_default_draft_filter':1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
         Create a new appointment

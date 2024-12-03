@@ -6,11 +6,13 @@ class VeterinaryAppointment(models.Model):
     _inherit = 'veterinary.appointment'
 
     order_id = fields.Many2one('sale.order')
-    order_count = fields.Integer(string='Order Count', compute='_compute_order_count')
+    order_count = fields.Integer(
+        string='Order Count', compute='_compute_order_count')
 
     def _compute_order_count(self):
         for record in self:
-            record.order_count = self.env['sale.order'].search_count([('appointment_id', '=', record.id)])
+            record.order_count = self.env['sale.order'].search_count(
+                [('appointment_id', '=', record.id)])
 
     def create_order(self):
         for record in self:
@@ -36,7 +38,6 @@ class VeterinaryAppointment(models.Model):
         }
     
     def action_view_order(self):
-    
         return {
             'name': 'Sale Order',
             'type': 'ir.actions.act_window',
@@ -44,3 +45,18 @@ class VeterinaryAppointment(models.Model):
             'view_mode': 'tree,form',
             'domain': [('appointment_id', '=', self.id)]
         }
+
+    # overwrite
+    def action_cancelled(self):
+        res = super().action_cancelled()
+        for record in self:
+            if record.order_id:
+                record.order_id.action_cancel()
+                record.order_id.unlink()
+        return res
+    
+    # confirmar pedido y crear factura
+    def confirm_sale(self):
+        if self.order_id and self.order_id.state == 'draft':
+            self.order_id.action_confirm()
+            self.order_id._create_invoices()

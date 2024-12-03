@@ -4,13 +4,14 @@ import random
 
 class VeterinaryPet(models.Model):
     _name = 'veterinary.pet'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Veterinary Pet'
 
     name = fields.Char(string='Name', required=True, help='Name of the pet')
     birthday = fields.Date(string='Birthday', help='Birthday of the pet')
     weight = fields.Float(string='Weight', help='Weight of the pet')
     pet_number = fields.Char(
-        string='Pet Number', help='Number of the pet', copy=False)
+        string='Pet Number', help='Number of the pet', copy=False, tracking=True)
     # species = fields.Selection(
     #    [('cat', 'Cat'), ('dog', 'Dog'), ('bird', 'Bird'), ('other', 'Other')],
     #    string='Species'
@@ -49,9 +50,9 @@ class VeterinaryPet(models.Model):
          'A name must be unique'),
     ]
     _sql_constraints = [
-        ('check_unique_pet_number_for_species', 'UNIQUE(species_id, pet_number)', 
+        ('check_unique_pet_number_for_species', 'UNIQUE(species_id, pet_number)',
          'The chip number must be unique for the same species.'),
-        ]
+    ]
 
     # computed methods
     # @api.depends és necesario para un campo compute con store=True
@@ -84,7 +85,7 @@ class VeterinaryPet(models.Model):
     def _compute_insurance_count(self):
         for record in self:
             record.insurance_count = len(record.insurance_ids)
-    
+
     def _compute_surgery_count(self):
         for record in self:
             record.surgery_count = len(record.surgery_ids)
@@ -116,7 +117,7 @@ class VeterinaryPet(models.Model):
             'view_mode': 'tree,form,kanban',
             'domain': [('pet_id', '=', self.id)],
         }
-    
+
     def action_view_surgeries_pet(self):
         return {
             'type': 'ir.actions.act_window',
@@ -125,10 +126,11 @@ class VeterinaryPet(models.Model):
             'view_mode': 'tree,form,kanban',
             'domain': [('pet_id', '=', self.id)],
         }
-    
+
     def action_print_appointments(self):
         appointments = self.appointment_ids
-        report = self.env.ref('veterinary_clinic_aleix.action_report_veterinary_appointment').report_action(appointments.ids)
+        report = self.env.ref(
+            'veterinary_clinic_aleix.action_report_veterinary_appointment').report_action(appointments.ids)
         return report
 
     # methods

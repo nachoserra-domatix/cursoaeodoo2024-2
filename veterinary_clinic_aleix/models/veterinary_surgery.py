@@ -4,6 +4,7 @@ from odoo import models, fields
 class VeterinarySurgery(models.Model):
     _name = 'veterinary.surgery'
     _description = 'Veterinary Surgery'
+    _order = 'surgery_date desc'
 
     name = fields.Char(string='Name', required=True)
     surgery_date = fields.Datetime(
