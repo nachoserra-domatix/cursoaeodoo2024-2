@@ -5,12 +5,13 @@ from datetime import date
 class VeterinaryPet(models.Model):
     _name= 'veterinary.pet'
     _description = 'Veterinary Pet'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string='Name', required=True, help='Name of the pet')
-    birthdate = fields.Date(string='Birthdate', help='Birthdate of the pet',required=True)
+    birthdate = fields.Date(string='Birthdate', help='Birthdate of the pet')
     weight = fields.Float(string='Weight')
     age = fields.Integer(string='Age', compute='_compute_age',search='_search_age')
-    number_pet=fields.Char(string='Pet Number', help='Number of the pet', copy=False) #Permite que no se duplique el campo al copiar
+    number_pet=fields.Char(string='Pet Number', help='Number of the pet', copy=False, tracking=True) #Permite que no se duplique el campo al copiar
 
     species_id = fields.Many2one('veterinary.species', string='Species', help='Species of the pet')
     description = fields.Text(string='Description', help='Description of the pet')

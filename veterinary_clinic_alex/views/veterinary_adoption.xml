@@ -56,6 +56,7 @@
                         </page>
                     </notebook>
                 </sheet>
+                
             </form>
         </field>
     </record>
@@ -132,7 +133,7 @@
         <field name="res_model">veterinary.adoption</field>
         <field name="view_mode">tree,form,kanban,pivot</field>
         <field name="domain">[]</field>
-        <field name="context">{}</field>
+        <field name="context">{'search_default_not_adopted_filter':1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new Adoption

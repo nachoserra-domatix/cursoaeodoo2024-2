@@ -3,6 +3,8 @@ from odoo import models, fields, api, Command
 class VeterinaryAppointment(models.Model):
     _name = 'veterinary.appointment'
     _description = 'Veterinary Appointment'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'date desc, id desc'
     #_rec_name = 'reason' # Permite establecer el campo que va actuar como name cuando el campo name no exista 
 
     name = fields.Char(string='Name', required=True, copy=False, default = 'New')
@@ -17,7 +19,7 @@ class VeterinaryAppointment(models.Model):
         ('draft', 'Draft'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
-    ], default='draft', string='State', help='State of the appointment', group_expand = '_group_expand_states')
+    ], default='draft', string='State', help='State of the appointment', group_expand = '_group_expand_states', tracking=True)
 
     duration = fields.Float(string='Duration', help='Duration of the appointment')
     user_id = fields.Many2one('res.users', string='Responsible', help='Veterinarian in charge of the appointment', default=lambda self: self.env.user)
@@ -81,6 +83,7 @@ class VeterinaryAppointment(models.Model):
     def action_done(self):
         for record in self:
             record.state = 'done'
+            record.message_post(body='Appointment done', subject='Appointment done', message_type='notification')
         
     def action_cancel(self):
         for record in self:
