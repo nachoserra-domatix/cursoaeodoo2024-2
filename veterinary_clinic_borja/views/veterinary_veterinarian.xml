@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="veterinary_veterinarian_view_form" model="ir.ui.view">
+        <field name="name">veterinary_veterinarian.view.form</field>
+        <field name="model">veterinary.veterinarian</field>
+        <field name="arch" type="xml">
+            <form string="Veterinarian">
+                <sheet>                
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="license_number"/>
+                        </group>
+                        <group>
+                            <field name="street"/>                         
+                            <field name="phone" />
+                        </group>                       
+                    </group>                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="veterinary_veterinarian_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.veterinarian.view.tree</field>
+        <field name="model">veterinary.veterinarian</field>
+        <field name="arch" type="xml">
+             <tree string="Pets">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="street"/>
+                <field name="license_number"/>              
+             </tree>           
+        </field>
+    </record>
+    <record id="veterinary_veterinarian_action" model="ir.actions.act_window">
+        <field name="name">Veterinarian</field>
+        <field name="res_model">veterinary.veterinarian</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new Veterinarian
+        </p>
+        </field>
+    </record>
+    <menuitem
+        id="veterinary_veterinarian_menu"
+        name="Veterinarian"
+        action="veterinary_veterinarian_action"
+        parent="veterinary_management_menu"
+        sequence="120"/>
+</odoo>
