@@ -56,6 +56,8 @@
                     <field name="name" />
                     <field name="product_id" />
                     <field name="qty"/>
+                    <field name="price_unit"/>
+                    <field name="subtotal"/>
                 </group>
             </form>        
         </field>

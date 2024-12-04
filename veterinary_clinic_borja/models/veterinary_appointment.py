@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 class VeterinaryAppointment(models.Model):
     _name = "veterinary.appointment"
     _description = "Veterinary Appointment"
+    _oder = "date desc"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     # Name by defect is reason
     # _rec_name = "reason"
