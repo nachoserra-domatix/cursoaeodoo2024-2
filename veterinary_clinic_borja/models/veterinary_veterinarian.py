@@ -2,7 +2,6 @@ from odoo import fields, models
 
 
 class VeterinaryVeterinarian(models.Model):
-
     _name = "veterinary.veterinarian"
     _description = "Veterinary Veterinarian"
     _inherits = {"res.partner": "partner_id"}

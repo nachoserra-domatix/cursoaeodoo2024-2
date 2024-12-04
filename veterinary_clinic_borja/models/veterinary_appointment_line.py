@@ -1,4 +1,4 @@
-from odoo import fields, models, api, Command
+from odoo import fields, models
 
 
 class VeterinaryAppointmentLine(models.Model):

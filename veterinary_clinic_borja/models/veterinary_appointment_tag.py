@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class veterinary_appointment_tag(models.Model):
