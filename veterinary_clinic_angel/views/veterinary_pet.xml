@@ -1,0 +1,101 @@
+<odoo>
+    <!-- Tree view -->
+    <record id="veterinary_pet_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.pet.view.tree</field>
+        <field name="model">veterinary.pet</field>
+        <field name="arch" type="xml">
+        <tree string="Pets">
+            <header>
+                <button string="Vaccinated" name="action_vaccinated" type="object" class="btn-success"/>
+            </header>
+            <field name="name"/>
+            <field name="pet_number"/>
+            <field name="age" optional="show"/>
+            <field name="birthdate" optional="hide"/>
+            <field name="species_id" optional="show"/>
+            <field name="vaccinated" optional="show"/>
+            <field name="last_vaccination_date" optional="hide"/>
+        </tree>
+        </field>
+    </record>
+    <!-- Form view -->
+    <record id="veterinary_pet_view_form" model="ir.ui.view">
+        <field name="name">veterinary.pet.view.form</field>
+        <field name="model">veterinary.pet</field>
+        <field name="arch" type="xml">
+        <form>
+            <header>
+                <button string="Generate pet number" name="action_get_pet_number" type="object" class="btn-primary" groups="veterinary_clinic_angel.veterinary_clinic_groups_manager"/>
+                <button string="Vaccinated" name="action_vaccinated" type="object" class="btn-success"/>
+                <button string="Create insurance" name="action_create_insurance" type="object" class="btn-secondary"/>
+                <button string="Finish Surgeries" name="action_finish_surgeries" type="object" class="btn-primary"/>
+                <button string="Print appointments" name="action_print_appointments" type="object" class="btn-success"/>
+            </header>
+            <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_medical_history" type="object" class="oe_stat_button" icon="fa-bars">
+                        <field name="appointment_count" string="" widget="statinfo"/>
+                    </button>
+                    <button name="action_view_insurances" type="object" class="oe_stat_button" icon="fa-file">
+                        <field name="insurance_count" string="" widget="statinfo"/>
+                    </button>
+                    <button name="action_view_surgeries"  type="object" class="oe_stat_button" icon="fa-ambulance">
+                        <field name="surgery_count" string="" widget="statinfo"/>
+                    </button>
+                </div>
+                <field name="image" class="oe_avatar" widget="image"></field>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="age"/>
+                        <field name="birthdate"/>
+                        <field name="weight"/>
+                        <field name="vaccinated"/>
+                        <field name="last_vaccination_date"/>
+                    </group>
+                    <group>
+                        <field name="pet_number"/>
+                        <field name="species_id" options="{'no_create': True, 'no_quick_create': True}"/>
+                        <field name="adopted"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="notes_page" string="Notes">
+                        <field name="notes"/>
+                    </page>
+                    <page name="allergies" string="Allergies">
+                        <field name="allergy_ids">
+                            <tree editable="bottom">
+                                <field name="name"></field>
+                                <field name="description"></field>
+                                <field name="severity"></field>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+        </field>
+    </record>
+        
+    <record id="veterinary_pet_action" model="ir.actions.act_window">
+        <field name="name">Pets</field>
+        <field name="res_model">veterinary.pet</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_no_content_smiling_face">
+                Create a new pet
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="veterinary_clinic_menu" name="Veterinary Clinic" web_icon="veterinary_clinic_angel,static/img/logo.png" sequence="10"/>
+    <menuitem id="veterinary_management_menu" name="Management" parent="veterinary_clinic_menu" sequence="10"/>
+    <menuitem id="veterinary_pet_menu" name="Pets" action="veterinary_pet_action" parent="veterinary_management_menu" sequence="10"/>
+</odoo>

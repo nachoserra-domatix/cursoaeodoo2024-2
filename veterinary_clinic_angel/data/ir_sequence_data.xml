@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_veterinary_appointment" model="ir.sequence">
+            <field name="name">Veterinary Appointment Sequence</field>
+            <field name="code">veterinary.appointment</field>
+            <field name="prefix">APT</field>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>
