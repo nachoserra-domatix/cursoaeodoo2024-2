@@ -4,6 +4,7 @@ class VeterinaryAllergy(models.Model):
    _name = "veterinary.allergy"
    _description = "Veterinary Allergy"
 
+   
    name = fields.Char(string='Name',required=True,help='Name of the allergy')
    severity_grade= fields.Selection([
      ('low','Low'),

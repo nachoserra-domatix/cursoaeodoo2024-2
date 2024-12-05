@@ -32,6 +32,7 @@
         'report/veterinary_surgery_report.xml',
         'data/ir_sequence.xml',
         'views/veterinary_veterinarian.xml',
+        'views/res_partner.xml'
     ],
     'application': False,
     'installable':True,

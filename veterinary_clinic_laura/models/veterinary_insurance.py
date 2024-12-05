@@ -4,6 +4,8 @@ class VeterinaryInsurance(models.Model):
    _name = "veterinary.insurance"
    _description = "Veterinary Insurance"
    _rec_name='policy_number'
+
+   _inherit=['mail.thread','mail.activity.mixin']
    
    #name = fields.Char(string='Name',required=True,help='Name of the insurance')
    pet_id = fields.Many2one('veterinary.pet',string="Pet")
@@ -13,6 +15,7 @@ class VeterinaryInsurance(models.Model):
    expiration_date=fields.Date(string="Expiration data",default=fields.Date.today)
    expired= fields.Boolean(string="Expired")
    active= fields.Boolean('Active',default=True)
+   
 
    _sql_constraints=[
       ('policy_number_unique', 'unique(policy_number)','The policy number must be unique'),

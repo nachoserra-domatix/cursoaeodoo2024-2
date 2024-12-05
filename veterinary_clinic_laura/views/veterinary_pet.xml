@@ -49,6 +49,7 @@
                     <field name="user_id" optional="show"/>
                     <field name="vaccinated" widget="boolean_toggle" optional="show"/>
                     <field name="last_vaccination_date" optional="hide"/>
+                    <field name="partner_id" optional="hide"/>
                 </tree>
             </field>
         </record>
@@ -96,6 +97,7 @@
                                 <field name="species_id" options="{'no_create':True,'no_quick_create':True,'no_open':True}"/>
                                 <field name="vaccinated" widget="boolean_toggle"/>
                                 <field name="last_vaccination_date"/>
+                                <field name="partner_id"/>
                                 
                             </group>
                             <group>

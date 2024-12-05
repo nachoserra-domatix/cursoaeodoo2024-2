@@ -27,6 +27,7 @@ class VeterinaryPet(models.Model):
    insurance_ids=fields.One2many('veterinary.insurance','pet_id',string="Insurances")
    active=fields.Boolean(string="Active",default=True)
    surgery_count=fields.Integer(string="Insurance Count",compute="_compute_surgery_count")
+   partner_id=fields.Many2one('res.partner',string="Contacto")
 
    _sql_constraints=[
       ('number_species_unique', 'unique(pet_number,species_id)',"Can't repeat pet number and specie ")
@@ -120,10 +121,17 @@ class VeterinaryPet(models.Model):
 
    def create_insurance(self):
       #import pdb; pdb.set_trace()
-      self.copy({'name':'Copy of '+self.name})
-      #self.env['veterinary.insurance'].create({'name':'name',
-      #                                         'policy_number':'1234',
-      #                                         'insurance_company':'AXA'})
+      #self.copy({'name':'Copy of '+self.name})
+      insurance = self.env['veterinary.insurance'].create({
+        'policy_number': '1234',
+        'insurance_company': 'AXA',
+      })
+    
+    
+      insurance.message_post(
+        body=f"Insurance policy created from pet {self.name}.",
+        subject="New Insurance Created",
+    ) 
    
    def surgery_complete_pet(self):
       surgery_ids= self.env['veterinary.surgery'].search([('pet_id','=',self.id)])

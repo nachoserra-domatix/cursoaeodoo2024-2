@@ -37,14 +37,13 @@ class VeterinaryAppointment(models.Model):
             
 
     def action_view_order(self):
-        for record in self:
-            return{
-                'name':'Sale order',
-                'type':'ir.actions.act_window',
-                'res_model':'sale.order',
-                'view_mode':'tree,form',
-                'domain':[('appointment_id','=',self.id)]
-            }
+        return{
+            'name':'Sale order',
+            'type':'ir.actions.act_window',
+            'res_model':'sale.order',
+            'view_mode':'tree,form',
+            'domain':[('appointment_id','=',self.id)]
+        }
     def action_cancel(self):
         res = super().action_cancel()
         for record in self:

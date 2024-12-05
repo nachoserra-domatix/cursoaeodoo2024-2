@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  
+ <record id="veterinary_insurance_view_form" model="ir.ui.view">
+    <field name="name">veterinary.insurance.view.form</field>
+    <field name="model">veterinary.insurance</field>
+    <field name="inherit_id" ref="veterinary_clinic_laura.veterinary_insurance_view_form"/>
+    <field name="arch" type="xml">
+        <field name="policy_number" position="after">
+            <field name="order_id"/>
+        </field>
+
+    </field>
+ </record>
+</odoo>

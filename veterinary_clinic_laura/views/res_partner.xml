@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_pet_view_form" model="ir.ui.view">
+        <field name="name">res.partner.pet.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_view_res_partner_pets" invisible="pet_count==0" type="object" class="oe_stat_button" icon="fa-file">
+                        <field name="pet_count" string="Pets" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+</odoo>
