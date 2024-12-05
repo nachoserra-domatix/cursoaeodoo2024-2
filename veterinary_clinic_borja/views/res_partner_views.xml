@@ -10,7 +10,7 @@
                 <div name="button_box" position="inside">
                     <button class="oe_stat_button" type="object"
                             name="partner_pets"
-                            icon="fa-hippo"
+                            icon="fa-paw"
                             invisible="pets_count == 0">
                             <field string="Pets" name="pets_count" widget="statinfo"/>
                     </button>

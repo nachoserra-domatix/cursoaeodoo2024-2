@@ -5,7 +5,7 @@
         <field name="model">veterinary.insurance</field>
         <field name="arch" type="xml">
             <tree string="Insurance">
-                <field name="pet_id" />
+                <field name="pet_id" />       
                 <field name="insurance_company"/>
                 <field name="policy_number" optional="show"/>
                 <field name="coverage_details" optional="show"/>
@@ -31,6 +31,7 @@
                     <group>
                         <group>
                             <field name="pet_id" domain="[('vaccinated', '=', True)]"/>
+                            <field name="sale_id" readonly="1"/>
                             <field name="insurance_company" />
                         </group>
                         <group>

@@ -20,6 +20,7 @@ class VeterinaryInsurance(models.Model):
     )
     expired = fields.Boolean(string="Expired")
     active = fields.Boolean(string="Active", default=True)
+    sale_id = fields.Many2one("sale.order", string="Sale order")
 
     _sql_constraints = [
         (
