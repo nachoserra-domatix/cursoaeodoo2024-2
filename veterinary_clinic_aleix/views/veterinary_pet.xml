@@ -15,6 +15,7 @@
                 <field name="vaccinated" optional="show"/>
                 <field name="last_vaccination_date" optional="show"/>
                 <field name="adopted"/>
+                <field name="partner_id"/>
             </tree>
         </field>
     </record>
@@ -72,6 +73,7 @@
                             <field name="birthday"/>
                             <field name="age"/>
                             <field name="weight"/>
+                            <field name="partner_id"/>
                         </group>
                     </group>
                     <notebook>

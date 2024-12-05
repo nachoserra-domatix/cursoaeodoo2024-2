@@ -29,6 +29,7 @@ class VeterinaryPet(models.Model):
         comodel_name='veterinary.surgery', inverse_name='pet_id')
     # Many2one
     species_id = fields.Many2one('veterinary.species', string='Species')
+    partner_id = fields.Many2one('res.partner', string='Partner')
     # Many2many
     allergy_ids = fields.Many2many(
         comodel_name='veterinary.allergy', string='Allergies')

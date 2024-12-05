@@ -21,6 +21,8 @@
         'wizard/veterinary_appointment_edit_state.xml',
         'wizard/veterinary_appointment_mass_generation.xml',
         'wizard/veterinary_surgery_edit_state.xml',
+        'views/view_product_template.xml',
+        'views/res_partner_views.xml',
         'views/veterinary_adoption.xml',
         'views/veterinary_allergy.xml',
         'views/veterinary_appointment.xml',

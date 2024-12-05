@@ -1,3 +1,5 @@
+from . import product_template
+from . import res_partner
 from . import veterinary_adoption
 from . import veterinary_adoption_stage
 from . import veterinary_allergy

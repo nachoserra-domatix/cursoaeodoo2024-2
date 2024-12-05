@@ -10,6 +10,7 @@ class VeterinaryInsurance(models.Model):
     _name = 'veterinary.insurance'
     _description = 'Veterinary Insurance'
 
+    # Many2one
     pet_id = fields.Many2one('veterinary.pet', string='Pet')
     insurance_company = fields.Char(string='Insurance Company')
     policy_number = fields.Char(string='Policy Number', copy=False)
