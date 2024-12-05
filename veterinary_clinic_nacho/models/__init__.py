@@ -10,3 +10,4 @@ from . import veterinary_insurance
 from . import veterinary_adoption
 from . import veterinary_adoption_stage
 from . import veterinary_veterinarian
+from . import res_partner

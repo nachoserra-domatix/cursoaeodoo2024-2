@@ -7,6 +7,7 @@ class VeterinaryInsurance(models.Model):
     _name = 'veterinary.insurance'
     _description = 'Veterinary Insurance'
     _rec_name = 'policy_number'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     pet_id = fields.Many2one('veterinary.pet', string='Pet', help='Pet that has the insurance')
     insurance_company = fields.Char(string='Insurance Company', help='Insurance company')

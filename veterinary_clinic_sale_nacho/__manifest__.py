@@ -5,10 +5,11 @@
     'author': '<Nacho Serra>, Domatix',
     'license': 'LGPL-3',
     'depends': [
-        'veterinary_clinic_nacho','sale'
+        'veterinary_clinic_nacho','sale',
     ],
     'data': [
              'views/veterinary_appointment.xml',
+             'views/product_template.xml',
              'views/sale_order.xml'
              ],
     'application': False,

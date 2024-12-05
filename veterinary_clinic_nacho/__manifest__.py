@@ -5,7 +5,7 @@
     'author': '<Nacho Serra>, Domatix',
     'license': 'LGPL-3',
     'depends': [
-        'hr'
+        'hr',
     ],
     'data': [
              'data/veterinary_species_data.xml',   
@@ -21,6 +21,7 @@
              'views/veterinary_insurance.xml',
              'views/veterinary_adoption.xml',
              'views/veterinary_veterinarian.xml',
+             'views/res_partner.xml',
              'wizard/veterinary_appointment_edit_state.xml',
              'wizard/veterinary_surgery_edit_state.xml',
              'wizard/veterinary_generate_appointment_wizard.xml',

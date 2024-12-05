@@ -7,6 +7,7 @@ class VeterinaryPet(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Veterinary Pet'
 
+    partner_ids = fields.Many2many('res.partner','partner_pet_rel', 'pet_id', 'partner_id', string='Owners')
     name = fields.Char(string='Name', required=True, help='Name of the pet')
     active = fields.Boolean(string='Active', default=True)
     birthdate = fields.Date(string='Birthdate', help='Birthdate of the pet')
@@ -113,8 +114,13 @@ class VeterinaryPet(models.Model):
             record.pet_number = ''.join(random.choices('ABCDFG1234',k=8))
     
     def create_insurance(self):
-        self.env['veterinary.insurance'].create({'policy_number': '1234',
+        insurance = self.env['veterinary.insurance'].create({'policy_number': '123457890',
                                                   'insurance_company': 'AXA',})
+        
+        insurance.message_post_with_source(
+            'mail.message_origin_link',
+            render_values={'self': insurance, 'origin': self},
+        )
     
     def check_all_surgery_as_done(self):
         surgeries = self.env['veterinary.surgery'].search([('pet_id', '=', self.id)])

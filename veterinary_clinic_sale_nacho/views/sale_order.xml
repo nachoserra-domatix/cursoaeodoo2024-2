@@ -11,6 +11,11 @@
                     <field name="appointment_id"/>
                 </group>
             </group>
+            <div name="button_box" position="inside">
+                <button name="action_view_insurances" invisible="insurance_count == 0" type="object" class="oe_stat_button" icon="fa-folder">
+                    <field name="insurance_count" string="Insurances" widget="statinfo"/>
+                </button>
+            </div>
         </field>
     </record>
 
