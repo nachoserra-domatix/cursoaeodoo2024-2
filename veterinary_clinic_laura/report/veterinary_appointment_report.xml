@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_veterinary_appointment" model="report.paperformat">
+        <field name="name">Veterinary Appointment Paperformat</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">25</field>
+        <field name="margin_bottom">3</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">3</field>
+        <field name="dpi">80</field>
+    </record>
+
+    
+    
+    <template id="report_veterinary_appointment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="o.name"></h2>
+                        <strong>Date:</strong><br />
+                        <span t-field="o.date" t-options="{'widget':'date'}"/><br />
+
+                        <strong>Pet:</strong><br />
+                        <span t-field="o.pet_id"/><br />
+
+                        <strong>Partner_id:</strong><br />
+                        <span t-field="o.partner_id"/><br />
+
+                        <t t-if="o.lines_ids">
+                            <table>
+                            
+                            <thead>
+                                <tr>
+                                    <th class="text-start">Product</th><br/>
+                                    <th class="text-end">qty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <t t-foreach="o.lines_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.product_id"></span></td>
+                                        <td class="text-end"><span t-field="line.qty"></span></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_report_veterinary_appointment" model="ir.actions.report">
+        <field name="name">Veterinary Appointment Report</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_laura.report_veterinary_appointment</field>
+        <field name="report_file">veterinary_clinic_laura.report_veterinary_appointment</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+
+    <!-- informe 2-->
+    <template id="report_veterinary_appointment_all">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <table>
+                                
+                        <thead>
+                            <tr>
+                                <th class="text-start">Name</th><br/>
+                                <th class="text-end">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="o">           
+                                <tr>
+                                    <td><span t-field="o.name"></span></td>
+                                    <td class="text-end"><span t-field="o.date"></span></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+    <record id="action_report_veterinary_appointment_all" model="ir.actions.report">
+        <field name="name">Veterinary Appointment All Report</field>
+        <field name="model">veterinary.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_laura.report_veterinary_appointment_all</field>
+        <field name="report_file">veterinary_clinic_laura.report_veterinary_appointment_all</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    
+
+</odoo>
