@@ -5,6 +5,6 @@
 
 
 # Mixins
-* Añadir el chatter a los seguros y que cuando se cree un seguro a partir del botón de la mascota, que aparezca un mensaje en el chatter con la liga asociada.
+* Añadir el chatter a los seguros y que cuando se cree un seguro a partir del botón de la mascota, que aparezca un mensaje en el chatter con la mascota desde la que se ha creado ese seguro.
 * Si el seguro se crea a partir del pedido, que añada un mensaje del pedido del que viene
 
