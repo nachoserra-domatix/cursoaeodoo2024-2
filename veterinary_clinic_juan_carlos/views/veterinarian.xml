@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="veterinary_veterinarian_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.veterinarian.view.tree</field>
+        <field name="model">veterinary.veterinarian</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"></field>   
+                <field name="phone"></field>   
+                <field name="license_number"></field>   
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_veterinarian_view_form" model="ir.ui.view">
+        <field name="name">veterinary.veterinarian.view.form</field>
+        <field name="model">veterinary.veterinarian</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"></field>   
+                        <field name="phone"></field>   
+                        <field name="license_number"></field> 
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="veterinary_veterinarian_action" model="ir.actions.act_window">
+        <field name="name">Action Name</field>
+        <field name="res_model">veterinary.veterinarian</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="veterinary_veterinarian_menu"
+        name="veterinarian"
+        action="veterinary_veterinarian_action"
+        parent="veterinary_clinic_menu"
+        sequence="50"/>
+
+</odoo>

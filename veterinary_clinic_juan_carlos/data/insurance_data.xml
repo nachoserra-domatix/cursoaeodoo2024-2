@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Datos de prueba para veterinary.insurance -->
+
+        <record id="insurance_1" model="veterinary.insurance">
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_1"/>
+            <field name="insurance_company">Healthy Pets Insurance</field>
+            <field name="policy_number">12345</field>
+            <field name="coverage_details">Covers accidents, illnesses, and routine checkups.</field>
+            <field name="expiration_date">2025-05-15</field>
+            <field name="status_expired">False</field>
+        </record>
+
+        <record id="insurance_2" model="veterinary.insurance">
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_2"/>
+            <field name="insurance_company">Safe Paws Insurance</field>
+            <field name="policy_number">67890</field>
+            <field name="coverage_details">Accident and emergency cover only.</field>
+            <field name="expiration_date">2024-12-01</field>
+            <field name="status_expired">False</field>
+        </record>
+
+        <record id="insurance_3" model="veterinary.insurance">
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_3"/>
+            <field name="insurance_company">VetCare Insurance</field>
+            <field name="policy_number">11223</field>
+            <field name="coverage_details">Covers all medical expenses, including surgeries.</field>
+            <field name="expiration_date">2023-09-30</field>
+            <field name="status_expired">True</field>
+        </record>
+
+        <record id="insurance_4" model="veterinary.insurance">
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_4"/>
+            <field name="insurance_company">Pet Shield</field>
+            <field name="policy_number">44556</field>
+            <field name="coverage_details">Covers medical treatments, vaccinations, and emergency care.</field>
+            <field name="expiration_date">2026-07-15</field>
+            <field name="status_expired">False</field>
+        </record>
+
+        <record id="insurance_5" model="veterinary.insurance">
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_5"/>
+            <field name="insurance_company">Claws Insurance</field>
+            <field name="policy_number">77889</field>
+            <field name="coverage_details">Emergency care only for accidents and surgeries.</field>
+            <field name="expiration_date">2024-03-20</field>
+            <field name="status_expired">False</field>
+        </record>
+
+        <record id="insurance_6" model="veterinary.insurance">
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_6"/>
+            <field name="insurance_company">AllPets Care</field>
+            <field name="policy_number">33445</field>
+            <field name="coverage_details">Complete coverage for all medical treatments and surgeries.</field>
+            <field name="expiration_date">2023-11-01</field>
+            <field name="status_expired">True</field>
+        </record>
+
+    </data>
+</odoo>

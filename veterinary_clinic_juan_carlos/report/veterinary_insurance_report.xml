@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_veterinary_insurance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <h2 t-field="o.insurance_company"/>
+                    <div class="page">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Policy number</th>
+                                <td><span t-field="o.policy_number"/></td>
+                            </tr>
+                            <tr>
+                                <th>Pet</th>
+                                <td><span t-field="o.pet_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <th>Insurance Company</th>
+                                <td><span t-field="o.insurance_company"/></td>
+                            </tr>
+                            <tr>
+                                <th>Expiration Date</th>
+                                <td><span t-field="o.expiration_date" t-options="{'widget':'date'}"/></td>
+                            </tr>
+                            <tr>
+                                <th>Coverage Details</th>
+                                <td><span t-field="o.coverage_details"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+
+    <record id="action_report_veterinary_insurance" model="ir.actions.report">
+        <field name="name">insurance report</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_juan_carlos.report_veterinary_insurance</field>
+        <field name="report_file">veterinary_clinic_juan_carlos.report_veterinary_insurance</field>
+        <field name="print_report_name">'%s' % object.insurance_company</field>
+        <!-- <field name="paperformat_id" ref= "paperformat_veterinary_insurance"/> -->
+        <field name="binding_model_id" ref="model_veterinary_insurance"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

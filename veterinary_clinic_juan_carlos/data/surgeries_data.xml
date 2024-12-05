@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Datos de prueba para veterinary.surgeries -->
+        
+        <record id="surgery_1" model="veterinary.surgeries">
+            <field name="name">Spaying</field>
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_1"/>
+            <field name="doctor" ref="empleados_test.test"/>
+            <field name="surgerie_date">2024-12-05 10:00:00</field>
+            <field name="surgerie_date_state">scheduled</field>
+            <field name="color">1</field>
+        </record>
+
+        <record id="surgery_2" model="veterinary.surgeries">
+            <field name="name">Neutering</field>
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_2"/>
+            <field name="doctor" ref="empleados_test.test"/>
+            <field name="surgerie_date">2024-11-25 14:30:00</field>
+            <field name="surgerie_date_state">in_progress</field>
+            <field name="color">2</field>
+        </record>
+
+        <record id="surgery_3" model="veterinary.surgeries">
+            <field name="name">Orthopedic Surgery</field>
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_3"/>
+            <field name="doctor" ref="empleados_test.test"/>
+            <field name="surgerie_date">2024-11-20 08:30:00</field>
+            <field name="surgerie_date_state">completed</field>
+            <field name="color">3</field>
+        </record>
+
+        <record id="surgery_4" model="veterinary.surgeries">
+            <field name="name">Dental Cleaning</field>
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_4"/>
+            <field name="doctor" ref="empleados_test.test"/>
+            <field name="surgerie_date">2024-12-10 11:00:00</field>
+            <field name="surgerie_date_state">scheduled</field>
+            <field name="color">4</field>
+        </record>
+
+        <record id="surgery_5" model="veterinary.surgeries">
+            <field name="name">Eye Surgery</field>
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_5"/>
+            <field name="doctor" ref="empleados_test.test"/>
+            <field name="surgerie_date">2024-11-18 15:00:00</field>
+            <field name="surgerie_date_state">in_progress</field>
+            <field name="color">5</field>
+        </record>
+
+        <record id="surgery_6" model="veterinary.surgeries">
+            <field name="name">Tumor Removal</field>
+            <field name="pet_id" ref="veterinary_clinic_juan_carlos.pet_6"/>
+            <field name="doctor" ref="empleados_test.test"/>
+            <field name="surgerie_date">2024-11-12 09:00:00</field>
+            <field name="surgerie_date_state">completed</field>
+            <field name="color">6</field>
+        </record>
+
+    </data>
+</odoo>

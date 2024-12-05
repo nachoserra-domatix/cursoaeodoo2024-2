@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Datos de prueba para veterinary.allergy -->
+        <record id="allergy_dog_allergy" model="veterinary.allergy">
+            <field name="name">Dog Allergy</field>
+            <field name="severity_level">moderate</field>
+            <field name="allergy_description">Allergy to dog fur causing itching and sneezing.</field>
+        </record>
+        <record id="allergy_cat_allergy" model="veterinary.allergy">
+            <field name="name">Cat Allergy</field>
+            <field name="severity_level">severe</field>
+            <field name="allergy_description">Severe allergic reaction to cat dander causing respiratory issues.</field>
+        </record>
+        <record id="allergy_pollen_allergy" model="veterinary.allergy">
+            <field name="name">Pollen Allergy</field>
+            <field name="severity_level">mild</field>
+            <field name="allergy_description">Mild allergic reaction to pollen causing sneezing and watery eyes.</field>
+        </record>
+        <record id="allergy_food_allergy" model="veterinary.allergy">
+            <field name="name">Food Allergy</field>
+            <field name="severity_level">moderate</field>
+            <field name="allergy_description">Allergy to certain food ingredients causing gastrointestinal distress.</field>
+        </record>
+        <record id="allergy_dust_allergy" model="veterinary.allergy">
+            <field name="name">Dust Allergy</field>
+            <field name="severity_level">mild</field>
+            <field name="allergy_description">Mild allergic reaction to dust causing sneezing and coughing.</field>
+        </record>
+        <record id="allergy_mold_allergy" model="veterinary.allergy">
+            <field name="name">Mold Allergy</field>
+            <field name="severity_level">moderate</field>
+            <field name="allergy_description">Moderate allergic reaction to mold causing breathing problems and skin irritation.</field>
+        </record>
+        <record id="allergy_bee_sting_allergy" model="veterinary.allergy">
+            <field name="name">Bee Sting Allergy</field>
+            <field name="severity_level">severe</field>
+            <field name="allergy_description">Severe allergic reaction to bee stings causing anaphylaxis.</field>
+        </record>
+        <record id="allergy_sun_allergy" model="veterinary.allergy">
+            <field name="name">Sun Allergy</field>
+            <field name="severity_level">mild</field>
+            <field name="allergy_description">Mild allergic reaction to sunlight causing skin rashes.</field>
+        </record>
+        <record id="allergy_medicines_allergy" model="veterinary.allergy">
+            <field name="name">Medicines Allergy</field>
+            <field name="severity_level">severe</field>
+            <field name="allergy_description">Severe allergic reaction to certain medications causing anaphylactic shock.</field>
+        </record>
+        <record id="allergy_insect_bite_allergy" model="veterinary.allergy">
+            <field name="name">Insect Bite Allergy</field>
+            <field name="severity_level">moderate</field>
+            <field name="allergy_description">Moderate allergic reaction to insect bites causing swelling and pain.</field>
+        </record>
+    </data>
+</odoo>
