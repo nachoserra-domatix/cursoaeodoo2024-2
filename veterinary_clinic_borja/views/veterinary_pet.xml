@@ -10,6 +10,7 @@
                 <field name="weight" optional="show"/>
                 <field name="age" optional="show"/>
                 <field name="pet_number" optional="show"/>
+                <field name="partner_id" />                
                 <field name="species_id" widget="badge" optional="hide"/>
             </tree>
         </field>
@@ -48,6 +49,7 @@
                         <field name="avatar" widget="image" class="oe_avatar"/>
                         <group>
                             <field name="birthdate" />
+                            <field name="partner_id" />   
                             <field name="weight" />
                             <field name="age" />
                             <field name="vaccinated" />

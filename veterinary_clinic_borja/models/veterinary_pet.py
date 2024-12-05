@@ -38,6 +38,7 @@ class VeterinaryPet(models.Model):
     surgery_ids = fields.One2many("veterinary.surgery", "pet_id", string="surgeries")
     surgery_count = fields.Integer(compute="_compute_surgery_count")
     active = fields.Boolean(string="Active", default=True)
+    partner_id = fields.Many2one("res.partner", string="Partner")
 
     _sql_constraints = [
         (

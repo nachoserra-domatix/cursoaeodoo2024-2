@@ -19,6 +19,7 @@
         "views/veterinary_appointment_line.xml",
         "views/veterinary_pet_adoption.xml",
         "views/veterinary_veterinarian.xml",
+        "views/res_partner_views.xml",
         "data/veterinary_species_data.xml",
         "data/ir_cron.xml",
         "data/ir_sequence.xml",
