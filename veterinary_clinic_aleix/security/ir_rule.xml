@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- regla de registro: el usuario solo puede ver sus propias citas o sin usuario asignado -->
+<record id="veterinary_appointment_personal_rule" model="ir.rule">
+        <field name="name">Personal Appointments</field>
+        <field ref="model_veterinary_appointment" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('veterinary_clinic_groups_user'))]"/>
+    </record>
+
+<!-- regla de registro: el usuario puede ver todas las citas -->
+<record id="veterinary_appointment_see_all" model="ir.rule">
+    <field name="name">All Appointments</field>
+    <field ref="model_veterinary_appointment" name="model_id"/>
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="groups" eval="[(4, ref('veterinary_clinic_groups_manager'))]"/>
+</record>
+
+</odoo>

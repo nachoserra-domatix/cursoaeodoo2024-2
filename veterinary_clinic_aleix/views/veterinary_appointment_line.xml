@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- view: list -->
+    <record id="veterinary_appointment_line_tree_view" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.tree.view</field>
+        <field name="model">veterinary.appointment.line</field>
+        <field name="arch" type="xml">
+            <tree string="Appointment lines">
+                <field name="product_id"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="price_unit"/>
+                <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                <field name="currency_id" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- view: simple list -->
+    <record id="veterinary_appointment_line_simple_tree_view" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.simple.tree.view</field>
+        <field name="model">veterinary.appointment.line</field>
+        <field eval="50" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Appointment lines">
+                <field name="product_id"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="price_unit"/>
+                <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- view: form -->
+    <record id="veterinary_appointment_line_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.view.form</field>
+        <field name="model">veterinary.appointment.line</field>
+        <field name="arch" type="xml">
+            <form string="Appointment line">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="product_id" placeholder="Select Product"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="quantity"/>
+                            <field name="price_unit"/>
+                            <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- view: simple form -->
+    <record id="veterinary_appointment_line_simple_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.simple.view.form</field>
+        <field name="model">veterinary.appointment.line</field>
+        <field eval="50" name="priority"/>
+        <field name="arch" type="xml">
+            <form string="Appointment line">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="product_id" placeholder="Select Product"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="quantity"/>
+                            <field name="price_unit"/>
+                            <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="veterinary_appointment_line_action" model="ir.actions.act_window">
+        <field name="name">Appointment lines</field>
+        <field name="res_model">veterinary.appointment.line</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+        Create a new Appointment line
+            </p>
+        </field>
+    </record>
+
+</odoo>

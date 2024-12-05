@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- view: form for wizard -->
+    <record id="veterinary_appointment_mass_generation_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.mass.generation.view.form</field>
+        <field name="model">veterinary.appointment.mass.generation</field>
+        <field name="arch" type="xml">
+            <form string="Massive Appointment Generation Wizard">
+                <p class="oe_grey">Here you can generate a series of appointments for a pet and a partner</p>
+                <group>
+                    <field name="pet_id"/>
+                    <field name="partner_id"/>
+                    <field name="number"/>
+                </group>
+                <footer>
+                    <button string="Confirm" name="appointment_mass_generation" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- action for wizard para edición masiva-->
+    <record id="veterinary_appointment_mass_generation_action" model="ir.actions.act_window">
+        <field name="name">Appointment Mass Generation</field>
+        <field name="res_model">veterinary.appointment.mass.generation</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment" />
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

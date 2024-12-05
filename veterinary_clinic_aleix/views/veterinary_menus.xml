@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- forma anidada -->
+<menuitem id="veterinary_clinic_menu" name="Veterinary Clinic" sequence="10"
+    web_icon="veterinary_clinic_aleix,static/img/logo.png">
+    <menuitem id="veterinary_management_menu" name="Management" sequence="10">
+        <!-- action pet-->
+        <menuitem id="veterinary_pet_menu"
+            name="Pets"
+            action="veterinary_pet_action"
+            sequence="10"/>
+        <!-- action appointment -->
+        <menuitem
+            id="veterinary_appointment_menu"
+            name="Appointments"
+            action="veterinary_appointment_action"
+            sequence="20"/>
+        <!-- action appointment line -->
+        <menuitem
+            id="veterinary_appointment_line_menu"
+            name="Appointment lines"
+            action="veterinary_appointment_line_action"
+            sequence="30"/>
+        <!-- action species -->
+        <menuitem
+            id="veterinary_species_menu"
+            name="Species"
+            action="veterinary_species_action"
+            sequence="40"/>
+        <!-- action surgery -->
+        <menuitem
+            id="veterinary_surgery_menu"
+            name="Surgeries"
+            action="veterinary_surgery_action"
+            sequence="50"/>
+        <!-- action allergy -->
+        <menuitem
+            id="veterinary_allergy_menu"
+            name="Allergies"
+            action="veterinary_allergy_action"
+            sequence="60"/>
+        <!-- action insurance -->
+        <menuitem
+            id="veterinary_insurance_menu"
+            name="Insurances"
+            action="veterinary_insurance_action"
+            sequence="70"/>
+        <!-- action insurance -->
+        <menuitem
+            id="veterinary_adoption_menu"
+            name="Adoptions"
+            action="veterinary_adoption_action"
+            sequence="80"/>
+        <!-- action veterinarian -->
+         <menuitem
+            id="veterinary_veterinarian_menu"
+            name="Veterinarian"
+            action="veterinary_veterinarian_action"
+            sequence="90"/>
+    </menuitem>
+</menuitem>
+
+    <!-- forma normal -->
+    <!--
+    <menuitem
+        id="veterinary_clinic_menu"
+        name="Veterinary Clinic"
+        sequence="10"/>
+
+    <menuitem
+        id="veterinary_management_menu"
+        name="Management"
+        parent="veterinary_clinic_menu"
+        sequence="10"/>
+
+    <menuitem
+        id="veterinary_pet_menu"
+        name="Pets"
+        action="veterinary_pet_action"
+        parent="veterinary_management_menu"
+        sequence="10"/>
+    -->
+
+</odoo>
