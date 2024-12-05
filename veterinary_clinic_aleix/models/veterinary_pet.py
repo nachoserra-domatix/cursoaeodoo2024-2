@@ -136,9 +136,11 @@ class VeterinaryPet(models.Model):
 
     # methods
     def create_insurance(self):
-        self.env['veterinary.insurance'].create(
+        insurance = self.env['veterinary.insurance'].create(
             {'insurance_company': 'Company Test', 'policy_number': '1234'})
         # self.copy({'name': 'copy of' + self.name})
+        insurance.message_post(body=f"Insurance of {self.name} created ok!",
+                               message_type="notification")
 
     # orm methods
     def set_all_surgery_as_done(self):

@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 class VeterinaryInsurance(models.Model):
     _name = 'veterinary.insurance'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Veterinary Insurance'
 
     # Many2one

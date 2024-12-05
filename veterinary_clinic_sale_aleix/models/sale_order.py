@@ -33,8 +33,11 @@ class SaleOrder(models.Model):
             for line in order.order_line:
                 if line.product_id and line.product_id.insurance:
                     # create insurance
-                    self.env['veterinary.insurance'].create(
+                    insurance = self.env['veterinary.insurance'].create(
                         {'order_id': order.id,
                             'insurance_company': line.product_id.name,
                          })
+                    insurance.message_post(
+                        body=f"Insurance created from {order.name} order",
+                        message_type="notification")
         return res
