@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">     <!-- noupdate="1" hace que el modulo no machaque los cambios que se hagan por pantalla -->
+
+    <record id ="ir_sequence_veterinary_appointment" model="ir.sequence">
+        <field name="name">Veterinary Appointment Sequence</field>
+        <field name="code">veterinary.appointment</field>
+        <field name="prefix">VA%(y)s</field>
+        <field name="padding">5</field>
+    </record>
+
+</odoo>

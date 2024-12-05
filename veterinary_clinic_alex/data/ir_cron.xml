@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+    <record id="ir_cron_veterinary_insurance" model="ir.cron">
+        <field name="name">Check Insurance Expiration</field>
+        <field name="model_id" ref="model_veterinary_insurance"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_expired()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="ir_cron_veterinary_surgery" model="ir.cron">
+        <field name="name">Check Draft Surgery</field>
+        <field name="model_id" ref="model_veterinary_surgery"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_draft_surgery()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+    </record>
+
+    
+
+
+
+</odoo>
