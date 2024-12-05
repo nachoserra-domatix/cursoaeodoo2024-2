@@ -37,7 +37,14 @@ class SaleOrder(models.Model):
                         {'order_id': order.id,
                             'insurance_company': line.product_id.name,
                          })
-                    insurance.message_post(
-                        body=f"Insurance created from {order.name} order",
-                        message_type="notification")
+                    # insurance.message_post(
+                    #     body=f"Insurance created from {order.name} order",
+                    #     message_type="notification")
+                    insurance.message_post_with_source(
+                        'mail.message_origin_link',
+                        render_values={
+                            'self': insurance,
+                            'origin': self},
+                        subtype_xmlid='mail.mt_note',
+                    )
         return res

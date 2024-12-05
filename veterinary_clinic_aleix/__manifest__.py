@@ -8,7 +8,7 @@
     'license': 'LGPL-3',
     'category': '',
     'depends': [
-        'hr',
+        'hr', 'product'
     ],
     # load data in order
     'data': [
