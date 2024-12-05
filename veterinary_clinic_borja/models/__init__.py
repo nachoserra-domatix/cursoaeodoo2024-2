@@ -11,3 +11,4 @@ from . import veterinary_allergy
 from . import veterinary_insurance
 from . import veterinary_veterinarian
 from . import res_partner
+from . import product_template
