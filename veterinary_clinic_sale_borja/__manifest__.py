@@ -4,9 +4,10 @@
     "summary": " Allows to create orders from veterinary appointments",
     "author": "<Borja Gimeno> Som Connexió SCCL",
     "license": "LGPL-3",
-    "depends": ["veterinary_clinic_borja"],
+    "depends": ["veterinary_clinic_borja", "sale"],
     "data": [
         "views/veterinary_appointment.xml",
+        "views/veterinary_insurance.xml",
         "views/sale_order.xml",
     ],
     "application": False,
