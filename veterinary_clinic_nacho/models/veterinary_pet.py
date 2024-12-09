@@ -4,14 +4,16 @@ from datetime import date
 
 class VeterinaryPet(models.Model):
     _name = 'veterinary.pet'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Veterinary Pet'
 
+    partner_ids = fields.Many2many('res.partner','partner_pet_rel', 'pet_id', 'partner_id', string='Owners')
     name = fields.Char(string='Name', required=True, help='Name of the pet')
     active = fields.Boolean(string='Active', default=True)
     birthdate = fields.Date(string='Birthdate', help='Birthdate of the pet')
     weight = fields.Float(string='Weight')
     age = fields.Integer(string='Age', compute='_compute_age', search='_search_age')
-    pet_number = fields.Char(string='Pet Number', help='Number of the pet', copy=False)
+    pet_number = fields.Char(string='Pet Number', help='Number of the pet', copy=False, tracking=True)
     species_id = fields.Many2one('veterinary.species', string='Species', help='Species of the pet')
     vaccinated = fields.Boolean(string='Vaccinated', compute="_compute_vaccinated", inverse="_inverse_vaccinated")
     last_vaccination_date = fields.Date(string='Last Vaccination Date')
@@ -112,8 +114,13 @@ class VeterinaryPet(models.Model):
             record.pet_number = ''.join(random.choices('ABCDFG1234',k=8))
     
     def create_insurance(self):
-        self.env['veterinary.insurance'].create({'policy_number': '1234',
+        insurance = self.env['veterinary.insurance'].create({'policy_number': '123457890',
                                                   'insurance_company': 'AXA',})
+        
+        insurance.message_post_with_source(
+            'mail.message_origin_link',
+            render_values={'self': insurance, 'origin': self},
+        )
     
     def check_all_surgery_as_done(self):
         surgeries = self.env['veterinary.surgery'].search([('pet_id', '=', self.id)])
