@@ -1,3 +1,4 @@
+import random
 from odoo import fields, models, api
 
 
@@ -98,13 +99,17 @@ class VeterinaryPet(models.Model):
                 record.age = (fields.Date.today() - record.birthdate).days // 365
 
     def create_insurance(self):
-        self.env["veterinary.insurance"].create(
+        insurance = self.env["veterinary.insurance"].create(
             {
-                "policy_number": "123123",
+                "pet_id": self.id,
+                "policy_number": random.randint(1, 10000),
                 "insurance_company": "allianz",
                 "coverage_details": "details",
-                "expiration_date": fields.Datetime.today(),
             }
+        )
+        insurance.message_post_with_source(
+            "mail.message_origin_link",  # Vista
+            render_values={"self": insurance, "origin": self},
         )
 
     @api.depends("last_vaccination_date")
