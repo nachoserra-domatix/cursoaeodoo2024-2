@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_veterinary_insurance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <h2 t-field="o.insurance_number"></h2> 
+                    <div class="page">  
+                        <div class="row mb-2 mt-4">  
+                            <div class="col-auto col-3 mw-100 mb-2">                
+                                <p>Pet: <span t-field="o.pet_id"/></p>
+                            </div>
+                            <div class="col-auto col-3 mw-100 mb-2">  
+                                <p>Insurance Company: <span t-field="o.insurance_company"/></p>
+                            
+                            </div>
+                            <div class="col-auto col-3 mw-100 mb-2">  
+                                <p>Expiration Date: <span t-field="o.insurance_expiration_date"/></p>
+                             
+                            </div>
+                            <div class="col-auto col-3 mw-100 mb-2">  
+                                <p>Insurance Details: <span t-field="o.coverage_details"/></p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                 
+                    
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_veterinary_insurance" model="report.paperformat">
+        <field name="name">A4 - Insurance</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>        
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">3</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">30</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <record id="action_report_veterinary_insurance" model="ir.actions.report">
+        <field name="name">Insurance Report</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_alex.report_veterinary_insurance</field>
+        <field name="report_file">veterinary_clinic_alex.report_veterinary_insurance</field>
+        <field name="paperformat_id" ref="paperformat_veterinary_insurance"/>
+        <field name="print_report_name">'%s' % object.insurance_number</field>
+        <field name="binding_model_id" ref="model_veterinary_insurance"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

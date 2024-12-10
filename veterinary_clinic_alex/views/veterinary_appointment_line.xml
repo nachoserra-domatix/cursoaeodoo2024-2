@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="veterinary_appointment_line_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.view.tree</field>
+        <field eval="2" name="priority"/>
+        <field name="model">veterinary.appointment.line</field>
+        <field name="arch" type="xml">
+
+            <tree string="Appointments Lines">
+                <field name="product_id" />
+                <field name="name" />
+                <field name="qty" />
+                <field name="price_unit" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_appointment_line_simple_view_tree" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.view.tree</field>
+        <field name="model">veterinary.appointment.line</field>
+        <field name="arch" type="xml">
+            <tree string="Appointments Lines">
+                <field name="product_id" />
+                <field name="name" />                
+                <field name="qty" />
+                <field name="subtotal" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="veterinary_appointment_line_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.view.form</field>
+        <field name="model">veterinary.appointment.line</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="product_id" />
+                        <field name="name" />
+                        <field name="qty" />
+                        <field name="price_unit" />
+                        <field name="subtotal" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_appointment_line_simple_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.line.view.form</field>
+        <field name="model">veterinary.appointment.line</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="product_id" />
+                        <field name="name" />
+                        <field name="qty" />
+                        <field name="price_unit" />
+                        <field name="subtotal" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="veterinary_appointment_line_action" model="ir.actions.act_window">
+        <field name="name">Veterinary Appointment Lines</field>
+        <field name="res_model">veterinary.appointment.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new appointment
+            </p>
+            
+        </field>
+    </record>
+
+    <menuitem
+        id="veterinary_appointment_line_menu"
+        name="Veterinary_Appointment_Lines"
+        action="veterinary_appointment_line_action"
+        parent="veterinary_management_menu"
+        sequence="50"/>
+
+</odoo>

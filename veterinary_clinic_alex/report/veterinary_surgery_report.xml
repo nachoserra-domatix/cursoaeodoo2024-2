@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_veterinary_surgery">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <h2 t-field="o.name"></h2> 
+                    <div class="page">  
+                    <div class="row mt-4">  
+                        <div class="col-auto col-3">                
+                            <p>Surgeon: <span t-field="o.employee_id"/></p>
+                        </div>
+                        <div class="col-auto col-3">  
+                            <p>Name of the Pet: <span t-field="o.pet_id"/></p>
+                        </div>
+                        <div class="col-auto col-3">  
+                            <p>Surgery Date: <span t-field="o.surgery_date"/></p>
+                        </div>
+                    </div>
+
+                    <t t-if="o.line_ids">
+
+                        <table class = "table table-sm o_main_table table_borderless mt-4">
+                            <thead>
+                                <tr>
+                                    <th class="text-start">Name</th>
+                                    <th class="text-end">State</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                    <t t-foreach="o.line_ids" t-as="line">
+                                        <tr>
+                                            <td> <span t-field="line.name" /></td>
+                                            <td class="text-end"> <span t-field="line.state" /></td>
+                                        </tr>
+                                    
+                                    </t>
+                                    
+                    
+                                
+                            </tbody>
+                        </table>
+                    </t>
+                    </div>
+                    
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_veterinary_surgery" model="report.paperformat">
+        <field name="name">A4 - Surgery</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>        
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">3</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">30</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <record id="action_report_surgery_appointment" model="ir.actions.report">
+        <field name="name">Surgery Report</field>
+        <field name="model">veterinary.surgery</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_alex.report_veterinary_surgery</field>
+        <field name="report_file">veterinary_clinic_alex.report_veterinary_surgery</field>
+        <field name="paperformat_id" ref="paperformat_veterinary_surgery"/>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_veterinary_surgery"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
