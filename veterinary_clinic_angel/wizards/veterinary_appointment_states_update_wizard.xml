@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Esto añade una acción -->
+    <record id="veterinary_appointment_states_update_action" model="ir.actions.act_window">
+        <field name="name">Update appointment states</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">veterinary.appointment.states.update.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment" />
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <record id="veterinary_appointment_states_update_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.states.update.view.form</field>
+        <field name="model">veterinary.appointment.states.update.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Update appointments state">
+                <p class="oe_grey">Here you can edit massively the appointments state</p>
+                <group>
+                    <field name="state"></field>
+                </group>
+                <footer>
+                    <button string="Confirm" class="oe_highlight" type="object" name="update_states"></button>
+                    <button string="Cancel" class="btn-secondary" special="cancel"></button>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

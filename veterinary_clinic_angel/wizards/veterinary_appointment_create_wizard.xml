@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Esto añade una acción -->
+    <record id="veterinary_appointment_create_wizard_action" model="ir.actions.act_window">
+        <field name="name">Create appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">veterinary.appointment.create.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_veterinary_appointment" />
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <menuitem id="menu_veterinary_appointment_create_wizard" name="Appointments creation" parent="veterinary_clinic_menu" action="veterinary_appointment_create_wizard_action" sequence="30"/>
+
+    <record id="veterinary_appointment_create_wizard_view_form" model="ir.ui.view">
+        <field name="name">veterinary.appointment.create.view.form</field>
+        <field name="model">veterinary.appointment.create.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create appointments">
+                <p class="oe_grey">Here you can create appointments massively</p>
+                <group>
+                    <field name="pet_id"></field>
+                    <field name="partner_id"></field>
+                    <field name="date"></field>
+                    <field name="number_of_appointments"></field>
+                </group>
+                <footer>
+                    <button string="Confirm" class="oe_highlight" type="object" name="create_appointments"></button>
+                    <button string="Cancel" class="btn-secondary" special="cancel"></button>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_veterinary_insurance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <h2 t-field="o.policy_number"/>
+                    <div class="page">
+                        <div class="row mt-4 mb-2">
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Pet: </strong>
+                                <span t-field="o.pet_id"/>
+                            </div>
+                        </div>
+                        <div class="row mt-4 mb-2">
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Company: </strong>
+                                <span t-field="o.company"/>
+                            </div>
+                        </div>
+                        <div class="row mt-4 mb-2">
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Expiration date: </strong>
+                                <span t-field="o.expiration_date" t-options="{'widget':'date'}"/>
+                            </div>
+                        </div>
+                        <div class="row mt-4 mb-2">
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Coverage details:</strong><br/>
+                                <span t-field="o.coverage_details"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_veterinary_insurance" model="ir.actions.report">
+        <field name="name">Insurance</field>
+        <field name="model">veterinary.insurance</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinary_clinic_angel.report_veterinary_insurance</field>
+        <field name="report_file">veterinary_clinic_angel.report_veterinary_insurance</field>
+        <field name="print_report_name">'%s' % object.policy_number</field>
+        <field name="binding_model_id" ref="model_veterinary_insurance"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
